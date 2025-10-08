@@ -5,7 +5,7 @@
 package com.vaxcare.vaxhub.flow.checkout
 
 import androidx.hilt.work.HiltWorkerFactory
-// import androidx.test.core.app.ActivityScenario
+import androidx.test.core.app.ActivityScenario
 // import androidx.test.espresso.IdlingRegistry
 // import androidx.test.espresso.IdlingResource
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -24,7 +24,7 @@ import com.vaxcare.vaxhub.model.PaymentInformationRequestBody
 import com.vaxcare.vaxhub.model.PaymentMode
 import com.vaxcare.vaxhub.model.appointment.PhoneContactConsentStatus
 import com.vaxcare.vaxhub.model.enums.RiskFactor
-// import com.vaxcare.vaxhub.ui.PermissionsActivity
+import com.vaxcare.vaxhub.ui.PermissionsActivity
 // import com.vaxcare.vaxhub.ui.idlingresource.HubIdlingResource
 import com.vaxcare.vaxhub.web.PatientsApi
 // import dagger.hilt.EntryPoint
@@ -69,7 +69,7 @@ class CheckoutAPITests : TestsBase() {
     lateinit var patientsApi: PatientsApi
 
     private val testWorkManagerHelper = TestWorkManagerHelper()
-    // private lateinit var scenario: ActivityScenario<PermissionsActivity>
+    private lateinit var scenario: ActivityScenario<PermissionsActivity>
     private val patientUtil = PatientUtil()
     // private val idlingResource: IdlingResource? = HubIdlingResource.instance
 
@@ -84,8 +84,8 @@ class CheckoutAPITests : TestsBase() {
         hiltRule.inject()
         // Initialize WorkManager for API tests
         testWorkManagerHelper.initializeWorkManager(workerFactory)
-        // For pure API tests, we don't need to launch the activity
-        // scenario = ActivityScenario.launch(PermissionsActivity::class.java)
+        // Launch minimal activity for EntryPoint access (required for PatientUtil)
+        scenario = ActivityScenario.launch(PermissionsActivity::class.java)
         storageUtil.clearLocalStorageAndDatabase()
         // IdlingRegistry.getInstance().register(idlingResource)
     }
