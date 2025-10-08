@@ -12,12 +12,15 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.vaxcare.vaxhub.BuildConfig
 import com.vaxcare.vaxhub.TestWorkManagerHelper
+import com.vaxcare.vaxhub.common.HomeScreenUtil
 import com.vaxcare.vaxhub.common.PatientUtil
 import com.vaxcare.vaxhub.common.StorageUtil
+import com.vaxcare.vaxhub.data.TestPartners
 import com.vaxcare.vaxhub.data.TestPatients
 import com.vaxcare.vaxhub.data.TestProducts
 import com.vaxcare.vaxhub.data.TestSites
 import com.vaxcare.vaxhub.flow.TestsBase
+import com.vaxcare.vaxhub.mock.BaseMockDispatcher
 import com.vaxcare.vaxhub.model.AppointmentCheckout
 import com.vaxcare.vaxhub.model.CheckInVaccination
 import com.vaxcare.vaxhub.model.PaymentInformationRequestBody
@@ -27,6 +30,8 @@ import com.vaxcare.vaxhub.model.enums.RiskFactor
 import com.vaxcare.vaxhub.ui.PermissionsActivity
 // import com.vaxcare.vaxhub.ui.idlingresource.HubIdlingResource
 import com.vaxcare.vaxhub.web.PatientsApi
+import okhttp3.mockwebserver.MockResponse
+import okhttp3.mockwebserver.RecordedRequest
 // import dagger.hilt.EntryPoint
 // import dagger.hilt.InstallIn
 // import dagger.hilt.android.components.ActivityComponent
@@ -71,9 +76,11 @@ class CheckoutAPITests : TestsBase() {
     private val testWorkManagerHelper = TestWorkManagerHelper()
     private lateinit var scenario: ActivityScenario<PermissionsActivity>
     private val patientUtil = PatientUtil()
+    private val homeScreenUtil = HomeScreenUtil()
     // private val idlingResource: IdlingResource? = HubIdlingResource.instance
 
     // Test data
+    private val testPartner = TestPartners.RprdCovidPartner
     private val testProductVaricella = TestProducts.Varicella
     private val testProductAdacel = TestProducts.Adacel
     private val testProductPPSV23 = TestProducts.PPSV23
@@ -87,6 +94,16 @@ class CheckoutAPITests : TestsBase() {
         // Launch minimal activity for EntryPoint access (required for PatientUtil)
         scenario = ActivityScenario.launch(PermissionsActivity::class.java)
         storageUtil.clearLocalStorageAndDatabase()
+        
+        // Setup mock server for local build type
+        if (BuildConfig.BUILD_TYPE == "local") {
+            registerMockServerDispatcher(CheckoutAPITestsDispatcher())
+        }
+        
+        // Login before making API calls (required for authentication)
+        homeScreenUtil.loginAsTestPartner(testPartner)
+        homeScreenUtil.tapBackgroundToOpenAppointmentList()
+        homeScreenUtil.pinInUser(testPartner.pin)
         // IdlingRegistry.getInstance().register(idlingResource)
     }
 
@@ -868,5 +885,57 @@ class CheckoutAPITests : TestsBase() {
         // Note: This might be successful or fail depending on business rules
         // The test verifies the system handles this scenario appropriately
         Assert.assertNotNull("Response should not be null", response)
+    }
+
+    /**
+     * Mock dispatcher for CheckoutAPI tests
+     * Provides mock responses for API calls during testing
+     */
+    private class CheckoutAPITestsDispatcher : BaseMockDispatcher() {
+        override val mockTestDirectory = "CheckoutAPITests/"
+
+        override fun dispatch(request: RecordedRequest): MockResponse {
+            return when {
+                request.path?.contains("api/patients/appointment") == true && request.method == "POST" -> {
+                    // Mock appointment creation response
+                    MockResponse()
+                        .setResponseCode(200)
+                        .setBody("123456") // Mock appointment ID
+                }
+                request.path?.contains("api/patients/appointment") == true && 
+                request.path?.contains("/checkout") == true && request.method == "PUT" -> {
+                    // Mock checkout response
+                    MockResponse()
+                        .setResponseCode(200)
+                        .setBody("{}")
+                }
+                request.path?.contains("api/patients/appointment") == true && 
+                request.method == "GET" -> {
+                    // Mock appointment retrieval response
+                    MockResponse()
+                        .setResponseCode(200)
+                        .setBody("""
+                            {
+                                "id": 123456,
+                                "clinicId": 1,
+                                "appointmentTime": "2025-01-15T12:30:00",
+                                "patient": {
+                                    "id": 789,
+                                    "firstName": "Test",
+                                    "lastName": "Patient"
+                                },
+                                "checkedOut": false,
+                                "administeredVaccines": []
+                            }
+                        """.trimIndent())
+                }
+                else -> {
+                    // Default response for other endpoints
+                    MockResponse()
+                        .setResponseCode(200)
+                        .setBody("{}")
+                }
+            }
+        }
     }
 }
