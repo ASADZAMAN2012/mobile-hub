@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/H6BoldBlack"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_110"
+    android:background="@drawable/bg_rounded_corner_primary_light_gray"
+    android:ellipsize="end"
+    android:gravity="center_vertical"
+    android:paddingStart="@dimen/dp_63"
+    android:paddingEnd="@dimen/dp_20"
+    android:singleLine="true" />

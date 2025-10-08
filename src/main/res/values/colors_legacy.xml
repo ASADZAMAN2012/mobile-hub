@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+    <color name="legacy_vax_blue">#00add8</color>
+    <color name="legacy_vax_blue_bg">#CBEAF4</color>
+    <color name="legacy_vax_red">#E74F3D</color>
+    <color name="legacy_vaxbuy_medium_gray">#999999</color>
+</resources>

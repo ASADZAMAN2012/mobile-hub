@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2022.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_light_gray"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.vaxcare.vaxhub.core.view.VaxToolbar
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:icon="@drawable/ic_back"
+        app:title="@string/orders_review_doses" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp_40"
+        android:paddingHorizontal="@dimen/dp_20"
+        android:background="@color/primary_light_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:itemCount="10"
+        tools:listitem="@layout/rv_dose_reason" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_125"
+        android:background="@drawable/list_gradient"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_next"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_32"
+        android:layout_marginBottom="@dimen/dp_74"
+        android:enabled="false"
+        android:src="@drawable/ic_arrow_forward"
+        app:backgroundTint="@color/legacy_fab_bg"
+        app:elevation="@dimen/dp_2"
+        app:fabCustomSize="@dimen/dp_106"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="@dimen/dp_64"
+        app:rippleColor="@color/primary_white"
+        app:tint="@color/primary_white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

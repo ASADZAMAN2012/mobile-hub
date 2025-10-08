@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2021.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/loading"
+        android:layout_width="@dimen/dp_150"
+        android:layout_height="@dimen/dp_150"
+        android:src="@drawable/ic_loading"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/text_view"
+        style="@style/VaxCareText.Regular.32.Italic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_100"
+        android:gravity="center"
+        android:lineHeight="@dimen/dp_42"
+        android:paddingHorizontal="@dimen/dp_50"
+        android:text="@string/med_d_signature_submit"
+        app:layout_constraintBottom_toTopOf="@id/loading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

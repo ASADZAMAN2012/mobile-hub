@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2023.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/label"
+        style="@style/H4RegBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_89"
+        android:fontFamily="@font/graphik_regular"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Enter email" />
+
+    <TextView
+        android:id="@+id/required"
+        style="@style/H33ItalicBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:fontFamily="@font/graphik_regular_italic"
+        android:text="@string/required"
+        android:textColor="@color/primary_dark_gray"
+        android:textSize="15sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/label"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible" />
+
+    <FrameLayout
+        android:id="@+id/input_frame"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginStart="@dimen/dp_53"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="@dimen/dp_53"
+        android:background="@drawable/bg_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label" />
+
+    <EditText
+        android:id="@+id/input_value"
+        style="@style/H4RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="36dp"
+        android:background="@color/transparent"
+        android:fontFamily="@font/graphik_regular"
+        android:inputType="textEmailAddress"
+        android:paddingStart="18dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="3dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/input_frame"
+        app:layout_constraintStart_toStartOf="@id/input_frame"
+        app:layout_constraintTop_toBottomOf="@id/label"
+        tools:text="thisisafaketestemail@@vaxcare.com" />
+
+    <ImageView
+        android:id="@+id/imageView_clearButton"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:clickable="true"
+        android:visibility="gone"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toTopOf="@id/input_frame"
+        app:layout_constraintBottom_toBottomOf="@id/input_frame"
+        app:layout_constraintEnd_toEndOf="@id/input_frame"
+        android:src="@drawable/ic_close" />
+
+    <TextView
+        android:id="@+id/subtext"
+        style="@style/H33ItalicBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/graphik_regular_italic"
+        android:textColor="@color/neutral_gray_200"
+        android:textSize="@dimen/sp_30"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@id/input_value"
+        app:layout_constraintTop_toBottomOf="@id/input_value" />
+
+    <TextView
+        android:id="@+id/error_label"
+        style="@style/H33ItalicBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/graphik_regular_italic"
+        android:text="@string/login_invalid_email"
+        android:textColor="@color/error_red"
+        android:textSize="15sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@id/input_value"
+        app:layout_constraintTop_toBottomOf="@id/input_value"
+        tools:visibility="visible" />
+</androidx.constraintlayout.widget.ConstraintLayout>

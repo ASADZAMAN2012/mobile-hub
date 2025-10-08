@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lot_row_constraint_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_26"
+    android:layout_marginBottom="@dimen/dp_36"
+    tools:context="com.vaxcare.vaxhub.ui.checkout.LotLookupFragment">
+
+    <TextView
+        android:id="@+id/lot_row_text"
+        style="@style/BodySmlItalicBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_24"
+        android:fontFamily="@font/graphik_regular_italic"
+        android:text="@string/patient_search_not_existing"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/lot_row_btn"
+        app:layout_constraintBottom_toTopOf="@id/lot_row_btn"
+        app:layout_constraintEnd_toEndOf="@id/lot_row_btn"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/lot_row_btn"
+        style="@style/PrimaryPurpleButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/lot_row_add_button_height"
+        android:layout_marginHorizontal="@dimen/dp_120"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:gravity="center"
+        android:text="@string/patient_create_new_patient"
+        android:layout_marginTop="@dimen/dp_23"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lot_row_text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

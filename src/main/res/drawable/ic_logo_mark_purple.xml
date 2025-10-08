@@ -1,0 +1,28 @@
+<!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="40dp"
+    android:viewportWidth="40"
+    android:viewportHeight="40">
+  <path
+      android:pathData="M26.9982,13.7898L26.9982,27.0179L13.7705,27.0179L13.7705,32.1743C13.7705,35.7849 16.6638,38.7193 20.2577,38.7868C23.9646,38.8563 26.9982,35.708 26.9982,32.0011L26.9982,27.0179L31.981,27.0179C35.6879,27.0179 38.8361,23.9843 38.767,20.2782C38.6999,16.6835 35.7651,13.7898 32.1546,13.7898L26.9982,13.7898Z"
+      android:strokeWidth="1"
+      android:fillColor="#3A006B"
+      android:fillType="evenOdd"
+      android:strokeColor="#00000000"/>
+  <path
+      android:pathData="M13.77,27.0176L26.9977,27.0176L26.9977,13.7899C19.692,13.7899 13.77,19.7119 13.77,27.0176"
+      android:strokeWidth="1"
+      android:fillColor="#B17FDC"
+      android:fillType="evenOdd"
+      android:strokeColor="#00000000"/>
+  <path
+      android:pathData="M13.77,27.0176C13.77,19.7119 19.692,13.7899 26.9977,13.7899L26.9977,8.7872C26.9977,5.0799 23.9641,1.9316 20.2576,2.0011C16.6629,2.0686 13.77,5.003 13.77,8.6132L13.77,13.7903L8.7868,13.7903C5.0795,13.7903 1.9312,16.8239 2.0011,20.5308C2.0686,24.1251 5.0034,27.0176 8.6136,27.0176L13.77,27.0176Z"
+      android:strokeWidth="1"
+      android:fillColor="#FFFFFF"
+      android:fillType="evenOdd"
+      android:strokeColor="#00000000"/>
+</vector>

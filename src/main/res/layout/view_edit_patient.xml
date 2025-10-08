@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2021.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/patient_add_first_name_title"
+        style="@style/BodySmlBoldBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_89"
+        android:layout_marginTop="@dimen/dp_40"
+        android:text="@string/curbside_patient_add_first_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/patient_add_first_name"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginHorizontal="@dimen/dp_53"
+        android:layout_marginTop="@dimen/dp_16"
+        android:background="@drawable/bg_input"
+        android:imeOptions="actionNext"
+        android:inputType="textCapWords"
+        android:paddingHorizontal="@dimen/dp_35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_first_name_title" />
+
+    <TextView
+        android:id="@+id/patient_add_last_name_title"
+        style="@style/BodySmlBoldBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_89"
+        android:layout_marginTop="@dimen/dp_40"
+        android:text="@string/curbside_patient_add_last_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_first_name" />
+
+    <EditText
+        android:id="@+id/patient_add_last_name"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginHorizontal="@dimen/dp_53"
+        android:layout_marginTop="@dimen/dp_16"
+        android:background="@drawable/bg_input"
+        android:imeOptions="actionNext"
+        android:inputType="textCapWords"
+        android:paddingHorizontal="@dimen/dp_35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_last_name_title" />
+
+    <com.vaxcare.vaxhub.core.view.DateOfBirthView
+        android:id="@+id/patient_add_date_of_birth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_40"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_last_name" />
+
+    <TextView
+        android:id="@+id/patient_add_phone_title"
+        style="@style/BodySmlBoldBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_89"
+        android:layout_marginTop="@dimen/dp_40"
+        android:text="@string/curbside_patient_add_phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_date_of_birth" />
+
+    <EditText
+        android:id="@+id/patient_add_phone_start"
+        style="@style/H6RegBlack"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginStart="@dimen/dp_53"
+        android:layout_marginTop="@dimen/dp_16"
+        android:background="@drawable/bg_rounded_corner_left"
+        android:digits="1234567890"
+        android:gravity="center"
+        android:imeOptions="actionNext"
+        android:inputType="phone"
+        android:maxLength="3"
+        app:layout_constraintEnd_toStartOf="@id/patient_add_phone_mid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_phone_title" />
+
+    <EditText
+        android:id="@+id/patient_add_phone_mid"
+        style="@style/H6RegBlack"
+        android:layout_width="@dimen/dp_120"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginHorizontal="@dimen/dp_26"
+        android:layout_marginTop="@dimen/dp_16"
+        android:background="@drawable/bg_rounded_corner_mid"
+        android:digits="1234567890"
+        android:gravity="center"
+        android:imeOptions="actionNext"
+        android:inputType="phone"
+        android:maxLength="3"
+        app:layout_constraintEnd_toStartOf="@id/patient_add_phone_end"
+        app:layout_constraintStart_toEndOf="@id/patient_add_phone_start"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_phone_title" />
+
+    <EditText
+        android:id="@+id/patient_add_phone_end"
+        style="@style/H6RegBlack"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_53"
+        android:background="@drawable/bg_rounded_corner_right"
+        android:digits="1234567890"
+        android:gravity="center"
+        android:imeOptions="actionNext"
+        android:inputType="phone"
+        android:maxLength="4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/patient_add_phone_mid"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_phone_title" />
+
+    <TextView
+        android:id="@+id/patient_add_gender_title"
+        style="@style/BodySmlBoldBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_89"
+        android:layout_marginTop="@dimen/dp_40"
+        android:text="@string/curbside_patient_add_gender"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_phone_start" />
+
+    <TextView
+        android:id="@+id/patient_add_gender"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginHorizontal="@dimen/dp_53"
+        android:layout_marginTop="11dp"
+        android:background="@drawable/bg_input"
+        android:focusable="false"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/dp_35"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_gender_title" />
+
+    <ImageView
+        android:id="@+id/gender_dropdown_icon"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginEnd="@dimen/dp_30"
+        android:rotation="270"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="@id/patient_add_gender"
+        app:layout_constraintEnd_toEndOf="@id/patient_add_gender"
+        app:layout_constraintTop_toTopOf="@id/patient_add_gender" />
+
+    <TextView
+        android:id="@+id/patient_add_address_title"
+        style="@style/BodySmlBoldBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_89"
+        android:layout_marginTop="@dimen/dp_40"
+        android:text="@string/curbside_patient_add_address"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_gender" />
+
+    <EditText
+        android:id="@+id/patient_add_address"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginHorizontal="@dimen/dp_53"
+        android:layout_marginTop="@dimen/dp_16"
+        android:background="@drawable/bg_input"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:paddingHorizontal="@dimen/dp_35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_address_title" />
+
+    <TextView
+        android:id="@+id/patient_add_address2_title"
+        style="@style/BodySmlBoldBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_89"
+        android:layout_marginTop="@dimen/dp_40"
+        android:text="@string/patient_add_address2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_address" />
+
+    <EditText
+        android:id="@+id/patient_add_address2"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginHorizontal="@dimen/dp_53"
+        android:layout_marginTop="@dimen/dp_16"
+        android:background="@drawable/bg_input"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:paddingHorizontal="@dimen/dp_35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_address2_title" />
+
+    <TextView
+        android:id="@+id/patient_add_city_title"
+        style="@style/BodySmlBoldBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_89"
+        android:layout_marginTop="@dimen/dp_40"
+        android:text="@string/patient_add_city"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_address2" />
+
+    <EditText
+        android:id="@+id/patient_add_city"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginHorizontal="@dimen/dp_53"
+        android:layout_marginTop="@dimen/dp_16"
+        android:background="@drawable/bg_input"
+        android:imeOptions="actionNext"
+        android:inputType="textCapWords"
+        android:paddingHorizontal="@dimen/dp_35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_city_title" />
+
+    <TextView
+        android:id="@+id/patient_add_state_title"
+        style="@style/BodySmlBoldBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_89"
+        android:layout_marginTop="@dimen/dp_40"
+        android:text="@string/patient_add_state"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_city" />
+
+    <TextView
+        android:id="@+id/patient_add_state"
+        style="@style/H6RegBlack"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginStart="@dimen/dp_53"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:background="@drawable/bg_input"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/dp_20"
+        app:layout_constraintEnd_toStartOf="@id/patient_add_zipcode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_state_title" />
+
+    <TextView
+        android:id="@+id/patient_add_zipcode_title"
+        style="@style/BodySmlBoldBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_36"
+        android:layout_marginTop="@dimen/dp_40"
+        android:text="@string/patient_add_zipcode"
+        app:layout_constraintStart_toStartOf="@id/patient_add_zipcode"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_city" />
+
+    <EditText
+        android:id="@+id/patient_add_zipcode"
+        style="@style/H6RegBlack"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_53"
+        android:background="@drawable/bg_input"
+        android:digits="1234567890"
+        android:gravity="center"
+        android:imeOptions="actionDone"
+        android:inputType="number"
+        android:maxLength="5"
+        android:paddingHorizontal="@dimen/dp_20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/patient_add_state"
+        app:layout_constraintTop_toBottomOf="@id/patient_add_zipcode_title" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/non_simple_view_fields"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="patient_add_address_title,patient_add_address,patient_add_address2_title,patient_add_address2,patient_add_city_title,patient_add_city,patient_add_state_title,patient_add_state,patient_add_zipcode_title,patient_add_zipcode" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

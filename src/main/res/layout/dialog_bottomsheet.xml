@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded_corner_white_top"
+        android:elevation="@dimen/dp_20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/space">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/H8BoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_45"
+            android:paddingStart="@dimen/dp_84"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="SELECT ANTIGEN" />
+
+        <TextView
+            android:id="@+id/sub_title"
+            style="@style/H6BoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_40"
+            android:paddingStart="@dimen/dp_84"
+            android:visibility="gone"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            tools:text="Clinic Name" />
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="@dimen/dp_45"
+            android:layout_height="@dimen/dp_45"
+            android:layout_marginEnd="@dimen/dp_40"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_close"
+            app:layout_constraintBottom_toBottomOf="@id/title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/title" />
+
+        <TextView
+            android:id="@+id/list_header"
+            style="@style/H8BoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_40"
+            android:paddingStart="@dimen/dp_84"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sub_title"
+            tools:text="temporary clinics" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingBottom="@dimen/vaxcare_action_bar_offset"
+            tools:listitem="@layout/dialog_bottomsheet_item"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/list_header" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/iconContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/list_header"
+            app:layout_constraintTop_toTopOf="@id/list_header"
+            app:layout_constraintEnd_toEndOf="@id/close">
+
+            <ImageView
+                android:id="@+id/icon_a"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                tools:src="@drawable/ic_sort_alpha"
+                android:layout_marginEnd="@dimen/dp_10"
+                app:layout_constraintBottom_toBottomOf="@id/icon_b"
+                app:layout_constraintEnd_toStartOf="@id/icon_b" />
+
+            <ImageView
+                android:id="@+id/icon_b"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:alpha="0.5"
+                tools:src="@drawable/ic_sort_clock"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

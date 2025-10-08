@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2024.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout_addAppointment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.vaxcare.vaxhub.core.view.VaxToolbar
+        android:id="@+id/vaxToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/add_appointment_title" />
+
+    <EditText
+        android:id="@+id/editText_searchAppointment"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/bg_input"
+        android:hint="@string/add_appointment_or_create_patient_search_hint"
+        android:imeOptions="actionDone"
+        android:inputType="textNoSuggestions|textCapCharacters"
+        android:lines="1"
+        android:maxLength="25"
+        android:maxLines="1"
+        android:paddingHorizontal="12dp"
+        android:textAllCaps="true"
+        android:textColorHint="@color/gray_text"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vaxToolbar" />
+
+    <TextView
+        android:id="@+id/textView_notAnExistingPatient"
+        style="@style/VaxCareText.Body.B2.Italic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:text="@string/add_appointment_or_create_patient_not_an_existing_patient"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/editText_searchAppointment" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_createNewPatient"
+        style="@style/PrimaryPurpleButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="67dp"
+        android:layout_marginTop="19dp"
+        android:gravity="center"
+        android:text="@string/patient_create_new_patient"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_notAnExistingPatient" />
+
+    <TextView
+        android:id="@+id/textView_connectionNeeded"
+        style="@style/VaxCareText.Body.B2.Italic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="54dp"
+        android:text="@string/add_appointment_or_create_patient_connection_needed"
+        android:textAlignment="center"
+        android:textColor="@color/gray_text"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/button_createNewPatient" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_createNewPatient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="textView_notAnExistingPatient, button_createNewPatient, textView_connectionNeeded" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_patientsFound"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editText_searchAppointment"
+        tools:itemCount="2"
+        tools:listitem="@layout/rv_patient_search_result_item" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout_loading"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/primary_white"
+        android:visibility="gone"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editText_searchAppointment">
+
+        <ImageView
+            android:id="@+id/imageView_loading"
+            android:layout_width="@dimen/dp_150"
+            android:layout_height="@dimen/dp_150"
+            android:indeterminate="true"
+            android:src="@drawable/ic_loading"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.25" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

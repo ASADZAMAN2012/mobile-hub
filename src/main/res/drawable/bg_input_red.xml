@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2021.                                                                   *
+  ***********************************************************************************************-->
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/primaryPurpleDisabled" />
+            <corners android:radius="60dp" />
+        </shape>
+    </item>
+    <item
+        android:left="1px"
+        android:right="1px"
+        android:top="1px">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/error_light_red" />
+            <corners android:radius="60dp" />
+        </shape>
+    </item>
+</layer-list>

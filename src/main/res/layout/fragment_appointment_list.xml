@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.vaxcare.vaxhub.core.view.VaxToolbar
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:right_icon1="@drawable/ic_system_filter"
+        app:right_icon2="@drawable/ic_refresh"
+        app:title="@string/patient_select_patient" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_lookup"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_32"
+        android:layout_marginBottom="@dimen/dp_74"
+        android:src="@drawable/ic_search"
+        android:visibility="gone"
+        app:backgroundTint="@color/primary_coral"
+        app:elevation="@dimen/dp_2"
+        app:fabCustomSize="@dimen/dp_106"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="@dimen/dp_64"
+        app:rippleColor="@color/primary_white"
+        app:tint="@color/primary_white"
+        tools:visibility="visible" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_32"
+        android:layout_marginBottom="@dimen/dp_25"
+        android:src="@drawable/ic_plus"
+        android:visibility="gone"
+        app:backgroundTint="@color/primary_purple"
+        app:elevation="@dimen/dp_2"
+        app:fabCustomSize="@dimen/dp_106"
+        app:layout_constraintBottom_toTopOf="@id/fab_lookup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="@dimen/dp_64"
+        app:rippleColor="@color/primary_white"
+        app:tint="@color/primary_white"
+        tools:visibility="visible" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/calendar_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_57"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar">
+
+        <LinearLayout
+            android:id="@+id/calendar_item_container"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_96"
+            android:layout_marginStart="@dimen/dp_21"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/calendar_icon"
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="@dimen/dp_40"
+                    android:src="@drawable/ic_calendar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/calendar_value"
+                    style="@style/CalendarLabelBlack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp_6"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintBottom_toBottomOf="@id/calendar_icon"
+                    app:layout_constraintEnd_toEndOf="@id/calendar_icon"
+                    app:layout_constraintStart_toStartOf="@id/calendar_icon"
+                    tools:text="12" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/date_time"
+                style="@style/H6RegBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/calendar_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Monday, March 31st" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fadingEdge="none"
+        android:overScrollMode="never"
+        android:paddingBottom="@dimen/dp_320"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calendar_item"
+        tools:itemCount="15"
+        tools:listitem="@layout/rv_appointment_item_list_view"
+        tools:visibility="visible" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_125"
+        android:background="@drawable/list_gradient"
+        app:layout_constraintBottom_toBottomOf="@id/recycler_view" />
+
+    <TextView
+        android:id="@+id/empty_message"
+        style="@style/H3RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="0.2"
+        android:paddingStart="@dimen/dp_84"
+        android:paddingTop="@dimen/dp_20"
+        android:paddingEnd="@dimen/dp_27"
+        android:text="@string/patient_select_no_schedules"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calendar_item"
+        tools:visibility="visible" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/calendar_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="@dimen/dp_4"
+        android:visibility="gone">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/calendar_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_120"
+            android:outlineSpotShadowColor="@color/primary_black"
+            app:cardCornerRadius="@dimen/dp_20"
+            app:cardElevation="@dimen/dp_50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UnusedAttribute"
+            tools:visibility="visible">
+
+            <com.vaxcare.vaxhub.core.view.calendar.CalendarPicker
+                android:id="@+id/calendar_picker"
+                android:layout_width="@dimen/dp_568"
+                android:layout_height="@dimen/dp_526" />
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/preload_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primary_white"
+        tools:visibility="gone">
+
+        <include
+            android:id="@+id/preload_view"
+            layout="@layout/fragment_preload" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

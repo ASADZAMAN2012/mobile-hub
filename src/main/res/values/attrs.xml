@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2019.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+    <attr name="privateSecondary" format="color" />
+    <attr name="privateLight" format="color" />
+    <attr name="animationShort" format="integer" />
+
+    <attr name="bgWhite" format="color" />
+    <attr name="bgWhiteDisabled" format="color" />
+    <attr name="bgDarkBlue" format="color" />
+    <attr name="bgDarkerBlue" format="color" />
+    <attr name="bgDarkBlueDisabled" format="color" />
+    <attr name="bgPrimaryPurple" format="color" />
+    <attr name="bgPrimaryPurpleDisabled" format="color" />
+    <attr name="bgLightDark" format="color" />
+    <attr name="bgLightDarkDisabled" format="color" />
+
+    <attr name="homeElevation" format="dimension" />
+    <attr name="homeMargin" format="dimension" />
+    <attr name="dialogHeaderHeight" format="dimension" />
+    <attr name="dialogHeaderBackground" format="color" />
+    <attr name="dialogSubHeaderBackground" format="color" />
+    <attr name="dialogClose" format="color" />
+    <attr name="dialogTitle" format="color" />
+    <attr name="dialogBackground" format="color" />
+    <attr name="inventoryLeftPad" format="dimension" />
+
+    <attr name="drawerBackground" format="color" />
+    <attr name="drawerSubHeader" format="color" />
+
+    <attr name="iconTintDarkBlue" format="color" />
+    <attr name="iconTintDarkBlueDisabled" format="color" />
+    <attr name="iconTintLightBlue" format="color" />
+    <attr name="iconTintWhite" format="color" />
+
+    <attr name="textColorDarkBlue" format="color" />
+    <attr name="textColorDarkBlueDisabled" format="color" />
+    <attr name="textColorWhite" format="color" />
+    <attr name="textColorBlack" format="color" />
+    <attr name="textColorWhiteDisabled" format="color" />
+    <attr name="textColorError" format="color" />
+
+    <attr name="rippleDarkBlue" format="color" />
+    <attr name="rippleWhite" format="color" />
+
+    <attr name="displayTextLarge" format="dimension" />
+    <attr name="displayText" format="dimension" />
+    <attr name="headerH1" format="dimension" />
+    <attr name="headerH2" format="dimension" />
+    <attr name="headerH4" format="dimension" />
+    <attr name="bodyB1" format="dimension" />
+    <attr name="bodyB2" format="dimension" />
+    <attr name="bodyB3" format="dimension" />
+    <attr name="bodyB4" format="dimension" />
+    <attr name="bodyB5" format="dimension" />
+    <attr name="captionText" format="dimension" />
+
+    <attr name="elevationButton" format="dimension" />
+
+    <declare-styleable name="LoginKeypad">
+        <attr name="login_keypad_hide_display" format="boolean" />
+        <attr name="login_keypad_legacy_color" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="Header">
+        <attr name="title" />
+        <attr name="subtitle" format="string" />
+        <attr name="showHeader" format="boolean" />
+        <attr name="showClose" format="boolean" />
+        <attr name="headerBgColor" format="color" />
+        <attr name="customLayout" format="reference" />
+        <attr name="headerUseThinFont" format="boolean" />
+    </declare-styleable>
+
+    <attr name="headerElevation" format="dimension" />
+    <declare-styleable name="DatePicker">
+        <attr name="iconTint" format="color" />
+        <attr name="textTint" format="color" />
+        <attr name="dateFormat" format="string" />
+    </declare-styleable>
+
+    <attr name="title" format="string" />
+
+    <declare-styleable name="VaxToolbar">
+        <attr name="title" />
+        <attr name="icon" format="reference" />
+        <attr name="title_icon" format="reference" />
+        <attr name="right_icon1" format="reference" />
+        <attr name="right_icon2" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ViewfinderView">
+        <attr name="inner_width" format="dimension" />
+        <attr name="inner_height" format="dimension" />
+        <attr name="inner_corner_color" format="color" />
+        <attr name="mask_color" format="color" />
+        <attr name="inner_corner_length_horizontal" format="dimension" />
+        <attr name="inner_corner_length_vertical" format="dimension" />
+        <attr name="inner_stroke_width" format="dimension" />
+        <attr name="show_mask" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CalendarPicker">
+        <attr name="singleChoice" format="boolean" />
+        <attr name="maxChoices" format="integer" />
+        <attr name="allowWeekends" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CutOutView">
+        <attr name="background_color" format="color" />
+        <attr name="cutout_width" format="dimension" />
+        <attr name="cutout_height" format="dimension" />
+        <attr name="cutout_padding_start" format="dimension" />
+        <attr name="cutout_padding_top" format="dimension" />
+    </declare-styleable>
+
+    <attr name="label" format="string" />
+    <attr name="label_style" format="reference" />
+    <attr name="required" format="boolean" />
+    <declare-styleable name="RoundedTextInputView">
+        <attr name="label" />
+        <attr name="label_style" />
+        <attr name="label_text_size" format="dimension" />
+        <attr name="android:inputType" format="integer" />
+        <attr name="android:imeOptions" format="integer" />
+        <attr name="required" />
+        <attr name="subtext" format="string" />
+        <attr name="error_label" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="DateOfBirthView">
+        <attr name="label" />
+        <attr name="label_style" />
+        <attr name="required" />
+     </declare-styleable>
+
+    <declare-styleable name="PhoneNumberEditView">
+        <attr name="required" />
+    </declare-styleable>
+
+    <declare-styleable name="PinLockKeypad">
+        <attr name="input_length_min" format="integer" />
+        <attr name="input_length_max" format="integer" />
+        <attr name="show_enter_button" format="boolean" />
+        <attr name="flash_animation_enabled" format="boolean" />
+        <attr name="back_button_tint" format="color" />
+    </declare-styleable>
+</resources>

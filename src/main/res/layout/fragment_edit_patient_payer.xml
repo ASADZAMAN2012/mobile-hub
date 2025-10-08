@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2021.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color">
+
+    <com.vaxcare.vaxhub.core.view.VaxToolbar
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/patient_edit_risk_message"
+        style="@style/BtnSmlBoldBlack"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_42"
+        android:background="@color/primary_yellow"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/dp_84"
+        android:text="@string/patient_edit_missing_info"
+        android:textSize="@dimen/sp_22"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar" />
+
+    <TextView
+        android:id="@+id/patient_edit_risk_message_note"
+        style="@style/BodyItalicBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_30"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/dp_85"
+        android:text="@string/patient_edit_missing_payer_confirm"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_edit_risk_message" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/patient_edit_payer_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_11"
+        android:layout_marginTop="@dimen/dp_50"
+        android:background="@drawable/bg_rounded_corner_white"
+        android:paddingStart="@dimen/dp_73"
+        android:paddingTop="@dimen/dp_21"
+        android:paddingBottom="@dimen/dp_36"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_edit_risk_message_note">
+
+        <TextView
+            android:id="@+id/patient_edit_insurance_provider_label"
+            style="@style/H8BoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="0dp"
+            android:text="@string/patient_confirm_parent_insurance_provider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/patient_edit_insurance_provider"
+            style="@style/H7RegBlack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginEnd="@dimen/dp_20"
+            app:layout_constraintEnd_toStartOf="@id/patient_edit_icon"
+            app:layout_constraintStart_toStartOf="@id/patient_edit_insurance_provider_label"
+            app:layout_constraintTop_toBottomOf="@id/patient_edit_insurance_provider_label" />
+
+        <ImageView
+            android:id="@+id/patient_edit_icon"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginEnd="@dimen/dp_41"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintBottom_toBottomOf="@+id/patient_edit_insurance_provider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/patient_edit_insurance_provider" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/patient_edit_select_payer"
+        layout="@layout/view_select_payer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_edit_risk_message_note" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_next"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_32"
+        android:layout_marginBottom="@dimen/dp_74"
+        android:src="@drawable/ic_arrow_forward"
+        app:backgroundTint="@color/legacy_fab_bg"
+        app:elevation="@dimen/dp_2"
+        app:fabCustomSize="@dimen/dp_106"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="@dimen/dp_64"
+        app:rippleColor="@color/primary_white"
+        app:tint="@color/primary_white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

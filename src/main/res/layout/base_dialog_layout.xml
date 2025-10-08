@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2025.                                                                   *
+  ***********************************************************************************************-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:paddingHorizontal="24dp"
+    android:paddingVertical="28dp">
+
+    <TextView
+        android:id="@+id/textView_title"
+        style="@style/H6BoldBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        tools:text="Basic dialog title" />
+
+    <TextView
+        android:id="@+id/textView_body"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_26"
+        android:textSize="16sp"
+        tools:text="A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made." />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_primaryCTA"
+        style="@style/PrimaryPurpleButton"
+        android:layout_width="248dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="45dp"
+        android:textSize="16sp"
+        app:cornerRadius="100dp"
+        tools:text="Primary CTA" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_secondaryCTA"
+        style="@style/PrimaryGrayButton"
+        android:layout_width="248dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:textSize="16sp"
+        app:cornerRadius="100dp"
+        tools:text="Secondary CTA" />
+
+</LinearLayout>

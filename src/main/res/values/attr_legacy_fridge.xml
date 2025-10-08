@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+    <declare-styleable name="FridgeButton">
+        <attr name="fridge_button_reverse" format="boolean" />
+        <attr name="fridge_button_headerText" format="string" />
+        <attr name="fridge_button_descText" format="string" />
+        <attr name="fridge_button_icon" format="reference" />
+    </declare-styleable>
+</resources>

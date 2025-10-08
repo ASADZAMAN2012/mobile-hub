@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2023.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/dp_42"
+    android:paddingHorizontal="@dimen/dp_30"
+    android:paddingVertical="@dimen/dp_60">
+
+    <TextView
+        android:id="@+id/textView_title"
+        style="@style/H6BoldBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_wrong_stock_selected_title"
+        android:textSize="@dimen/sp_35"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_body"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="@dimen/sp_30"
+        app:layout_constraintTop_toBottomOf="@id/textView_title"
+        tools:layout_editor_absoluteX="10dp"
+        tools:text="The scanned dose does not match the stock the patient is assigned to.
+        Patient is assigned to Private stock.\n\nThis dose will be deducted from Private stock if administered." />
+
+    <Button
+        android:id="@+id/button_setStock"
+        style="@style/PrimaryPurpleButton"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_105"
+        android:layout_marginTop="24dp"
+        android:text="@string/menu_stock_selector_set_stock"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_body" />
+
+    <Button
+        android:id="@+id/button_removeDose"
+        style="@style/PrimaryPurpleButton"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_105"
+        app:layout_goneMarginTop="24dp"
+        android:text="@string/dialog_wrong_stock_selected_remove_dose"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_setStock" />
+
+    <Button
+        android:id="@+id/button_keepDose"
+        style="@style/PrimaryGrayButton"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_105"
+        android:text="@string/dialog_wrong_stock_selected_keep_dose"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_removeDose" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

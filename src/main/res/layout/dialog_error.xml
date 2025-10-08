@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dp_42"
+    android:layout_marginEnd="@dimen/dp_42"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/H6BoldBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_36"
+        android:text="@string/error" />
+
+    <TextView
+        android:id="@+id/body"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_26"
+        android:text="@string/error_body" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_continue"
+        style="@style/PrimaryPurpleButton"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_98"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_50"
+        android:text="@string/retry" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_delete"
+        style="@style/PrimaryGrayButton"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_98"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_marginBottom="@dimen/dp_50"
+        android:text="@string/button_cancel" />
+
+</LinearLayout>

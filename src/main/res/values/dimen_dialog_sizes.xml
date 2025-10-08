@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+    <dimen name="dialog_width_medium">@dimen/dp_828</dimen>
+    <dimen name="dialog_height_medium">@dimen/dp_750</dimen>
+<!--    <dimen name="dialog_width_small">@dimen/dp_828</dimen>-->
+<!--    <dimen name="dialog_height_small">@dimen/dp_510</dimen>-->
+    <dimen name="dialog_width_small">@dimen/dp_1000</dimen>
+    <dimen name="dialog_height_small">@dimen/dp_500</dimen>
+
+    <dimen name="legacy_dialog_width_transaction">@dimen/dp_1200</dimen>
+    <dimen name="legacy_dialog_height_transaction">@dimen/dp_350</dimen>
+    <dimen name="legacy_dialog_height_transaction_larger">@dimen/dp_400</dimen>
+
+    <dimen name="legacy_dialog_width_transaction_small">@dimen/dp_800</dimen>
+    <dimen name="legacy_dialog_height_transaction_small">@dimen/dp_200</dimen>
+</resources>

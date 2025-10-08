@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp_16"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+
+    <FrameLayout
+        android:id="@+id/appointment_notice_container"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_56"
+        android:background="@color/list_purple"
+        android:paddingStart="@dimen/dp_73"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/label_appointment_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            style="@style/BodyRegularBlack"
+            android:text="@string/review_in_progress_label" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/label_already_processed"
+        style="@style/BodyItalicBlack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="@dimen/dp_73"
+        android:layout_marginEnd="@dimen/dp_70"
+        android:layout_marginTop="@dimen/dp_23"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appointment_notice_container"
+        android:text="@string/patient_checkout_complete_already_been_processed" />
+
+    <TextView
+        android:id="@+id/appt_time"
+        style="@style/H6RegBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="@dimen/dp_73"
+        android:layout_marginTop="@dimen/dp_52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_already_processed"
+        tools:text="10:30 am" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/checkout_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_26"
+        android:background="@drawable/bg_rounded_corner_white_prompt"
+        android:paddingBottom="@dimen/dp_50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appt_time">
+
+        <ImageView
+            android:id="@+id/patient_check_eligibility_icon"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_26"
+            android:scaleType="centerInside"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/patient_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/patient_name"
+            tools:src="@drawable/ic_eligibility_guaranteed"
+            tools:tint="@color/primary_cyan" />
+
+        <TextView
+            android:id="@+id/patient_name"
+            style="@style/H6BoldBlack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="@dimen/dp_73"
+            android:layout_marginEnd="@dimen/dp_73"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginTop="@dimen/dp_18"
+            android:lineSpacingMultiplier="0.8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Bartlett, Meghan" />
+
+        <View
+            android:id="@+id/left_dash"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_4"
+            android:layout_marginTop="@dimen/dp_12"
+            android:background="@drawable/bg_rounded_corner_primary_black"
+            app:layout_constraintStart_toStartOf="@id/patient_name"
+            app:layout_constraintTop_toBottomOf="@id/patient_name" />
+
+        <TextView
+            android:id="@+id/label_id"
+            style="@style/BodyBoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/dp_26"
+            android:text="@string/patient_lookup_id"
+            app:layout_constraintStart_toStartOf="@id/patient_name"
+            app:layout_constraintTop_toBottomOf="@id/left_dash" />
+
+        <TextView
+            android:id="@+id/patient_id"
+            style="@style/BodyRegularBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="@dimen/dp_10"
+            app:layout_constraintBottom_toBottomOf="@id/label_id"
+            app:layout_constraintStart_toEndOf="@id/label_id"
+            app:layout_constraintTop_toTopOf="@id/label_id"
+            tools:text="0294534598" />
+
+        <TextView
+            android:id="@+id/label_dob"
+            style="@style/BodyBoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="@dimen/dp_45"
+            android:text="@string/patient_lookup_dob"
+            app:layout_constraintStart_toEndOf="@id/patient_id"
+            app:layout_constraintTop_toTopOf="@id/label_id" />
+
+        <TextView
+            android:id="@+id/patient_dob"
+            style="@style/BodyRegularBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="@dimen/dp_10"
+            app:layout_constraintBottom_toBottomOf="@id/label_dob"
+            app:layout_constraintStart_toEndOf="@id/label_dob"
+            app:layout_constraintTop_toTopOf="@id/label_dob"
+            tools:text="0294534598" />
+
+        <TextView
+            android:id="@+id/label_provider"
+            style="@style/BodyBoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/dp_38"
+            android:text="@string/patient_lookup_physician"
+            app:layout_constraintStart_toStartOf="@id/patient_name"
+            app:layout_constraintTop_toBottomOf="@id/label_dob" />
+
+        <TextView
+            android:id="@+id/patient_checkout_provider"
+            style="@style/BodyRegularBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="@dimen/dp_400"
+            android:layout_marginTop="@dimen/dp_2"
+            android:ellipsize="end"
+            android:singleLine="true"
+            tools:text="Dr. Smith"
+            app:layout_constraintStart_toStartOf="@id/patient_name"
+            app:layout_constraintTop_toBottomOf="@id/label_provider" />
+
+        <FrameLayout
+            android:id="@+id/edit_patient_checkout_provider_container"
+            android:layout_width="@dimen/dp_90"
+            android:layout_height="@dimen/dp_90"
+            android:layout_marginStart="@dimen/dp_10"
+            app:layout_constraintStart_toEndOf="@id/patient_checkout_provider"
+            app:layout_constraintTop_toTopOf="@id/patient_checkout_provider"
+            app:layout_constraintBottom_toBottomOf="@id/patient_checkout_provider">
+
+            <ImageView
+                android:id="@+id/edit_patient_checkout_provider"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_edit" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/label_administrator"
+            style="@style/BodyBoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/dp_17"
+            android:text="@string/patient_lookup_administrator"
+            app:layout_constraintStart_toStartOf="@id/patient_name"
+            app:layout_constraintTop_toBottomOf="@id/patient_checkout_provider" />
+
+        <TextView
+            android:id="@+id/patient_checkout_shot_admin"
+            style="@style/BodyRegularBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="@dimen/dp_400"
+            android:layout_marginTop="@dimen/dp_2"
+            android:ellipsize="end"
+            android:singleLine="true"
+            tools:text="Justin Johnsom"
+            app:layout_constraintStart_toStartOf="@id/patient_name"
+            app:layout_constraintEnd_toStartOf="@id/edit_patient_checkout_shot_admin_container"
+            app:layout_constraintTop_toBottomOf="@id/label_administrator" />
+
+        <FrameLayout
+            android:id="@+id/edit_patient_checkout_shot_admin_container"
+            android:layout_width="@dimen/dp_90"
+            android:layout_height="@dimen/dp_90"
+            android:layout_marginStart="@dimen/dp_10"
+            app:layout_constraintStart_toEndOf="@id/patient_checkout_shot_admin"
+            app:layout_constraintTop_toTopOf="@id/patient_checkout_shot_admin"
+            app:layout_constraintBottom_toBottomOf="@id/patient_checkout_shot_admin">
+
+            <ImageView
+                android:id="@+id/edit_patient_checkout_shot_admin"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_edit" />
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

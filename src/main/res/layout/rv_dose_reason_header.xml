@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2021.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/primary_light_gray"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/review_title"
+        android:layout_width="@dimen/dp_512"
+        android:layout_height="@dimen/dp_350"
+        android:text="@string/orders_review_header_title_not_admin"
+        style="@style/H3RegBlack"
+        android:textSize="@dimen/sp_90"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/review_subtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_40"
+        android:text="@string/orders_review_header_subtitle_unordered"
+        style="@style/H5RegBlack"
+        android:textSize="@dimen/sp_28"
+        android:textStyle="italic"
+        android:lineHeight="@dimen/sp_30"
+        app:layout_constraintStart_toStartOf="@id/review_title"
+        app:layout_constraintEnd_toEndOf="@id/review_title"
+        app:layout_constraintTop_toBottomOf="@id/review_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

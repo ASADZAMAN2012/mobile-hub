@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+    <dimen name="default_inner_width">@dimen/dp_409</dimen>
+    <dimen name="default_inner_height">@dimen/dp_250</dimen>
+    <dimen name="default_inner_corner_length_horizontal">@dimen/dp_34</dimen>
+    <dimen name="default_inner_corner_length_vertical">@dimen/dp_23</dimen>
+    <dimen name="default_inner_stroke_width">@dimen/dp_4</dimen>
+</resources>

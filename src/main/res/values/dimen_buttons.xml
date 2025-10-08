@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+    <dimen name="button_height">@dimen/dp_70</dimen>
+    <dimen name="button_width">@dimen/dp_300</dimen>
+    <dimen name="button_width_large">@dimen/dp_400</dimen>
+    <dimen name="button_width_middle">@dimen/dp_225</dimen>
+    <dimen name="button_width_small">@dimen/dp_160</dimen>
+</resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2021.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_light_gray">
+
+    <TextView
+        android:id="@+id/disclaimer_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/H4SemiBlack"
+        android:layout_marginTop="@dimen/dp_230"
+        android:paddingHorizontal="@dimen/dp_53"
+        android:text="@string/nurse_disclaimer_optin_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/disclaimer_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/H33ItalicBlack"
+        android:paddingHorizontal="@dimen/dp_53"
+        android:text="@string/nurse_disclaimer_optin_desc"
+        android:layout_marginTop="@dimen/dp_23"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/disclaimer_title" />
+
+    <Space
+        android:id="@+id/anchor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_250"
+        android:layout_marginTop="@dimen/dp_550"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/greenCheckImage"
+        android:layout_width="@dimen/dp_247"
+        android:layout_height="@dimen/dp_247"
+        android:src="@drawable/ic_icon_green_check"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/anchor" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_ok"
+        style="@style/PrimaryPurpleButton"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_98"
+        android:layout_marginTop="@dimen/dp_50"
+        android:text="@string/button_ok"
+        android:layout_marginBottom="@dimen/dp_170"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

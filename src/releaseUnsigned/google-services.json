@@ -1,0 +1,127 @@
+{
+  "project_info": {
+    "project_number": "368051734045",
+    "firebase_url": "https://vaxhubs-prod.firebaseio.com",
+    "project_id": "vaxhubs-prod",
+    "storage_bucket": "vaxhubs-prod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:368051734045:android:7aa7df5179202aa2ce28f4",
+        "android_client_info": {
+          "package_name": "com.vaxcare.mobilehub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "368051734045-h4oipagr1ipiibc2senhnkpeeg75efac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-2dht75hVGFRc5i2sgjcvOYTqEsrpQkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "368051734045-h4oipagr1ipiibc2senhnkpeeg75efac.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:368051734045:android:ff8a98d6e7923482ce28f4",
+        "android_client_info": {
+          "package_name": "com.vaxcare.mobilehub.blu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "368051734045-h4oipagr1ipiibc2senhnkpeeg75efac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-2dht75hVGFRc5i2sgjcvOYTqEsrpQkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "368051734045-h4oipagr1ipiibc2senhnkpeeg75efac.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:368051734045:android:1b5b0450fab44e99ce28f4",
+        "android_client_info": {
+          "package_name": "com.vaxcare.vaxhub2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "368051734045-h4oipagr1ipiibc2senhnkpeeg75efac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-2dht75hVGFRc5i2sgjcvOYTqEsrpQkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "368051734045-h4oipagr1ipiibc2senhnkpeeg75efac.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:368051734045:android:9fd83e6d9c394270",
+        "android_client_info": {
+          "package_name": "com.vaxhub.vaxhubpt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "368051734045-h4oipagr1ipiibc2senhnkpeeg75efac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-2dht75hVGFRc5i2sgjcvOYTqEsrpQkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "368051734045-h4oipagr1ipiibc2senhnkpeeg75efac.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

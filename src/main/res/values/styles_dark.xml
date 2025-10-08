@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--***********************************************************************************************
+  * Copyright VaxCare (c) 2019.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+    <style name="VaxCareThemeDark" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="privateSecondary">@color/darkBlue</item>
+        <item name="privateLight">@color/darkBlueDisabled</item>
+
+        <item name="dialogHeaderBackground">@color/darkBlue</item>
+        <item name="dialogSubHeaderBackground">@color/darkBlue</item>
+        <item name="dialogClose">@color/primary_white</item>
+        <item name="dialogTitle">@color/primary_white</item>
+        <item name="dialogBackground">@color/darkerBlue</item>
+
+        <item name="drawerBackground">@color/darkerBlue</item>
+        <item name="drawerSubHeader">@color/darkBlue</item>
+
+        <item name="animationShort">@integer/default_animation_short</item>
+
+        <item name="elevationButton">@dimen/elevation_button</item>
+        <item name="cornerRadius">@dimen/corner_radius</item>
+
+        <item name="displayTextLarge">@dimen/display_text_large</item>
+        <item name="displayText">@dimen/display_text</item>
+
+        <item name="headerH1">@dimen/header_h1</item>
+        <item name="headerH2">@dimen/header_h2</item>
+
+        <item name="bodyB1">@dimen/body_b1</item>
+        <item name="bodyB2">@dimen/body_b2</item>
+        <item name="bodyB3">@dimen/body_b3</item>
+        <item name="bodyB4">@dimen/body_b4</item>
+        <item name="captionText">@dimen/caption_c1</item>
+
+        <item name="bgWhite">@color/darkBlue</item>
+        <item name="bgWhiteDisabled">@color/darkBlueDisabled</item>
+        <item name="bgDarkBlue">@color/primary_white</item>
+        <item name="bgDarkBlueDisabled">@color/whiteDisabled</item>
+
+        <item name="iconTintDarkBlue">@color/primary_white</item>
+        <item name="iconTintDarkBlueDisabled">@color/whiteDisabled</item>
+
+        <item name="iconTintWhite">@color/darkBlue</item>
+
+        <item name="textColorDarkBlue">@color/primary_white</item>
+        <item name="textColorDarkBlueDisabled">@color/whiteDisabled</item>
+        <item name="textColorWhite">@color/darkBlue</item>
+        <item name="textColorWhiteDisabled">@color/darkBlueDisabled</item>
+        <item name="textColorError">@color/redPrimary</item>
+
+        <item name="rippleDarkBlue">@color/primary_white</item>
+        <item name="rippleWhite">@color/darkBlue</item>
+
+        <item name="colorControlActivated">@color/primary_white</item>
+    </style>
+</resources>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp_10"
+    app:cardCornerRadius="@dimen/dp_10"
+    app:cardElevation="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/view_foreground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primary_white"
+        android:paddingTop="@dimen/dp_30"
+        android:paddingBottom="@dimen/dp_28">
+
+        <TextView
+            android:id="@+id/checkout_vaccine_name"
+            style="@style/H6BoldBlack"
+            android:textColor="@color/gray_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_74"
+            android:layout_marginEnd="@dimen/dp_25"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Hep-B (Engerix-B)" />
+
+        <TextView
+            android:id="@+id/label"
+            style="@style/BodyBoldBlack"
+            android:textColor="@color/gray_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:textAllCaps="true"
+            android:visibility="visible"
+            android:text="@string/ordered"
+            app:layout_constraintStart_toStartOf="@id/checkout_vaccine_name"
+            app:layout_constraintTop_toBottomOf="@id/checkout_vaccine_name" />
+
+        <TextView
+            android:id="@+id/date"
+            style="@style/BodyRegBlack"
+            android:textColor="@color/gray_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:layout_marginStart="@dimen/dp_12"
+            android:gravity="start"
+            app:layout_constraintStart_toEndOf="@id/label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="2.3"
+            app:layout_constraintTop_toBottomOf="@id/checkout_vaccine_name"
+            app:layout_goneMarginTop="@dimen/dp_0"
+            tools:text="12/10/18 at 1:30PM"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

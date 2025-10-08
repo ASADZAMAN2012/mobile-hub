@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--***********************************************************************************************
+  * Copyright VaxCare (c) 2019.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+    <dimen name="display_text_large">@dimen/sp_58</dimen>
+    <dimen name="display_text">@dimen/sp_42</dimen>
+
+    <dimen name="header_h1">@dimen/sp_28</dimen>
+    <dimen name="header_h2">@dimen/sp_26</dimen>
+    <dimen name="header_h4">@dimen/sp_30</dimen>
+
+    <dimen name="body_b1">@dimen/sp_24</dimen>
+    <dimen name="body_b2">@dimen/sp_21</dimen>
+    <dimen name="body_b3">@dimen/sp_18</dimen>
+    <dimen name="body_b4">@dimen/sp_16</dimen>
+    <dimen name="body_b5">@dimen/sp_14</dimen>
+    <dimen name="caption_c1">@dimen/sp_14</dimen>
+
+    <dimen name="text_75">@dimen/sp_75</dimen>
+    <dimen name="text_50">@dimen/sp_50</dimen>
+    <dimen name="text_35">@dimen/sp_35</dimen>
+    <dimen name="text_32">@dimen/sp_32</dimen>
+    <dimen name="text_30">@dimen/sp_30</dimen>
+    <dimen name="text_28">@dimen/sp_28</dimen>
+    <dimen name="text_27">@dimen/sp_27</dimen>
+    <dimen name="text_26">@dimen/sp_26</dimen>
+    <dimen name="text_25">@dimen/sp_25</dimen>
+    <dimen name="text_24">@dimen/sp_24</dimen>
+    <dimen name="text_21">@dimen/sp_21</dimen>
+    <dimen name="text_20">@dimen/sp_20</dimen>
+    <dimen name="text_18">@dimen/sp_18</dimen>
+    <dimen name="text_16">@dimen/sp_16</dimen>
+    <dimen name="text_14">@dimen/sp_14</dimen>
+</resources>

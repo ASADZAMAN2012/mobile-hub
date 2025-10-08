@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/constraintLayout_fragmentContainer"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.vaxcare.vaxhub.core.view.VaxToolbar
+        android:id="@+id/vaxToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/patient_confirm_patient_info" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout_patientDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:layout_marginTop="15dp"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vaxToolbar">
+
+        <TextView
+            android:id="@+id/textview_name"
+            style="@style/BodySmlBoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:lineSpacingMultiplier="0.8"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Bartlett, Meghan" />
+
+        <View
+            android:id="@+id/view_dash"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_4"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/bg_rounded_corner_primary_black"
+            app:layout_constraintStart_toStartOf="@id/textview_name"
+            app:layout_constraintTop_toBottomOf="@id/textview_name" />
+
+        <TextView
+            android:id="@+id/textview_dateOfBirth"
+            style="@style/H8BoldBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/patient_confirm_parent_dob"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/view_dash" />
+
+        <TextView
+            android:id="@+id/textview_dateOfBirthValue"
+            style="@style/H7RegBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="2dp"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/textview_dateOfBirth"
+            tools:text="07/18/83" />
+
+        <TextView
+            android:id="@+id/textview_gender"
+            style="@style/H8BoldBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/patient_confirm_parent_gender"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/textview_dateOfBirthValue" />
+
+        <TextView
+            android:id="@+id/textview_genderValue"
+            style="@style/H7RegBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="2dp"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/textview_gender"
+            tools:text="Male" />
+
+        <TextView
+            android:id="@+id/textview_phone"
+            style="@style/H8BoldBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/patient_confirm_parent_phone"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/textview_genderValue" />
+
+        <TextView
+            android:id="@+id/textview_phoneValue"
+            style="@style/H7RegBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="2dp"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/textview_phone"
+            tools:text="267-867-5309" />
+
+        <TextView
+            android:id="@+id/textview_address"
+            style="@style/H8BoldBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/patient_confirm_parent_address"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/textview_phoneValue" />
+
+        <TextView
+            android:id="@+id/textview_addressValue"
+            style="@style/H7RegBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="2dp"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/textview_address"
+            tools:text="1101 S. Front Street\nPhiladelphia, PA\n19102" />
+
+        <TextView
+            android:id="@+id/textview_mbi"
+            style="@style/H8BoldBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/fragment_confirm_patient_info_create_mbi"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/textview_addressValue"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textview_mbialue"
+            style="@style/H7RegBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="2dp"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/textview_mbi"
+            tools:text="XXXX-XXX-MK72"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textview_ssn"
+            style="@style/H8BoldBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/fragment_confirm_patient_info_create_ssn"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/textview_mbialue"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textview_ssnValue"
+            style="@style/H7RegBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="2dp"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/textview_ssn"
+            tools:text="XXX-XXXX-0587"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textview_insuranceProvider"
+            style="@style/H8BoldBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/patient_confirm_parent_insurance_provider"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/textview_ssnValue" />
+
+        <TextView
+            android:id="@+id/textview_insuranceProviderValue"
+            style="@style/H7RegBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="2dp"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/textview_insuranceProvider"
+            tools:text="Highmark Choice Company" />
+
+        <TextView
+            android:id="@+id/textview_provider"
+            style="@style/H8BoldBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/patient_confirm_parent_provider"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/textview_insuranceProviderValue" />
+
+        <TextView
+            android:id="@+id/textview_providerValue"
+            style="@style/H7RegBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="2dp"
+            android:background="?attr/selectableItemBackground"
+            android:drawablePadding="@dimen/dp_66"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/imageView_edit"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_provider"
+            tools:text="Dr.Jiminez" />
+
+        <ImageView
+            android:id="@+id/imageView_edit"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="30dp"
+            android:clickable="true"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintBottom_toBottomOf="@id/textview_providerValue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/textview_providerValue"
+            app:layout_constraintTop_toTopOf="@id/textview_provider"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_createPatient"
+        style="@style/PrimaryPurpleButton"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="85dp"
+        android:text="@string/fragment_confirm_patient_info_create_patient"
+        android:textSize="16sp"
+        android:stateListAnimator="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout_patientDetails"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <!-- Without `android:elevation` set, the button gets on top of this view -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primary_white"
+        android:visibility="gone"
+        android:elevation="24dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView_loadingMessage"
+            style="@style/VaxCareText.Body.B3.Italic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:layout_marginHorizontal="40dp"
+            app:layout_constraintBottom_toTopOf="@id/imageView_loading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView_loading"
+            android:layout_width="73dp"
+            android:layout_height="73dp"
+            android:indeterminate="true"
+            android:src="@drawable/ic_loading"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

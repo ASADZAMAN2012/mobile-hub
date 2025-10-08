@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2022.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/patient_info_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/primary_white"
+    app:layout_scrollFlags="scroll">
+
+    <TextView
+        android:id="@+id/patient_name"
+        style="@style/H7BoldBlack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_55"
+        android:layout_marginEnd="@dimen/dp_5"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintEnd_toStartOf="@id/tag_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginEnd="@dimen/sp_30"
+        tools:text="John Doe" />
+
+    <ImageView
+        android:id="@+id/eligibility_icon"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_presentation_prefilled_syringe"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_name"
+        tools:src="@drawable/ic_eligibility_guaranteed"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/eligibility_text"
+        style="@style/H7BoldBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_55"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_name"
+        tools:text="Guaranteed Payment" />
+
+    <LinearLayout
+        android:id="@+id/tag_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_30"
+        android:layout_marginEnd="@dimen/sp_30"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/eligibility_text"
+        app:layout_goneMarginTop="@dimen/dp_22"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/med_d_tag"
+            style="@style/H8Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_30"
+            android:layout_marginEnd="@dimen/sp_30"
+            android:background="@drawable/bg_rounded_corner_gray"
+            android:paddingStart="@dimen/dp_14"
+            android:paddingTop="@dimen/dp_8"
+            android:paddingEnd="@dimen/dp_14"
+            android:paddingBottom="@dimen/dp_8"
+            android:text="@string/med_d"
+            android:textAllCaps="true"
+            android:textColor="@color/primary_black"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/eligibility_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/eligibility_icon"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textview_inventoryType"
+            style="@style/H8Bold"
+            android:layout_width="@dimen/dp_124"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:background="@drawable/bg_rounded_corner_purple"
+            android:backgroundTint="@color/list_purple"
+            android:gravity="center"
+            android:paddingStart="@dimen/dp_14"
+            android:paddingTop="@dimen/dp_8"
+            android:paddingEnd="@dimen/dp_14"
+            android:paddingBottom="@dimen/dp_8"
+            android:textAllCaps="true"
+            android:textColor="@color/primary_purple"
+            android:visibility="gone"
+            tools:text="PRIVATE"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/responsibility_text"
+        style="@style/H7RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_55"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/eligibility_text"
+        tools:text="VaxCare Bill" />
+
+    <TextView
+        android:id="@+id/payer_text"
+        style="@style/H7RegBlack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_55"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/responsibility_text"
+        tools:text="Cigna" />
+
+    <TextView
+        android:id="@+id/eligibility_cta"
+        style="@style/H8BoldBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_55"
+        android:layout_marginTop="@dimen/dp_5"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/payer_text"
+        tools:text="Limited Coverage" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/medd_messaging_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/eligibility_cta" >
+
+        <TextView
+            android:id="@+id/med_d_cta"
+            style="@style/H8BoldBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_55"
+            android:layout_marginTop="@dimen/dp_5"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAllCaps="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Some Doses Require Copay" />
+
+        <TextView
+            android:id="@+id/rsvCopay"
+            style="@style/H7BoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_75"
+            android:layout_marginTop="20dp"
+            android:text="@string/rsv"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/med_d_cta"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/rsvCopayValue"
+            style="@style/H7BoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_105"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/rsvCopay"
+            tools:text="$33.33"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tdapCopay"
+            style="@style/H7BoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_75"
+            android:layout_marginTop="15dp"
+            android:text="@string/tdap"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rsvCopay"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tdapCopayValue"
+            style="@style/H7BoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_105"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tdapCopay"
+            tools:text="$22.22"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/zosterCopay"
+            style="@style/H7BoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_75"
+            android:layout_marginTop="15dp"
+            android:text="@string/zoster"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tdapCopay"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/zosterCopayValue"
+            style="@style/H7BoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_105"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/zosterCopay"
+            tools:text="$11.11"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/run_copay_btn"
+            style="@style/H7BoldBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_40"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:gravity="center"
+            android:padding="@dimen/dp_45"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/med_d_cta"
+            tools:text="Run Copay Check"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/med_d_unavailable_text"
+            style="@style/H7RegBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_55"
+            android:layout_marginTop="@dimen/dp_40"
+            android:layout_marginEnd="@dimen/dp_55"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/med_d_cta"
+            tools:visibility="gone" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

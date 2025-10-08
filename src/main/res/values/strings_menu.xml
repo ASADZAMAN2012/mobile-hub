@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--***********************************************************************************************
+  * Copyright VaxCare (c) 2019.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+    <string name="support_flavor_text">For support using the VaxHub call VaxCare at\n1–800–VaxCare (1–800–829–2273).</string>
+    <string name="hi_user_text">Hi %1$s</string>
+    <string name="your_account">Your Account</string>
+    <string name="practice_settings">Practice Settings</string>
+    <string name="log_out">Log Out</string>
+    <string name="drawer_title_vfc_inventory">VFC Inventory</string>
+    <string name="drawer_title_317_inventory">317 Inventory</string>
+    <string name="drawer_title_state_inventory">State Inventory</string>
+    <string name="drawer_title_inventory_count">Inventory Count</string>
+    <string name="drawer_title_inventory_transaction">Inventory Transaction</string>
+    <string name="drawer_title_checkout_report">Checkout Report</string>
+    <string name="drawer_title_fridge_logs">Fridge Logs</string>
+    <string name="drawer_title_vaxhub_info">VaxHub Information</string>
+    <string name="drawer_title_vaxhub_libraries">Libraries</string>
+    <string name="drawer_title_terms_of_service">Terms of Service</string>
+    <string name="drawer_title_privacy_policy">Privacy Policy</string>
+
+    <string name="home">Home</string>
+    <string name="inventory">INVENTORY</string>
+    <string name="inventory_management">MANAGEMENT</string>
+    <string name="private_inventory">Private Inventory</string>
+    <string name="support">SUPPORT</string>
+    <string name="history">History</string>
+    <string name="about">ABOUT</string>
+    <string name="legal">LEGAL</string>
+</resources>

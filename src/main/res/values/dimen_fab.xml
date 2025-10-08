@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+
+    <dimen name="fab_size_42">@dimen/dp_42</dimen>
+    <dimen name="fab_size_40">@dimen/dp_40</dimen>
+    <dimen name="fab_size_36">@dimen/dp_36</dimen>
+    <dimen name="fab_size_30">@dimen/dp_30</dimen>
+    <dimen name="fab_size_25">@dimen/dp_25</dimen>
+    <dimen name="fab_size_21">@dimen/dp_21</dimen>
+    <dimen name="fab_size_10">@dimen/dp_10</dimen>
+
+    <dimen name="fab_max_size_12">@dimen/dp_18</dimen>
+</resources>

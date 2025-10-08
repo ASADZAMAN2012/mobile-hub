@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2024.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/greenCheckImage"
+        android:layout_width="@dimen/dp_247"
+        android:layout_height="@dimen/dp_247"
+        android:layout_marginTop="209dp"
+        android:src="@drawable/ic_icon_green_check"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
+
+    <TextView
+        android:id="@+id/reset_title"
+        style="@style/VaxCareText.Body.B2.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/reset_email_sent"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/greenCheckImage"
+        app:layout_goneMarginTop="173dp"
+        tools:text="Unable to send email" />
+
+    <TextView
+        android:id="@+id/reset_tooltip"
+        style="@style/VaxCareText.Body.B4.Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="177dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/reset_resend_tooltip"
+        android:textAlignment="center"
+        android:textColor="@color/darkGray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/greenCheckImage"
+        app:layout_goneMarginTop="216dp"
+        tools:text="Try again or come back later." />
+
+    <TextView
+        android:id="@+id/reset_pin"
+        style="@style/CtaBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/login_resend_email"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reset_tooltip" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/reset_log_out"
+        style="@style/PrimaryPurpleButton"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_108"
+        android:layout_marginBottom="52dp"
+        android:gravity="center"
+        android:text="@string/log_out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/resend_loading_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/background_color"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ProgressBar
+            android:id="@+id/photo_check_progress_bar"
+            android:layout_width="@dimen/dp_52"
+            android:layout_height="@dimen/dp_52"
+            android:layout_gravity="center"
+            android:layout_marginBottom="100dp"
+            android:indeterminateDrawable="@drawable/progress_circle_purple" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

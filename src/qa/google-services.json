@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "351020109579",
+    "firebase_url": "https://vaxhubs-qa.firebaseio.com",
+    "project_id": "vaxhubs-qa",
+    "storage_bucket": "vaxhubs-qa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:351020109579:android:8f83e8b5f33653a0",
+        "android_client_info": {
+          "package_name": "com.vaxcare.mobilehub.qa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "351020109579-3aq63k3d3e7mo31ss44532v1ok1eelp7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYGsonGPsm40Ubm84CoV7U-16mR2hyI4E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "351020109579-3aq63k3d3e7mo31ss44532v1ok1eelp7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:351020109579:android:14644f16b0716945",
+        "android_client_info": {
+          "package_name": "com.vaxhub.vaxhubpt.qa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "351020109579-fiveuerihgrnloi211ei1u178qfjij41.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vaxhub.vaxhubpt.qa",
+            "certificate_hash": "5b50dd5a2b93adf221445d8905284f31b1e7aa03"
+          }
+        },
+        {
+          "client_id": "351020109579-3aq63k3d3e7mo31ss44532v1ok1eelp7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYGsonGPsm40Ubm84CoV7U-16mR2hyI4E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "351020109579-3aq63k3d3e7mo31ss44532v1ok1eelp7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

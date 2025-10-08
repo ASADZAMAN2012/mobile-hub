@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--***********************************************************************************************
+  * Copyright VaxCare (c) 2019.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+    <integer name="default_animation_short">250</integer>
+    <integer name="admin_fragment_setup_complete_message_delay">3000</integer>
+</resources>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.vaxcare.vaxhub.core.view.VaxToolbar
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/scan_doses" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar">
+
+        <com.vaxcare.vaxhub.core.view.VaxAppBarLayout
+            android:id="@+id/patient_info_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_white"
+            android:orientation="vertical"
+            android:outlineProvider="none">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/collapsing_toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|snap">
+
+                <com.vaxcare.vaxhub.core.view.PatientInfoDrawer
+                    android:id="@+id/patient_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </androidx.appcompat.widget.Toolbar>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/list_gradient">
+
+                <TextView
+                    android:id="@+id/risk_message"
+                    style="@style/CtaSmlWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_42"
+                    android:background="@color/primary_blue"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/dp_84"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/patient_checkout_search_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/scan_view_height"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="31dp"
+                    android:layout_marginTop="18dp"
+                    android:alpha="0"
+                    android:background="@drawable/bg_rounded_corner_viewfinder"
+                    app:cardCornerRadius="@dimen/dp_14"
+                    app:cardElevation="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/risk_message"
+                    tools:alpha="1">
+
+                    <FrameLayout
+                        android:id="@+id/scanner_preview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center" />
+
+                    <com.vaxcare.vaxhub.core.ui.ViewfinderView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:inner_corner_color="@color/primary_purple"
+                        app:inner_corner_length_horizontal="@dimen/dp_50"
+                        app:inner_corner_length_vertical="@dimen/dp_36"
+                        app:inner_height="@dimen/dp_102"
+                        app:inner_stroke_width="@dimen/dp_6"
+                        app:inner_width="@dimen/dp_180" />
+
+                </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:id="@+id/patient_checkout_lot_search_btn"
+                    style="@style/CircleImageButton"
+                    android:layout_width="@dimen/dp_100"
+                    android:layout_height="@dimen/dp_100"
+                    android:layout_marginEnd="@dimen/dp_15"
+                    android:alpha="0"
+                    android:background="@drawable/bg_circle_button_primary_purple"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_search"
+                    app:layout_constraintBottom_toBottomOf="@id/patient_checkout_search_preview"
+                    app:layout_constraintEnd_toEndOf="@id/patient_checkout_search_preview"
+                    app:layout_constraintStart_toEndOf="@id/patient_checkout_search_preview"
+                    app:layout_constraintTop_toTopOf="@id/patient_checkout_search_preview"
+                    app:tint="@color/primary_white"
+                    tools:alpha="1" />
+
+                <TextView
+                    android:id="@+id/patient_empty_text"
+                    style="@style/H3RegBlack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="31dp"
+                    android:layout_marginTop="@dimen/dp_57"
+                    android:alpha="0.2"
+                    android:text="@string/patient_scan_doses_usin"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/patient_checkout_search_preview" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.vaxcare.vaxhub.core.view.VaxAppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_vaccines"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_40"
+            android:layout_marginBottom="@dimen/dp_86"
+            android:overScrollMode="never"
+            android:clipToPadding="false"
+            android:paddingBottom="60dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:itemCount="2"
+            tools:listitem="@layout/rv_checkout_vaccine_item" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_125"
+            android:background="@drawable/list_gradient"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_next"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_32"
+        android:layout_marginBottom="@dimen/dp_74"
+        android:enabled="false"
+        android:src="@drawable/ic_arrow_forward"
+        app:backgroundTint="@color/legacy_fab_bg"
+        app:elevation="@dimen/dp_2"
+        app:fabCustomSize="@dimen/dp_106"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="@dimen/dp_64"
+        app:rippleColor="@color/primary_white"
+        app:tint="@color/primary_white" />
+
+    <FrameLayout
+        android:id="@+id/loading_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/background_color"
+        android:clickable="true"
+        android:elevation="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/textView_loadingDescription"
+            style="@style/H4RegBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/dp_150"
+            android:fontFamily="@font/graphik_regular_italic"
+            android:text="@string/load_appointment_details_in_progress"
+            android:textSize="@dimen/sp_32" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

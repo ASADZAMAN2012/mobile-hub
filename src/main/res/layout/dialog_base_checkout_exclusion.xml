@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2021.                                                                   *
+  ***********************************************************************************************-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dp_42"
+    android:layout_marginEnd="@dimen/dp_42"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dialog_header"
+        style="@style/H6BoldBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_36"
+        tools:text="@string/patient_checkout_prompt_exclusion_title" />
+
+    <TextView
+        android:id="@+id/dialog_body"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_26" />
+
+    <TextView
+        android:id="@+id/dialog_body_payer"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20" />
+
+    <TextView
+        android:id="@+id/dialog_sub_body"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/patient_checkout_base_exclusion_body_bottom"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/dp_40" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_continue"
+        style="@style/PrimaryPurpleButton"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_98"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_50"
+        tools:text="@string/patient_checkout_base_exclusion_continue" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_neutral"
+        style="@style/PrimaryPurpleButton"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_98"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_12"
+        tools:text="@string/patient_checkout_base_exclusion_neutral_fmt" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_delete"
+        style="@style/PrimaryGrayButton"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_98"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_marginBottom="@dimen/dp_50"
+        tools:text="@string/patient_checkout_base_exclusion_cancel" />
+
+</LinearLayout>

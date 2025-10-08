@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_150"
+    android:layout_marginHorizontal="@dimen/dp_10"
+    android:layout_marginBottom="@dimen/dp_6"
+    android:background="@drawable/bg_rounded_white_ripple_item"
+    tools:ignore="HardcodedText">
+
+    <ImageView
+        android:id="@+id/eligibility_icon"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginStart="@dimen/dp_16"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@id/patient_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/patient_name"
+        tools:src="@drawable/ic_eligibility_guaranteed" />
+
+    <TextView
+        android:id="@+id/patient_name"
+        style="@style/H6RegBlack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_73"
+        android:layout_marginTop="@dimen/dp_16"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_goneMarginEnd="@dimen/dp_25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/lot_row_pointless_btn"
+        tools:text="Franklin, John" />
+
+    <TextView
+        android:id="@+id/patient_originator_id_label"
+        style="@style/BodySmlBoldBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_2"
+        android:text="ID"
+        app:layout_constraintStart_toStartOf="@id/patient_name"
+        app:layout_constraintTop_toBottomOf="@id/patient_name" />
+
+    <TextView
+        android:id="@+id/patient_originator_id"
+        style="@style/BodySmlRegBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        app:layout_constraintBaseline_toBaselineOf="@id/patient_originator_id_label"
+        app:layout_constraintStart_toEndOf="@id/patient_originator_id_label"
+        tools:text="1234567890" />
+
+    <TextView
+        android:id="@+id/patient_dob_label"
+        style="@style/BodySmlBoldBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_30"
+        android:text="DOB"
+        app:layout_constraintBaseline_toBaselineOf="@id/patient_originator_id_label"
+        app:layout_constraintStart_toEndOf="@id/patient_originator_id" />
+
+    <TextView
+        android:id="@+id/patient_dob"
+        style="@style/BodySmlRegBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        app:layout_constraintBaseline_toBaselineOf="@id/patient_originator_id_label"
+        app:layout_constraintStart_toEndOf="@id/patient_dob_label"
+        tools:text="06/11/2020" />
+
+    <TextView
+        android:id="@+id/appointment_time"
+        style="@style/BodyRegBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_14"
+        app:layout_constraintStart_toStartOf="@id/patient_name"
+        app:layout_constraintTop_toBottomOf="@id/patient_dob"
+        tools:text="9:00 am" />
+
+    <ImageView
+        android:id="@+id/lot_row_pointless_btn"
+        style="@style/BlueFab"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginEnd="@dimen/dp_25"
+        android:adjustViewBounds="true"
+        android:background="@drawable/bg_circle_button"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:gravity="center"
+        android:padding="@dimen/dp_16"
+        android:src="@drawable/ic_plus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

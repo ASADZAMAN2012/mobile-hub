@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2019.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+
+    <style name="H1RegWhite">
+        <item name="android:textSize">@dimen/sp_180</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_20</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/tiempos_headline_regular</item>
+    </style>
+
+    <style name="H1RegBlack">
+        <item name="android:textSize">@dimen/sp_180</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_20</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/tiempos_headline_regular</item>
+    </style>
+
+    <style name="NumStatBoldWhite">
+        <item name="android:textSize">@dimen/sp_140</item>
+        <item name="android:lineSpacingExtra">-105sp</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="NumStatRegWhite">
+        <item name="android:textSize">@dimen/sp_140</item>
+        <item name="android:lineSpacingExtra">-105sp</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="H2RegWhite">
+        <item name="android:textSize">@dimen/sp_140</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/tiempos_headline_regular</item>
+    </style>
+
+    <style name="H2RegBlack">
+        <item name="android:textSize">@dimen/sp_140</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/tiempos_headline_regular</item>
+    </style>
+
+    <style name="H3RegWhite">
+        <item name="android:textSize">@dimen/sp_100</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_10</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/tiempos_headline_regular</item>
+    </style>
+
+    <style name="H3RegBlack">
+        <item name="android:textSize">@dimen/sp_100</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_10</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/tiempos_headline_regular</item>
+    </style>
+
+    <style name="H4RegWhite">
+        <item name="android:textSize">@dimen/sp_70</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_10</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/tiempos_headline_regular</item>
+    </style>
+
+    <style name="H4RegBlack">
+        <item name="android:textSize">@dimen/sp_70</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_10</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/tiempos_headline_regular</item>
+    </style>
+
+    <style name="H4SemiBlack">
+        <item name="android:textSize">@dimen/sp_36</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_10</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="H33ItalicBlack">
+        <item name="android:textSize">@dimen/sp_36</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_10</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+    </style>
+
+    <style name="NumCountWhite">
+        <item name="android:textSize">@dimen/sp_60</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="NumCountBlack">
+        <item name="android:textSize">@dimen/sp_60</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="NumCountOldWhite">
+        <item name="android:textSize">@dimen/sp_60</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="NumCountOldBlack">
+        <item name="android:textSize">@dimen/sp_60</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="NotesBold">
+        <item name="android:textSize">@dimen/sp_50</item>
+        <item name="android:textColor">@color/primary_coral</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="NotesRegular">
+        <item name="android:textSize">@dimen/sp_50</item>
+        <item name="android:textColor">@color/primary_coral</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="H5BoldWhite">
+        <item name="android:textSize">@dimen/sp_42</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_8</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="H5BoldBlack">
+        <item name="android:textSize">@dimen/sp_42</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_8</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="H5RegWhite">
+        <item name="android:textSize">@dimen/sp_42</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_8</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="H5RegBlack">
+        <item name="android:textSize">@dimen/sp_42</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_8</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="NumPin">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">@dimen/sp_40</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="H6BoldWhite">
+        <item name="android:textSize">@dimen/sp_32</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_6</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="H6BoldBlack">
+        <item name="android:textSize">@dimen/sp_32</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_6</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="NumCountListOldCount">
+        <item name="android:textSize">@dimen/sp_32</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="H6RegWhite">
+        <item name="android:textSize">@dimen/sp_32</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_6</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="H6RegBlack">
+        <item name="android:textSize">@dimen/sp_32</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_6</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="H7BoldBlack">
+        <item name="android:textSize">@dimen/sp_24</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_6</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="LabelL2SemiCaps">
+        <item name="android:textSize">11sp</item>
+        <item name="android:lineSpacingExtra">3sp</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="BoldB3Semi">
+        <item name="android:textSize">17sp</item>
+        <item name="android:lineSpacingExtra">3sp</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="H7RegBlack">
+        <item name="android:textSize">@dimen/sp_24</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_6</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="H7RegItalicBlack">
+        <item name="android:textSize">@dimen/sp_24</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_6</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+    </style>
+
+    <style name="H8Bold">
+        <item name="android:textSize">@dimen/sp_18</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_6</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="H8BoldBlack">
+        <item name="android:textSize">@dimen/sp_18</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_6</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="NotesSpecsBold">
+        <item name="android:textSize">@dimen/sp_24</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_6</item>
+        <item name="android:textColor">@color/primary_coral</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="CtaWhite">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">@dimen/sp_24</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_11</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="CtaBlack">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">@dimen/sp_24</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="BtnTxtBold">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">@dimen/sp_24</item>
+        <item name="android:textColor">@color/primary_purple</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="BtnBoldWhite">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">@dimen/sp_24</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="BodyBoldWhite">
+        <item name="android:textSize">@dimen/sp_24</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_6</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="BodyBoldBlack">
+        <item name="android:textSize">@dimen/sp_24</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_6</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="BodyRegWhite">
+        <item name="android:textSize">@dimen/sp_24</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_6</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="BodyRegBlack">
+        <item name="android:textSize">@dimen/sp_24</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_6</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="BodyItalicWhite">
+        <item name="android:textSize">@dimen/sp_24</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_6</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+    </style>
+
+    <style name="BodyItalicBlack">
+        <item name="android:textSize">@dimen/sp_24</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_6</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+    </style>
+
+    <style name="BodySmlItalicWhite">
+        <item name="android:textSize">@dimen/sp_21</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_5</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+    </style>
+
+    <style name="BodySmlItalicBlack">
+        <item name="android:textSize">@dimen/sp_21</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_5</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+    </style>
+
+    <style name="CtaSmlWhite">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">@dimen/sp_20</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_15</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="BtnSmlBoldWhite">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">@dimen/sp_20</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="BtnSmlBoldBlack">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">@dimen/sp_20</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="PillBoldWhite">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="BodySmlBoldWhite">
+        <item name="android:textSize">@dimen/sp_18</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_5</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="BodySmlBoldBlack">
+        <item name="android:textSize">@dimen/sp_18</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_5</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="BodySmlRegWhite">
+        <item name="android:textSize">@dimen/sp_18</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_5</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="BodySmlRegBlack">
+        <item name="android:textSize">@dimen/sp_18</item>
+        <item name="android:lineSpacingExtra">@dimen/sp_5</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="NotesSpecsRegular">
+        <item name="android:textSize">@dimen/sp_18</item>
+        <item name="android:textColor">@color/primary_coral</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="SuperscriptWhite">
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="SuperscriptBlack">
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="LockKeyPassword">
+        <item name="android:clickable">false</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:inputType">textPassword</item>
+        <item name="android:letterSpacing">0.40</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:textSize">@dimen/sp_80</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="errorRed">
+        <item name="android:textSize">@dimen/sp_24</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+        <item name="android:textColor">@color/error_red</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+    </style>
+
+    <style name="ToolbarTitleLabel">
+        <item name="android:textSize">@dimen/sp_32</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="CalendarLabelBlack">
+        <item name="android:textSize">@dimen/sp_16</item>
+        <item name="android:textColor">@color/primary_black</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="CaptureTip">
+        <item name="android:textSize">@dimen/sp_28</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+    </style>
+
+    <style name="CaptureTipCurrent">
+        <item name="android:textSize">@dimen/sp_32</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="UsersSyncTextReg">
+        <item name="android:textSize">@dimen/sp_18</item>
+        <item name="android:textColor">@color/primary_black</item>
+    </style>
+</resources>

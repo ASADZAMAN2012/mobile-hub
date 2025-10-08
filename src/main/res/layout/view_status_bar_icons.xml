@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/status_bar_icons_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextClock
+        android:id="@+id/status_bar_time"
+        style="@style/VaxCareText.SemiBold.24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_23"
+        android:format12Hour="h:mm a"
+        android:textAllCaps="false"
+        android:textColor="@color/primary_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/status_bar_wireless"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_23"
+        android:layout_marginEnd="@dimen/dp_4"
+        android:src="@drawable/ic_wifi_disconnected"
+        app:layout_constraintRight_toLeftOf="@id/status_bar_system_connectivity"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/status_bar_system_connectivity"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_23"
+        android:layout_marginEnd="@dimen/dp_4"
+        android:src="@drawable/ic_system_disconnected"
+        app:layout_constraintRight_toLeftOf="@id/status_bar_cellular"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/status_bar_cellular"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_23"
+        android:layout_marginEnd="@dimen/dp_4"
+        android:src="@drawable/ic_cellular_disconnected"
+        app:layout_constraintRight_toLeftOf="@id/status_bar_battery_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/status_bar_battery_icon"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_23"
+        android:layout_marginEnd="@dimen/dp_4"
+        android:src="@drawable/ic_battery_power_100"
+        app:layout_constraintRight_toLeftOf="@id/status_bar_battery_percent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/status_bar_battery_percent"
+        style="@style/VaxCareText.SemiBold.24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_23"
+        android:layout_marginEnd="@dimen/dp_90"
+        android:text="@string/_100_percent"
+        android:textColor="@color/primary_white"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

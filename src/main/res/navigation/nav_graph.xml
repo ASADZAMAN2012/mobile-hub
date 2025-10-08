@@ -1,0 +1,1663 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2019.                                                                   *
+  ***********************************************************************************************-->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/splashFragment"
+    tools:ignore="CamelCaseId">
+
+    <fragment
+        android:id="@+id/adminLoginFragment"
+        android:name="com.vaxcare.vaxhub.ui.admin.AdminLoginFragment"
+        android:label="AdminLoginFragment"
+        tools:layout="@layout/fragment_admin_login">
+        <action
+            android:id="@+id/action_adminLoginFragment_to_adminDetailsFragment"
+            app:destination="@id/adminDetailsFragment"
+            app:popUpTo="@id/adminLoginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_adminLoginFragment_to_adminValidateLicenseDialog"
+            app:destination="@id/adminValidateLicenseDialog" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/adminValidateLicenseDialog"
+        android:name="com.vaxcare.vaxhub.ui.admin.AdminValidateLicenseDialog"
+        android:label="AdminValidateLicenseDialog"
+        tools:layout="@layout/dialog_validate_scanner_license" />
+
+    <dialog
+        android:id="@+id/errorPrompt"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.ErrorPrompt"
+        android:label="@string/error"
+        tools:layout="@layout/dialog_error">
+
+        <argument
+            android:name="title"
+            android:defaultValue="@string/error"
+            app:argType="reference" />
+
+        <argument
+            android:name="body"
+            android:defaultValue="@string/error_body"
+            app:argType="reference" />
+
+        <argument
+            android:name="primaryButton"
+            android:defaultValue="@string/button_ok"
+            app:argType="reference" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/errorDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.ErrorDialog"
+        android:label="@string/error"
+        tools:layout="@layout/dialog_error">
+
+        <argument
+            android:name="title"
+            android:defaultValue="@string/error"
+            app:argType="reference" />
+
+        <argument
+            android:name="body"
+            android:defaultValue="@string/error_body"
+            app:argType="reference" />
+
+        <argument
+            android:name="primaryButton"
+            android:defaultValue="@string/retry"
+            app:argType="reference" />
+
+        <argument
+            android:name="secondaryButton"
+            android:defaultValue="@string/button_cancel"
+            app:argType="reference" />
+
+        <argument
+            android:name="optionalArg"
+            android:defaultValue="-1"
+            app:argType="integer" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/invalidScanDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.InvalidScanDialog"
+        android:label="@string/dialog_invalid_scan_title"
+        tools:layout="@layout/dialog_invalid_scan">
+
+        <argument
+            android:name="title"
+            app:argType="string" />
+
+        <argument
+            android:name="displayMessage"
+            app:argType="string" />
+
+        <argument
+            android:name="messageType"
+            app:argType="com.vaxcare.vaxhub.ui.checkout.dialog.InvalidScanMessageType" />
+
+    </dialog>
+
+    <fragment
+        android:id="@+id/adminDetailsFragment"
+        android:name="com.vaxcare.vaxhub.ui.admin.AdminDetailsFragment"
+        android:label="AdminDetailsFragment"
+        tools:layout="@layout/fragment_admin_details">
+        <action
+            android:id="@+id/action_adminDetailsFragment_to_adminSetupOverlay"
+            app:destination="@id/adminSetupOverlayDialog" />
+        <action
+            android:id="@+id/action_adminDetailsFragment_to_enterIDFragment"
+            app:destination="@id/enterIDFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/enterIDFragment"
+        android:name="com.vaxcare.vaxhub.ui.admin.AdminEnterIDFragment"
+        android:label="AdminEnterIDFragment"
+        tools:layout="@layout/fragment_admin_enter_id">
+        <argument
+            android:name="type"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/appointmentListFragment"
+        android:name="com.vaxcare.vaxhub.ui.checkout.AppointmentListFragment"
+        android:label="AppointmentListFragment"
+        tools:layout="@layout/fragment_appointment_list">
+        <action
+            android:id="@+id/action_appointmentListFragment_to_temporaryClinicDialog"
+            app:destination="@id/temporaryClinicDialog" />
+        <action
+            android:id="@+id/action_appointmentListFragment_to_processingAppointmentDialog"
+            app:destination="@id/processingAppointmentDialog" />
+
+        <action
+            android:id="@+id/action_appointmentListFragment_to_collectDobFragment"
+            app:destination="@id/checkoutCollectDobFragment" />
+        <action
+            android:id="@+id/action_appointmentListFragment_to_appointmentSearchFragment"
+            app:destination="@id/appointmentSearchFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/curbsidePatientSearchFragment"
+        android:name="com.vaxcare.vaxhub.ui.checkout.CurbsidePatientSearchFragment"
+        android:label="PatientSearchFragment"
+        tools:layout="@layout/fragment_curbside_patient_search" />
+
+    <fragment
+        android:id="@+id/addAppointmentOrCreatePatientFragment"
+        android:name="com.vaxcare.vaxhub.ui.checkout.appointment.add.AddAppointmentOrCreatePatientFragment"
+        android:label="AddAppointmentOrCreatePatientFragment"
+        tools:layout="@layout/fragment_add_appointment_or_create_patient" />
+
+    <dialog
+        android:id="@+id/processingAppointmentDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.ProcessingAppointmentDialog"
+        android:label="ProcessingAppointmentDialog"
+        tools:layout="@layout/dialog_processing_appointment" />
+
+    <dialog
+        android:id="@+id/changePaymentMethodDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.ChangePaymentMethodDialog"
+        android:label="ChangePaymentMethodDialog"
+        tools:layout="@layout/dialog_change_payment_method">
+        <argument
+            android:name="mode"
+            android:defaultValue="CASH_OR_CHECK"
+            app:argType="com.vaxcare.vaxhub.ui.checkout.ChangePaymentMethodMode" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/notInCOVIDAssistDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.NotInCOVIDAssistDialog"
+        android:label="NotInCOVIDAssistDialog"
+        tools:layout="@layout/dialog_not_in_covid_assist">
+        <argument
+            android:name="checkCovidAction"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </dialog>
+    <dialog
+        android:id="@+id/selectDoseSeriesDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.SelectDoseSeriesDialog"
+        android:label="SelectDoseSeriesDialog"
+        tools:layout="@layout/dialog_dose_series_selection">
+        <argument
+            android:name="selectedVaccineId"
+            app:argType="string" />
+        <argument
+            android:name="dosesInSeries"
+            app:argType="integer" />
+        <argument
+            android:name="doseSeries"
+            app:argType="integer" />
+    </dialog>
+    <dialog
+        android:id="@+id/backCheckoutDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.BackCheckoutDialog"
+        android:label="BackCheckoutDialog"
+        tools:layout="@layout/dialog_back_checkout" />
+
+    <dialog
+        android:id="@+id/covidHighRiskAttestationDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.AgeWarningBooleanPromptDialog"
+        android:label="CovidHighRiskAttestationDialog"
+        tools:layout="@layout/dialog_age_warning_boolean_prompt">
+
+        <argument
+            android:name="title"
+            app:argType="string" />
+
+        <argument
+            android:name="message"
+            app:argType="string" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/scannedDoseIssueDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.ScannedDoseIssueDialog"
+        android:label="ScannedDoseIssueDialog"
+        tools:layout="@layout/dialog_checkout_scanned_dose_issues">
+
+        <argument
+            android:name="productIssue"
+            android:defaultValue="@null"
+            app:argType="com.vaxcare.vaxhub.model.checkout.ProductIssue"
+            app:nullable="true" />
+
+    </dialog>
+    <dialog
+        android:id="@+id/checkoutPromptMedDExclusionDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.CheckoutPromptMedDExclusionDialog"
+        android:label="CheckoutPromptMedDExclusionDialog"
+        tools:layout="@layout/dialog_base_checkout_exclusion" />
+    <dialog
+        android:id="@+id/checkoutPromptExclusionDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.CheckoutPromptExclusionDialog"
+        android:label="CheckoutPromptExclusionDialog"
+        tools:layout="@layout/dialog_base_checkout_exclusion" />
+    <dialog
+        android:id="@+id/checkoutOutOfAgeExclusionDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.CheckoutOutOfAgeExclusionDialog"
+        android:label="CheckoutOutOfAgeExclusionDialog"
+        tools:layout="@layout/dialog_base_checkout_exclusion" />
+    <dialog
+        android:id="@+id/medDReviewCopayDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.MedDReviewCopayDialog"
+        android:label="MedDReviewCopayDialog"
+        tools:layout="@layout/dialog_med_d_check">
+        <argument
+            android:name="appointment_id"
+            app:argType="integer" />
+        <argument
+            android:name="copay_antigen"
+            android:defaultValue="None"
+            app:argType="string" />
+        <argument
+            android:name="isCheckMbi"
+            app:argType="boolean" />
+        <argument
+            android:name="isMedDCheckStartedAlready"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_medDReviewCopayDialog_to_medDCheckFragment"
+            app:destination="@id/medDCheckFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/checkoutPromptRemoveDoseDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.CheckoutPromptRemoveDoseDialog"
+        android:label="CheckoutPromptRemoveDoseDialog"
+        tools:layout="@layout/dialog_base_checkout_exclusion" />
+    <dialog
+        android:id="@+id/routeRequiredDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.RouteRequiredDialog"
+        android:label="RouteRequiredDialog"
+        tools:layout="@layout/dialog_route_required">
+        <argument
+            android:name="productId"
+            app:argType="integer" />
+        <argument
+            android:name="productName"
+            app:argType="string" />
+        <argument
+            android:name="appointmentId"
+            app:argType="integer" />
+        <argument
+            android:name="lotNumber"
+            app:argType="string" />
+    </dialog>
+    <dialog
+        android:id="@+id/duplicateRSVExceptionDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.DuplicateRSVExceptionDialog"
+        android:label="DuplicateRSVExceptionDialog"
+        tools:layout="@layout/dialog_duplicate_rsv_exception">
+        <argument
+            android:name="shouldShowPaymentFlip"
+            app:argType="boolean" />
+        <argument
+            android:name="otPayRate"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </dialog>
+    <dialog
+        android:id="@+id/wrongStockDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.WrongStockDialog"
+        android:label="RouteRequiredDialog"
+        tools:layout="@layout/dialog_wrong_stock_selected">
+        <argument
+            android:name="appointment_stock_type"
+            app:argType="string" />
+        <argument
+            android:name="is_stock_selector"
+            app:argType="boolean" />
+    </dialog>
+    <dialog
+        android:id="@+id/refreshOrdersDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.RefreshOrdersDialog"
+        android:label="RefreshOrdersDialog"
+        tools:layout="@layout/base_dialog_layout"></dialog>
+    <dialog
+        android:id="@+id/confirmEnteredLotNumberDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.ConfirmEnteredLotNumberDialog"
+        android:label="ConfirmEnteredLotNumberDialog"
+        tools:layout="@layout/dialog_confirm_entered_lot_number">
+        <argument
+            android:name="entered_lot_number"
+            app:argType="string" />
+    </dialog>
+    <dialog
+        android:id="@+id/troubleConnectingDialog"
+        android:name="com.vaxcare.vaxhub.ui.dialog.TroubleConnectingDialog"
+        android:label="TroubleConnectingDialog"
+        tools:layout="@layout/dialog_trouble_connecting">
+        <argument
+            android:name="bodyStringRes"
+            app:argType="integer" />
+    </dialog>
+    <dialog
+        android:id="@+id/patientInfoConfirmationDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.PatientInfoConfirmationDialog"
+        android:label="PatientInfoConfirmationDialog"
+        tools:layout="@layout/dialog_patient_info_confirmation">
+        <argument
+            android:name="firstName"
+            app:argType="string" />
+        <argument
+            android:name="lastName"
+            app:argType="string" />
+        <argument
+            android:name="dateOfBirth"
+            app:argType="string" />
+        <argument
+            android:name="address"
+            app:argType="string" />
+    </dialog>
+
+    <fragment
+        android:id="@+id/medDCheckFragment"
+        android:name="com.vaxcare.vaxhub.ui.checkout.MedDCheckFragment"
+        android:label="MedDCheckFragment"
+        tools:layout="@layout/fragment_med_d_check">
+        <argument
+            android:name="appointment_id"
+            app:argType="integer" />
+        <argument
+            android:name="checkout_context"
+            app:argType="integer" />
+        <argument
+            android:name="copay_antigen"
+            android:defaultValue="None"
+            app:argType="string" />
+        <argument
+            android:name="isCheckMbi"
+            app:argType="boolean" />
+        <argument
+            android:name="isMedDCheckStartedAlready"
+            app:argType="boolean" />
+        <argument
+            android:name="medDCheckStartedAt"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/checkoutPatientFragment"
+        android:name="com.vaxcare.vaxhub.ui.checkout.CheckoutPatientFragment"
+        android:label="CheckoutVaccineFragment"
+        tools:layout="@layout/fragment_patient_checkout">
+        <argument
+            android:name="appointment_checkout_meta_data"
+            app:argType="com.vaxcare.vaxhub.core.ui.appointment.AppointmentCheckoutMetaData" />
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_covidHighRiskAttestationDialog"
+            app:destination="@id/covidHighRiskAttestationDialog" />
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_scannedDoseIssueDialog"
+            app:destination="@id/scannedDoseIssueDialog" />
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_backCheckoutDialog"
+            app:destination="@id/backCheckoutDialog" />
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_selectDoseSeriesDialog"
+            app:destination="@id/selectDoseSeriesDialog" />
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_notInCOVIDAssistDialog"
+            app:destination="@id/notInCOVIDAssistDialog" />
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_checkoutPromptMedDExclusionDialog"
+            app:destination="@id/checkoutPromptMedDExclusionDialog" />
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_checkoutPromptExclusionDialog"
+            app:destination="@id/checkoutPromptExclusionDialog" />
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_checkoutOutOfAgeExclusionDialog"
+            app:destination="@id/checkoutOutOfAgeExclusionDialog" />
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_medDReviewCopayDialog"
+            app:destination="@id/medDReviewCopayDialog" />
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_checkoutPromptRemoveDoseDialog"
+            app:destination="@id/checkoutPromptRemoveDoseDialog" />
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_doseReasonFragment"
+            app:destination="@id/doseReasonFragment" />
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_CollectDemoInfoFragment"
+            app:destination="@id/checkoutCollectDemographicsFragment" />
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_CollectPayerInfoFragment"
+            app:destination="@id/checkoutCollectPayerLandingFragment" />
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_collectPayerFragment"
+            app:destination="@id/checkoutCollectPayerFragment" />
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_MedDCheckFragment"
+            app:destination="@id/medDCheckFragment" />
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_RouteRequiredDialog"
+            app:destination="@+id/routeRequiredDialog">
+            <argument
+                android:name="productId"
+                app:argType="integer" />
+            <argument
+                android:name="productName"
+                app:argType="string" />
+            <argument
+                android:name="appointmentId"
+                app:argType="integer" />
+            <argument
+                android:name="lotNumber"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_wrongStockDialog"
+            app:destination="@+id/wrongStockDialog">
+            <argument
+                android:name="appointment_stock_type"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_checkoutPatientFragment_to_refreshOrdersDialog"
+            app:destination="@id/refreshOrdersDialog" />
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_duplicateRSVExceptionDialog"
+            app:destination="@+id/duplicateRSVExceptionDialog">
+            <argument
+                android:name="shouldShowPaymentFlip"
+                app:argType="boolean" />
+            <argument
+                android:name="otPayRate"
+                android:defaultValue="@null"
+                app:argType="string"
+                app:nullable="true" />
+        </action>
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_scanInsuranceFragment"
+            app:destination="@id/checkoutCollectInsuranceFragment" />
+        <action
+            android:id="@+id/action_checkoutVaccineFragment_to_summaryFragment"
+            app:destination="@id/checkoutSummaryFragment"></action>
+    </fragment>
+    <fragment
+        android:id="@+id/doseReasonFragment"
+        android:name="com.vaxcare.vaxhub.ui.checkout.DoseReasonFragment"
+        android:label="UnorderedDoseReasonFragment"
+        tools:layout="@layout/fragment_checkout_review_doses">
+
+        <argument
+            android:name="infoWrapper"
+            android:defaultValue="@null"
+            app:argType="com.vaxcare.vaxhub.model.patient.InvalidInfoWrapper"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_doseReasonFragment_to_checkoutSummaryFragment"
+            app:destination="@id/checkoutSummaryFragment" />
+
+        <action
+            android:id="@+id/action_doseReason_to_CollectDemoInfoFragment"
+            app:destination="@id/checkoutCollectDemographicsFragment" />
+
+        <action
+            android:id="@+id/action_doseReason_to_CollectPayerInfoFragment"
+            app:destination="@id/checkoutCollectPayerLandingFragment" />
+
+        <action
+            android:id="@+id/action_doseReason_to_collectPayerFragment"
+            app:destination="@id/checkoutCollectPayerFragment" />
+
+        <action
+            android:id="@+id/action_doseReason_to_collectInsuranceFragment"
+            app:destination="@id/checkoutCollectInsuranceFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/checkoutCollectDobFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.CheckoutCollectDobFragment"
+        android:label="CheckoutCollectDobFragment"
+        tools:layout="@layout/fragment_checkout_collect_dob">
+        <argument
+            android:name="appointment_id"
+            app:argType="integer" />
+        <argument
+            android:name="patient_id"
+            app:argType="integer" />
+        <argument
+            android:name="isForceRiskFree"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="isLocallyCreated"
+            android:defaultValue="false"
+            app:argType="boolean" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addAppointmentFragment"
+        android:name="com.vaxcare.vaxhub.ui.checkout.AddAppointmentFragment"
+        android:label="AddAppointmentFragment"
+        tools:layout="@layout/fragment_add_appointment">
+        <argument
+            android:name="appointmentListDate"
+            android:defaultValue="@null"
+            app:argType="java.time.LocalDate"
+            app:nullable="true" />
+        <argument
+            android:name="isOffline"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_addAppointmentFragment_to_curbsideConfirmPatientInfoFragment"
+            app:destination="@id/curbsideConfirmPatientInfoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/appointmentSearchFragment"
+        android:name="com.vaxcare.vaxhub.ui.checkout.AppointmentSearchFragment"
+        android:label="AppointmentSearchFragment"
+        tools:layout="@layout/fragment_appointment_search">
+        <argument
+            android:name="appointment_list_date"
+            android:defaultValue="@null"
+            app:argType="java.time.LocalDate"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_appointmentSearchFragment_to_addAppointmentFragment"
+            app:destination="@id/addAppointmentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/checkoutCollectDemographicsFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.CheckoutCollectDemographicInfoFragment"
+        android:label="CheckoutCollectDemographicInfoFragment"
+        tools:layout="@layout/fragment_collect_demographic_info">
+        <action
+            android:id="@+id/action_collectDemographicsFragment_to_checkoutSummaryFragment"
+            app:destination="@id/checkoutSummaryFragment" />
+
+        <action
+            android:id="@+id/action_collectDemographicsFragment_to_collectPayerInfoFragment"
+            app:destination="@id/checkoutCollectPayerLandingFragment" />
+
+        <action
+            android:id="@+id/action_collectDemographicsFragment_to_collectPayerFragment"
+            app:destination="@id/checkoutCollectPayerFragment" />
+
+        <action
+            android:id="@+id/action_collectDemographicsFragment_to_collectInsuranceFragment"
+            app:destination="@id/checkoutCollectInsuranceFragment" />
+
+        <argument
+            android:name="infoWrapper"
+            app:argType="com.vaxcare.vaxhub.model.patient.InvalidInfoWrapper" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/checkoutCollectPayerLandingFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.CheckoutCollectPayerInfoFragment"
+        android:label="CheckoutCollectPayerInfoFragment"
+        tools:layout="@layout/fragment_collect_payer_landing">
+
+        <action
+            android:id="@+id/action_collectPayerInfoFragment_to_checkoutSummaryFragment"
+            app:destination="@id/checkoutSummaryFragment" />
+
+        <action
+            android:id="@+id/action_collectPayerInfoFragment_to_collectPayerFragment"
+            app:destination="@id/checkoutCollectPayerFragment" />
+
+        <action
+            android:id="@+id/action_collectPayerInfoFragment_to_patientNoCardFragment"
+            app:destination="@id/patientHandToPatientFragment" />
+
+        <action
+            android:id="@+id/action_collectPayerInfoFragment_to_collectInsuranceFragment"
+            app:destination="@id/checkoutCollectInsuranceFragment" />
+
+        <argument
+            android:name="infoWrapper"
+            app:argType="com.vaxcare.vaxhub.model.patient.InvalidInfoWrapper" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/checkoutCollectPayerFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.CheckoutCollectPayerFragment"
+        android:label="CheckoutCollectPayerFragment"
+        tools:layout="@layout/fragment_select_payer">
+
+        <action
+            android:id="@+id/action_collectPayerFragment_to_checkoutSummaryFragment"
+            app:destination="@id/checkoutSummaryFragment" />
+
+        <action
+            android:id="@+id/action_collectPayerFragment_to_collectInsuranceFragment"
+            app:destination="@id/checkoutCollectInsuranceFragment" />
+
+        <action
+            android:id="@+id/action_collectPayerFragment_to_patientNoCardFragment"
+            app:destination="@id/patientHandToPatientFragment" />
+
+
+        <argument
+            android:name="infoWrapper"
+            app:argType="com.vaxcare.vaxhub.model.patient.InvalidInfoWrapper" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/checkoutCollectInsuranceFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.CheckoutCollectInsuranceFragment"
+        android:label="CheckoutCollectInsuranceFragment"
+        tools:layout="@layout/fragment_edit_patient_insurance">
+
+        <argument
+            android:name="payer"
+            android:defaultValue="@null"
+            app:argType="com.vaxcare.vaxhub.model.Payer"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_collectInsuranceFragment_to_checkoutSummaryFragment"
+            app:destination="@id/checkoutSummaryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/checkoutFrontInsuranceFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.PatientEditFrontInsuranceFragment"
+        android:label="PatientEditFrontInsuranceFragment"
+        tools:layout="@layout/fragment_base_edit_insurance" />
+
+    <fragment
+        android:id="@+id/checkoutBackInsuranceFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.PatientEditBackInsuranceFragment"
+        android:label="PatientEditBackInsuranceFragment"
+        tools:layout="@layout/fragment_base_edit_insurance" />
+
+    <fragment
+        android:id="@+id/checkoutSummaryFragment"
+        android:name="com.vaxcare.vaxhub.ui.checkout.summary.CheckoutSummaryFragment"
+        android:label="CheckoutSummaryFragment"
+        tools:layout="@layout/fragment_patient_checkout_summary">
+        <argument
+            android:name="appointment_id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_checkoutSummaryFragment_to_checkoutComplete"
+            app:destination="@id/checkoutComplete" />
+        <action
+            android:id="@+id/action_checkoutSummaryFragment_to_medDCopayDialog"
+            app:destination="@id/medDCopayDialog" />
+        <action
+            android:id="@+id/action_checkoutSummaryFragment_to_SelfPayDialog"
+            app:destination="@id/selfPayDialog" />
+        <action
+            android:id="@+id/action_checkoutSummaryFragment_to_paymentSummaryFragment"
+            app:destination="@id/paymentSummaryFragment" />
+        <action
+            android:id="@+id/action_checkoutSummaryFragment_to_medDSignatureCollectFragment"
+            app:destination="@id/medDSignatureCollectFragment" />
+
+    </fragment>
+
+    <dialog
+        android:id="@+id/medDCopayDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.MedDCopayDialog"
+        android:label="MedDCopayDialog"
+        tools:layout="@layout/dialog_med_d_copay">
+
+        <argument
+            android:name="appointmentId"
+            app:argType="integer" />
+
+        <argument
+            android:name="current_phone"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="enable_phone_collection"
+            app:argType="boolean" />
+
+        <action
+            android:id="@+id/action_medDCopayDialog_to_collectPaymentFragment"
+            app:destination="@id/collectPaymentFragment" />
+
+        <action
+            android:id="@+id/action_medDCopayDialog_to_paymentSummaryFragment"
+            app:destination="@id/paymentSummaryFragment" />
+
+    </dialog>
+
+    <dialog
+        android:id="@+id/selfPayDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.SelfPayDialog"
+        android:label="SelfPayDialog"
+        tools:layout="@layout/dialog_self_pay">
+
+        <argument
+            android:name="appointmentId"
+            app:argType="integer" />
+
+        <argument
+            android:name="current_phone"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="enable_phone_collection"
+            app:argType="boolean" />
+
+        <action
+            android:id="@+id/action_selfPayDialog_to_collectPaymentFragment"
+            app:destination="@id/collectPaymentFragment" />
+
+        <action
+            android:id="@+id/action_selfPayDialog_to_paymentSummaryFragment"
+            app:destination="@id/paymentSummaryFragment" />
+
+    </dialog>
+
+    <fragment
+        android:id="@+id/paymentSummaryFragment"
+        android:name="com.vaxcare.vaxhub.ui.checkout.summary.PaymentSummaryFragment"
+        android:label="PaymentSummaryFragment"
+        tools:layout="@layout/fragment_payment_summary">
+
+        <argument
+            android:name="appointmentId"
+            app:argType="integer" />
+
+        <argument
+            android:name="paymentInformation"
+            android:defaultValue="@null"
+            app:argType="com.vaxcare.vaxhub.model.PaymentInformationRequestBody"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_paymentSummaryFragment_to_medDSignatureCollectFragment"
+            app:destination="@id/medDSignatureCollectFragment" />
+
+        <action
+            android:id="@+id/action_paymentSummaryFragment_to_collectPaymentFragment"
+            app:destination="@id/collectPaymentFragment" />
+
+        <action
+            android:id="@+id/action_paymentSummaryFragment_to_paymentSubmitFragment"
+            app:destination="@id/paymentSubmitFragment" />
+        <action
+            android:id="@+id/action_paymentSummaryFragment_to_changePaymentMethodDialog"
+            app:destination="@id/changePaymentMethodDialog" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/collectPaymentFragment"
+        android:name="com.vaxcare.vaxhub.ui.checkout.CollectPaymentFragment"
+        android:label="CollectPaymentFragment"
+        tools:layout="@layout/fragment_collect_payment">
+
+        <argument
+            android:name="ordinalFlow"
+            android:defaultValue="-1"
+            app:argType="integer" />
+
+        <argument
+            android:name="current_phone"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="enable_phone_collection"
+            app:argType="boolean" />
+
+        <action
+            android:id="@+id/action_collectPaymentFragment_to_paymentSummaryFragment"
+            app:destination="@id/paymentSummaryFragment" />
+
+        <action
+            android:id="@+id/action_collectPaymentFragment_to_patientNoCardFragment"
+            app:destination="@id/patientHandToPatientFragment" />
+
+        <action
+            android:id="@+id/action_collectPaymentFragment_to_checkoutNurseDisclaimerFragment"
+            app:destination="@id/checkoutNurseDisclaimerFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/checkoutNurseDisclaimerFragment"
+        android:name="com.vaxcare.vaxhub.ui.checkout.CheckoutNurseDisclaimerFragment"
+        android:label="CheckoutNurseDisclaimerFragment"
+        tools:layout="@layout/fragment_checkout_nurse_disclaimer">
+
+        <argument
+            android:name="preAccepted"
+            app:argType="boolean" />
+
+        <argument
+            android:name="appointmentId"
+            app:argType="integer" />
+
+        <argument
+            android:name="paymentInformation"
+            android:defaultValue="@null"
+            app:argType="com.vaxcare.vaxhub.model.PaymentInformationRequestBody"
+            app:nullable="true" />
+
+
+        <action
+            android:id="@+id/action_checkoutNurseDisclaimerFragment_to_paymentSummaryFragment"
+            app:destination="@id/paymentSummaryFragment" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/medDSignatureCollectFragment"
+        android:name="com.vaxcare.vaxhub.ui.checkout.MedDSignatureCollectFragment"
+        android:label="MedDSignatureCollectFragment"
+        tools:layout="@layout/fragment_med_d_signature_collect">
+
+        <argument
+            android:name="paymentInformation"
+            android:defaultValue="@null"
+            app:argType="com.vaxcare.vaxhub.model.PaymentInformationRequestBody"
+            app:nullable="true" />
+
+        <argument
+            android:name="signatureUri"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_medDSignatureCollectFragment_to_paymentSubmitFragment"
+            app:destination="@id/paymentSubmitFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/paymentSubmitFragment"
+        android:name="com.vaxcare.vaxhub.ui.checkout.PaymentSubmitFragment"
+        android:label="PaymentSubmitFragment"
+        tools:layout="@layout/fragment_payment_submit">
+
+        <argument
+            android:name="paymentInformation"
+            android:defaultValue="@null"
+            app:argType="com.vaxcare.vaxhub.model.PaymentInformationRequestBody"
+            app:nullable="true" />
+
+        <argument
+            android:name="fileUri"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="selfpay_cash_or_check"
+            android:defaultValue="false"
+            app:argType="boolean" />
+
+        <action
+            android:id="@+id/action_paymentSubmitFragment_to_checkoutComplete"
+            app:destination="@id/checkoutComplete" />
+        <action
+            android:id="@+id/action_paymentSubmitFragment_to_paymentSummaryFragment"
+            app:destination="@id/paymentSummaryFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/checkoutComplete"
+        android:name="com.vaxcare.vaxhub.ui.checkout.CheckoutCompleteFragment"
+        android:label="CheckoutComplete"
+        tools:layout="@layout/fragment_checkout_complete">
+        <argument
+            android:name="shot_count"
+            app:argType="integer" />
+        <argument
+            android:name="is_multiple_payment"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_checkoutComplete_to_confirmParentInfoFragment"
+            app:destination="@id/confirmParentInfoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/confirmParentInfoFragment"
+        android:name="com.vaxcare.vaxhub.ui.checkout.ConfirmParentInfoFragment"
+        android:label="ConfirmParentInfoFragment"
+        tools:layout="@layout/fragment_confirm_parent_info">
+        <argument
+            android:name="appointment_id"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addNewLotFragment"
+        android:name="com.vaxcare.vaxhub.ui.checkout.AddNewLotFragment"
+        android:label="AddNewLotFragment"
+        tools:layout="@layout/fragment_lot_add_new">
+
+        <argument
+            android:name="lotNumber"
+            app:argType="string" />
+
+        <argument
+            android:name="appointmentId"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="relativeDoS"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_addNewLotFragment_to_notInCOVIDAssistDialog"
+            app:destination="@id/notInCOVIDAssistDialog" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/lotLookupFragment"
+        android:name="com.vaxcare.vaxhub.ui.checkout.LotLookupFragment"
+        android:label="dialog_lot_lookup"
+        tools:layout="@layout/fragment_lot_lookup">
+        <action
+            android:id="@+id/action_lotLookupFragment_to_addNewLotFragment"
+            app:destination="@id/addNewLotFragment" />
+        <action
+            android:id="@+id/action_lotLookupFragment_to_confirmEnteredLotNumberDialog"
+            app:destination="@+id/confirmEnteredLotNumberDialog" />
+        <argument
+            android:name="productId"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <argument
+            android:name="appointmentId"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="relativeDoS"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/adminSetupOverlayDialog"
+        android:name="com.vaxcare.vaxhub.ui.admin.AdminSetupOverlay"
+        android:label="AdminSetupOverlayDialog"
+        tools:layout="@layout/overlay_setting_up_vaxhub" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.vaxcare.vaxhub.ui.login.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_pinLockFragment"
+            app:destination="@id/pinLockFragment"
+            app:enterAnim="@anim/fadein"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/fadein"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_outOfDateFragment"
+            app:destination="@id/outOfDateFragment"
+            app:enterAnim="@anim/fadein"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/outOfDateFragment"
+        android:name="com.vaxcare.vaxhub.ui.login.OutOfDateFragment"
+        android:label="OutOfDateFragment"
+        tools:layout="@layout/fragment_out_of_date">
+        <argument
+            android:name="severity"
+            app:argType="com.vaxcare.core.model.enums.UpdateSeverity" />
+        <argument
+            android:name="partner_name"
+            app:argType="string" />
+        <argument
+            android:name="clinic_name"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/pinLockFragment"
+        android:name="com.vaxcare.vaxhub.ui.login.PinLockFragment"
+        android:label="PinLockFragment"
+        tools:layout="@layout/fragment_pin_lock">
+        <argument
+            android:name="pin_lock_action"
+            android:defaultValue="LOGIN"
+            app:argType="com.vaxcare.vaxhub.ui.login.PinLockAction" />
+        <argument
+            android:name="appointment_list_date"
+            android:defaultValue="@null"
+            app:argType="java.time.LocalDate"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_pinLockFragment_to_appointmentListFragment"
+            app:destination="@id/appointmentListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.vaxcare.vaxhub.ui.login.sso.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_sso_login">
+        <argument
+            android:name="appointment_list_date"
+            android:defaultValue="@null"
+            app:argType="java.time.LocalDate"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_appointmentListFragment"
+            app:destination="@id/appointmentListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginPinFragment"
+        android:name="com.vaxcare.vaxhub.ui.login.sso.LoginPinFragment"
+        android:label="LoginPinFragment"
+        tools:layout="@layout/fragment_sso_pin">
+        <argument
+            android:name="options"
+            app:argType="com.vaxcare.vaxhub.model.login.LoginOptions" />
+
+        <action
+            android:id="@+id/action_loginPinFragment_to_resetPinConfirmFragment"
+            app:destination="@id/resetPinConfirmFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginPasswordFragment"
+        android:name="com.vaxcare.vaxhub.ui.login.sso.LoginPasswordFragment"
+        android:label="LoginPasswordFragment"
+        tools:layout="@layout/fragment_sso_password">
+        <argument
+            android:name="options"
+            app:argType="com.vaxcare.vaxhub.model.login.LoginOptions" />
+    </fragment>
+    <fragment
+        android:id="@+id/resetPinConfirmFragment"
+        android:name="com.vaxcare.vaxhub.ui.login.sso.ResetPinConfirmFragment"
+        android:label="ResetPinConfirmFragment"
+        tools:layout="@layout/fragment_sso_reset_confirmation">
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="success"
+            app:argType="boolean" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/temporaryClinicDialog"
+        android:name="com.vaxcare.vaxhub.ui.checkout.dialog.TemporaryClinicDialog"
+        android:label="TemporaryClinicDialog"
+        tools:layout="@layout/dialog_temporary_clinic">
+        <argument
+            android:name="header"
+            app:argType="string" />
+    </dialog>
+
+    <fragment
+        android:id="@+id/curbsideAddNewPatientFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.CurbsideAddNewPatientFragment"
+        android:label="CurbsideAddNewPatientFragment"
+        tools:layout="@layout/fragment_curbside_add_new_patient">
+        <argument
+            android:name="appointment_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <argument
+            android:name="add_patient_source"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_AddNewPatientFragment_to_captureFrontDriverLicenseFragment"
+            app:destination="@id/captureFrontDriverLicenseFragment" />
+        <action
+            android:id="@+id/action_addNewPatientFragment_to_keepDeviceDialog"
+            app:destination="@id/keepDeviceDialog" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addNewPatientFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.AddNewPatientFragment"
+        android:label="AddNewPatientFragment"
+        tools:layout="@layout/fragment_add_new_patient">
+        <action
+            android:id="@+id/action_addNewPatientFragment_to_addNewPatientExitDialog"
+            app:destination="@id/addNewPatientExitDialog" />
+        <action
+            android:id="@+id/action_addNewPatientFragment_to_selectPayerFragment"
+            app:destination="@id/selectPayerFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/addNewPatientExitDialog"
+        android:name="com.vaxcare.vaxhub.ui.patient.AddNewPatientExitDialog"
+        android:label="AddNewPatientExitDialog"
+        tools:layout="@layout/dialog_add_new_patient_exit" />
+
+    <fragment
+        android:id="@+id/addNewPayerInfoFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.AddNewPayerInfoFragment"
+        android:label="AddNewPayerInfoFragment"
+        tools:layout="@layout/fragment_add_new_payer_info">
+        <action
+            android:id="@+id/action_addNewPayerInfoFragment_to_confirmPatientInfoFragment"
+            app:destination="@id/confirmPatientInfoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/captureFrontDriverLicenseFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.CaptureFrontDriverLicenseFragment"
+        android:label="CaptureFrontDriverLicenseFragment"
+        tools:layout="@layout/fragment_base_capture">
+        <argument
+            android:name="appointment_id"
+            app:argType="integer" />
+        <argument
+            android:name="add_patient_source"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_go_to_captureViewerFrontDriverLicenseFragment"
+            app:destination="@id/captureViewerFrontDriverLicenseFragment" />
+        <action
+            android:id="@+id/action_captureDriverLicenseFragment_to_curbsideSelectPayerFragment"
+            app:destination="@id/curbsideSelectPayerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/captureViewerFrontDriverLicenseFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.CaptureViewerFrontDriverLicenseFragment"
+        android:label="CaptureViewerFrontDriverLicenseFragment"
+        tools:layout="@layout/fragment_base_capture_viewer">
+        <argument
+            android:name="appointment_id"
+            app:argType="integer" />
+        <argument
+            android:name="add_patient_source"
+            app:argType="integer" />
+        <argument
+            android:name="capture_photo_url"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_captureViewerDriverLicenseFragment_to_curbsideSelectPayerFragment"
+            app:destination="@id/curbsideSelectPayerFragment"
+            app:enterAnim="@anim/fadein"
+            app:popUpTo="@id/captureViewerFrontDriverLicenseFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/curbsideSelectPayerFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.CurbsideSelectPayerFragment"
+        android:label="CurbsideSelectPayerFragment"
+        tools:layout="@layout/fragment_select_payer">
+        <action
+            android:id="@+id/action_curbsideSelectPayerFragment_to_captureFrontInsuranceFragment"
+            app:destination="@id/captureFrontInsuranceFragment" />
+        <action
+            android:id="@+id/action_curbsideSelectPayerFragment_to_selectOtherPayerDialog"
+            app:destination="@id/selectOtherPayerDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectPayerFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.SelectPayerFragment"
+        android:label="SelectPayerFragment"
+        tools:layout="@layout/fragment_select_payer">
+        <action
+            android:id="@+id/action_selectPayerFragment_to_captureFrontInsuranceFragment"
+            app:destination="@id/captureFrontInsuranceFragment" />
+        <action
+            android:id="@+id/action_selectPayerFragment_to_selectOtherPayerDialog"
+            app:destination="@id/selectOtherPayerDialog" />
+        <action
+            android:id="@+id/action_selectPayerFragment_to_addNewPayerInfoFragment"
+            app:destination="@id/addNewPayerInfoFragment" />
+        <action
+            android:id="@+id/action_selectPayerFragment_to_confirmPatientInfoFragment"
+            app:destination="@id/confirmPatientInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/captureFrontInsuranceFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.CaptureFrontInsuranceFragment"
+        android:label="CaptureFrontInsuranceFragment"
+        tools:layout="@layout/fragment_base_capture">
+        <action
+            android:id="@+id/action_captureDriverLicenseFragment_to_captureViewerFrontInsuranceFragment"
+            app:destination="@id/captureViewerFrontInsuranceFragment" />
+        <action
+            android:id="@+id/action_captureFrontInsuranceFragment_to_patientNoCardFragment"
+            app:destination="@id/patientHandToPatientFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/captureViewerFrontInsuranceFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.CaptureViewerFrontInsuranceFragment"
+        android:label="CaptureViewerFrontInsuranceFragment"
+        tools:layout="@layout/fragment_base_capture_viewer">
+        <argument
+            android:name="capture_photo_url"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_captureViewerFrontInsuranceFragment_to_captureBackInsuranceFragment"
+            app:destination="@id/captureBackInsuranceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/captureBackInsuranceFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.CaptureBackInsuranceFragment"
+        android:label="CaptureBackInsuranceFragment"
+        tools:layout="@layout/fragment_base_capture">
+        <action
+            android:id="@+id/action_captureBackInsuranceFragment_to_captureViewerBackInsuranceFragment"
+            app:destination="@id/captureViewerBackInsuranceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/captureViewerBackInsuranceFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.CaptureViewerBackInsuranceFragment"
+        android:label="CaptureViewerBackInsuranceFragment"
+        tools:layout="@layout/fragment_base_capture_viewer">
+        <argument
+            android:name="capture_photo_url"
+            app:argType="string" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/selectOtherPayerDialog"
+        android:name="com.vaxcare.vaxhub.ui.patient.SelectOtherPayerDialog"
+        android:label="SelectOtherPayerDialog"
+        tools:layout="@layout/dialog_select_other_payer" />
+
+    <dialog
+        android:id="@+id/keepDeviceDialog"
+        android:name="com.vaxcare.vaxhub.ui.patient.KeepDeviceInHandsDialog"
+        android:label="KeepDeviceInHandsDialog"
+        tools:layout="@layout/dialog_keep_device_in_hands">
+        <argument
+            android:name="isAddPatientFlow"
+            android:defaultValue="false"
+            app:argType="boolean" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/sameInsuranceDialog"
+        android:name="com.vaxcare.vaxhub.ui.patient.SameInsuranceDialog"
+        android:label="SameInsuranceDialog"
+        tools:layout="@layout/dialog_same_insurance" />
+
+    <fragment
+        android:id="@+id/patientScanDriverLicenseFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.PatientScanDriverLicenseFragment"
+        android:label="PatientScanDriverLicenseFragment"
+        tools:layout="@layout/fragment_scan_patient_driver_license">
+        <action
+            android:id="@+id/action_go_to_patientEditDriverLicenseFragment"
+            app:destination="@id/patientEditDriverLicenseFragment" />
+        <action
+            android:id="@+id/action_scanDriverLicense_to_patientEditPayer"
+            app:destination="@id/patientEditPayerFragment" />
+        <argument
+            android:name="appointment_id"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/patientEditDriverLicenseFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.PatientEditDriverLicenseFragment"
+        android:label="PatientEditDriverLicenseFragment"
+        tools:layout="@layout/fragment_edit_patient_info">
+        <action
+            android:id="@+id/action_go_to_patientEditPayerFragment"
+            app:destination="@id/patientEditPayerFragment" />
+        <argument
+            android:name="appointment_id"
+            app:argType="integer" />
+        <argument
+            android:name="driverLicense"
+            android:defaultValue="@null"
+            app:argType="com.vaxcare.vaxhub.model.DriverLicense"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/patientEditPayerFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.PatientEditPayerFragment"
+        android:label="PatientEditPayerFragment"
+        tools:layout="@layout/fragment_edit_patient_payer">
+        <action
+            android:id="@+id/action_patientEditPayerFragment_to_patientEditInsuranceFragment"
+            app:destination="@id/patientEditInsuranceFragment" />
+        <action
+            android:id="@+id/action_patientEditPayerFragment_to_patientUpdateFragment"
+            app:destination="@id/patientUpdateFragment" />
+        <argument
+            android:name="appointment_id"
+            app:argType="integer" />
+        <argument
+            android:name="patient_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <argument
+            android:name="updatePatient"
+            android:defaultValue="@null"
+            app:argType="com.vaxcare.vaxhub.model.UpdatePatient"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/patientEditInsuranceFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.PatientEditInsuranceFragment"
+        android:label="PatientEditInsuranceFragment"
+        tools:layout="@layout/fragment_edit_patient_insurance">
+
+        <argument
+            android:name="appointmentId"
+            app:argType="integer" />
+        <argument
+            android:name="payer"
+            android:defaultValue="@null"
+            app:argType="com.vaxcare.vaxhub.model.Payer"
+            app:nullable="true" />
+        <argument
+            android:name="updatePatient"
+            android:defaultValue="@null"
+            app:argType="com.vaxcare.vaxhub.model.UpdatePatient"
+            app:nullable="true" />
+        <argument
+            android:name="patientId"
+            android:defaultValue="-1"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_patientEditInsuranceFragment_to_patientUpdateFragment"
+            app:destination="@id/patientUpdateFragment" />
+
+        <action
+            android:id="@+id/action_patientEditInsuranceFragment_to_patientNoCardFragment"
+            app:destination="@id/patientHandToPatientFragment" />
+        <action
+            android:id="@+id/action_patientEditInsuranceFragment_to_patientEditFrontInsuranceFragment"
+            app:destination="@id/patientEditFrontInsuranceFragment" />
+        <action
+            android:id="@+id/action_patientEditInsuranceFragment_to_patientEditBackInsuranceFragment"
+            app:destination="@id/patientEditBackInsuranceFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/patientEditFrontInsuranceFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.PatientEditFrontInsuranceFragment"
+        android:label="PatientEditFrontInsuranceFragment"
+        tools:layout="@layout/fragment_base_edit_insurance" />
+
+    <fragment
+        android:id="@+id/patientEditBackInsuranceFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.PatientEditBackInsuranceFragment"
+        android:label="PatientEditBackInsuranceFragment"
+        tools:layout="@layout/fragment_base_edit_insurance" />
+
+    <!--</navigation>-->
+
+    <fragment
+        android:id="@+id/patientHandToPatientFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.PatientEditHandToPatientFragment"
+        android:label="PatientEditNoInsuranceCardFragment"
+        tools:layout="@layout/fragment_patient_edit_hand_to_patient">
+
+        <argument
+            android:name="flow"
+            app:argType="com.vaxcare.vaxhub.model.enums.NoInsuranceCardFlow" />
+
+        <argument
+            android:name="appointment_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+
+        <argument
+            android:name="patient_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+
+        <argument
+            android:name="current_phone"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_patientNoCardFragment_to_patientCollectPhoneFragment"
+            app:destination="@id/patientCollectPhoneFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/patientCollectPhoneFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.PatientEditCollectPhoneFragment"
+        android:label="PatientEditCollectPhoneFragment"
+        tools:layout="@layout/fragment_patient_edit_collect_phone">
+
+        <argument
+            android:name="data"
+            app:argType="com.vaxcare.vaxhub.model.PatientCollectData" />
+
+        <action
+            android:id="@+id/action_to_phoneCollected"
+            app:destination="@id/patientEditPhoneCollectedFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/patientEditPhoneCollectedFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.PatientEditPhoneCollectedFragment"
+        android:label="PatientEditPhoneCollectedFragment"
+        tools:layout="@layout/fragment_patient_edit_phone_collected">
+
+        <argument
+            android:name="data"
+            app:argType="com.vaxcare.vaxhub.model.PatientCollectData" />
+
+        <action
+            android:id="@+id/action_back_to_nurse"
+            app:destination="@id/patientEditHandToNurseFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/patientEditHandToNurseFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.PatientEditBackToNurseFragment"
+        android:label="Hand to nurse"
+        tools:layout="@layout/fragment_patient_edit_back_to_nurse">
+
+        <argument
+            android:name="data"
+            app:argType="com.vaxcare.vaxhub.model.PatientCollectData" />
+
+        <action
+            android:id="@+id/action_to_pinin"
+            app:destination="@id/patientEditPinLockFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/patientEditPinLockFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.PatientEditPinLockFragment"
+        android:label="PatientEditNoInsuranceCardFragment"
+        tools:layout="@layout/fragment_patient_pin_lock">
+
+        <argument
+            android:name="data"
+            app:argType="com.vaxcare.vaxhub.model.PatientCollectData" />
+
+        <action
+            android:id="@+id/action_patientEditPinLock_to_updatePatientFragment"
+            app:destination="@id/patientUpdateFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/patientUpdateFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.edit.PatientUpdateFragment"
+        android:label="PatientUpdateFragment"
+        tools:layout="@layout/fragment_update_patient">
+
+        <argument
+            android:name="data"
+            app:argType="com.vaxcare.vaxhub.model.UpdatePatientData" />
+
+        <argument
+            android:name="collectPhoneData"
+            android:defaultValue="@null"
+            app:argType="com.vaxcare.vaxhub.model.PatientCollectData"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createPatientFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.CreatePatientFragment"
+        android:label="CreatePatientOverlay"
+        tools:layout="@layout/fragment_create_patient">
+        <argument
+            android:name="patient_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <argument
+            android:name="provider_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <argument
+            android:name="collect_phone_data"
+            android:defaultValue="@null"
+            app:argType="com.vaxcare.vaxhub.model.PatientCollectData"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/curbsideCreateAppointmentFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.CurbsideCreateAppointmentFragment"
+        android:label="CurbsideCreateAppointmentFragment"
+        tools:layout="@layout/fragment_curbside_create_appointment">
+        <argument
+            android:name="patient_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <argument
+            android:name="provider_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/curbsideConfirmPatientInfoFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.CurbsideConfirmPatientInfoFragment"
+        android:label="CurbsideConfirmPatientInfoFragment"
+        tools:layout="@layout/fragment_curbside_confirm_patient_info">
+
+        <argument
+            android:name="patient_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+
+        <argument
+            android:name="mode"
+            android:defaultValue="EDIT"
+            app:argType="com.vaxcare.vaxhub.ui.patient.ConfirmPatientInfoMode" />
+
+        <action
+            android:id="@+id/action_curbsideConfirmPatientInfo_to_curbsideCreateAppointmentFragment"
+            app:destination="@id/curbsideCreateAppointmentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/confirmPatientInfoFragment"
+        android:name="com.vaxcare.vaxhub.ui.patient.ConfirmPatientInfoFragment"
+        android:label="ConfirmPatientInfoFragment"
+        tools:layout="@layout/fragment_confirm_patient_info" />
+
+    <action
+        android:id="@+id/action_global_errorDialog"
+        app:destination="@id/errorDialog" />
+
+    <action
+        android:id="@+id/action_global_invalidScan"
+        app:destination="@id/invalidScanDialog" />
+
+    <action
+        android:id="@+id/action_global_errorPrompt"
+        app:destination="@id/errorPrompt" />
+
+    <action
+        android:id="@+id/action_global_checkout"
+        app:destination="@id/checkoutPatientFragment" />
+
+    <action
+        android:id="@+id/action_global_curbside_add_patient"
+        app:destination="@id/curbsideAddNewPatientFragment" />
+
+    <action
+        android:id="@+id/action_global_add_patient"
+        app:destination="@id/addNewPatientFragment" />
+
+    <action
+        android:id="@+id/action_global_curbsidePatientSearchFragment"
+        app:destination="@id/curbsidePatientSearchFragment" />
+
+    <action
+        android:id="@+id/action_global_addAppointmentOrCreatePatientFragment"
+        app:destination="@id/addAppointmentOrCreatePatientFragment" />
+
+    <action
+        android:id="@+id/action_global_lotLookup"
+        app:destination="@id/lotLookupFragment"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_global_checkoutSummaryFragment"
+        app:destination="@id/checkoutSummaryFragment" />
+
+    <action
+        android:id="@+id/action_global_createPatientFragment"
+        app:destination="@id/createPatientFragment" />
+
+    <action
+        android:id="@+id/action_global_loginPinFragment"
+        app:destination="@id/loginPinFragment"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_global_loginPasswordFragment"
+        app:destination="@id/loginPasswordFragment"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_global_troubleConnectingDialog"
+        app:destination="@+id/troubleConnectingDialog" />
+
+    <action
+        android:id="@+id/action_global_keepDeviceInHandsDialog"
+        app:destination="@id/keepDeviceDialog" />
+
+    <action
+        android:id="@+id/action_global_patientInfoConfirmationDialog"
+        app:destination="@+id/patientInfoConfirmationDialog" />
+
+</navigation>

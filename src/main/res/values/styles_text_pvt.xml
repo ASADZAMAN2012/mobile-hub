@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.
+  *
+  * PVT text styles
+  ***********************************************************************************************-->
+
+<resources>
+
+    <style name="Text" parent="VaxCareTheme">
+        <item name="android:textColor">?textColorDarkBlue</item>
+    </style>
+
+    <!--
+  ____        _     _   _____           _
+ | __ )  ___ | | __| | |  ___|__  _ __ | |_
+ |  _ \ / _ \| |/ _` | | |_ / _ \| '_ \| __|
+ | |_) | (_) | | (_| | |  _| (_) | | | | |_
+ |____/ \___/|_|\__,_| |_|  \___/|_| |_|\__|
+ -->
+
+    <style name="VaxCareText.Bold.32" parent="Text">
+        <item name="android:textSize">@dimen/text_30</item>
+        <item name="android:fontFamily">@font/graphik_bold</item>
+    </style>
+
+    <style name="VaxCareText.Bold.30" parent="Text">
+        <item name="android:textSize">@dimen/text_30</item>
+        <item name="android:fontFamily">@font/graphik_bold</item>
+    </style>
+
+    <style name="VaxCareText.Bold.27" parent="Text">
+        <item name="android:textSize">@dimen/text_27</item>
+        <item name="android:fontFamily">@font/graphik_bold</item>
+    </style>
+
+    <style name="VaxCareText.Bold.24" parent="Text">
+        <item name="android:textSize">@dimen/text_24</item>
+        <item name="android:fontFamily">@font/graphik_bold</item>
+    </style>
+
+    <style name="VaxCareText.Bold.27.White" parent="Text">
+        <item name="android:textSize">@dimen/text_27</item>
+        <item name="android:fontFamily">@font/graphik_bold</item>
+        <item name="android:textColor">?textColorWhite</item>
+    </style>
+
+    <style name="VaxCareText.Bold.16" parent="Text">
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:fontFamily">@font/graphik_bold</item>
+    </style>
+
+    <style name="VaxCareText.30.Bold" parent="Text">
+        <item name="android:textSize">@dimen/text_30</item>
+        <item name="android:fontFamily">@font/graphik_bold</item>
+    </style>
+
+    <style name="VaxCareText.30.Bold.DarkBlue" parent="VaxCareText.30.Bold">
+        <item name="android:textColor">@color/darkBlue</item>
+    </style>
+
+    <style name="VaxCareText.30.Bold.PrimaryBlack" parent="VaxCareText.30.Bold">
+        <item name="android:textColor">@color/primary_black</item>
+    </style>
+
+    <style name="VaxCareText.32.Bold.PrimaryBlack" parent="VaxCareText.Bold.32">
+        <item name="android:textColor">@color/primary_black</item>
+    </style>
+
+    <!--
+  ____                  _              _____           _
+ |  _ \ ___  __ _ _   _| | __ _ _ __  |  ___|__  _ __ | |_
+ | |_) / _ \/ _` | | | | |/ _` | '__| | |_ / _ \| '_ \| __|
+ |  _ <  __/ (_| | |_| | | (_| | |    |  _| (_) | | | | |_
+ |_| \_\___|\__, |\__,_|_|\__,_|_|    |_|  \___/|_| |_|\__|
+            |___/                                          -->
+
+    <style name="VaxCareText.Regular.35" parent="Text">
+        <item name="android:textSize">@dimen/text_35</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="VaxCareText.Regular.35.White" parent="Text">
+        <item name="android:textSize">@dimen/text_35</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+        <item name="android:textColor">?textColorWhite</item>
+    </style>
+
+    <style name="VaxCareText.Regular.32.PrimaryBlack" parent="Text">
+        <item name="android:textSize">@dimen/text_32</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+        <item name="android:textColor">@color/primary_black</item>
+    </style>
+
+    <style name="VaxCareText.Regular.32.Italic" parent="Text">
+        <item name="android:textSize">@dimen/text_32</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+        <item name="android:textColor">@color/primary_black</item>
+    </style>
+
+    <style name="VaxCareText.Regular.30" parent="Text">
+        <item name="android:textSize">@dimen/text_30</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="VaxCareText.Regular.30.White" parent="Text">
+        <item name="android:textSize">@dimen/text_30</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+        <item name="android:textColor">?textColorWhite</item>
+    </style>
+
+    <style name="VaxCareText.Regular.28" parent="Text">
+        <item name="android:textSize">@dimen/text_28</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="VaxCareText.Regular.28.White" parent="Text">
+        <item name="android:textSize">@dimen/text_28</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+        <item name="android:textColor">?textColorWhite</item>
+    </style>
+
+    <style name="VaxCareText.Regular.27" parent="Text">
+        <item name="android:textSize">@dimen/text_27</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="VaxCareText.Regular.27.White" parent="Text">
+        <item name="android:textSize">@dimen/text_27</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+        <item name="android:textColor">?textColorWhite</item>
+    </style>
+
+    <style name="VaxCareText.Regular.24" parent="Text">
+        <item name="android:textSize">@dimen/text_24</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="VaxCareText.24.DarkBlue" parent="VaxCareText.Regular.24">
+        <item name="android:textColor">@color/darkBlue</item>
+    </style>
+
+    <style name="VaxCareText.Regular.24.PrimaryBlack" parent="VaxCareText.Regular.24">
+        <item name="android:textColor">@color/primary_black</item>
+    </style>
+
+    <style name="VaxCareText.Regular.24.Italic" parent="Text">
+        <item name="android:textSize">@dimen/text_24</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+    </style>
+
+    <style name="VaxCareText.Regular.24.Italic.White" parent="Text">
+        <item name="android:textSize">@dimen/text_24</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+        <item name="android:textColor">?textColorWhite</item>
+    </style>
+
+    <style name="VaxCareText.Regular.21" parent="Text">
+        <item name="android:textSize">@dimen/text_21</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="VaxCareText.Regular.21.Italic" parent="Text">
+        <item name="android:textSize">@dimen/text_21</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+    </style>
+
+    <style name="VaxCareText.Regular.21.Italic.Red" parent="Text">
+        <item name="android:textSize">@dimen/text_21</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+        <item name="android:textColor">?textColorError</item>
+    </style>
+
+    <style name="VaxCareText.Regular.20.White" parent="Text">
+        <item name="android:textSize">@dimen/text_20</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+        <item name="android:textColor">?textColorWhite</item>
+    </style>
+
+    <style name="VaxCareText.Regular.20.Italic" parent="Text">
+        <item name="android:textSize">@dimen/text_20</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+    </style>
+
+    <style name="VaxCareText.Regular.18" parent="Text">
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="VaxCareText.18.DarkBlue" parent="VaxCareText.Regular.18">
+        <item name="android:textColor">@color/darkBlue</item>
+    </style>
+
+    <style name="VaxCareText.Regular.18.Italic" parent="Text">
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+    </style>
+
+    <style name="VaxCareText.Regular.16" parent="Text">
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="VaxCareText.Regular.16.Italic" parent="Text">
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+    </style>
+
+    <style name="VaxCareText.Regular.16.Bold" parent="Text">
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:fontFamily">@font/graphik_bold</item>
+    </style>
+
+    <style name="VaxCareText.Regular.14" parent="Text">
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="VaxCareText.Regular.14.Italic" parent="Text">
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+    </style>
+
+    <style name="VaxCareText.14.SemiBold.DarkBlue" parent="Text">
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+        <item name="android:textColor">@color/darkBlue</item>
+    </style>
+
+    <style name="VaxCareText.SemiBold.24" parent="Text">
+        <item name="android:textSize">@dimen/text_24</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <!--
+  _     _       _     _     _____           _
+ | |   (_) __ _| |__ | |_  |  ___|__  _ __ | |_
+ | |   | |/ _` | '_ \| __| | |_ / _ \| '_ \| __|
+ | |___| | (_| | | | | |_  |  _| (_) | | | | |_
+ |_____|_|\__, |_| |_|\__| |_|  \___/|_| |_|\__|
+          |___/
+          -->
+
+    <style name="VaxCareText.Light.32" parent="Text">
+        <item name="android:textSize">@dimen/text_32</item>
+        <item name="android:fontFamily">@font/graphik_light</item>
+    </style>
+
+    <style name="VaxCareText.Light.32.Italic" parent="Text">
+        <item name="android:textSize">@dimen/text_32</item>
+        <item name="android:fontFamily">@font/graphik_light</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="VaxCareText.Light.30" parent="Text">
+        <item name="android:textSize">@dimen/text_30</item>
+        <item name="android:fontFamily">@font/graphik_light</item>
+    </style>
+
+    <style name="VaxCareText.Light.27" parent="Text">
+        <item name="android:textSize">@dimen/text_27</item>
+        <item name="android:fontFamily">@font/graphik_light</item>
+    </style>
+
+    <style name="VaxCareText.Light.27.Italic" parent="Text">
+        <item name="android:textSize">@dimen/text_27</item>
+        <item name="android:fontFamily">@font/graphik_light</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <!--
+  _____      _               _     _       _     _     _____           _
+ | ____|_  _| |_ _ __ __ _  | |   (_) __ _| |__ | |_  |  ___|__  _ __ | |_
+ |  _| \ \/ / __| '__/ _` | | |   | |/ _` | '_ \| __| | |_ / _ \| '_ \| __|
+ | |___ >  <| |_| | | (_| | | |___| | (_| | | | | |_  |  _| (_) | | | | |_
+ |_____/_/\_\\__|_|  \__,_| |_____|_|\__, |_| |_|\__| |_|  \___/|_| |_|\__|
+                                     |___/                                 -->
+
+    <style name="VaxCareText.75.ExtraLight.Blue" parent="Text">
+        <item name="android:textSize">@dimen/text_75</item>
+        <item name="android:fontFamily">@font/graphik_extra_light</item>
+    </style>
+
+    <style name="VaxCareText.35.ExtraLight.Blue" parent="Text">
+        <item name="android:textSize">@dimen/text_35</item>
+        <item name="android:fontFamily">@font/graphik_extra_light</item>
+    </style>
+
+    <!--
+  _   _                _             _____           _
+ | | | | ___  __ _  __| | ___ _ __  |  ___|__  _ __ | |_
+ | |_| |/ _ \/ _` |/ _` |/ _ \ '__| | |_ / _ \| '_ \| __|
+ |  _  |  __/ (_| | (_| |  __/ |    |  _| (_) | | | | |_
+ |_| |_|\___|\__,_|\__,_|\___|_|    |_|  \___/|_| |_|\__|
+                                                         -->
+    <style name="VaxCareText.Header.50.Light.Italic" parent="Text">
+        <item name="android:textSize">@dimen/text_50</item>
+        <item name="android:fontFamily">@font/graphik_light</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="VaxCareText.Header.50.Medium" parent="Text">
+        <item name="android:textSize">@dimen/text_50</item>
+        <item name="android:fontFamily">@font/graphik_medium</item>
+    </style>
+
+    <style name="VaxCareText.Header.35.Bold.White" parent="VaxCareText.Header.35.White">
+        <item name="android:fontFamily">@font/graphik_bold</item>
+    </style>
+
+    <style name="VaxCareText.Header.35.White" parent="Text">
+        <item name="android:textSize">@dimen/text_35</item>
+        <item name="android:textColor">?textColorWhite</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="VaxCareText.Header.35.Medium.White" parent="Text">
+        <item name="android:textSize">@dimen/text_35</item>
+        <item name="android:fontFamily">@font/graphik_medium</item>
+        <item name="android:textColor">?textColorWhite</item>
+    </style>
+
+    <style name="VaxCareText.Header.H5.27.Medium.DarkBlue" parent="Text">
+        <item name="android:textSize">@dimen/text_27</item>
+        <item name="android:fontFamily">@font/graphik_medium</item>
+        <item name="android:textColor">?textColorDarkBlue</item>
+    </style>
+
+    <style name="VaxCareText.Header.H5.27.Light.DarkBlue" parent="Text">
+        <item name="android:textSize">@dimen/text_27</item>
+        <item name="android:fontFamily">@font/graphik_light</item>
+        <item name="android:textColor">?textColorDarkBlue</item>
+    </style>
+
+    <style name="VaxCareText.Header.H5.18.DarkBlue.Italic" parent="Text">
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+        <item name="android:textColor">?textColorDarkBlue</item>
+    </style>
+
+    <style name="VaxCareText.Header.H5.24" parent="Text">
+        <item name="android:textSize">@dimen/text_24</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="VaxCareText.Header.H5.24.SemiBold" parent="Text">
+        <item name="android:textSize">@dimen/text_24</item>
+        <item name="android:fontFamily">@font/graphik_semi_bold</item>
+    </style>
+
+    <style name="VaxCareText.Header.H6.21" parent="Text">
+        <item name="android:textSize">@dimen/text_21</item>
+        <item name="android:fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="VaxCareText.Header.H6.21.Bold" parent="Text">
+        <item name="android:textSize">@dimen/text_21</item>
+        <item name="android:fontFamily">@font/graphik_bold</item>
+    </style>
+
+    <!--
+  __  __          _ _                   _____           _
+ |  \/  | ___  __| (_)_   _ _ __ ___   |  ___|__  _ __ | |_
+ | |\/| |/ _ \/ _` | | | | | '_ ` _ \  | |_ / _ \| '_ \| __|
+ | |  | |  __/ (_| | | |_| | | | | | | |  _| (_) | | | | |_
+ |_|  |_|\___|\__,_|_|\__,_|_| |_| |_| |_|  \___/|_| |_|\__|-->
+
+    <style name="VaxCareText.Medium.50" parent="Text">
+        <item name="android:textSize">@dimen/text_50</item>
+        <item name="android:fontFamily">@font/graphik_medium</item>
+    </style>
+
+    <style name="VaxCareText.Medium.28" parent="Text">
+        <item name="android:textSize">@dimen/text_28</item>
+        <item name="android:fontFamily">@font/graphik_medium</item>
+    </style>
+
+    <style name="VaxCareText.Medium.27" parent="Text">
+        <item name="android:textSize">@dimen/text_27</item>
+        <item name="android:fontFamily">@font/graphik_medium</item>
+    </style>
+
+    <style name="VaxCareText.Medium.26" parent="Text">
+        <item name="android:textSize">@dimen/text_26</item>
+        <item name="android:fontFamily">@font/graphik_medium</item>
+    </style>
+
+    <style name="VaxCareText.Medium.21" parent="Text">
+        <item name="android:textSize">@dimen/text_21</item>
+        <item name="android:fontFamily">@font/graphik_medium</item>
+    </style>
+
+    <style name="VaxCareText.Medium.20" parent="Text">
+        <item name="android:textSize">@dimen/text_20</item>
+        <item name="android:fontFamily">@font/graphik_medium</item>
+    </style>
+
+    <style name="VaxCareText.Medium.16" parent="Text">
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:fontFamily">@font/graphik_medium</item>
+    </style>
+
+    <style name="VaxCareText.B1.Bold" parent="Text">
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:fontFamily">@font/graphik_bold</item>
+    </style>
+
+    <style name="VaxCareText.B1.Italic" parent="Text">
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:fontFamily">@font/graphik_regular_italic</item>
+    </style>
+    <!--
+  ____        _     _   _ _   _        _____           _
+ / ___| _   _| |__ | |_(_) |_| | ___  |  ___|__  _ __ | |_
+ \___ \| | | | '_ \| __| | __| |/ _ \ | |_ / _ \| '_ \| __|
+  ___) | |_| | |_) | |_| | |_| |  __/ |  _| (_) | | | | |_
+ |____/ \__,_|_.__/ \__|_|\__|_|\___| |_|  \___/|_| |_|\__|-->
+
+    <style name="VaxCareText.S1.Bold.White" parent="Text">
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:fontFamily">@font/graphik_bold</item>
+        <item name="android:textColor">?textColorWhite</item>
+
+    </style>
+
+    <style name="VaxCareText.Display.Large" parent="Text">
+        <item name="android:textSize">?displayTextLarge</item>
+        <item name="android:fontFamily">@string/font_thin</item>
+    </style>
+
+    <style name="VaxCareText.Display" parent="Text">
+        <item name="android:textSize">?displayText</item>
+        <item name="android:fontFamily">@string/font_thin</item>
+    </style>
+
+    <style name="VaxCareText.Header.H1" parent="Text">
+        <item name="android:textSize">?headerH1</item>
+        <item name="android:fontFamily">@string/font_regular</item>
+    </style>
+
+    <style name="VaxCareText.Header.H1.White" parent="Text">
+        <item name="android:textSize">?headerH1</item>
+        <item name="android:textColor">?textColorWhite</item>
+        <item name="android:fontFamily">@string/font_regular</item>
+    </style>
+
+    <style name="VaxCareText.Header.H1.Light" parent="Text">
+        <item name="android:textSize">?headerH1</item>
+        <item name="android:fontFamily">@string/font_light</item>
+    </style>
+
+    <style name="VaxCareText.Header.H1.Light.White" parent="Text">
+        <item name="android:textSize">?headerH1</item>
+        <item name="android:textColor">?textColorWhite</item>
+        <item name="android:fontFamily">@string/font_light</item>
+    </style>
+
+    <style name="VaxCareText.Header.H1.ExtraLight" parent="Text">
+        <item name="android:textSize">?headerH1</item>
+        <item name="android:fontFamily">@string/font_thin</item>
+    </style>
+
+    <style name="VaxCareText.Header.H1.ExtraLight.White" parent="Text">
+        <item name="android:textSize">?headerH1</item>
+        <item name="android:textColor">?textColorWhite</item>
+        <item name="android:fontFamily">@string/font_thin</item>
+    </style>
+
+    <style name="VaxCareText.Header.H2" parent="Text">
+        <item name="android:textSize">?headerH2</item>
+        <item name="android:textColor">?textColorDarkBlue</item>
+    </style>
+
+    <style name="VaxCareText.Header.H2.White" parent="Text">
+        <item name="android:textSize">?headerH2</item>
+        <item name="android:textColor">?textColorWhite</item>
+        <item name="android:fontFamily">@string/font_regular</item>
+    </style>
+
+    <style name="VaxCareText.Header.H2.Light" parent="Text">
+        <item name="android:textSize">?headerH2</item>
+        <item name="android:fontFamily">@string/font_light</item>
+    </style>
+
+    <style name="VaxCareText.Header.H2.Light.White" parent="Text">
+        <item name="android:textSize">?headerH2</item>
+        <item name="android:textColor">?textColorWhite</item>
+        <item name="android:fontFamily">@string/font_light</item>
+    </style>
+
+    <style name="VaxCareText.Header.H2.ExtraLight" parent="Text">
+        <item name="android:textSize">?headerH2</item>
+        <item name="android:fontFamily">@string/font_thin</item>
+    </style>
+
+    <style name="VaxCareText.Header.H2.ExtraLight.White" parent="Text">
+        <item name="android:textSize">?headerH2</item>
+        <item name="android:textColor">?textColorWhite</item>
+        <item name="android:fontFamily">@string/font_thin</item>
+    </style>
+
+    <style name="VaxCareText.Header.H4.Bold" parent="Text">
+        <item name="android:textSize">?headerH4</item>
+        <item name="android:textColor">?textColorDarkBlue</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="VaxCareText.Body.B1" parent="Text">
+        <item name="android:textSize">?bodyB1</item>
+    </style>
+
+    <style name="VaxCareText.Body.B1.Light" parent="Text">
+        <item name="android:textSize">?bodyB1</item>
+        <item name="android:fontFamily">@string/font_thin</item>
+    </style>
+
+    <style name="VaxCareText.Body.B1.Medium" parent="Text">
+        <item name="android:textSize">?bodyB1</item>
+        <item name="android:fontFamily">@string/font_medium</item>
+    </style>
+
+    <style name="VaxCareText.Body.B1.Light.Italic" parent="VaxCareText.Body.B1.Light">
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="VaxCareText.Body.B1.Bold" parent="Text">
+        <item name="android:textSize">?bodyB1</item>
+    </style>
+
+    <style name="VaxCareText.Body.B1.White" parent="Text">
+        <item name="android:textSize">?bodyB1</item>
+        <item name="android:textColor">?textColorWhite</item>
+    </style>
+
+    <style name="VaxCareText.Body.B1.Light.White" parent="Text">
+        <item name="android:textSize">?bodyB1</item>
+        <item name="android:fontFamily">@string/font_thin</item>
+        <item name="android:textColor">?textColorWhite</item>
+    </style>
+
+    <style name="VaxCareText.Body.B1.Medium.White" parent="Text">
+        <item name="android:textSize">?bodyB1</item>
+        <item name="android:fontFamily">@string/font_medium</item>
+        <item name="android:textColor">?textColorWhite</item>
+    </style>
+
+    <style name="VaxCareText.Body.B1.Bold.White" parent="Text">
+        <item name="android:textSize">?bodyB1</item>
+        <item name="android:textColor">?textColorWhite</item>
+    </style>
+
+    <style name="VaxCareText.Body.B2" parent="Text">
+        <item name="android:textSize">?bodyB2</item>
+    </style>
+
+    <style name="VaxCareText.Body.B2.Light" parent="VaxCareText.Body.B2">
+        <item name="android:fontFamily">@string/font_thin</item>
+    </style>
+
+    <style name="VaxCareText.Body.B2.Bold" parent="VaxCareText.Body.B2">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="VaxCareText.Body.B2.SemiBold" parent="VaxCareText.Body.B2">
+        <item name="android:fontWeight">600</item>
+    </style>
+
+    <style name="VaxCareText.Body.B2.SemiBold.Error" parent="VaxCareText.Body.B2.SemiBold">
+        <item name="android:fontWeight">600</item>
+        <item name="android:textColor">?textColorError</item>
+    </style>
+
+    <style name="VaxCareText.Body.B2.Italic" parent="VaxCareText.Body.B2">
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="VaxCareText.Body.B2.White" parent="VaxCareText.Body.B2">
+        <item name="android:textColor">?textColorWhite</item>
+    </style>
+
+    <style name="VaxCareText.Body.B2.White.Bold" parent="VaxCareText.Body.B2.Bold">
+        <item name="android:textColor">?textColorWhite</item>
+    </style>
+
+    <style name="VaxCareText.Body.B3" parent="Text">
+        <item name="android:textSize">?bodyB3</item>
+    </style>
+
+    <style name="VaxCareText.Body.B3.Bold" parent="VaxCareText.Body.B3">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="VaxCareText.Body.B3.SemiBold" parent="VaxCareText.Body.B3">
+        <item name="android:fontWeight">600</item>
+    </style>
+
+    <style name="VaxCareText.Body.B3.SemiBold.Error" parent="VaxCareText.Body.B3.SemiBold">
+        <item name="android:fontWeight">600</item>
+        <item name="android:textColor">?textColorError</item>
+    </style>
+
+    <style name="VaxCareText.Body.B3.SemiBold.Error.Italic" parent="VaxCareText.Body.B3.SemiBold.Error">
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="VaxCareText.Body.B3.SemiBold.Error.Italic.Transparent_White" parent="VaxCareText.Body.B3.SemiBold.Error.Italic">
+        <item name="android:textColor">#00FFFFFF</item>
+    </style>
+
+    <style name="VaxCareText.Body.B3.SemiBold.Error.Italic.Transparent_Blue" parent="VaxCareText.Body.B3.SemiBold.Error.Italic">
+        <item name="android:textColor">@color/privateLight</item>
+    </style>
+
+    <style name="VaxCareText.Body.B3.Italic" parent="VaxCareText.Body.B3">
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="VaxCareText.Body.B3.White" parent="VaxCareText.Body.B3">
+        <item name="android:textColor">?textColorWhite</item>
+    </style>
+
+    <style name="VaxCareText.Body.B3.White.Bold" parent="VaxCareText.Body.B3.Bold">
+        <item name="android:textColor">?textColorWhite</item>
+    </style>
+
+    <style name="VaxCareText.Body.B4" parent="Text">
+        <item name="android:textSize">?bodyB4</item>
+    </style>
+
+    <style name="VaxCareText.Body.B4.Bold" parent="VaxCareText.Body.B4">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="VaxCareText.Body.B4.SemiBold" parent="VaxCareText.Body.B4">
+        <item name="android:fontWeight">600</item>
+    </style>
+
+    <style name="VaxCareText.Body.B4.SemiBold.Error" parent="VaxCareText.Body.B4.SemiBold">
+        <item name="android:fontWeight">600</item>
+        <item name="android:textColor">?textColorError</item>
+    </style>
+
+    <style name="VaxCareText.Body.B4.Italic" parent="VaxCareText.Body.B4">
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="VaxCareText.Body.B4.White" parent="VaxCareText.Body.B4">
+        <item name="android:textColor">?textColorWhite</item>
+    </style>
+
+    <style name="VaxCareText.Body.B4.White.Bold" parent="VaxCareText.Body.B4.Bold">
+        <item name="android:textColor">?textColorWhite</item>
+    </style>
+
+    <style name="VaxCareText.EditText" parent="VaxCareText.Body.B2.Bold">
+        <item name="android:background">@drawable/bg_edit_text</item>
+        <item name="android:paddingStart">@dimen/dp_20</item>
+        <item name="android:letterSpacing">0.25</item>
+        <item name="android:paddingEnd">@dimen/dp_50</item>
+        <item name="android:minWidth">@dimen/dp_400</item>
+        <item name="layout_constraintHeight_max">@dimen/dp_50</item>
+        <item name="android:minHeight">@dimen/dp_50</item>
+        <item name="android:maxHeight">@dimen/dp_50</item>
+    </style>
+
+    <style name="VaxCareText.EditText.Medium" parent="VaxCareText.Body.B3.Bold">
+        <item name="android:background">@drawable/bg_edit_text</item>
+        <item name="android:letterSpacing">0.25</item>
+        <item name="android:minWidth">@dimen/dp_150</item>
+        <item name="layout_constraintHeight_max">@dimen/dp_50</item>
+        <item name="android:minHeight">@dimen/dp_50</item>
+        <item name="android:maxHeight">@dimen/dp_50</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="VaxCareText.EditText.Medium.Error" parent="VaxCareText.EditText.Medium">
+        <item name="android:textColor">@color/design_default_color_error</item>
+    </style>
+
+    <style name="VaxCareText.EditText.Medium.Disabled" parent="VaxCareText.EditText.Medium">
+        <item name="android:textStyle">italic</item>
+        <item name="android:textColor">@color/darkGray</item>
+    </style>
+
+    <style name="VaxCareText.EditText.Password" parent="VaxCareText.EditText">
+        <item name="android:inputType">textPassword</item>
+    </style>
+
+    <style name="TextLayoutOutline" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:minWidth">@dimen/dp_300</item>
+
+        <item name="errorTextColor">?textColorError</item>
+        <item name="errorIconTint">?textColorError</item>
+
+        <item name="endIconTint">?iconTintDarkBlue</item>
+        <item name="hintTextColor">?textColorDarkBlue</item>
+
+        <item name="android:colorControlNormal">?bgDarkBlue</item>
+        <item name="android:colorControlActivated">?bgDarkBlue</item>
+        <item name="android:colorControlHighlight">?bgDarkBlue</item>
+        <item name="boxStrokeColor">?bgDarkBlue</item>
+        <item name="helperTextEnabled">false</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/dp_30</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/dp_30</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/dp_30</item>
+        <item name="boxCornerRadiusTopStart">@dimen/dp_30</item>
+    </style>
+
+    <style name="TextLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="android:minWidth">@dimen/dp_300</item>
+
+        <item name="errorTextColor">?textColorError</item>
+        <item name="errorIconTint">?textColorError</item>
+
+        <item name="endIconTint">?iconTintDarkBlue</item>
+        <item name="hintTextColor">?textColorDarkBlue</item>
+
+        <item name="android:colorControlNormal">?bgDarkBlue</item>
+        <item name="android:colorControlActivated">?bgDarkBlue</item>
+        <item name="android:colorControlHighlight">?bgDarkBlue</item>
+        <item name="boxBackgroundColor">?bgWhite</item>
+        <item name="boxStrokeColor">?bgDarkBlue</item>
+    </style>
+
+</resources>

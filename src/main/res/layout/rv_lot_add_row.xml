@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/dp_10"
+    android:layout_marginBottom="@dimen/dp_6"
+    android:background="@drawable/bg_rounded_white_ripple_item"
+    android:minHeight="@dimen/dp_196"
+    android:paddingTop="@dimen/dp_30"
+    android:paddingBottom="@dimen/dp_27"
+    tools:context="com.vaxcare.vaxhub.ui.checkout.LotLookupFragment">
+
+    <ImageView
+        android:id="@+id/lot_row_vaccine_icon"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginStart="@dimen/dp_15"
+        android:scaleType="centerInside"
+        android:layout_marginTop="@dimen/dp_4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/lot_row_product_tv"
+        tools:src="@drawable/ic_presentation_prefilled_syringe" />
+
+    <TextView
+        android:id="@+id/lot_row_product_tv"
+        style="@style/H6BoldBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_74"
+        android:layout_marginEnd="@dimen/dp_120"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Hep-B (Engerix-B)" />
+
+    <TextView
+        android:id="@+id/lot_row_lot_tv"
+        style="@style/BodyRegBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="@id/lot_row_product_tv"
+        app:layout_constraintTop_toBottomOf="@id/lot_row_product_tv"
+        tools:text="XYZ1232GGF" />
+
+    <ImageView
+        android:id="@+id/lot_row_pointless_btn"
+        style="@style/BlueFab"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginEnd="@dimen/dp_25"
+        android:adjustViewBounds="true"
+        android:background="@drawable/bg_circle_button"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:gravity="center"
+        android:padding="@dimen/dp_16"
+        android:src="@drawable/ic_plus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

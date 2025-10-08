@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2021.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_180"
+    android:background="@drawable/bg_rounded_white_ripple_item"
+    app:cardCornerRadius="@dimen/dp_10"
+    app:cardElevation="0dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+
+    <TextView
+        android:id="@+id/total_label"
+        style="@style/H6RegBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_74"
+        android:layout_marginTop="@dimen/dp_30"
+        android:text="@string/med_d_checkout_vaccine_copay_total"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/checkout_vaccine_copay_total"
+        style="@style/H6BoldBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/total_label"
+        tools:text="$60.0" />
+
+    <TextView
+        android:id="@+id/footer_message"
+        style="@style/H7RegBlack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/nurse_disclaimer_optout_desc"
+        android:layout_marginTop="@dimen/dp_30"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@id/total_label"
+        app:layout_constraintEnd_toStartOf="@id/checkout_vaccine_copay_total"
+        app:layout_constraintTop_toBottomOf="@id/total_label" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/dp_10">
+
+    <FrameLayout
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_100"
+        android:background="@color/primary_white"
+        android:visibility="gone"
+        >
+
+        <ImageView
+            android:src="@drawable/bg_dash"
+            android:layout_width="@dimen/dp_46"
+            android:layout_height="@dimen/dp_100"
+            android:layout_marginStart="@dimen/dp_76"
+            />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_classify"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_40"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/dp_76" />
+
+    <TextView
+        android:id="@+id/payer_name"
+        style="@style/H6BoldBlack"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_100"
+        android:background="?android:attr/selectableItemBackground"
+        android:ellipsize="middle"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/dp_76"
+        android:singleLine="true" />
+
+</LinearLayout>
+

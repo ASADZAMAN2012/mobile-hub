@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.vaxcare.vaxhub.core.view.VaxToolbar
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/view_finder"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar"
+        app:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/capture_title"
+        style="@style/CaptureTip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_138"
+        android:layout_marginTop="@dimen/dp_120"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar" />
+
+    <com.vaxcare.vaxhub.core.ui.ViewfinderView
+        android:id="@+id/view_camera_capture"
+        android:layout_marginTop="@dimen/dp_256"
+        app:inner_corner_color="@color/primary_purple"
+        app:inner_corner_length_horizontal="@dimen/dp_50"
+        app:inner_corner_length_vertical="@dimen/dp_36"
+        app:inner_width="@dimen/dp_560"
+        app:inner_height="@dimen/dp_382"
+        app:inner_stroke_width="@dimen/dp_6"
+        app:show_mask="false"
+        android:layout_width="@dimen/dp_566"
+        android:layout_height="@dimen/dp_388"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar"/>
+
+    <ImageView
+        android:id="@+id/view_camera_preview"
+        android:layout_width="@dimen/dp_558"
+        android:layout_height="@dimen/dp_378"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/view_camera_capture"
+        app:layout_constraintEnd_toEndOf="@id/view_camera_capture"
+        app:layout_constraintStart_toStartOf="@id/view_camera_capture"
+        app:layout_constraintTop_toTopOf="@id/view_camera_capture" />
+
+    <ProgressBar
+        android:id="@+id/photo_check_progress_bar"
+        android:layout_width="@dimen/dp_52"
+        android:layout_height="@dimen/dp_52"
+        android:layout_marginTop="@dimen/dp_424"
+        android:indeterminateDrawable="@drawable/progress_circle_purple"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar" />
+
+    <TextView
+        android:id="@+id/photo_check_label"
+        style="@style/VaxCareText.Regular.32.Italic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_60"
+        android:text="@string/checking_the_photo"
+        android:textColor="@color/primary_white"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_camera_capture" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/capture_not_catch"
+        style="@style/CaptureNotCatchButton"
+        android:layout_width="@dimen/dp_273"
+        android:layout_height="@dimen/dp_110"
+        android:layout_marginTop="@dimen/dp_30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/photo_check_label" />
+
+    <ImageView
+        android:id="@+id/camera_capture_button"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_100"
+        android:layout_marginBottom="@dimen/dp_101"
+        android:background="@drawable/ic_shutter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

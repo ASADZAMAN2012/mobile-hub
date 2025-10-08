@@ -1,0 +1,808 @@
+<!--***********************************************************************************************
+  * Copyright VaxCare (c) 2019.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+    <string name="app_name">VaxHub</string>
+    <string name="vaxcare">VaxCare</string>
+    <string name="vaxcare_lower">vaxcare</string>
+    <string name="leak_canary_display_activity_label">VaxHub Leaks</string>
+
+    <string name="debug_version">%1$s/Version: %2$d/Name: %3$s </string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="user_menu">User Menu</string>
+    <string name="no_location">No Location</string>
+    <string name="done">Done</string>
+    <string name="back">Back</string>
+    <string name="header_patient_checkout_label">Patient</string>
+    <string name="install">Install</string>
+
+    <string name="button_ok">OK</string>
+    <string name="button_go_back">Go Back</string>
+    <string name="button_back">Back</string>
+    <string name="button_save">Save</string>
+    <string name="button_stay_here">Stay Here</string>
+    <string name="button_logout">Logout</string>
+    <string name="button_close">Close</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_cancel_changes">Clear All</string>
+    <string name="button_continue">Continue</string>
+    <string name="button_submit">Submit</string>
+    <string name="button_confirm">Confirm</string>
+    <string name="button_yes">Yes</string>
+    <string name="button_no">No</string>
+    <string name="product">Product</string>
+    <string name="presentation">Presentation</string>
+    <string name="expiration">Expiration</string>
+    <string name="invalid_expiration_date">Invalid expiration date</string>
+    <string name="partner_id">Partner Id</string>
+    <string name="clinic_id">Clinic Id</string>
+    <string name="payer">Payer</string>
+    <string name="onHandOrders">Orders</string>
+    <string name="onHandFlu">Flu</string>
+    <string name="onHandNonFlu">Non-Flu</string>
+    <string name="antigen">Antigen</string>
+    <string name="_99">-99</string>
+    <string name="vaccine">VACCINE</string>
+    <string name="on_hand">ON HAND</string>
+    <string name="total_doses_in_fridge">(Total Doses in Fridge)</string>
+    <string name="invalid_pin">Invalid PIN</string>
+    <string name="sync_users">Syncing all Hub users</string>
+    <string name="_100_percent">100%</string>
+    <string name="not_applicable">N/A</string>
+    <string name="required">Required</string>
+    <string name="month_placeholder">MM</string>
+    <string name="day_placeholder">DD</string>
+    <string name="year_placeholder">YYYY</string>
+
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+
+    <string name="got_it">Got It</string>
+    <string name="go_to_network_settings">Go To Network Settings</string>
+
+    <string name="internet_reconnected">Internet Reconnected</string>
+    <string name="vaxcare_reconnected">VaxCare Reconnected</string>
+    <string name="internet_connection_lost">Internet Connection Lost</string>
+    <string name="vaxcare_connection_lost">VaxCare Connection Lost</string>
+    <string name="taking_a_few_more_seconds">Taking a few more seconds...</string>
+
+    <!-- Splash -->
+    <string name="splash_text_morning">Good Morning!</string>
+    <string name="splash_text_afternoon">Good Afternoon!</string>
+    <string name="splash_text_after_hours">Good Evening!</string>
+
+    <!-- VaxCare Connection relevant messages -->
+    <string name="vaxcare_connection_big_start_count">A connection to VaxCare is required to start an Inventory Count.  We are attempting to re-establish the connection.  You will be able to start Inventory Count when VaxCare reconnects.</string>
+    <string name="vaxcare_connection_big_start_transaction">A connection to VaxCare is required to start an Inventory Transaction.  We are attempting to re-establish the connection.  You will be able to start Inventory Transaction when VaxCare reconnects.</string>
+    <string name="vaxcare_connection_big_submit_count">A connection to VaxCare is required to submit Inventory Count.  We are attempting to re-establish the connection.  Your progress will not be lost.</string>
+    <string name="vaxcare_connection_big_submit_transaction">A connection to VaxCare is required to submit an Inventory Transaction.  We are attempting to re-establish the connection.  Your progress will not be lost.</string>
+    <string name="vaxcare_connection_lost_small">The VaxCare connection has been lost. Attempting to re-establish the connection. Your progress will not be lost.</string>
+    <string name="vaxcare_reconnected_small">You have been reconnected to VaxCare.</string>
+
+    <!--   Internet Connection relevant messages -->
+    <string name="internet_connection_big_start_count">An Internet connection is required to start an Inventory Count.  We are attempting to re-establish the connection.  You can go to Network Settings to resolve the issues manually.</string>
+    <string name="internet_connection_big_start_transaction">An Internet connection is required to start an Inventory Transaction.  We are attempting to re-establish the connection.  You can go to Network Settings to resolve the issues manually.</string>
+    <string name="internet_connection_big_submit_count">An Internet connection is required to submit an Inventory Count.  We are attempting to re-establish the connection.  You can go to Network Settings to resolve the issues manually.  Your progress will not be lost.</string>
+    <string name="internet_connection_big_submit_transaction">An Internet connection is required to submit an Inventory Transaction.  We are attempting to re-establish the connection.  You can go to Network Settings to resolve the issues manually.  Your progress will not be lost.</string>
+    <string name="internet_reconnected_small">The Internet has now been reconnected.</string>
+    <string name="internet_connection_small">The Internet connection has been lost.  Attempting to re-establish the connection.  Tap to view or edit Network Settings.</string>
+    <string name="continue_session">Continue Session</string>
+    <string name="log_out_flavor_text">This session is about to expire due to inactivity. </string>
+    <string name="log_out_flavor_text_timer">You will be logged out in %1$d seconds. </string>
+    <string name="inactive_session">Inactive Session - Logging Out</string>
+
+    <!--  Checkout Remove Dose  -->
+    <string name="patient_checkout_header_remove_dose">Remove Dose from Checkout</string>
+    <string name="patient_checkout_body_remove_dose">You are about to remove a dose from the checkout. Are you sure you want to remove the following dose?</string>
+    <string name="patient_checkout_keep_dose">Keep Dose in Checkout</string>
+    <string name="patient_checkout_remove_dose">Remove Dose</string>
+
+    <!--  Dialog lot lookup  -->
+    <string name="add_new_lot_number">Add Lot #</string>
+    <string name="confirm_lot">Confirm Lot #</string>
+    <string name="add_vaccine_confirmation">In order to add this Lot #, you need to select the vaccine</string>
+    <string name="select_vaccine_for_lot">Select the vaccine for this new Lot #:</string>
+    <string name="add_expiration_date">EXPIRATION</string>
+    <string name="add_new_lot">Add New Lot #</string>
+    <string name="add_new_lot_sub_title">Add New Lot #</string>
+    <string name="lot_number_placeholder">Lot Number</string>
+    <string name="select_antigen_header">ANTIGEN</string>
+    <string name="select_antigen_placeholder">Select Antigen</string>
+    <string name="select_product_header">PRODUCT</string>
+    <string name="select_product_placeholder">Select Product</string>
+    <string name="select_presentation_header">PRESENTATION</string>
+    <string name="select_presentation_placeholder">Select Presentation</string>
+    <string name="select_expiration_month_placeholder">SELECT EXPIRATION MONTH</string>
+    <string name="select_expiration_day_placeholder">SELECT EXPIRATION DAY</string>
+    <string name="select_expiration_year_placeholder">SELECT EXPIRATION YEAR</string>
+    <!--  Dialog scanned dose issue  -->
+    <string name="scanned_dose_issue_header">Issue(s) Detected</string>
+    <string name="scanned_dose_issue_body">The following issues have been detected with the scanned dose:</string>
+    <string name="scanned_dose_issue_keep_dose">Keep Dose</string>
+    <string name="scanned_dose_issue_remove_dose">Remove</string>
+    <string name="scanned_dose_expired_header">Expired Dose</string>
+    <string name="scanned_dose_expired_body">The scanned dose is expired.</string>
+    <string name="scanned_dose_age_issue_header">Out of Age Indication</string>
+    <string name="scanned_dose_age_issue_body">The scanned dose is out of age indication for this patient.</string>
+    <string name="scanned_dose_multiple_entries_header">Multiple Entries</string>
+    <string name="scanned_dose_multiple_entries_body">There are multiple entries of one or more products.</string>
+    <string name="scanned_dose_not_flu_header">Patient can only receive flu</string>
+    <string name="scanned_dose_not_flu_body">At this time, only flu products are supported for patients added via the Mobile Hub.</string>
+    <string name="scanned_dose_missing_info_header">Missing Patient Info</string>
+    <string name="scanned_dose_missing_lot_number_header">Missing Lot Number</string>
+    <string name="scanned_dose_missing_lot_number_body">The product does not have a lot number. Please remove the dose and ensure you are scanning doses using the valid barcode from the vial or the syringe.</string>
+    <string name="scanned_dose_duplicate_lot_number_header">Missing Lot Number</string>
+    <string name="scanned_dose_duplicate_lot_number_body">The product does not have a lot number. Please remove the dose and ensure you are scanning doses using the valid barcode from the vial or the syringe.</string>
+    <string name="scanned_dose_duplicate_product_header">Duplicate Product</string>
+    <string name="scanned_dose_duplicate_product_body">This product has already been scanned. Scan a different product for this patient.</string>
+    <string name="scanned_dose_unknown_product_header">Unknown Product</string>
+    <string name="scanned_dose_unknown_product_body">We don’t recognize this product. Please search by Lot number using search.</string>
+    <string name="scanned_dose_larc_added_title">Checking Out Contraceptives is Not Available</string>
+    <string name="scanned_dose_larc_added_body">Please use the hub to check out contraceptives.</string>
+
+    <!--  Patient Checkout  -->
+    <string name="patient_checkout_provider">Provider:</string>
+    <string name="patient_checkout_administered_by">Administered By:</string>
+    <string name="patient_checkout_advisory_display">By clicking the check, I hereby attest the patient and the guardian (if patient is a minor) have received the above noted Vaccine Information Statements and consented to administration of the vaccines on %1$s.</string>
+    <string name="patient_consent_checkout_empty_display">By tapping the check, I confirm that all doses have been removed from this patient checkout, and the inventory count will be updated.</string>
+    <string name="add_vaccines">Add all vaccines to be administered to the selected patient.</string>
+    <string name="patient_checkout_scan_vaccines">Scan Vaccine Barcode</string>
+    <string name="patient_checkout_no_patients">No Patients in Schedule</string>
+    <string name="patient_checkout_one_d_scan_warning">A 1D barcode was scanned. Please scan a 2D barcode or enter Lot \#.</string>
+    <string name="patient_checkout_search_lots">Or\nEnter Lot \#</string>
+    <string name="patient_checkout_search_lot_num">Search Lot \#</string>
+    <string name="enter_a_patient_name">Enter a Patient Name</string>
+    <string name="patient_checkout_select_a_site">Set</string>
+    <string name="checkout_show_action_bar">Show Action Bar</string>
+    <!--  Patient Checkout Complete  -->
+    <string name="patient_checkout_complete_header">Check Out Complete</string>
+    <string name="patient_checkout_complete_title">Complete!</string>
+    <string name="patient_checkout_complete_sub_title">You can now prepare and administer the doses to the patient</string>
+    <string name="patient_checkout_complete_no_doses">All doses removed from checkout</string>
+    <string name="patient_checkout_complete_vaccine">Vaccine</string>
+    <string name="patient_checkout_complete_lot_number">Lot #</string>
+    <string name="patient_checkout_complete_route">Route</string>
+    <string name="patient_checkout_complete_site">Site</string>
+    <string name="patient_checkout_complete_patient">Patient</string>
+    <string name="patient_checkout_complete_administered_by">Administered By</string>
+    <string name="patient_checkout_complete_provider">Provider</string>
+    <string name="patient_checkout_complete_already_been_processed">This checkout has already been processed. To make changes, please contact VaxCare Customer Care.</string>
+    <string name="patient_checkout_risk_description">See VaxCare Portal for more details</string>
+    <string name="patient_checkout_back_title">Cancel Check Out?</string>
+    <string name="patient_checkout_back_body">The changes you\'ve made to this check out will not be saved.</string>
+    <string name="patient_checkout_back_continue">Keep Check Out</string>
+    <string name="patient_checkout_back_cancel">Cancel Check Out</string>
+    <string name="patient_already_checkout_body">You can view this appointment in the VaxCare Portal.</string>
+    <string name="patient_already_checkout_ok">OK</string>
+    <string name="patient_already_checkout_header">Patient has been Checked Out</string>
+    <string name="patient_vfc_body">Checkout patients eligible for VFC doses on your normal VaxCare Hub.</string>
+    <string name="patient_vfc_ok">OK</string>
+    <string name="patient_vfc_header">VFC not supported</string>
+    <string name="add_appointments_to_ehr_dialog_title">Add Appointments to EHR</string>
+    <string name="add_appointments_to_ehr_dialog_body">Appointments created on Mobile Hub don’t sync to your EHR.</string>
+    <!--  Patient Lookup  -->
+    <string name="patient_lookup">Patient Lookup</string>
+    <string name="patient_lookup_enter_a_patient_name_or_scan_consent_form">Enter a Patient Name or Scan Consent Form</string>
+    <string name="patient_lookup_patient_scan_consent_form_error">There is an error with this consent form. Please download and print a new consent form from the Portal to be scanned.</string>
+    <string name="patient_lookup_name_display">%1$s %2$s</string>
+    <string name="patient_lookup_id_display">ID: %1$s</string>
+    <string name="patient_lookup_dob_display">DOB: %1$s</string>
+    <string name="patient_lookup_display_fmt">%1$s @ %2$s</string>
+    <string name="patient_lookup_id">ID</string>
+    <string name="patient_lookup_dob">DOB</string>
+    <string name="patient_lookup_physician">PHYSICIAN</string>
+    <string name="patient_lookup_administrator">ADMINISTERED BY</string>
+    <string name="patient_lookup_site">SITE</string>
+    <string name="patient_lookup_route">ROUTE</string>
+    <string name="patient_checkout_complete_another">Check Out Another Patient</string>
+    <string name="patient_checkout_complete">Checkout Complete</string>
+    <string name="patient_checkout_complete_updated">Checkout Updated</string>
+    <string name="patient_checkout_family_count">%d Check Outs</string>
+    <string name="patient_parent_guardian_flu_shots">Check Out Other Family</string>
+    <string name="patient_add_parent">Check Out Parent/Guardian</string>
+    <string name="patient_select_month">MONTH</string>
+    <string name="patient_select_day">DAY</string>
+    <string name="patient_select_year">YEAR</string>
+    <string name="gender">GENDER</string>
+    <string name="patient_select_state">STATE</string>
+    <string name="patient_lookup_today">Today</string>
+    <string name="patient_lookup_tomorrow">Tomorrow</string>
+    <string name="patient_lookup_yesterday">Yesterday</string>
+    <string name="patient_lookup_edit_physician">Edit Physician</string>
+    <!--  Patient View  -->
+    <string name="patient_name_display">
+        %2$s, %1$s
+    </string>
+    <string name="provider_name_display">
+       %1$s %2$s
+    </string>
+    <string name="age_indication_display">
+       %1$s
+    </string>
+    <string name="originator_id">
+        <![CDATA[<b>ID</b> %1$s]]>
+    </string>
+    <string name="patient_dob">
+        <![CDATA[<b>DOB</b> %1$s]]>
+    </string>
+    <string name="patient_eligibility_primary_secondary_message">
+        <![CDATA[<b>%1$s</b> <i>%2$s</i>]]>
+    </string>
+    <string name="patient_checkout_vaccine">Vaccine</string>
+    <string name="patient_checkout_vis_date">V.I.S Date</string>
+    <string name="patient_checkout_age_indicator">Age Ind.</string>
+    <string name="patient_checkout_lot_number">Lot #</string>
+    <string name="patient_checkout_route">Route</string>
+    <string name="patient_checkout_set_route"><u>Set Route</u></string>
+    <string name="patient_checkout_site">Site</string>
+    <string name="patient_checkout_set_site"><u>Set Site</u></string>
+    <string name="patient_consent">Patient Counseling</string>
+    <string name="patient_consent_checkout_empty">Checkout Empty</string>
+    <string name="patient_add_title">Add Patient</string>
+    <string name="curbside_patient_add_scan_barcode">Scan the driver’s license bar code</string>
+    <string name="patient_add_scan_barcode">Optional: Scan driver’s license code to fill in patient info</string>
+    <string name="curbside_patient_add_first_name">FIRST *</string>
+    <string name="patient_add_first_name">FIRST</string>
+    <string name="patient_add_required_field">This is a required field</string>
+    <string name="curbside_patient_add_last_name">LAST *</string>
+    <string name="patient_add_last_name">LAST</string>
+    <string name="curbside_patient_add_date_of_birth">DATE OF BIRTH *</string>
+    <string name="patient_add_date_of_birth">DATE OF BIRTH</string>
+    <string name="patient_add_valid_date">Enter a valid date</string>
+    <string name="curbside_patient_add_gender">GENDER *</string>
+    <string name="patient_add_gender">GENDER</string>
+    <string name="patient_add_select_gender">Select a gender</string>
+    <string name="patient_add_race">RACE</string>
+    <string name="patient_add_ethnicity">ETHNICITY</string>
+    <string name="curbside_patient_add_phone">PHONE *</string>
+    <string name="patient_add_phone">MOBILE PHONE</string>
+    <string name="patient_mobile_phone">MOBILE PHONE</string>
+    <string name="patient_add_enter_phone">Enter a phone number</string>
+    <string name="curbside_patient_add_address">ADDRESS (OPTIONAL)</string>
+    <string name="patient_add_address">ADDRESS 1</string>
+    <string name="patient_add_address2">ADDRESS 2</string>
+    <string name="patient_add_city">CITY</string>
+    <string name="patient_add_state">STATE</string>
+    <string name="patient_add_zipcode">ZIPCODE</string>
+    <string name="patient_add_capture_driver_license">Capture Driver\'s License</string>
+    <string name="patient_add_appointment_title">New Appointment</string>
+    <string name="patient_create_new_patient">Create New Patient</string>
+    <string name="patient_add_appointment_search">Search existing patients</string>
+    <string name="patient_search_title">Search Patients</string>
+    <string name="appointment_search_title">Search Appointments</string>
+    <string name="appointment_search_sub_text">Appointments for %1$s</string>
+    <string name="appointment_search_not_found">Not finding your patient? Make sure\nyou\'re searching the right date.</string>
+    <string name="appointment_search_not_found_add">Not finding who you\'re looking for?\nCheck the date you\'re searching or</string>
+    <string name="appointment_search_add_new"><b><u>Add a New Appointment</u></b></string>
+    <string name="add_appointment_title">Add An Appointment for Today</string>
+    <string name="add_appointment_banner_message">Appointments should be manually added to your EHR</string>
+    <string name="add_appointment_in_progress">We\'re creating an appointment and\nrunning eligibility for this patient.\nThis may take up to 30 seconds…</string>
+    <string name="add_appointment_delay_message">Eligibility is taking a little longer\nthan usual…</string>
+    <string name="add_appointment_hint">Appointments can be added in the\nPortal before patients arrive.</string>
+    <string name="offline_prompt_title">Mobile Hub is Offline</string>
+    <string name="offline_prompt_body">Please reconnect to add an appointment.</string>
+    <string name="patient_add_capture_no_license">No License</string>
+    <string name="patient_select_payer">Select Payer</string>
+    <string name="patient_add_capture_insurance_card">Capture Insurance Card</string>
+    <string name="patient_add_capture_no_card">No Card</string>
+    <string name="patient_add_capture_front_insurance_card">Take a photo of the front of the card</string>
+    <string name="patient_add_capture_back_insurance_card">Take a photo of the back of the card</string>
+    <string name="patient_add_capture_front_driver_license">Take a photo of the front of the driver\'s license</string>
+    <string name="patient_add_retake_photo">Retake Photo</string>
+    <string name="patient_add_use_photo">Use Photo</string>
+    <string name="patient_add_payer_search">Search Payers</string>
+    <string name="patient_add_upload_insurance_card_failed">Upload insurance card failed, please try again!</string>
+    <string name="patient_add_upload_driver_license_failed">Upload driver\'s license failed, please try again!</string>
+    <string name="patient_add_select_payer_employer_pay">Employer Covered</string>
+    <string name="patient_add_select_payer_uninsured">Uninsured</string>
+    <string name="patient_add_select_payer_other_payer">Other Payer</string>
+    <string name="patient_add_select_payer_self_pay">Self Pay</string>
+    <string name="patient_add_payer_other_payer_header">Patient must Self Pay</string>
+    <string name="patient_add_payer_other_payer_body">Patient is not covered by in-network VaxCare insurance. Please collect from the patient for any shots administered.</string>
+    <string name="patient_add_payer_other_payer_ok">OK</string>
+    <string name="patient_add_failed_to_create_appointment">Failed to create appointment.</string>
+    <string name="patient_add_failed_to_take_photo">Take photo failed, please try again!</string>
+    <string name="patient_add_recent_payers_label">Recent</string>
+    <string name="patient_add_all_payers">All Payers</string>
+    <string name="curbside_patient_add_keep_device_header">Keep The Device In Your Hands</string>
+    <string name="curbside_patient_add_keep_device_body">Do not hand this device to the patient to input their information</string>
+    <string name="patient_add_keep_device_header">Do not hand device to patient</string>
+    <string name="patient_add_keep_device_body">Do not hand this device to the patient to enter information</string>
+    <string name="patient_add_keep_device_ok">I Understand</string>
+    <string name="patient_add_in_progress">Please wait while this patient is created and we check eligibility…</string>
+    <string name="patient_use_same_insurance_header">Same Insurance as Child?</string>
+    <string name="patient_use_same_insurance_body">Does this parent / guardian have the same insurance as the child?</string>
+    <string name="patient_use_same_insurance_ok">Same Insurance</string>
+    <string name="patient_use_same_insurance_cancel">Different Insurance</string>
+    <string name="patient_confirm_parent_info">Confirm Parent Info</string>
+    <string name="patient_confirm_parent_dob">DOB</string>
+    <string name="patient_confirm_parent_gender">GENDER</string>
+    <string name="patient_confirm_parent_race">RACE</string>
+    <string name="patient_confirm_parent_ethnicity">ETHNICITY</string>
+    <string name="patient_confirm_parent_address">ADDRESS</string>
+    <string name="patient_confirm_parent_phone">PHONE</string>
+    <string name="patient_confirm_parent_insurance_provider">INSURANCE PROVIDER</string>
+    <string name="patient_confirm_parent_provider">PROVIDER</string>
+    <string name="patient_confirm_parent_confirm">Confirm</string>
+    <string name="patient_confirm_parent_edit_info">Edit Info</string>
+    <string name="patient_confirm_patient_info">Confirm Patient Info</string>
+    <string name="patient_confirm_no_address">No address on file</string>
+    <string name="patient_search_not_existing">Not an existing patient?</string>
+    <string name="patient_search_not_finding">Not finding who you’re looking for?</string>
+    <string name="patient_search_new_appointment_subtext">Make a new appointment for an existing patient or create a new patient</string>
+    <string name="patient_add_exit_dialog_title">Are you sure you want to exit?</string>
+    <string name="patient_add_exit_dialog_message">The changes you’ve made to this will not be saved.</string>
+
+    <string name="patient_edit_title">Edit Patient Info</string>
+    <string name="patient_edit_insurance_title_current">Capture Payer Info</string>
+    <string name="patient_edit_insurance_title">Capture Insurance Card</string>
+    <string name="patient_edit_missing_info">Missing Patient Info</string>
+    <string name="patient_edit_missing_payer_confirm">Confirm payer information for or tap to edit payer</string>
+    <string name="patient_edit_missing_payer_select">Missing payer information for this patient. Select a payer to continue.</string>
+    <string name="patient_edit_front_card">Front of Card</string>
+    <string name="patient_edit_back_card">Back of Card</string>
+    <string name="patient_edit_front_card_subtitle">Capture front of insurance card</string>
+    <string name="patient_edit_back_card_subtitle">Capture back of insurance card</string>
+    <string name="patient_edit_no_insurance_card">No Insurance Card</string>
+    <string name="patient_edit_in_progress">Updating patient eligibility…</string>
+    <string name="patient_edit_failed">Upload patient eligibility failed, please try again!</string>
+    <string name="patient_edit_hold_card">Hold card in the center of the box</string>
+    <string name="patient_edit_driver_license_note">Scan Driver’s License to input missing required patient information.</string>
+    <string name="patient_edit_driver_license_tip">Scan the driver’s license bar code</string>
+    <string name="patient_edit_driver_license_trouble">Having trouble scanning?</string>
+    <string name="patient_edit_driver_license_first_name">FIRST NAME</string>
+    <string name="patient_edit_driver_license_dob">DOB</string>
+    <string name="patient_edit_driver_license_gender">GENDER</string>
+    <string name="patient_edit_driver_license_last_name">LAST NAME</string>
+    <string name="patient_edit_fill_missing">Fill out the missing required patient information to continue.</string>
+    <string name="patient_edit_collect_phone_title">This clinic uses VaxCare</string>
+    <string name="patient_edit_collect_phone_subtitle">You\’ll receive a call or text to provide insurance or payment info to complete your vaccination record.</string>
+    <string name="patient_edit_collect_phone_title_agreement">Contact Consent</string>
+    <string name="patient_edit_collect_phone_agreement">By clicking the check, I, the patient or guardian, hereby allow VaxCare to contact me via text and phone.</string>
+    <string name="patient_edit_collect_phone_disagree"><u>I don\'t authorize VaxCare to contact me</u></string>
+    <string name="patient_edit_collect_phone_invalid">Invalid mobile phone number</string>
+    <string name="error_loading_appointment">There was a problem loading the appointment</string>
+    <string name="patient_edit_dob_header">Required Information Missing</string>
+    <string name="patient_edit_tap_to_capture">Tap image to capture card</string>
+    <string name="patient_edit_tap_to_retake">Tap image to retake photo</string>
+    <string name="nurse_disclaimer_optout_title">Patient Declined VaxCare Outreach</string>
+    <string name="nurse_disclaimer_optout_desc">Make sure to collect payment from patient before they leave.</string>
+    <string name="nurse_disclaimer_optin_title">Patient Info Collected</string>
+    <string name="nurse_disclaimer_optin_desc">Inform the patient that we’ll contact them to collect payment in addition to insurance information.</string>
+    <string name="nurse_disclaimer_medd_signature">Next: Collect Med D Patient Consent</string>
+
+    <string name="payer_info_add_title">Add Payer Info</string>
+    <string name="payer_info_relationship">Relationship to insured</string>
+    <string name="relationship">Relationship</string>
+    <string name="payer_info_insured_first">Insured First Name</string>
+    <string name="payer_info_insured_last">Insured Last Name</string>
+    <string name="payer_info_insured_dob">Insured Date of Birth</string>
+    <string name="payer_info_insured_gender">Insured Gender</string>
+
+    <string name="admin_fragment_vaxcare_admin_log_in">VaxCare Admin Login</string>
+    <string name="admin_fragment_log_in">Log In</string>
+    <string name="admin_fragment_no_partner_assigned">No Location Assignment</string>
+    <string name="admin_fragment_enter_pin">Enter PIN</string>
+    <string name="admin_fragment_password">Password</string>
+    <string name="admin_fragment_invalid_credentials">Invalid Credentials</string>
+
+    <string name="home_fragment_header_checkout_vaccines">Check Out Vaccines</string>
+    <string name="home_fragment_header_inventory">Inventory</string>
+    <string name="home_fragment_check_out_vaccines_title">Check Out Vaccines</string>
+
+    <string name="admin_fragment_enable_diagnostics">Enable Diagnostics</string>
+    <string name="admin_fragment_save">Save</string>
+    <string name="admin_fragment_cancel">Cancel</string>
+    <string name="admin_fragment_diagnostics">Diagnostics</string>
+    <string name="admin_fragment_bluetooth_diagnostics">Bluetooth Diagnostics</string>
+    <string name="admin_fragment_product_diagnostics">Product Diagnostics</string>
+    <string name="admin_fragment_check_for_update">Check For Update</string>
+    <string name="admin_fragment_scanning_diag">Scanning Diagnostic</string>
+    <string name="admin_fragment_ui_diag">UI Diagnostic</string>
+    <string name="admin_fragment_partner_id_header">Partner ID</string>
+    <string name="admin_fragment_partner_id_text">The Partner ID drives what inventory information is shown on this Hub.</string>
+    <string name="admin_fragment_clinic_id_header">Clinic ID</string>
+    <string name="admin_fragment_clinic_id_text">The Clinic # identifies the specific clinic that is assigned to this Hub.</string>
+    <string name="admin_fragment_serial_number_header">Serial Number</string>
+    <string name="admin_fragment_serial_number_text">The Serial Number allows VaxCare to track the location of this Hub.</string>
+    <string name="admin_fragment_invalid_partner_id">ID Mismatch</string>
+    <string name="admin_fragment_enter_id">Enter ID</string>
+    <string name="admin_fragment_invalid_clinic_id">ID Mismatch</string>
+    <string name="admin_fragment_setting_up_vaxhub">Setting up VaxHub…</string>
+    <string name="admin_fragment_clinic_information">Clinic Information</string>
+    <string name="admin_fragment_next">Next</string>
+    <string name="admin_fragment_setup_complete">Setup Complete</string>
+    <string name="admin_fragment_setup_failed_error_message">Error: Unable to load information</string>
+    <string name="admin_fragment_enter_new_x_id">Enter New %1$s ID</string>
+    <string name="admin_fragment_enter_partner_id">Enter Partner ID</string>
+    <string name="admin_fragment_enter_clinic_id">Enter Clinic ID</string>
+
+    <string name="admin_fragment_header_vaxcare_admin">VaxCare Admin</string>
+    <string name="admin_fragment_header_vaxcare_admin_login">VaxCare Admin Log In</string>
+    <string name="admin_fragment_admin_edit_sub_header">Edit</string>
+    <string name="admin_fragment_use_scanner">Use Scanner</string>
+    <string name="admin_fragment_old_diagnostics">Old Diagnostics</string>
+    <string name="admin_fragment_title_admin_setup">Admin Setup</string>
+    <string name="admin_fragment_enter_password">Enter Admin Password</string>
+
+    <string name="id">ID</string>
+    <string name="dob">DOB</string>
+    <string name="tap_to_unlock">Tap to Unlock</string>
+
+    <string name="patient_select_patient">Select Patient</string>
+    <string name="patient_select_no_schedules">No patients on the schedule for today</string>
+    <string name="patient_select_no_schedules_other_day">No patients on the schedule</string>
+
+    <string name="scan_doses">Scan Doses</string>
+    <string name="patient_checkout_dose_display_ordered_in">Scan the dose ordered in your EHR</string>
+    <string name="patient_scan_doses_usin">Scan doses using the viewfinder.</string>
+    <string name="lot_look_up">Lot Lookup</string>
+    <string name="date_expired">Date is expired</string>
+    <string name="summary">Summary</string>
+    <string name="summary_updated">Updated Summary</string>
+    <string name="summary_past_checkout">Past Checkout Summary</string>
+    <string name="month_format">%1$s - %2$s</string>
+    <string name="serial_and_version_info">Serial # %1$s\nApp Version: %2$s</string>
+    <string name="load_appointments_in_progress">Loading today\'s patients…</string>
+    <string name="load_appointment_details_in_progress">Just a moment…</string>
+    <string name="validate_scanner_license">Validate scanner license</string>
+    <string name="validate_scanner_success">Scanner license valid</string>
+    <string name="validate_scanner_failure">Scanner license invalid</string>
+    <string name="vfc_risk">Patient Qualifies for VFC</string>
+    <string name="section317_risk">Patient Qualifies for 317</string>
+    <string name="risk_free">Ready to Vaccinate</string>
+    <string name="select_patient_schedule">PATIENT SCHEDULE</string>
+    <string name="temporary_clinic_title">CLINIC</string>
+    <string name="temporary_clinics">TEMPORARY CLINICS</string>
+    <string name="temporary_clinic_dialog_body">Patients can only be checked out on the date of the clinic.</string>
+    <string name="temporary_clinic_dialog_header_before">Clinic is in the past</string>
+    <string name="temporary_clinic_dialog_header_after">Clinic is in the future</string>
+    <string name="patient_select_dose_series_title">Which Dose in the Series?</string>
+    <string name="covid_assist_not_enrolled_title">Not Enrolled In COVID Assist</string>
+    <string name="covid_assist_not_enrolled_body">We are unable to add these as your practice is not currently enrolled in VaxCare\'s COVID Assist program.\nPlease contact Customer Care by calling 888.829.8550 to enroll.</string>
+    <string name="covid_assist_not_enrolled_back">Back</string>
+    <string name="covid_assist_not_enrolled_cancel">Cancel</string>
+
+    <string name="med_d_mobile_message">MED D &#160;%s</string>
+
+    <string name="med_d_check_dialog_ok">Yes, Review Copay</string>
+    <string name="med_d_check_dialog_cancel">No, Skip This</string>
+    <string name="med_d_check_dialog_1242">Med D Check Available</string>
+    <string name="med_d_check_dialog_1243">Med D Copay Info Available</string>
+    <string name="med_d_check_dialog_1242_body">Would you like to review possible copay for Tdap and Zoster?</string>
+    <string name="med_d_check_dialog_1243_body">Would you like to review copay costs for Tdap and Zoster?</string>
+    <string name="med_d_check_running_copay_check">Running copay check</string>
+
+    <string name="med_d_review_copay_dialog_header">Med D Copay Check Required</string>
+    <string name="med_d_review_copay_dialog_body">This dose may require a copay. A copay check is available.</string>
+    <string name="med_d_review_copay_dialog_run">Run Copay Check</string>
+    <string name="med_d_review_copay_dialog_remove">Remove Dose</string>
+
+    <string name="med_d_check_title">Med D Check</string>
+    <string name="med_d_copay_check">Med D Copay Check</string>
+    <string name="med_d_check_prompt">This check determines Med D coverage and if there are any copays required.</string>
+    <string name="med_d_check_mbi_ssn_language">Enter a Medicare Beneficiary Identifier or Social Security Number.</string>
+    <string name="med_d_check_last_4_ssn">LAST 4 DIGITS OF SS#</string>
+    <string name="med_d_check_ssn_prompt">Social Security Number is required to run Med D Copay check:</string>
+    <string name="med_d_check_checked_prompt">Med D Copay Requirements</string>
+    <string name="ssn">SSN</string>
+    <string name="med_d_check_skip_this">Skip This</string>
+    <string name="med_d_check_copay">$%.2f Copay</string>
+    <string name="med_d_check_error">Not able to retrieve results.\nCoverage not determined.\n\nVaxCare can not bill for Med D doses for this patient.</string>
+    <string name="med_d_check_missing_ssn">Missing SSN</string>
+    <string name="med_d">MED D</string>
+    <string name="med_d_not_today">MED D - Eligibility Check Available on DOS</string>
+    <string name="med_d_check_failed">Failed to run Med D check, please try again!</string>
+    <string name="run_copay_check">Run Copay Check</string>
+    <string name="some_doses_require_copay">Some doses may require copay</string>
+    <string name="med_d_unavailable">Unable to connect to 3rd party Medicare Part D eligibility services at this time</string>
+    <string name="med_d_check_mbi_or_ssn">MBI or SSN</string>
+    <string name="med_d_unable_to_retrieve">Not able to retrieve results.\nCoverage not determined.</string>
+    <string name="med_d_check_this_patient_not_eligible">This patient is not eligible for Med D doses.</string>
+    <string name="med_d_check_patient_not_eligible">Patient is not eligible for Med D doses.</string>
+
+    <string name="med_d_copay_dialog_title">Copay Required</string>
+    <string name="med_d_copay_dialog_message">Select payment method for Copay.</string>
+    <string name="med_d_copay_dialog_ok">Debit or Credit</string>
+    <string name="med_d_copay_dialog_cancel">Cash or Check</string>
+    <string name="rsv">RSV</string>
+    <string name="tdap">Tdap</string>
+    <string name="zoster">Zoster</string>
+
+    <string name="med_d_copay_title">Collect Payment Information</string>
+    <string name="med_d_copay_scan_credit_card">Scan the Credit Card</string>
+    <string name="med_d_copay_invalid_info">Invalid information entered</string>
+    <string name="med_d_copay_card_number">CARD NUMBER</string>
+    <string name="med_d_copay_expiration">EXPIRATION</string>
+    <string name="med_d_copay_card_name">NAME ON CARD</string>
+    <string name="med_d_copay_email">EMAIL ADDRESS</string>
+    <string name="med_d_copay_charge_message">Card will not be charged today. VaxCare contacts patients before collecting payment.</string>
+    <string name="med_d_copay_save">Save Payment Info</string>
+    <string name="med_d_copay_no_charge">Cash/Check or No Charge</string>
+    <string name="med_d_summary_title">Payment Summary</string>
+    <string name="med_d_summary_patient_consent">Patient Consent</string>
+    <string name="med_d_copay_phone">PHONE</string>
+    <string name="med_d_checkout_vaccine_copay_required">Copay Required</string>
+    <string name="med_d_checkout_vaccine_immunization_not_covered">Immunization not Covered</string>
+    <string name="med_d_checkout_vaccine_out_of_age_indication">Out of Age Indication</string>
+    <string name="med_d_checkout_vaccine_missing_info">Insurance Card Not Provided</string>
+    <string name="med_d_checkout_vaccine_copay_total">Total:</string>
+    <string name="med_d_copay_collect_payment_info">Collect Payment Info</string>
+    <string name="med_d_check_copay_double">$%.2f</string>
+    <string name="med_d_summary_copay">Copay</string>
+    <string name="med_d_summary_copay_cash_or_check">Copay: Cash or Check</string>
+    <string name="med_d_summary_copay_phone">Copay: Pay By Phone</string>
+    <string name="med_d_summary_copay_with_card">Card will not be charged today.\nVaxCare contacts patients before collecting payment.</string>
+    <string name="med_d_summary_copay_pay_by_phone">Pay By Phone</string>
+    <string name="med_d_summary_copay_without_card">Make sure to collect from patient before they leave</string>
+    <string name="med_d_summary_copay_with_phone">VaxCare will call the patient to collect payment</string>
+    <string name="med_d_summary_copay_card_brand">%s…</string>
+    <string name="med_d_summary_copay_error">Error: Missing Value</string>
+    <string name="med_d_signature_title">Signature and Confirm</string>
+    <string name="med_d_signature_collect_patient_signature">Collect Patient Signature</string>
+    <string name="med_d_signature_collect_patient_signature_info">By signing, i acknowledge that i have received the vaccine(s) as indicated and i authorize my provider to bill and collect from my insurance for the vaccine and related administration fees. I understand that this authorization does not release me from any financial responsibility (co-payments or deductibles) required under my plan.</string>
+    <string name="med_d_signature_submit">Submitting your checkout…</string>
+    <string name="med_d_signature_submit_failed">Submit your checkout failed, please try again!</string>
+    <string name="patient_checkout_prompt_exclusion_title">Doses Not Covered</string>
+    <string name="patient_checkout_prompt_exclusion_body">The scanned dose is excluded for this patient.</string>
+    <string name="patient_checkout_prompt_med_d_exclusion_title">Med D Copay Check Unavailable</string>
+    <string name="patient_checkout_prompt_med_d_exclusion_body">This dose may require a copay. How would you like to continue?</string>
+    <string name="patient_checkout_out_of_age_exclusion_title">Out of Age Indication</string>
+    <string name="patient_checkout_out_of_age_exclusion_body">The scanned dose is out of age indication for this patient.</string>
+    <string name="patient_checkout_missing_info_exclusion_title">Insurance Card Not Provided</string>
+    <string name="patient_checkout_missing_info_exclusion_body">The requested insurance card was not provided for this patient.</string>
+    <string name="patient_checkout_base_exclusion_body_payer">Payer: %s</string>
+    <string name="patient_checkout_base_exclusion_body_bottom">How do you want to proceed for the scanned dose?</string>
+    <string name="patient_checkout_base_exclusion_continue">Partner Bill</string>
+    <string name="patient_checkout_base_exclusion_neutral">Self-Pay</string>
+    <string name="patient_checkout_base_exclusion_neutral_fmt">Self-Pay : $%.2f</string>
+    <string name="patient_checkout_base_exclusion_cancel">Remove </string>
+    <string name="eligibility_unavailable">Eligibility Unavailable</string>
+    <string name="eligibility_can_not_be_run">Eligibility can not be run</string>
+    <string name="cta_info_missing">%s missing</string>
+    <string name="payer_info_required">Payer Info Required</string>
+    <string name="group_id">Group ID</string>
+    <string name="member_id">Member ID</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="multiple_pieces_of_info">Multiple pieces of info</string>
+    <string name="patient_set_to_self_pay">Patient set to self-pay</string>
+    <string name="med_d_checkout_flu_and_pneumo_vaccines_only">Flu and Pneumo Vaccines Only</string>
+    <string name="self_pay_dialog_title">Select Payment Method</string>
+    <string name="self_pay_dialog_message">This patient is self-pay. Select a payment method to collect.</string>
+    <string name="self_pay_dialog_ok">Debit or Credit</string>
+    <string name="self_pay_dialog_cancel">Cash or Check</string>
+    <string name="self_pay_valid_card_on_file">Valid Credit Card On File</string>
+    <string name="self_pay_one_touch_checkout">Confirm and Pay</string>
+    <string name="self_pay_one_touch_checkout_with_card">Confirmation email will be sent when payment is collected</string>
+    <string name="checkout_summary_selfpay_not_covered">Self-Pay: Not Covered</string>
+    <string name="checkout_summary_selfpay_out_of_age">Self-Pay: Out of Age Indication</string>
+    <string name="checkout_summary_selfpay_missing_info">Self-Pay: Missing Patient Info</string>
+    <string name="checkout_summary_copay">Copay</string>
+    <string name="checkout_summary_partner_bill_fmt">Partner Bill%1$s</string>
+    <string name="processing_appointment_dialog_title">Processing Appointment</string>
+    <string name="processing_appointment_dialog_message">This appointment is still being processed for multiple payment modes. This usually only takes a minute. </string>
+    <string name="processing_appointment_dialog_refresh">Refresh Schedule</string>
+    <string name="checkout_remove_dose_title">Remove This Dose?</string>
+    <string name="checkout_remove_dose_message">Dose will be deleted from checkout.</string>
+
+    <string name="checking_the_photo">Checking the photo…</string>
+    <string name="checking_the_photo_failed">The picture is hard to read.\nPlease try again.</string>
+    <string name="patient_info">Patient Info</string>
+    <string name="change_payment_method_dialog_title">Change Payment Method</string>
+    <string name="change_payment_method_dialog_message">This patient is self-pay. Select a payment method to collect.</string>
+    <string name="checking_the_photo_failed_insurance">Image unclear. Please retake the photo.</string>
+
+    <string name="risk_plan_out_of_network_message">Plan not in VaxCare\'s Billing Network</string>
+    <string name="risk_insurance_out_of_network_message">Insurance not in VaxCare\'s Billing Network</string>
+
+    <string name="dose_series_fmt">%1$s Dose</string>
+
+    <string name="hand_device_to_patient">Please hand device to the patient.</string>
+    <string name="hand_device_to_nurse">Please hand device to the nurse.</string>
+    <string name="clinic_uses_vaxcare">This clinic uses VaxCare</string>
+    <string name="text_to_provide_info">You\'ll receive a text to provide basic information to complete your vaccination record.</string>
+    <string name="mobile_phone">MOBILE PHONE</string>
+    <string name="area_code">Area Code</string>
+    <string name="prefix">prefix</string>
+    <string name="line_number">Line number</string>
+    <string name="all_done">All done!</string>
+    <string name="permission_must_be_accepted">Permissions must be accepted in order to use the VaxHub application.</string>
+    <string name="bridge_required_title">Missing VaxCare Bridge Application</string>
+    <string name="bridge_required_message">Please install VaxCare’s Mobile Bridge application. Contact Customer Care for questions and troubleshooting.</string>
+    <string name="retry">Retry</string>
+    <string name="appointment_update_failed">Failed to get updated appointment information</string>
+    <string name="error">Error</string>
+    <string name="error_body">Unexpected Error, please try again!</string>
+    <string name="acknowledge">Acknowledge</string>
+    <string name="failed_to_sync">Failed To Sync</string>
+    <string name="ordered">ORDERED</string>
+
+    <string name="orders_unordered_dose_prompt_title">Unordered Dose</string>
+    <string name="orders_unordered_dose_prompt_message">Checkout includes a dose that was not ordered in the EHR.\n\nDo you want to keep the dose?</string>
+    <string name="orders_unordered_dose_prompt_yes">Yes, Keep Dose</string>
+    <string name="orders_unordered_dose_prompt_no">No, Remove Dose</string>
+
+    <string name="orders_review_doses">Review Doses</string>
+    <string name="orders_review_header_title_unordered">Why were these doses dispensed?</string>
+    <string name="orders_review_header_subtitle_unordered">Unordered doses have to be manually added to the EHR</string>
+    <string name="orders_review_header_title_not_admin">Why were these orders not filled?</string>
+    <string name="orders_review_set_reason"><u>Set Reason</u></string>
+
+    <string name="orders_reason">REASON</string>
+
+    <!-- Unordered Dose Reasons -->
+    <string name="orders_unordered_dose_reason_order_not_appearing">Order Not Appearing</string>
+    <string name="orders_unordered_dose_reason_physician_unable">Physician Unable to Order</string>
+    <string name="orders_unordered_dose_reason_product_mismatch">Product Mismatch with EHR</string>
+    <string name="orders_unordered_dose_reason_other">Other</string>
+
+    <!-- Ordered Doses Not Administered Reasons -->
+    <string name="orders_ordered_dose_reason_patient_refused">Patient Refused</string>
+    <string name="orders_ordered_dose_reason_out_of_stock">Out of Stock</string>
+    <string name="orders_ordered_dose_reason_other">Other</string>
+    <string name="orders_ordered_dose_reason_postponed">Postponed</string>
+
+    <!--In Review Transactions-->
+    <string name="review_in_progress_label">VaxCare Review In Progress</string>
+
+    <!-- Insurance Collection -->
+    <string name="patient_edit_information_title">Edit Patient Information</string>
+    <string name="new_insurance_title">Does patient have new insurance?</string>
+    <string name="current_insurance_label">Current Info</string>
+    <string name="current_insurance_issue_bad_info">Inactive or Expired Or Invalid</string>
+    <string name="current_insurance_issue_missing_fmt">Missing %s</string>
+    <string name="current_insurance_member_id">Member ID</string>
+    <string name="current_insurance_payer_info">Payer Info</string>
+    <string name="current_insurance_member_id_fmt">Member ID: %s</string>
+    <string name="current_insurance_self_pay"><u>Patient will self-pay</u></string>
+    <string name="current_insurance_select_payer">Select a payer to continue.</string>
+
+    <!-- Scanner Messages-->
+    <string name="scanner_problem_title">Problem with scanner.</string>
+    <string name="scanner_problem_action">Refresh scanner</string>
+    <string name="scanner_problem_try_again">Try again later</string>
+
+    <!-- Route required dialog -->
+    <string name="dialog_route_required_title">Route Required</string>
+    <string name="dialog_route_required_subtitle">Select the administration route for:</string>
+    <string name="intramuscular">Intramuscular</string>
+    <string name="subcutaneous">Subcutaneous</string>
+
+    <!-- Duplicate RSV exception dialog -->
+    <string name="dialog_duplicate_rsv_title">Confirm 2 Doses of this Product</string>
+    <string name="dialog_duplicate_rsv_subtitle">200mg are recommended for immunocompromised patients.</string>
+    <string name="dialog_duplicate_rsv_billing_message">VaxCare cannot bill for these doses.</string>
+    <string name="dialog_duplicate_rsv_billing_prompt">How would you like to continue?</string>
+    <string name="dialog_duplicate_rsv_self_pay_amount_fmt">Self-Pay: $%.2f</string>
+
+    <!-- Wrong stock dialog -->
+    <string name="dialog_wrong_stock_selected_title">Wrong Stock Selected</string>
+    <string name="dialog_wrong_stock_selected_body_fmt">The scanned dose does not match the stock the patient is assigned to. Patient is assigned to %1$s stock.\n\n%2$s</string>
+    <string name="dialog_wrong_stock_selected_suffix_fmt">This dose will be deducted from %1$s stock if administered.</string>
+    <string name="dialog_wrong_stock_selected_suffix2">Do you want to set the stock?</string>
+    <string name="dialog_wrong_stock_selected_remove_dose">Remove Dose</string>
+    <string name="dialog_wrong_stock_selected_keep_dose">Keep Dose</string>
+    <string name="dialog_wrong_stock_selected_keep_stock">Keep Stock</string>
+    <string name="wrong_stock">Wrong Stock</string>
+
+    <!-- Age Warning Dialogs -->
+    <string name="age_warning_weeks_pregnant_dialog_title">PREGNANT PEOPLE QUALIFY FOR THIS DOSE:\nHOW MANY WEEKS PREGNANT IS THE PATIENT?</string>
+    <string name="age_warning_patient_qualifies">Patient qualifies</string>
+    <string name="age_warning_patient_does_not_qualify">Patient does NOT qualify</string>
+
+    <!-- Login SSO -->
+    <string name="login_title">Log In</string>
+    <string name="login_enter_email_label">Or enter email</string>
+    <string name="login_enter_email_label_empty">Enter email</string>
+    <string name="login_invalid_email">Enter a valid email address</string>
+    <string name="login_select_user">Select User</string>
+    <string name="loginPinFragment_enterYourPin">Enter your PIN</string>
+    <string name="loginPinFragment_enterYourPassword">Enter your password</string>
+    <string name="loginPinFragment_enterPin">Enter PIN</string>
+    <string name="loginPinFragment_reEnterPin">Re-enter PIN</string>
+    <string name="login_incorrect_pin">Incorrect PIN</string>
+    <string name="loginPasswordFragment_incorrectPassword">Incorrect Password</string>
+    <string name="login_too_many_attempts">Too many attempts</string>
+    <string name="login_unable_to_login">Unable to log in</string>
+    <string name="login_set_or_change_pin"><b><u>Set or Change PIN</u></b></string>
+    <string name="loginPinFragment_changePin"><b><u>Change PIN</u></b></string>
+    <string name="login_resend_email"><b><u>Resend Email</u></b></string>
+    <string name="login_reset_pin"><b><u>Reset PIN</u></b></string>
+    <string name="login_account_locked_tooltip">Your PIN must be reset.\nUse the link below to receive email instructions to reset your PIN.</string>
+    <string name="reset_resend_tooltip">If you have an account, we’ll send you an email to reset your PIN.</string>
+    <string name="reset_email_sent">Email Sent</string>
+    <string name="reset_unable_to_send">Unable to send email</string>
+    <string name="reset_try_again_later">Try again or come back later.</string>
+    <string name="login_error_title">Encountered an Error.</string>
+    <string name="login_error_body">Please try again.</string>
+
+    <!-- Trouble Connecting Dialog -->
+    <string name="trouble_connecting_dialog_title">We’re having trouble connecting</string>
+    <string name="trouble_connecting_dialog_try_again">Try Again</string>
+    <string name="trouble_connecting_dialog_create_patient">To create a new patient, make sure you have a WiFi or cellular connection.</string>
+
+    <!-- Add Appointment Or Create Patient Fragment -->
+    <string name="add_appointment_or_create_patient_search_hint">Search Existing Patients</string>
+    <string name="add_appointment_or_create_patient_not_an_existing_patient">Not an existing patient?</string>
+    <string name="add_appointment_or_create_patient_connection_needed">A WiFi or cellular connection is needed to create a new patient.\nPatients can also be created on the portal.</string>
+
+    <!-- Patient Info Confirmation Dialog -->
+    <string name="dialog_patient_info_confirmation_title">Does this info look right for the patient?</string>
+    <string name="dialog_patient_info_confirmation_first_name">First: %1$s</string>
+    <string name="dialog_patient_info_confirmation_last_name">Last: %1$s</string>
+    <string name="dialog_patient_info_confirmation_date_of_birth">Date of Birth: %1$s</string>
+    <string name="dialog_patient_info_confirmation_address">Address: %1$s</string>
+    <string name="dialog_patient_info_confirmation_first_yes">Yes, that\'s right</string>
+    <string name="dialog_patient_info_confirmation_first_no">No, don\'t use this info</string>
+
+    <!-- PaymentSubmit Trouble Connecting dialog -->
+    <string name="dialog_trouble_connecting_title">We\'re having trouble connecting</string>
+    <string name="dialog_trouble_connecting_body">WiFi or cellular connection is required to collect credit card payment.</string>
+    <string name="dialog_trouble_connecting_cta1">Try Again</string>
+    <string name="dialog_trouble_connecting_cta2">OK</string>
+
+    <!-- Edit Appointment Trouble Connecting dialog -->
+    <string name="dialog_trouble_connecting_edit_appointment_title">We\'re having trouble connecting</string>
+    <string name="dialog_trouble_connecting_edit_appointment_body">This action requires WiFi or cellular connection. Move to an area with a better signal and try again.</string>
+    <string name="dialog_trouble_connecting_edit_appointment_cta1">Try Again</string>
+    <string name="dialog_trouble_connecting_edit_appointment_cta2">OK</string>
+    
+    <!-- Confirm Patient Info Fragment -->
+    <string name="fragment_confirm_patient_info_create_patient">Create Patient</string>
+    <string name="fragment_confirm_patient_info_create_ssn">SSN</string>
+    <string name="fragment_confirm_patient_info_create_mbi">MBI</string>
+    <string name="fragment_confirm_patient_info_please_wait">Please wait while this patient is created and we check eligibility</string>
+
+    <!-- Invalid Scan dialog -->
+    <string name="dialog_invalid_scan_title">Invalid Scan</string>
+    <string name="dialog_invalid_scan_default_body">Invalid scan. Please scan the product</string>
+    <string name="dialog_invalid_scan_button">OK</string>
+
+    <!-- Confirm lot number dialog -->\
+    <string name="dialog_confirm_entered_lot_number_title"><b>Lot Number:</b> %1$s</string>
+    <string name="dialog_confirm_entered_lot_number_body">Confirm <b>vaccine</b> lot number.\n\nDo not enter the diluent, adjuvant, or carton LOT number.</string>
+
+    <!-- Med D Check Fragment-->
+    <string name="fragment_med_d_check_dose_not_covered">Dose not covered</string>
+    <string name="fragment_med_d_check_dose_not_found">Not in stock at this clinic</string>
+
+    <!-- Checkout Patient Fragment -->
+    <string name="fragment_checkout_patient_copay_dose_not_covered">Dose not covered</string>
+    <string name="fragment_checkout_patient_copay_dose_not_found">Not in stock at this clinic</string>
+    <string name="fragment_checkout_stock_saving_info">Saving Info…</string>
+
+    <!-- Menu Refresh Appointment -->
+    <string name="menu_refresh_appointment">Refresh Orders</string>
+
+    <!-- Refresh Orders Dialog -->
+    <string name="dialog_refresh_orders_title">Refresh Orders</string>
+    <string name="dialog_refresh_orders_body">Changes you made to checkout will not be saved</string>
+
+    <!-- Menu Stock Selector -->
+    <string name="menu_stock_selector_set_stock">Set Stock</string>
+    <string name="menu_stock_selector_private">Private</string>
+    <string name="menu_stock_selector_vfc_enrolled">VFC - Enrolled in Medicaid</string>
+    <string name="menu_stock_selector_vfc_uninsured">VFC - Uninsured</string>
+    <string name="menu_stock_selector_vfc_underinsured">VFC - Underinsured</string>
+    <string name="menu_stock_selector_vfc_american_indian_or_alaska_native">VFC - American Indian or Alaska Native</string>
+    <string name="menu_stock_selector_state">State</string>
+    <string name="menu_stock_selector_three_seventeen">317</string>
+
+    <!-- Stock Error Dialog -->
+    <string name="dialog_error_requires_wifi">Setting stock requires WiFi or cellular connection. Move to an area with a better signal and try again.</string>
+
+    <!-- Out of Date Device Notification-->
+    <string name="notification_out_of_date_title">Update Available</string>
+    <string name="notification_out_of_date_message">It takes about a minute.</string>
+    <string name="prompt_out_of_date_message">It takes about a minute.\n\nThe Mobile Hub will return to the home screen when the update is complete.</string>
+    <string name="prompt_update_now">Update Now</string>
+    <string name="prompt_later">Later</string>
+    <!-- Device Out Of Date Screen -->
+    <string name="device_out_of_date_title_warning">Update Required</string>
+    <string name="device_out_of_date_title_blocker">Device Out of Date</string>
+    <string name="device_out_of_date_message_warning">You’ll lose access to all features if you don’t update soon. It takes about a minute!</string>
+    <string name="device_out_of_date_message_blocker">An update is required to continue using the device. It takes about a minute!</string>
+    <string name="device_out_of_date_support_blocker">For any questions, please contact our Customer Care team at +1.888.829.8550.</string>
+</resources>

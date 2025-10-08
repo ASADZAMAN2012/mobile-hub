@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "96825181868",
+    "firebase_url": "https://vaxhubs-dev.firebaseio.com",
+    "project_id": "vaxhubs-dev",
+    "storage_bucket": "vaxhubs-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96825181868:android:ef3beaf4ff0ff734",
+        "android_client_info": {
+          "package_name": "com.vaxcare.mobilehub.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "96825181868-if5qeav5nffrmnj3a5qk0gsqdun6n5nq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBe9CwQHCsDtI76XS_ckMqr99E-OoVgMmg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "96825181868-if5qeav5nffrmnj3a5qk0gsqdun6n5nq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96825181868:android:80f55b57cdfc05b6",
+        "android_client_info": {
+          "package_name": "com.vaxhub.vaxhubpt.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "96825181868-h9j56cbt077hrf11tbnte6rar3rvcr7n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vaxhub.vaxhubpt.dev",
+            "certificate_hash": "5b50dd5a2b93adf221445d8905284f31b1e7aa03"
+          }
+        },
+        {
+          "client_id": "96825181868-if5qeav5nffrmnj3a5qk0gsqdun6n5nq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBe9CwQHCsDtI76XS_ckMqr99E-OoVgMmg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "96825181868-if5qeav5nffrmnj3a5qk0gsqdun6n5nq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

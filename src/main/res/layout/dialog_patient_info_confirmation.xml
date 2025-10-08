@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2023.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:paddingHorizontal="22dp"
+    android:paddingVertical="28dp"
+    tools:background="@color/primary_light_gray">
+
+    <TextView
+        android:id="@+id/textView_title"
+        style="@style/H6BoldBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_patient_info_confirmation_title"
+        android:textSize="@dimen/sp_35"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_firstName"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="@dimen/sp_30"
+        app:layout_constraintTop_toBottomOf="@id/textView_title"
+        tools:text="First: Megan" />
+
+    <TextView
+        android:id="@+id/textView_lastName"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="@dimen/sp_30"
+        app:layout_constraintTop_toBottomOf="@id/textView_firstName"
+        tools:text="Last: Bartlett" />
+
+    <TextView
+        android:id="@+id/textView_dateOfBirth"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="@dimen/sp_30"
+        app:layout_constraintTop_toBottomOf="@id/textView_lastName"
+        tools:text="Date of Birth: 07/18/1988" />
+
+    <TextView
+        android:id="@+id/textView_address"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="@dimen/sp_30"
+        app:layout_constraintTop_toBottomOf="@id/textView_dateOfBirth"
+        tools:text="Address: 1330 Mockingbird Lane, Apt 305, Philadelphia, PA 19102" />
+
+    <Button
+        android:id="@+id/button_yes"
+        style="@style/PrimaryPurpleButton"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_105"
+        android:layout_marginTop="45dp"
+        android:text="@string/dialog_patient_info_confirmation_first_yes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_address" />
+
+    <Button
+        android:id="@+id/button_no"
+        style="@style/PrimaryGrayButton"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_105"
+        android:text="@string/dialog_patient_info_confirmation_first_no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_yes" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

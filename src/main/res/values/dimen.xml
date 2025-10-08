@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2019.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+    <dimen name="elevation_home_button">@dimen/dp_3</dimen>
+    <dimen name="elevation_button">@dimen/dp_5</dimen>
+    <dimen name="icon_size_small">@dimen/sp_20</dimen>
+    <dimen name="icon_size_med">@dimen/dp_50</dimen>
+    <dimen name="icon_size">@dimen/dp_48</dimen>
+    <dimen name="icon_size_header">@dimen/dp_40</dimen>
+    <dimen name="corner_radius">@dimen/dp_10</dimen>
+    <dimen name="corner_radius_prompt">@dimen/dp_20</dimen>
+    <dimen name="content_margin">@dimen/dp_40</dimen>
+
+    <dimen name="toolbar_height">@dimen/dp_90</dimen>
+    <dimen name="menu_width">@dimen/dp_500</dimen>
+
+    <dimen name="dialog_header_size">@dimen/dp_130</dimen>
+    <dimen name="sub_header_height">@dimen/dp_90</dimen>
+    <dimen name="inventory_left_pad">@dimen/dp_80</dimen>
+    <dimen name="fab_icon_size">@dimen/dp_80</dimen>
+    <dimen name="login_keypad_margin">@dimen/dp_110</dimen>
+    <dimen name="login_keypad_height">@dimen/dp_700</dimen>
+
+    <dimen name="legacy_keypad_height">@dimen/dp_600</dimen>
+
+    <dimen name="vaxcare_admin_text_width">@dimen/dp_350</dimen>
+    <dimen name="vaxcare_action_bar_size">@dimen/dp_175</dimen>
+    <dimen name="vaxcare_action_bar_offset">@dimen/dp_200</dimen>
+
+    <dimen name="lot_row_height">@dimen/dp_70</dimen>
+    <dimen name="lot_row_add_button_height">@dimen/dp_106</dimen>
+    <dimen name="enter_pin_pad_width">@dimen/dp_400</dimen>
+
+    <dimen name="patient_search_height">@dimen/dp_55</dimen>
+    <dimen name="patient_search_width">@dimen/dp_480</dimen>
+    <dimen name="patient_checkout_item_height">@dimen/dp_90</dimen>
+    <dimen name="patient_checkout_patient_checkout_vaccine_height">@dimen/dp_70</dimen>
+    <dimen name="patient_checkout_patient_checkout_eligibility_message_height">@dimen/dp_30</dimen>
+
+    <dimen name="patient_checkout_vaccine_name_height">@dimen/dp_98</dimen>
+
+    <dimen name="patient_checkout_site_spinner_width">@dimen/dp_132</dimen>
+    <dimen name="patient_checkout_site_spinner_height">@dimen/dp_42</dimen>
+
+    <dimen name="patient_checkout_add_vaccines_height">@dimen/dp_50</dimen>
+    <dimen name="patient_checkout_scan_vaccines_height">@dimen/dp_50</dimen>
+
+    <dimen name="patient_checkout_search_width">@dimen/dp_200</dimen>
+    <dimen name="patient_checkout_search_preview_width">@dimen/dp_240</dimen>
+
+    <dimen name="patient_checkout_scanner_icon">@dimen/dp_48</dimen>
+
+    <dimen name="patient_checkout_search_preview_elevation">@dimen/dp_5</dimen>
+
+    <dimen name="patient_checkout_frame_width">@dimen/dp_1583</dimen>
+
+    <dimen name="patient_checkout_date_picker_margin_top">@dimen/dp_30</dimen>
+    <dimen name="patient_checkout_date_picker_elevation">@dimen/dp_6</dimen>
+
+    <dimen name="patient_checkout_complete_layout_margin_top">@dimen/dp_180</dimen>
+    <dimen name="patient_checkout_complete_layout_margin_end">@dimen/dp_180</dimen>
+    <dimen name="patient_checkout_complete_patient_bg_height">@dimen/dp_90</dimen>
+    <dimen name="patient_checkout_complete_title">@dimen/sp_72</dimen>
+    <dimen name="patient_checkout_complete_clipping_margin_start">@dimen/dp_160</dimen>
+    <dimen name="patient_checkout_complete_clipping_margin_end">@dimen/dp_160</dimen>
+    <dimen name="patient_date_picker_layout_height">@dimen/dp_40</dimen>
+
+
+    <dimen name="patient_search_input_width">@dimen/dp_1361</dimen>
+    <dimen name="patient_search_preview_small_width">@dimen/dp_417</dimen>
+    <dimen name="patient_search_preview_large_width">@dimen/dp_1086</dimen>
+    <dimen name="patient_search_preview_open_icon_width">@dimen/dp_56</dimen>
+
+    <dimen name="scan_container_width">@dimen/dp_360</dimen>
+    <dimen name="scan_container_bot_margin">@dimen/dp_210</dimen>
+    <dimen name="scan_text_height_50">@dimen/dp_50</dimen>
+    <dimen name="scan_text_height_70">@dimen/dp_70</dimen>
+    <dimen name="scan_text_height_100">@dimen/dp_100</dimen>
+    <dimen name="scan_content_width">@dimen/dp_300</dimen>
+    <dimen name="scan_view_height">@dimen/dp_340</dimen>
+
+    <dimen name="spinner_height">@dimen/dp_63</dimen>
+
+    <dimen name="pin_lock_line_width">@dimen/dp_50</dimen>
+    <dimen name="pin_lock_line_height">@dimen/dp_6</dimen>
+    <dimen name="pin_lock_icon_size">@dimen/dp_140</dimen>
+
+    <dimen name="toast_icon_size">@dimen/dp_69</dimen>
+</resources>

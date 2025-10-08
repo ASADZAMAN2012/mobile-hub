@@ -1,0 +1,125 @@
+<!--***********************************************************************************************
+  * Copyright VaxCare (c) 2019.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="VaxCareTheme">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="SplashTheme" parent="VaxCareTheme">
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+    <style name="VaxCareAppBar" parent="@style/Base.TextAppearance.AppCompat.Title">
+        <item name="android:textSize">@dimen/text_32</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:paddingBottom">32dp</item>
+    </style>
+
+    <style name="VaxCareAppBarName" parent="VaxCareAppBar">
+        <item name="android:textSize">@dimen/text_21</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingTop">16dp</item>
+    </style>
+
+    <style name="VaxCareTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textAllCaps">false</item>
+
+        <item name="privateSecondary">@color/privateSecondary</item>
+        <item name="privateLight">@color/privateLight</item>
+
+        <item name="homeElevation">@dimen/dp_5</item>
+        <item name="homeMargin">@dimen/dp_20</item>
+
+        <item name="dialogHeaderHeight">@dimen/dialog_header_size</item>
+        <item name="dialogHeaderBackground">@color/primary_white</item>
+        <item name="dialogSubHeaderBackground">@color/privateLight</item>
+        <item name="dialogClose">@color/primary_white</item>
+        <item name="dialogTitle">@color/primary_white</item>
+        <item name="dialogBackground">@color/primary_white</item>
+        <item name="inventoryLeftPad">@dimen/inventory_left_pad</item>
+
+        <item name="drawerBackground">@color/primary_white</item>
+        <item name="drawerSubHeader">@color/privateSecondary</item>
+
+        <item name="animationShort">@integer/default_animation_short</item>
+
+        <item name="elevationButton">@dimen/elevation_button</item>
+        <item name="cornerRadius">@dimen/corner_radius</item>
+
+        <item name="displayTextLarge">@dimen/display_text_large</item>
+        <item name="displayText">@dimen/display_text</item>
+
+        <item name="headerH1">@dimen/header_h1</item>
+        <item name="headerH2">@dimen/header_h2</item>
+        <item name="headerH4">@dimen/header_h4</item>
+
+        <item name="bodyB1">@dimen/body_b1</item>
+        <item name="bodyB2">@dimen/body_b2</item>
+        <item name="bodyB3">@dimen/body_b3</item>
+        <item name="bodyB4">@dimen/body_b4</item>
+        <item name="captionText">@dimen/caption_c1</item>
+
+        <item name="bgWhite">@color/primary_white</item>
+        <item name="bgWhiteDisabled">@color/whiteDisabled</item>
+        <item name="bgDarkBlue">@color/darkBlue</item>
+        <item name="bgDarkerBlue">@color/darkerBlue</item>
+        <item name="bgDarkBlueDisabled">@color/darkBlueDisabled</item>
+        <item name="bgPrimaryPurple" >@color/primary_purple</item>
+        <item name="bgPrimaryPurpleDisabled" >@color/primaryPurpleDisabled</item>
+        <item name="bgLightDark" >@color/primary_light_gray</item>
+        <item name="bgLightDarkDisabled" >@color/whiteDisabled</item>
+
+        <item name="iconTintDarkBlue">@color/darkBlue</item>
+        <item name="iconTintDarkBlueDisabled">@color/darkBlueDisabled</item>
+        <item name="iconTintLightBlue">@color/lightBlue</item>
+
+        <item name="iconTintWhite">@color/primary_white</item>
+
+        <item name="textColorDarkBlue">@color/darkBlue</item>
+        <item name="textColorDarkBlueDisabled">@color/darkBlueDisabled</item>
+        <item name="textColorWhite">@color/primary_white</item>
+        <item name="textColorBlack">@color/primary_black</item>
+        <item name="textColorWhiteDisabled">@color/whiteDisabled</item>
+        <item name="textColorError">@color/redPrimary</item>
+
+        <item name="rippleDarkBlue">@color/darkBlue</item>
+        <item name="rippleWhite">@color/primary_white</item>
+
+        <item name="colorControlActivated">@color/darkBlue</item>
+
+        <item name="headerElevation">@dimen/dp_5</item>
+        <item name="android:actionMenuTextAppearance">@style/VaxCareAppBarName</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    </style>
+
+    <style name="SeekBar">
+        <item name="android:progressDrawable">@drawable/seekbar_progress</item>
+        <item name="android:thumb">@drawable/seekbar_thumb</item>
+        <item name="android:maxHeight">@dimen/dp_4</item>
+    </style>
+
+    <style name="TransBottomSheetDialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="VaxCarePopupMenu" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:textSize">20sp</item>
+    </style>
+</resources>

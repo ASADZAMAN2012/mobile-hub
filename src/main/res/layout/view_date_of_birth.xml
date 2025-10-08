@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2022.                                                                   *
+  ***********************************************************************************************-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/date_of_birth_title"
+        style="@style/BodySmlBoldBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_89"
+        android:text="@string/curbside_patient_add_date_of_birth"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/required"
+        style="@style/H33ItalicBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:fontFamily="@font/graphik_regular_italic"
+        android:textColor="@color/primary_dark_gray"
+        android:textSize="15sp"
+        android:text="@string/required"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/date_of_birth_title"
+        tools:visibility="visible"/>
+
+    <TextView
+        android:id="@+id/date_of_birth_month"
+        style="@style/H6RegBlack"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginStart="@dimen/dp_53"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_rounded_corner_left"
+        android:focusable="false"
+        android:gravity="center"
+        android:hint="@string/month_placeholder"
+        app:layout_constraintEnd_toStartOf="@id/date_of_birth_day"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/date_of_birth_title" />
+
+    <TextView
+        android:id="@+id/date_of_birth_day"
+        style="@style/H6RegBlack"
+        android:layout_width="@dimen/dp_120"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginHorizontal="@dimen/dp_26"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_rounded_corner_mid"
+        android:focusable="false"
+        android:gravity="center"
+        android:hint="@string/day_placeholder"
+        app:layout_constraintEnd_toStartOf="@id/date_of_birth_year"
+        app:layout_constraintStart_toEndOf="@id/date_of_birth_month"
+        app:layout_constraintTop_toBottomOf="@id/date_of_birth_title" />
+
+    <TextView
+        android:id="@+id/date_of_birth_year"
+        style="@style/H6RegBlack"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="@dimen/dp_53"
+        android:background="@drawable/bg_rounded_corner_right"
+        android:focusable="false"
+        android:gravity="center"
+        android:hint="@string/year_placeholder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/date_of_birth_day"
+        app:layout_constraintTop_toBottomOf="@id/date_of_birth_title" />
+
+    <TextView
+        android:id="@+id/error_label"
+        style="@style/H33ItalicBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphik_regular_italic"
+        android:textColor="@color/error_red"
+        android:textSize="15sp"
+        android:text="@string/patient_add_valid_date"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@id/date_of_birth_title"
+        app:layout_constraintTop_toBottomOf="@id/date_of_birth_month"
+        tools:visibility="visible" />
+</androidx.constraintlayout.widget.ConstraintLayout>

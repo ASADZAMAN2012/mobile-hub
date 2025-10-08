@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2021.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.vaxcare.vaxhub.core.view.VaxToolbar
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/med_d_summary_title" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_vaccines"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_15"
+        app:layout_constraintBottom_toTopOf="@id/med_d_bottom_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar"
+        tools:itemCount="4"
+        tools:listitem="@layout/rv_checkout_vaccine_item" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/med_d_bottom_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/med_d_confirm_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/med_d_summary_patient_consent"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                style="@style/H6RegBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_22"
+                android:text="@string/med_d_summary_patient_consent"
+                app:layout_constraintBottom_toBottomOf="@id/fab_next"
+                app:layout_constraintEnd_toStartOf="@id/fab_next"
+                app:layout_constraintTop_toTopOf="@id/fab_next" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_next"
+                style="@style/Widget.MaterialComponents.FloatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_32"
+                android:layout_marginBottom="@dimen/dp_74"
+                android:enabled="true"
+                android:src="@drawable/ic_arrow_forward"
+                app:backgroundTint="@color/legacy_fab_bg"
+                app:elevation="@dimen/dp_2"
+                app:fabCustomSize="@dimen/dp_106"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:maxImageSize="@dimen/dp_64"
+                app:rippleColor="@color/primary_white"
+                app:tint="@color/primary_white" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/self_pay_confirm_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_200"
+                android:layout_marginEnd="@dimen/dp_40"
+                android:background="@drawable/bg_rounded_corner_patient_consent"
+                android:paddingStart="@dimen/dp_49"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/self_pay_patient_counseling"
+                    style="@style/NotesSpecsBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_22"
+                    android:text="@string/patient_consent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/self_pay_checkout_advisory"
+                    style="@style/NotesSpecsRegular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:layout_marginEnd="@dimen/dp_220"
+                    android:text="@string/patient_checkout_advisory_display"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/self_pay_patient_counseling" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Space
+                android:id="@+id/anchor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_230"
+                android:layout_marginBottom="@dimen/dp_230"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:id="@+id/continueBtn"
+                android:layout_width="@dimen/dp_280"
+                android:layout_height="@dimen/dp_280"
+                android:background="@drawable/bg_circle_button_selector"
+                android:enabled="false"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_checkout"
+                app:layout_constraintStart_toEndOf="@id/anchor"
+                app:layout_constraintTop_toBottomOf="@id/anchor" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

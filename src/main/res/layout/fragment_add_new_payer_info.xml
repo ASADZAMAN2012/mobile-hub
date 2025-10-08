@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--***********************************************************************************************
+  * Copyright VaxCare (c) 2024.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context="com.vaxcare.vaxhub.ui.patient.AddNewPayerInfoFragment" >
+
+    <com.vaxcare.vaxhub.core.view.VaxToolbar
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:icon="@drawable/ic_back"
+        app:title="@string/payer_info_add_title" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/dp_177" >
+
+            <TextView
+                android:id="@+id/textView_payerNameTitle"
+                style="@style/LabelL2SemiCaps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="46dp"
+                android:layout_marginTop="25dp"
+                android:text="@string/payer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView_payerName"
+                style="@style/BoldB3Semi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="4dp"
+                android:paddingHorizontal="16dp"
+                android:maxLines="1"
+                android:ellipsize="middle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView_payerNameTitle" />
+
+            <com.vaxcare.vaxhub.core.view.RoundedTextInputView
+                android:id="@+id/roundedTextInput_memberId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView_payerName"
+                app:label_style="@style/LabelL2SemiCaps"
+                app:label="@string/member_id"
+                android:inputType="textNoSuggestions" />
+
+            <com.vaxcare.vaxhub.core.view.RoundedTextInputView
+                android:id="@+id/roundedTextInput_groupId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/roundedTextInput_memberId"
+                app:label_style="@style/LabelL2SemiCaps"
+                app:label="@string/group_id"
+                android:inputType="textNoSuggestions" />
+
+            <TextView
+                android:id="@+id/textView_relationshipTitle"
+                style="@style/LabelL2SemiCaps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="25dp"
+                android:text="@string/payer_info_relationship"
+                app:required="true"
+                app:layout_constraintStart_toStartOf="@id/textView_relationship"
+                app:layout_constraintTop_toBottomOf="@id/roundedTextInput_groupId" />
+
+            <TextView
+                android:id="@+id/textView_relationship"
+                style="@style/H6RegBlack"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_picker_input"
+                android:focusable="false"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:clickable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView_relationshipTitle" />
+
+            <ImageView
+                android:id="@+id/imageView_relationshipDropdownIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="16dp"
+                android:rotation="270"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_back"
+                app:layout_constraintBottom_toBottomOf="@id/textView_relationship"
+                app:layout_constraintEnd_toEndOf="@id/textView_relationship"
+                app:layout_constraintTop_toTopOf="@id/textView_relationship" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout_insuredContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView_relationship"
+                android:visibility="gone" >
+
+                <com.vaxcare.vaxhub.core.view.RoundedTextInputView
+                    android:id="@+id/roundedTextInput_insuredFirstName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="55dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:label_style="@style/LabelL2SemiCaps"
+                    app:label="@string/payer_info_insured_first"
+                    android:inputType="textCapWords|textNoSuggestions" />
+
+                <com.vaxcare.vaxhub.core.view.RoundedTextInputView
+                    android:id="@+id/roundedTextInput_insuredLastName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/roundedTextInput_insuredFirstName"
+                    app:label_style="@style/LabelL2SemiCaps"
+                    app:label="@string/payer_info_insured_last"
+                    android:inputType="textCapWords|textNoSuggestions" />
+
+                <com.vaxcare.vaxhub.core.view.DateOfBirthView
+                    android:id="@+id/dateView_insuredBirthDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/roundedTextInput_insuredLastName"
+                    app:label_style="@style/LabelL2SemiCaps"
+                    app:label="@string/payer_info_insured_dob"  />
+
+                <TextView
+                    android:id="@+id/textView_insuredGenderTitle"
+                    style="@style/LabelL2SemiCaps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/payer_info_insured_gender"
+                    app:layout_constraintStart_toStartOf="@id/textView_insuredGender"
+                    app:layout_constraintTop_toBottomOf="@id/dateView_insuredBirthDate" />
+
+                <TextView
+                    android:id="@+id/textView_insuredGender"
+                    style="@style/H6RegBlack"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_picker_input"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textView_insuredGenderTitle" />
+
+                <ImageView
+                    android:id="@+id/imageView_insuredGenderDropdownIcon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:rotation="270"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintBottom_toBottomOf="@id/textView_insuredGender"
+                    app:layout_constraintEnd_toEndOf="@id/textView_insuredGender"
+                    app:layout_constraintTop_toTopOf="@id/textView_insuredGender" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_next"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_32"
+        android:layout_marginBottom="@dimen/dp_35"
+        android:src="@drawable/ic_arrow_forward"
+        android:contentDescription="@string/button_submit"
+        app:backgroundTint="@color/legacy_fab_bg"
+        app:elevation="@dimen/dp_2"
+        app:fabCustomSize="@dimen/dp_106"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="@dimen/dp_64"
+        app:rippleColor="@color/primary_white"
+        app:tint="@color/primary_white" />
+</androidx.constraintlayout.widget.ConstraintLayout>

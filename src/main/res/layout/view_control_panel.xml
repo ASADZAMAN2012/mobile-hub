@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_1285"
+    android:alpha="0.85"
+    android:background="@color/primary_black">
+
+    <TextView
+        android:id="@+id/cellular_title"
+        style="@style/BodySmlBoldWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_60"
+        android:layout_marginTop="@dimen/dp_100"
+        android:text="@string/system_settings_cellular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/cellular_divider"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_4"
+        android:layout_marginStart="@dimen/dp_60"
+        android:layout_marginTop="@dimen/dp_11"
+        android:background="@color/primary_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cellular_title" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_45"
+        android:layout_marginTop="@dimen/dp_11"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cellular_divider">
+
+        <ImageView
+            android:id="@+id/cellular_icon"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:layout_marginEnd="@dimen/dp_4"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_cellular_level_strong"
+            app:tint="@color/primary_white" />
+
+        <TextView
+            android:id="@+id/cellular_status"
+            style="@style/BodyBoldWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_60"
+            android:layout_marginStart="@dimen/dp_14"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/wifi_title"
+        style="@style/BodySmlBoldWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_60"
+        android:layout_marginTop="@dimen/dp_156"
+        android:text="@string/system_settings_wifi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cellular_divider" />
+
+    <View
+        android:id="@+id/wifi_divider"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_11"
+        android:background="@color/primary_white"
+        app:layout_constraintStart_toStartOf="@id/wifi_title"
+        app:layout_constraintTop_toBottomOf="@id/wifi_title" />
+
+    <LinearLayout
+        android:id="@+id/wifi_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_45"
+        android:layout_marginTop="@dimen/dp_11"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wifi_divider">
+
+        <ImageView
+            android:id="@+id/wifi_icon"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:layout_marginEnd="@dimen/dp_4"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_wifi_connected" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_14"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/wifi_status"
+                style="@style/BodyBoldWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/system_settings_not_connected"
+                android:layout_marginTop="@dimen/dp_12"
+                app:layout_constraintBottom_toBottomOf="@+id/wifi_icon"
+                app:layout_constraintStart_toEndOf="@id/wifi_icon"
+                app:layout_constraintTop_toTopOf="@+id/wifi_icon" />
+
+            <TextView
+                android:id="@+id/wifi_action"
+                style="@style/BodyBoldWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="@string/system_settings_update"
+                app:layout_constraintStart_toStartOf="@id/wifi_status"
+                app:layout_constraintTop_toBottomOf="@id/wifi_status" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/power_title"
+        style="@style/BodySmlBoldWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_280"
+        android:text="@string/system_settings_power"
+        app:layout_constraintStart_toStartOf="@id/cellular_title"
+        app:layout_constraintTop_toTopOf="@id/cellular_title" />
+
+    <View
+        android:id="@+id/power_divider"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_11"
+        android:background="@color/primary_white"
+        app:layout_constraintStart_toStartOf="@id/power_title"
+        app:layout_constraintTop_toBottomOf="@id/power_title" />
+
+    <ImageView
+        android:id="@+id/battery_icon"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_marginTop="@dimen/dp_11"
+        android:src="@drawable/ic_battery_charging"
+        app:layout_constraintEnd_toEndOf="@id/power_divider"
+        app:layout_constraintStart_toStartOf="@id/power_divider"
+        app:layout_constraintTop_toBottomOf="@id/power_divider"
+        app:tint="@color/primary_white" />
+
+    <TextView
+        android:id="@+id/battery_percent"
+        style="@style/BodyBoldWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_18"
+        android:text="@string/_100_percent"
+        app:layout_constraintBottom_toBottomOf="@+id/battery_icon"
+        app:layout_constraintStart_toEndOf="@id/battery_icon"
+        app:layout_constraintTop_toTopOf="@+id/battery_icon" />
+
+    <TextView
+        android:id="@+id/battery_status"
+        style="@style/BodyRegWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_4"
+        android:text="@string/system_settings_plugged_in"
+        app:layout_constraintStart_toStartOf="@id/battery_percent"
+        app:layout_constraintTop_toBottomOf="@id/battery_percent" />
+
+    <TextView
+        android:id="@+id/system_title"
+        style="@style/BodySmlBoldWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_156"
+        android:text="@string/system_settings_system"
+        app:layout_constraintStart_toStartOf="@id/wifi_title"
+        app:layout_constraintTop_toBottomOf="@id/wifi_divider" />
+
+    <View
+        android:id="@+id/system_divider"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_11"
+        android:background="@color/primary_white"
+        app:layout_constraintStart_toStartOf="@id/system_title"
+        app:layout_constraintTop_toBottomOf="@id/system_title" />
+
+    <ImageView
+        android:id="@+id/system_icon"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_marginTop="@dimen/dp_11"
+        android:src="@drawable/ic_system_connected"
+        app:layout_constraintEnd_toEndOf="@id/system_divider"
+        app:layout_constraintStart_toStartOf="@id/system_divider"
+        app:layout_constraintTop_toBottomOf="@id/system_divider"
+        app:tint="@color/primary_white" />
+
+    <TextView
+        android:id="@+id/system_connectivity_status"
+        style="@style/BodyBoldWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_18"
+        android:text="@string/system_settings_connected"
+        app:layout_constraintBottom_toBottomOf="@+id/system_icon"
+        app:layout_constraintStart_toEndOf="@id/system_icon"
+        app:layout_constraintTop_toTopOf="@+id/system_icon" />
+
+    <TextView
+        android:id="@+id/system_last_check"
+        style="@style/BodyRegWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_4"
+        app:layout_constraintStart_toStartOf="@id/system_connectivity_status"
+        app:layout_constraintTop_toBottomOf="@id/system_connectivity_status"
+        tools:text="05/28/20 10:00 am" />
+
+    <TextView
+        android:id="@+id/brightness_title"
+        style="@style/BodySmlBoldWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_156"
+        android:text="@string/system_settings_brightness"
+        app:layout_constraintStart_toStartOf="@id/wifi_title"
+        app:layout_constraintTop_toBottomOf="@id/system_divider" />
+
+    <View
+        android:id="@+id/brightness_divider"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_11"
+        android:background="@color/primary_white"
+        app:layout_constraintStart_toStartOf="@id/brightness_title"
+        app:layout_constraintTop_toBottomOf="@id/brightness_title" />
+
+    <ImageView
+        android:id="@+id/brightness_icon"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_marginTop="@dimen/dp_11"
+        android:src="@drawable/ic_system_brightness"
+        app:layout_constraintEnd_toEndOf="@id/brightness_divider"
+        app:layout_constraintStart_toStartOf="@id/brightness_divider"
+        app:layout_constraintTop_toBottomOf="@id/brightness_divider"
+        app:tint="@color/primary_white" />
+
+    <SeekBar
+        android:id="@+id/brightness_seekbar"
+        style="@style/SeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_110"
+        android:layout_marginEnd="@dimen/dp_106"
+        app:layout_constraintBottom_toBottomOf="@+id/brightness_icon"
+        app:layout_constraintStart_toEndOf="@id/brightness_icon"
+        app:layout_constraintTop_toTopOf="@+id/brightness_icon"
+        tools:progress="50" />
+
+    <TextView
+        android:id="@+id/brightness_level"
+        style="@style/BodyBoldWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_18"
+        app:layout_constraintBottom_toBottomOf="@+id/brightness_seekbar"
+        app:layout_constraintStart_toEndOf="@id/brightness_seekbar"
+        app:layout_constraintTop_toTopOf="@+id/brightness_seekbar"
+        tools:text="@string/_100_percent" />
+
+    <TextView
+        android:id="@+id/volume_title"
+        style="@style/BodySmlBoldWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_136"
+        android:text="@string/system_settings_volume"
+        app:layout_constraintStart_toStartOf="@id/wifi_title"
+        app:layout_constraintTop_toBottomOf="@id/brightness_divider" />
+
+    <View
+        android:id="@+id/volume_divider"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_11"
+        android:background="@color/primary_white"
+        app:layout_constraintStart_toStartOf="@id/volume_title"
+        app:layout_constraintTop_toBottomOf="@id/volume_title" />
+
+    <ImageView
+        android:id="@+id/volume_icon"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_marginTop="@dimen/dp_11"
+        android:src="@drawable/ic_system_volume"
+        app:layout_constraintEnd_toEndOf="@id/volume_divider"
+        app:layout_constraintStart_toStartOf="@id/volume_divider"
+        app:layout_constraintTop_toBottomOf="@id/volume_divider"
+        app:tint="@color/primary_white" />
+
+    <SeekBar
+        android:id="@+id/volume_seekbar"
+        style="@style/SeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_126"
+        android:layout_marginEnd="@dimen/dp_106"
+        app:layout_constraintBottom_toBottomOf="@+id/volume_icon"
+        app:layout_constraintStart_toEndOf="@id/volume_icon"
+        app:layout_constraintTop_toTopOf="@+id/volume_icon"
+        tools:progress="50" />
+
+    <TextView
+        android:id="@+id/volume_level"
+        style="@style/BodyBoldWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_18"
+        app:layout_constraintBottom_toBottomOf="@+id/volume_seekbar"
+        app:layout_constraintStart_toEndOf="@id/volume_seekbar"
+        app:layout_constraintTop_toTopOf="@+id/volume_seekbar"
+        tools:text="@string/_100_percent" />
+
+    <TextView
+        android:id="@+id/admin_access_title"
+        style="@style/BodySmlBoldWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_140"
+        android:text="@string/system_settings_admin_access"
+        app:layout_constraintStart_toStartOf="@id/wifi_title"
+        app:layout_constraintTop_toBottomOf="@id/volume_divider" />
+
+    <View
+        android:id="@+id/admin_access_divider"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_11"
+        android:background="@color/primary_white"
+        app:layout_constraintStart_toStartOf="@id/admin_access_title"
+        app:layout_constraintTop_toBottomOf="@id/admin_access_title" />
+
+    <ImageView
+        android:id="@+id/admin_access_icon"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_marginTop="@dimen/dp_11"
+        android:src="@drawable/ic_system_settings"
+        app:layout_constraintEnd_toEndOf="@id/admin_access_divider"
+        app:layout_constraintStart_toStartOf="@id/admin_access_divider"
+        app:layout_constraintTop_toBottomOf="@id/admin_access_divider"
+        app:tint="@color/primary_white" />
+
+    <TextView
+        android:id="@+id/admin_access_action"
+        style="@style/BodyBoldWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/dp_20"
+        android:paddingHorizontal="@dimen/dp_18"
+        android:text="@string/system_settings_login"
+        app:layout_constraintBottom_toBottomOf="@+id/admin_access_icon"
+        app:layout_constraintStart_toEndOf="@id/admin_access_icon"
+        app:layout_constraintTop_toTopOf="@+id/admin_access_icon" />
+
+    <LinearLayout
+        android:id="@+id/slide_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_100"
+        android:gravity="center_horizontal|bottom"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="@dimen/dp_2"
+            android:background="@color/primary_white" />
+
+        <View
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="@dimen/dp_2"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_15"
+            android:background="@color/primary_white" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

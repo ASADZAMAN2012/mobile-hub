@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2019.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+
+    <style name="DarkBlueButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@drawable/button_dark_blue_bg</item>
+        <item name="backgroundTint">@drawable/button_dark_blue_bg</item>
+        <item name="android:textColor">?textColorWhite</item>
+        <item name="iconTint">?iconTintWhite</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/text_21</item>
+        <item name="rippleColor">?rippleWhite</item>
+    </style>
+
+    <style name="PrimaryPurpleButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@drawable/button_primary_purple_bg</item>
+        <item name="backgroundTint">@drawable/button_primary_purple_bg</item>
+        <item name="iconTint">?iconTintWhite</item>
+        <item name="cornerRadius">@dimen/dp_55</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textAppearance">@style/H6BoldWhite</item>
+        <item name="android:textColor">?textColorWhite</item>
+        <item name="rippleColor">?rippleWhite</item>
+        <item name="android:textSize">@dimen/text_24</item>
+    </style>
+
+    <style name="PrimaryGrayButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@drawable/button_light_gray_bg</item>
+        <item name="backgroundTint">@drawable/button_light_gray_bg</item>
+        <item name="iconTint">?iconTintWhite</item>
+        <item name="cornerRadius">@dimen/dp_55</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textAppearance">@style/BodyBoldBlack</item>
+        <item name="android:textColor">?textColorBlack</item>
+        <item name="rippleColor">?rippleWhite</item>
+        <item name="android:textSize">@dimen/text_24</item>
+    </style>
+
+    <style name="LightBlueButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@drawable/button_light_blue_bg</item>
+        <item name="backgroundTint">@drawable/button_light_blue_bg</item>
+        <item name="android:textColor">@drawable/button_dark_blue_text</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="iconTint">@drawable/button_dark_blue_icon</item>
+        <item name="android:textSize">@dimen/text_21</item>
+        <item name="rippleColor">?rippleDarkBlue</item>
+    </style>
+
+    <style name="TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">?textColorDarkBlue</item>
+        <item name="android:textSize">?headerH1</item>
+        <item name="iconTint">?iconTintWhite</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minWidth">@dimen/dp_0</item>
+        <item name="android:minHeight">@dimen/dp_0</item>
+        <item name="android:padding">@dimen/dp_0</item>
+        <item name="android:textAppearance">@style/VaxCareText.Light.32</item>
+    </style>
+
+    <style name="ButtonBorderlessWhite" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">?textColorDarkBlue</item>
+        <item name="iconTint">@drawable/button_dark_blue_icon</item>
+        <item name="android:textAppearance">@style/VaxCareText.B1.Bold</item>
+    </style>
+
+    <style name="WhiteFab" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">?bgWhite</item>
+        <item name="tint">?attr/iconTintDarkBlue</item>
+        <item name="fabCustomSize">@dimen/fab_icon_size</item>
+        <item name="android:elevation">?elevationButton</item>
+        <item name="rippleColor">?rippleDarkBlue</item>
+    </style>
+
+    <style name="BlueFab" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">?bgPrimaryPurple</item>
+        <item name="tint">?iconTintWhite</item>
+        <item name="fabCustomSize">@dimen/fab_icon_size</item>
+        <item name="android:elevation">?elevationButton</item>
+        <item name="rippleColor">?rippleWhite</item>
+    </style>
+
+    <style name="BlueCircleButton" parent="Widget.AppCompat.TextView">
+        <item name="android:textAppearance">@style/VaxCareText.S1.Bold.White</item>
+        <item name="android:background">@drawable/bg_circle_button</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:elevation">?elevationButton</item>
+    </style>
+
+    <style name="LockCircleButton" parent="Widget.AppCompat.TextView">
+        <item name="android:textAppearance">@style/NumPin</item>
+        <item name="android:background">@drawable/bg_circle_pin_lock_button</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:elevation">?elevationButton</item>
+    </style>
+
+    <style name="LockFab">
+        <item name="android:background">@drawable/bg_circle_pin_lock_button</item>
+        <item name="android:clickable">true</item>
+        <item name="android:elevation">?elevationButton</item>
+    </style>
+
+    <style name="PrimaryBlueButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/primary_blue</item>
+        <item name="backgroundTint">@color/primary_blue</item>
+        <item name="iconTint">?iconTintWhite</item>
+        <item name="cornerRadius">@dimen/dp_35</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:scaleType">@style/BtnBoldWhite</item>
+        <item name="android:textSize">@dimen/text_24</item>
+        <item name="rippleColor">?rippleWhite</item>
+    </style>
+
+    <style name="CircleImageButton" parent="Widget.AppCompat.TextView">
+        <item name="android:clickable">true</item>
+        <item name="android:elevation">@dimen/elevation_home_button</item>
+        <item name="android:scaleType">center</item>
+    </style>
+
+    <style name="CaptureNotCatchButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/capture_not_match</item>
+        <item name="backgroundTint">@color/capture_not_match</item>
+        <item name="iconTint">?iconTintWhite</item>
+        <item name="cornerRadius">@dimen/dp_55</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textAppearance">@style/H6BoldWhite</item>
+        <item name="android:textColor">@color/primary_white</item>
+        <item name="rippleColor">?rippleWhite</item>
+    </style>
+</resources>

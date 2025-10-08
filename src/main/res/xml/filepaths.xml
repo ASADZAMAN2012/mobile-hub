@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--***********************************************************************************************
+  * Copyright VaxCare (c) 2019.                                                                   *
+  ***********************************************************************************************-->
+
+<paths>
+    <files-path path="/" name="updates" />
+    <external-path path="/" name="updates" />
+    <external-files-path path="/" name="updates" />
+</paths>

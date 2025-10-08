@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--***********************************************************************************************
+  * Copyright VaxCare (c) 2019.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+    <item type="id" name="toolbar" />
+    <item type="id" name="appbar" />
+    <item type="id" name="fragment" />
+    <item type="id" name="tag_navigation_destination_id" />
+</resources>

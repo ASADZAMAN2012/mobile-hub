@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2023.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="6dp"
+    android:paddingHorizontal="22dp"
+    android:paddingVertical="28dp">
+
+    <TextView
+        android:id="@+id/textView_title"
+        style="@style/H6BoldBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Lot Number: XYY1234" />
+
+    <TextView
+        android:id="@+id/textView_body"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/dialog_confirm_entered_lot_number_body"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/textView_title" />
+
+    <Button
+        android:id="@+id/button_confirm"
+        style="@style/PrimaryPurpleButton"
+        android:layout_width="245dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="@string/button_confirm"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_body" />
+
+    <Button
+        android:id="@+id/button_goBack"
+        style="@style/PrimaryGrayButton"
+        android:layout_width="245dp"
+        android:layout_height="wrap_content"
+        android:text="@string/button_go_back"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_confirm" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

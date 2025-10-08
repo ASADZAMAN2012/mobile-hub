@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2021.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/payer_search_et"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginHorizontal="@dimen/dp_53"
+        android:layout_marginTop="@dimen/dp_50"
+        android:background="@drawable/bg_input"
+        android:gravity="start|center_vertical"
+        android:hint="@string/patient_add_payer_search"
+        android:imeOptions="actionDone"
+        android:inputType="textNoSuggestions|textCapCharacters"
+        android:lines="1"
+        android:maxLength="25"
+        android:maxLines="1"
+        android:paddingStart="@dimen/dp_32"
+        android:paddingEnd="@dimen/dp_80"
+        android:textAllCaps="true"
+        android:textColorHint="@color/primary_black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/clear_search"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_65"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:padding="@dimen/dp_10"
+        android:src="@drawable/ic_search"
+        app:layout_constraintBottom_toBottomOf="@id/payer_search_et"
+        app:layout_constraintEnd_toEndOf="@id/payer_search_et"
+        app:layout_constraintTop_toTopOf="@id/payer_search_et" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_payer_search_results"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp_40"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/payer_search_et"
+        tools:itemCount="4" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2021.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_rounded_corner_white_top"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/vaccine_icon"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_26"
+        android:layout_marginStart="@dimen/dp_21"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_presentation_prefilled_syringe"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/vaccine_product_name"
+        style="@style/H6BoldBlack"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_67"
+        android:gravity="center_vertical"
+        android:layout_marginStart="@dimen/dp_23"
+        tools:text="Fluzone Quad 18-19 (18+ Yrs)"
+        app:layout_constraintBottom_toBottomOf="@id/vaccine_icon"
+        app:layout_constraintStart_toEndOf="@id/vaccine_icon"
+        app:layout_constraintTop_toTopOf="@id/vaccine_icon" />
+
+    <TextView
+        android:id="@+id/display_reason_label"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_75"
+        android:text="@string/orders_review_set_reason"
+        android:background="@drawable/bg_rounded_corner_listblue_bottom"
+        android:layout_marginTop="@dimen/dp_31"
+        style="@style/CtaBlack"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vaccine_product_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

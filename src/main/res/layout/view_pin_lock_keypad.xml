@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    tools:ignore="HardcodedText">
+
+    <TextView
+        android:id="@+id/error_label"
+        style="@style/errorRed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:text="@string/invalid_pin"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/sync_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/sync_label"
+        style="@style/UsersSyncTextReg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sync_users"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/textView_hiddenPin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textView_hiddenPin"
+        style="@style/LockKeyPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:inputType="none"
+        android:maxWidth="@dimen/dp_450"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:includeFontPadding="false"
+        android:scrollHorizontally="true"
+        android:layout_marginBottom="@dimen/dp_18"
+        app:layout_constraintBottom_toTopOf="@id/button_one"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="***********" />
+
+    <Button
+        android:id="@+id/button_one"
+        style="@style/LockCircleButton"
+        android:layout_width="@dimen/pin_lock_icon_size"
+        android:layout_height="@dimen/pin_lock_icon_size"
+        android:text="1"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/button_four"
+        app:layout_constraintEnd_toStartOf="@id/button_two"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_hiddenPin" />
+
+    <View
+        android:layout_width="@dimen/pin_lock_line_width"
+        android:layout_height="@dimen/pin_lock_line_height"
+        android:layout_marginBottom="@dimen/dp_22"
+        android:background="@color/pin_lock_bottom_line"
+        app:layout_constraintBottom_toBottomOf="@id/button_one"
+        app:layout_constraintEnd_toStartOf="@id/button_one"
+        app:layout_constraintStart_toEndOf="@id/button_one" />
+
+    <Button
+        android:id="@+id/button_two"
+        style="@style/LockCircleButton"
+        android:layout_width="@dimen/pin_lock_icon_size"
+        android:layout_height="@dimen/pin_lock_icon_size"
+        android:layout_marginHorizontal="@dimen/dp_30"
+        android:text="2"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/button_one"
+        app:layout_constraintEnd_toStartOf="@id/button_three"
+        app:layout_constraintStart_toEndOf="@id/button_one"
+        app:layout_constraintTop_toTopOf="@id/button_one" />
+
+    <View
+        android:layout_width="@dimen/pin_lock_line_width"
+        android:layout_height="@dimen/pin_lock_line_height"
+        android:layout_marginBottom="@dimen/dp_22"
+        android:background="@color/pin_lock_bottom_line"
+        app:layout_constraintBottom_toBottomOf="@id/button_two"
+        app:layout_constraintEnd_toStartOf="@id/button_two"
+        app:layout_constraintStart_toEndOf="@id/button_two" />
+
+    <Button
+        android:id="@+id/button_three"
+        style="@style/LockCircleButton"
+        android:layout_width="@dimen/pin_lock_icon_size"
+        android:layout_height="@dimen/pin_lock_icon_size"
+        android:text="3"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/button_one"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/button_two"
+        app:layout_constraintTop_toTopOf="@id/button_one" />
+
+    <View
+        android:layout_width="@dimen/pin_lock_line_width"
+        android:layout_height="@dimen/pin_lock_line_height"
+        android:layout_marginBottom="@dimen/dp_22"
+        android:background="@color/pin_lock_bottom_line"
+        app:layout_constraintBottom_toBottomOf="@id/button_three"
+        app:layout_constraintEnd_toStartOf="@id/button_three"
+        app:layout_constraintStart_toEndOf="@id/button_three" />
+
+    <Button
+        android:id="@+id/button_four"
+        style="@style/LockCircleButton"
+        android:layout_width="@dimen/pin_lock_icon_size"
+        android:layout_height="@dimen/pin_lock_icon_size"
+        android:text="4"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/button_seven"
+        app:layout_constraintEnd_toStartOf="@id/button_five"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_one" />
+
+    <View
+        android:layout_width="@dimen/pin_lock_line_width"
+        android:layout_height="@dimen/pin_lock_line_height"
+        android:layout_marginBottom="@dimen/dp_22"
+        android:background="@color/pin_lock_bottom_line"
+        app:layout_constraintBottom_toBottomOf="@id/button_four"
+        app:layout_constraintEnd_toStartOf="@id/button_four"
+        app:layout_constraintStart_toEndOf="@id/button_four" />
+
+    <Button
+        android:id="@+id/button_five"
+        style="@style/LockCircleButton"
+        android:layout_width="@dimen/pin_lock_icon_size"
+        android:layout_height="@dimen/pin_lock_icon_size"
+        android:layout_marginHorizontal="@dimen/dp_30"
+        android:text="5"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/button_four"
+        app:layout_constraintEnd_toStartOf="@id/button_six"
+        app:layout_constraintStart_toEndOf="@id/button_four"
+        app:layout_constraintTop_toTopOf="@id/button_four" />
+
+    <View
+        android:layout_width="@dimen/pin_lock_line_width"
+        android:layout_height="@dimen/pin_lock_line_height"
+        android:layout_marginBottom="@dimen/dp_22"
+        android:background="@color/pin_lock_bottom_line"
+        app:layout_constraintBottom_toBottomOf="@id/button_five"
+        app:layout_constraintEnd_toStartOf="@id/button_five"
+        app:layout_constraintStart_toEndOf="@id/button_five" />
+
+    <Button
+        android:id="@+id/button_six"
+        style="@style/LockCircleButton"
+        android:layout_width="@dimen/pin_lock_icon_size"
+        android:layout_height="@dimen/pin_lock_icon_size"
+        android:text="6"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/button_four"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/button_five"
+        app:layout_constraintTop_toTopOf="@id/button_four" />
+
+    <View
+        android:layout_width="@dimen/pin_lock_line_width"
+        android:layout_height="@dimen/pin_lock_line_height"
+        android:layout_marginBottom="@dimen/dp_22"
+        android:background="@color/pin_lock_bottom_line"
+        app:layout_constraintBottom_toBottomOf="@id/button_six"
+        app:layout_constraintEnd_toStartOf="@id/button_six"
+        app:layout_constraintStart_toEndOf="@id/button_six" />
+
+    <Button
+        android:id="@+id/button_seven"
+        style="@style/LockCircleButton"
+        android:layout_width="@dimen/pin_lock_icon_size"
+        android:layout_height="@dimen/pin_lock_icon_size"
+        android:text="7"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/button_delete"
+        app:layout_constraintEnd_toStartOf="@id/button_eight"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_four" />
+
+    <View
+        android:layout_width="@dimen/pin_lock_line_width"
+        android:layout_height="@dimen/pin_lock_line_height"
+        android:layout_marginBottom="@dimen/dp_22"
+        android:background="@color/pin_lock_bottom_line"
+        app:layout_constraintBottom_toBottomOf="@id/button_seven"
+        app:layout_constraintEnd_toStartOf="@id/button_seven"
+        app:layout_constraintStart_toEndOf="@id/button_seven" />
+
+    <Button
+        android:id="@+id/button_eight"
+        style="@style/LockCircleButton"
+        android:layout_width="@dimen/pin_lock_icon_size"
+        android:layout_height="@dimen/pin_lock_icon_size"
+        android:layout_marginHorizontal="@dimen/dp_30"
+        android:text="8"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/button_seven"
+        app:layout_constraintEnd_toStartOf="@id/button_nine"
+        app:layout_constraintStart_toEndOf="@id/button_seven"
+        app:layout_constraintTop_toTopOf="@id/button_seven" />
+
+    <View
+        android:layout_width="@dimen/pin_lock_line_width"
+        android:layout_height="@dimen/pin_lock_line_height"
+        android:layout_marginBottom="@dimen/dp_22"
+        android:background="@color/pin_lock_bottom_line"
+        app:layout_constraintBottom_toBottomOf="@id/button_eight"
+        app:layout_constraintEnd_toStartOf="@id/button_eight"
+        app:layout_constraintStart_toEndOf="@id/button_eight" />
+
+    <Button
+        android:id="@+id/button_nine"
+        style="@style/LockCircleButton"
+        android:layout_width="@dimen/pin_lock_icon_size"
+        android:layout_height="@dimen/pin_lock_icon_size"
+        android:text="9"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/button_seven"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/button_eight"
+        app:layout_constraintTop_toTopOf="@id/button_seven" />
+
+    <View
+        android:layout_width="@dimen/pin_lock_line_width"
+        android:layout_height="@dimen/pin_lock_line_height"
+        android:layout_marginBottom="@dimen/dp_22"
+        android:background="@color/pin_lock_bottom_line"
+        app:layout_constraintBottom_toBottomOf="@id/button_nine"
+        app:layout_constraintEnd_toStartOf="@id/button_nine"
+        app:layout_constraintStart_toEndOf="@id/button_nine" />
+
+    <ImageButton
+        android:id="@+id/button_delete"
+        style="@style/LockFab"
+        android:layout_width="@dimen/pin_lock_icon_size"
+        android:layout_height="@dimen/pin_lock_icon_size"
+        android:layout_marginBottom="@dimen/dp_30"
+        android:clickable="true"
+        android:padding="@dimen/dp_50"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_pin_lock_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/button_zero"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_seven" />
+
+    <Button
+        android:id="@+id/button_zero"
+        style="@style/LockCircleButton"
+        android:layout_width="@dimen/pin_lock_icon_size"
+        android:layout_height="@dimen/pin_lock_icon_size"
+        android:layout_marginHorizontal="@dimen/dp_30"
+        android:text="0"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/button_delete"
+        app:layout_constraintEnd_toStartOf="@id/blank"
+        app:layout_constraintStart_toEndOf="@id/button_delete"
+        app:layout_constraintTop_toTopOf="@id/button_delete" />
+
+    <View
+        android:layout_width="@dimen/pin_lock_line_width"
+        android:layout_height="@dimen/pin_lock_line_height"
+        android:layout_marginBottom="@dimen/dp_22"
+        android:background="@color/pin_lock_bottom_line"
+        app:layout_constraintBottom_toBottomOf="@id/button_zero"
+        app:layout_constraintEnd_toStartOf="@id/button_zero"
+        app:layout_constraintStart_toEndOf="@id/button_zero" />
+
+    <Space
+        android:id="@+id/blank"
+        style="@style/LockFab"
+        android:layout_width="@dimen/pin_lock_icon_size"
+        android:layout_height="@dimen/pin_lock_icon_size"
+        app:layout_constraintBottom_toBottomOf="@id/button_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/button_zero"
+        app:layout_constraintTop_toTopOf="@id/button_delete" />
+
+    <ImageButton
+        android:id="@+id/button_enter"
+        style="@style/LockFab"
+        android:layout_width="@dimen/pin_lock_icon_size"
+        android:layout_height="@dimen/pin_lock_icon_size"
+        android:clickable="true"
+        android:padding="@dimen/dp_50"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_check"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/blank"
+        app:layout_constraintEnd_toEndOf="@id/blank"
+        app:layout_constraintStart_toStartOf="@id/blank"
+        app:layout_constraintTop_toTopOf="@id/blank"
+        tools:visibility="visible" />
+
+    <View
+        android:id="@+id/enter_button_line"
+        android:layout_width="@dimen/pin_lock_line_width"
+        android:layout_height="@dimen/pin_lock_line_height"
+        android:layout_marginBottom="@dimen/dp_22"
+        android:background="@color/pin_lock_bottom_line"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/button_enter"
+        app:layout_constraintEnd_toStartOf="@id/button_enter"
+        app:layout_constraintStart_toEndOf="@id/button_enter"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

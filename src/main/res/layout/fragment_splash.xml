@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    tools:background="@color/primary_coral"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clinic_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/dp_60"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/partner_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_138"
+            android:fontFamily="@font/graphik_semi_bold"
+            android:paddingEnd="@dimen/dp_60"
+            android:textColor="@color/primary_white"
+            android:textSize="@dimen/sp_32"
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:text="Partner Name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/clinic_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/graphik_regular"
+            android:textColor="@color/primary_white"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/dp_6"
+            android:ellipsize="end"
+            android:textSize="@dimen/sp_32"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintWidth_default="wrap"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/clinic_edit"
+            app:layout_constraintTop_toBottomOf="@id/partner_name"
+            tools:text="CPV - 2nd Street School Clinic" />
+
+        <ImageView
+            android:id="@+id/clinic_edit"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_80"
+            android:padding="@dimen/dp_18"
+            android:src="@drawable/ic_edit_white"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/clinic_name"
+            app:layout_constraintLeft_toRightOf="@id/clinic_name"
+            app:layout_constraintTop_toTopOf="@id/clinic_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/clinic_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphik_regular"
+        android:paddingStart="@dimen/dp_60"
+        android:paddingEnd="@dimen/dp_60"
+        android:textColor="@color/primary_white"
+        android:textSize="@dimen/sp_24"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clinic_container" />
+
+    <TextView
+        android:id="@+id/custom_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_60"
+        android:layout_marginEnd="@dimen/dp_60"
+        android:layout_marginTop="@dimen/dp_150"
+        android:fontFamily="@font/tiempos_headline_regular"
+        android:textColor="@color/primary_white"
+        android:textSize="@dimen/sp_114"
+        tools:text="Good Morning!"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clinic_date" />
+
+    <TextClock
+        android:id="@+id/local_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_60"
+        android:layout_marginTop="@dimen/dp_6"
+        android:fontFamily="@font/graphik_regular"
+        android:format12Hour="h:mm a"
+        android:textColor="@color/primary_white"
+        android:textSize="@dimen/sp_64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/custom_message" />
+
+    <ImageView
+        android:id="@+id/splash_logo"
+        android:layout_width="@dimen/dp_120"
+        android:layout_height="@dimen/dp_120"
+        android:layout_marginStart="@dimen/dp_27"
+        app:layout_constraintBottom_toBottomOf="@id/tap_to_unlock"
+        app:layout_constraintTop_toTopOf="@id/tap_to_unlock"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/notification_out_of_date_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_250"
+        android:background="@drawable/bg_rounded_corner_white_20"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/tap_to_unlock" >
+
+        <TextView
+            android:id="@+id/notification_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notification_out_of_date_title"
+            style="@style/VaxCareText.Body.B4.Bold"
+            android:textSize="@dimen/sp_35"
+            android:layout_margin="@dimen/dp_32"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/notification_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/notification_out_of_date_message"
+            style="@style/VaxCareText.Body.B4.SemiBold"
+            android:textSize="@dimen/sp_35"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:layout_marginStart="@dimen/dp_32"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/notification_title"
+            app:layout_constraintEnd_toStartOf="@id/notification_fab"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/notification_fab"
+            style="@style/Widget.MaterialComponents.FloatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:layout_margin="@dimen/dp_32"
+            android:src="@drawable/ic_arrow_forward"
+            app:backgroundTint="@color/primary_white"
+            app:elevation="@dimen/dp_8"
+            app:fabCustomSize="@dimen/dp_112"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:maxImageSize="@dimen/dp_64"
+            app:rippleColor="@color/primary_white"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tap_to_unlock"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_100"
+        android:layout_marginBottom="@dimen/dp_105"
+        android:fontFamily="@font/graphik_regular_italic"
+        android:gravity="center"
+        android:text="@string/tap_to_unlock"
+        android:textColor="@color/primary_white"
+        android:textSize="@dimen/sp_36"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/loading_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primary_white"
+        android:visibility="gone"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

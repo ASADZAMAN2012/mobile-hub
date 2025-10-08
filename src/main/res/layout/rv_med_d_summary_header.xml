@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2021.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/med_d_checkout_info"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_56"
+    android:layout_marginBottom="@dimen/dp_16"
+    android:background="@drawable/bg_rounded_corner_white_prompt"
+    android:paddingTop="@dimen/dp_23"
+    android:paddingBottom="@dimen/dp_25"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+
+    <TextView
+        android:id="@+id/med_d_patient_name"
+        style="@style/H6BoldBlack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="@dimen/dp_73"
+        android:layout_marginEnd="@dimen/dp_73"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:lineSpacingMultiplier="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Bartlett, Meghan" />
+
+
+    <View
+        android:id="@+id/left_dash"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_12"
+        android:background="@drawable/bg_rounded_corner_primary_black"
+        app:layout_constraintStart_toStartOf="@id/med_d_patient_name"
+        app:layout_constraintTop_toBottomOf="@id/med_d_patient_name" />
+
+    <TextView
+        android:id="@+id/med_d_label_id"
+        style="@style/BodySmlBoldBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="@dimen/dp_26"
+        android:text="@string/patient_lookup_id"
+        app:layout_constraintStart_toStartOf="@id/med_d_patient_name"
+        app:layout_constraintTop_toBottomOf="@id/left_dash" />
+
+    <TextView
+        android:id="@+id/med_d_patient_id"
+        style="@style/BodySmlRegBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="@id/med_d_label_id"
+        app:layout_constraintStart_toEndOf="@id/med_d_label_id"
+        app:layout_constraintTop_toTopOf="@id/med_d_label_id"
+        tools:text="0294534598" />
+
+    <TextView
+        android:id="@+id/med_d_label_dob"
+        style="@style/BodySmlBoldBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="@dimen/dp_45"
+        android:text="@string/patient_lookup_dob"
+        app:layout_constraintStart_toEndOf="@id/med_d_patient_id"
+        app:layout_constraintTop_toTopOf="@id/med_d_label_id" />
+
+    <TextView
+        android:id="@+id/med_d_patient_dob"
+        style="@style/BodySmlRegBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="@id/med_d_label_dob"
+        app:layout_constraintStart_toEndOf="@id/med_d_label_dob"
+        app:layout_constraintTop_toTopOf="@id/med_d_label_dob"
+        tools:text="0294534598" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

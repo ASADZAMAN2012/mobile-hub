@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2021.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dp_42"
+    android:layout_marginEnd="@dimen/dp_42"
+    android:paddingBottom="@dimen/dp_50"
+    tools:layout_width="match_parent">
+
+    <TextView
+        android:id="@+id/med_d_check_dialog_header"
+        style="@style/H6BoldBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_36"
+        android:text="@string/med_d_review_copay_dialog_header"
+        app:layout_constraintBottom_toTopOf="@id/med_d_check_dialog_body"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/med_d_check_dialog_body"
+        style="@style/H6RegBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_26"
+        android:gravity="start"
+        android:text="@string/med_d_review_copay_dialog_body"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/med_d_check_dialog_header" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_run"
+        style="@style/PrimaryPurpleButton"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_98"
+        android:layout_marginTop="@dimen/dp_50"
+        android:text="@string/med_d_review_copay_dialog_run"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/med_d_check_dialog_body" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_remove"
+        style="@style/PrimaryGrayButton"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_98"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_marginBottom="@dimen/dp_50"
+        android:text="@string/med_d_review_copay_dialog_remove"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_run" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

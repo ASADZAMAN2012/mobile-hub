@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2019.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+    <color name="cyan_dark">#008cbe</color>
+    <color name="primary_cyan">#00aeed</color>
+    <color name="cyan_secondary">#41c6f6</color>
+    <color name="cyan_light">#94e2ff</color>
+    <color name="blue_dark">#0225c5</color>
+    <color name="primary_blue">#3854d4</color>
+    <color name="blue_secondary">#677cdb</color>
+    <color name="blue_light">#9ca9e5</color>
+    <color name="yellow_dark">#efb118</color>
+    <color name="primary_yellow">#ffc945</color>
+    <color name="yellow_secondary">#ffd671</color>
+    <color name="yellow_light">#ffe6aa</color>
+    <color name="green_dark">#22b66f</color>
+    <color name="primary_green">#38cc85</color>
+    <color name="green_secondary">#5cdd9f</color>
+    <color name="green_light">#8df0c0</color>
+    <color name="coral_dark">#d85865</color>
+    <color name="primary_coral">#fc6978</color>
+    <color name="coral_secondary">#fd8f9a</color>
+    <color name="coral_light">#ffb8c0</color>
+    <color name="magenta_dark">#a50c76</color>
+    <color name="primary_magenta">#c92c99</color>
+    <color name="magenta_secondary">#d862b4</color>
+    <color name="magenta_light">#eba7d6</color>
+    <color name="purple_dark">#3a006b</color>
+    <color name="primary_purple">#4a008a</color>
+    <color name="purple_secondary">#6c20ad</color>
+    <color name="purple_light">#b17fdc</color>
+    <color name="error_red">#d9345b</color>
+    <color name="error_light_red">#19d9345b</color>
+    <color name="specs_spacing_highlight">#33d7587f</color>
+    <color name="primary_black">#100211</color>
+    <color name="primary_dark_gray">#968c96</color>
+    <color name="primary_light_gray">#fbfafa</color>
+    <color name="primary_gray_transparent_20">#1f968c96</color>
+    <color name="primary_gray_transparent_15">#26968c96</color>
+    <color name="primary_gray_transparent_10">#1a968c96</color>
+    <color name="primary_white">#ffffff</color>
+    <color name="primary_light_green">#0d38cc85</color>
+    <color name="primary_light_yellow">#66ffe6aa</color>
+    <color name="primary_lightest_yellow">#fff5dd</color>
+    <color name="primary_light_cyan">#0c00aeed</color>
+    <color name="primary_light_blue">#99e1f2fb</color>
+    <color name="primary_pink">#ffe9eb</color>
+    <color name="list_blue">#ebeefa</color>
+    <color name="lightest_blue">#ebedfa</color>
+    <color name="list_purple">#f4eff8</color>
+    <color name="list_green">#8df0c0</color>
+    <color name="list_magenta">#eba7d6</color>
+
+    <color name="faded_list_green">#338df0c0</color>
+    <color name="faded_list_magenta">#33eba7d6</color>
+
+    <!-- PVT -->
+    <color name="colorPrimary">@color/privatePrimary</color>
+    <color name="colorPrimaryDark">@color/darkBlue</color>
+    <color name="colorAccent">@color/privateSecondary</color>
+    <color name="transparent">#00000000</color>
+    <color name="translucent">#80FFFFFF</color>
+    <color name="dimTransparent">#1a000000</color>
+    <!-- Global Colors -->
+    <color name="background_color">@color/primary_light_gray</color>
+
+    <!-- dark_blue -->
+    <color name="darkBlue">#002B42</color>
+    <color name="darkBlueDisabled">#64002B42</color>
+
+    <color name="darkerBlue">#002031</color>
+
+    <color name="lightBlue">#11557A</color>
+    <color name="whiteDisabled">#64FFFFFF</color>
+    <color name="notificationIconsBlue">#002A40</color>
+
+    <!-- red -->
+    <color name="redPrimary">#D7587F</color>
+    <!-- red_secondary -->
+    <color name="redSecondary">#F7DEE5</color>
+    <!-- red_tertiary -->
+    <color name="redLight">#FDF7F8</color>
+
+    <color name="darkGray">#a9a9a9</color>
+
+    <!-- private_light -->
+    <color name="fullscreenBlue">#f3f7fcfe</color>
+    <color name="fullscreenPrimaryBlack">#26100211</color>
+    <color name="privateLight">#F7FCFE</color>
+    <color name="privateLightDisabled">#64F7FCFE</color>
+    <!-- private_secondary -->
+    <color name="privateSecondary">#D9F2F9</color>
+    <!-- private_primary -->
+    <color name="privatePrimary">@color/primary_purple</color>
+    <color name="onHandPrivate">#f0fafd</color>
+    <!-- vfc_tertiary -->
+    <color name="vfcLight">#F2FDFB</color>
+    <!-- vfc_secondary -->
+    <color name="vfcSecondary">#CCF7EF</color>
+    <!-- vfc_primary -->
+    <color name="vfcPrimary">@color/primary_green</color>
+
+    <!-- state_light -->
+    <color name="stateLight">#FDF9FD</color>
+    <!-- state_secondary -->
+    <color name="stateSecondary">#F1DEF5</color>
+    <!-- state_primary -->
+    <color name="statePrimary">@color/primary_magenta</color>
+    <color name="primaryPurpleDisabled">#80968c96</color>
+
+    <!-- 317_tertiary -->
+    <color name="section317Light">#FFFAF4</color>
+    <!-- 317_secondary -->
+    <color name="section317Secondary">#FFEDD2</color>
+    <!-- 317_primary -->
+    <color name="section317Primary">@color/primary_blue</color>
+
+    <color name="cross_hairs">#ff80d25b</color>
+
+    <color name="sea_blue">#067095</color>
+    <color name="black">#000000</color>
+    <color name="invalid_name">#e6031119</color>
+    <color name="magenta">#faff05b9</color>
+
+    <color name="ic_launcher_background">#FFFFFF</color>
+
+    <color name="pin_lock_bottom_line">#f0f6ff</color>
+
+    <color name="viewfinder_mask">#80ffffff</color>
+    <color name="default_inner_color">#4a008a</color>
+    <color name="cutout_mask">#A0100211</color>
+
+    <color name="checkout_patient_consent_bg">#27fc6978</color>
+    <color name="checkout_vaccine_issue_bg">#fcf2da</color>
+    <color name="checkout_patient_issue_incorrect_bg">#f7d6de</color>
+    <color name="checkout_patient_issue_missing_bg">@color/primary_lightest_yellow</color>
+    <color name="checkout_patient_self_pay">#d7ddf5</color>
+
+    <color name="capture_not_match">#331e051f</color>
+
+    <color name="gray_text">#80000000</color>
+    <color name="dark_gray_15_opacity">#26968c96</color>
+    <color name="neutral_gray_200">#5d505d</color>
+</resources>

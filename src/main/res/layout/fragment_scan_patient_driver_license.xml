@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2021.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color">
+
+    <com.vaxcare.vaxhub.core.view.VaxToolbar
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/patient_edit_risk_message"
+        style="@style/BtnSmlBoldBlack"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_42"
+        android:background="@color/primary_yellow"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/dp_84"
+        android:text="@string/patient_edit_missing_info"
+        android:textSize="@dimen/sp_22"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar" />
+
+    <TextView
+        android:id="@+id/patient_edit_driver_license_note"
+        style="@style/BodyItalicBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_30"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/dp_85"
+        android:text="@string/patient_edit_driver_license_note"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_edit_risk_message" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/view_finder_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_210"
+        android:layout_marginHorizontal="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_30"
+        app:cardCornerRadius="@dimen/dp_14"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_edit_driver_license_note">
+
+        <FrameLayout
+            android:id="@+id/scanner_preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+
+        <com.vaxcare.vaxhub.core.ui.ViewfinderView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:inner_corner_color="@color/primary_purple"
+            app:inner_corner_length_horizontal="@dimen/dp_50"
+            app:inner_corner_length_vertical="@dimen/dp_36"
+            app:inner_height="@dimen/dp_120"
+            app:inner_width="@dimen/dp_520"
+            app:inner_stroke_width="@dimen/dp_6" />
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/patient_edit_driver_license_tip"
+        style="@style/BodyItalicBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_5"
+        android:text="@string/patient_edit_driver_license_tip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_finder_container" />
+
+    <TextView
+        android:id="@+id/patient_edit_driver_license_trouble"
+        style="@style/BodyBoldBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_30"
+        android:text="@string/patient_edit_driver_license_trouble"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_edit_driver_license_tip" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/patient_edit_driver_license_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_11"
+        android:layout_marginTop="@dimen/dp_55"
+        android:background="@drawable/bg_rounded_white_ripple_item"
+        android:paddingBottom="@dimen/dp_60"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/patient_edit_driver_license_trouble">
+
+        <ImageView
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:src="@drawable/ic_check_green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/patient_edit_driver_license_name_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_73"
+            android:layout_marginTop="@dimen/dp_42"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/patient_edit_driver_license_first_name_label"
+                style="@style/BodyBoldBlack"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/patient_edit_driver_license_first_name"
+                app:layout_constraintEnd_toStartOf="@id/patient_edit_driver_license_last_name_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/patient_edit_driver_license_last_name_label"
+                style="@style/BodyBoldBlack"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/patient_edit_driver_license_last_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/patient_edit_driver_license_first_name_label"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/patient_edit_driver_license_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_73"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/patient_edit_driver_license_name_label">
+
+            <TextView
+                android:id="@+id/patient_edit_driver_license_first_name"
+                style="@style/BodyRegBlack"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/dp_8"
+                app:layout_constraintEnd_toStartOf="@id/patient_edit_driver_license_last_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Sandra" />
+
+            <TextView
+                android:id="@+id/patient_edit_driver_license_last_name"
+                style="@style/BodyRegBlack"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/patient_edit_driver_license_first_name"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Larkin" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/patient_edit_driver_license_dob_and_gender_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_73"
+            android:layout_marginTop="@dimen/dp_22"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/patient_edit_driver_license_name">
+
+            <TextView
+                android:id="@+id/patient_edit_driver_license_dob_label"
+                style="@style/BodyBoldBlack"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/patient_edit_driver_license_dob"
+                app:layout_constraintEnd_toStartOf="@id/patient_edit_driver_license_gender_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/patient_edit_driver_license_gender_label"
+                style="@style/BodyBoldBlack"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/patient_edit_driver_license_gender"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/patient_edit_driver_license_dob_label"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/patient_edit_driver_license_dob_and_gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_73"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/patient_edit_driver_license_dob_and_gender_label">
+
+            <TextView
+                android:id="@+id/patient_edit_driver_license_dob"
+                style="@style/BodyRegBlack"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@id/patient_edit_driver_license_gender"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="07/18/83" />
+
+            <TextView
+                android:id="@+id/patient_edit_driver_license_gender"
+                style="@style/BodyRegBlack"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/patient_edit_driver_license_dob"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="07/18/83" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/patient_edit_driver_license_address_label"
+            style="@style/BodyBoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_73"
+            android:layout_marginTop="@dimen/dp_22"
+            android:text="@string/patient_edit_driver_license_gender"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/patient_edit_driver_license_dob_and_gender" />
+
+        <TextView
+            android:id="@+id/patient_edit_driver_license_address"
+            style="@style/BodyRegBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/patient_edit_driver_license_address_label"
+            app:layout_constraintTop_toBottomOf="@id/patient_edit_driver_license_address_label"
+            tools:text="1101 S. Front Street ladelphia, PA 19102" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_next"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_32"
+        android:layout_marginBottom="@dimen/dp_74"
+        android:enabled="false"
+        android:src="@drawable/ic_arrow_forward"
+        app:backgroundTint="@color/legacy_fab_bg"
+        app:elevation="@dimen/dp_2"
+        app:fabCustomSize="@dimen/dp_106"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="@dimen/dp_64"
+        app:rippleColor="@color/primary_white"
+        app:tint="@color/primary_white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

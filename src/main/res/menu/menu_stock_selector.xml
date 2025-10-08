@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2024.                                                                   *
+  ***********************************************************************************************-->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/setStock"
+        android:title="@string/menu_stock_selector_set_stock" />
+</menu>

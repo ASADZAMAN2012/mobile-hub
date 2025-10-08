@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2019.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+    <plurals name="shot_administered">
+        <item quantity="zero">%d Shot Administered</item>
+        <item quantity="one">%d Shot Administered</item>
+        <item quantity="other">%d Shots Administered</item>
+    </plurals>
+
+    <plurals name="number_of_doses">
+        <item quantity="zero">%d doses</item>
+        <item quantity="one">%d dose</item>
+        <item quantity="other">%d doses</item>
+    </plurals>
+</resources>

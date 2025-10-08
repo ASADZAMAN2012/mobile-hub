@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:layout_width="match_parent"
+    android:layout_marginStart="@dimen/dp_50"
+    android:layout_marginEnd="@dimen/dp_50">
+
+    <TextView
+        android:id="@+id/remove_dose_header"
+        style="@style/VaxCareText.Bold.30"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/patient_checkout_header_remove_dose"
+        android:layout_marginTop="@dimen/dp_40"
+        app:layout_constraintBottom_toTopOf="@id/remove_dose_body"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/remove_dose_body"
+        style="@style/VaxCareText.Regular.24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/content_margin"
+        android:gravity="start"
+        android:text="@string/patient_checkout_body_remove_dose"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/remove_dose_header"
+        />
+
+    <TextView
+        android:id="@+id/remove_dose_vaccine_display"
+        style="@style/VaxCareText.Bold.30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dp_40"
+        android:layout_marginBottom="@dimen/dp_50"
+        app:layout_constraintBottom_toTopOf="@id/button_keep_dose"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/remove_dose_body"
+        tools:drawableEnd="@drawable/ic_presentation_prefilled_syringe"
+        tools:text="Hep-B (Engerix-B)" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_keep_dose"
+        style="@style/LightBlueButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="@dimen/dp_50"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:text="@string/patient_checkout_keep_dose"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/button_remove_dose"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_remove_dose"
+        style="@style/DarkBlueButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:text="@string/patient_checkout_remove_dose"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/button_keep_dose"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

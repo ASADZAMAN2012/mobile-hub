@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@color/primary_light_gray">
+
+    <com.vaxcare.vaxhub.core.view.VaxToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/admin_fragment_header_vaxcare_admin" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_56"
+        android:background="@drawable/bg_rounded_corner_white"
+        android:paddingBottom="@dimen/dp_90"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <TextView
+            android:id="@+id/partner_id_title"
+            style="@style/BodyBoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_94"
+            android:layout_marginTop="@dimen/dp_34"
+            android:text="@string/admin_fragment_partner_id_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/partner_id_desc"
+            style="@style/BodyRegBlack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_94"
+            android:layout_marginTop="@dimen/dp_6"
+            android:layout_marginEnd="@dimen/dp_63"
+            android:text="@string/admin_fragment_partner_id_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/partner_id_title" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_enter_partner_id"
+            style="@style/PrimaryPurpleButton"
+            android:layout_width="@dimen/dp_400"
+            android:layout_height="@dimen/dp_98"
+            android:layout_marginTop="@dimen/dp_32"
+            android:text="@string/admin_fragment_enter_partner_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/partner_id_desc" />
+
+        <ProgressBar
+            android:id="@+id/partner_id_progress_bar"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginTop="@dimen/dp_27"
+            android:indeterminateDrawable="@drawable/progress_circle_purple"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/partner_id_desc"
+            app:layout_constraintTop_toBottomOf="@id/partner_id_desc" />
+
+        <TextView
+            android:id="@+id/partner_id_value"
+            style="@style/BodyRegBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/partner_id_desc"
+            app:layout_constraintTop_toBottomOf="@id/partner_id_desc"
+            tools:text="176736" />
+
+        <TextView
+            android:id="@+id/partner_id_error_label"
+            style="@style/VaxCareText.Body.B3.SemiBold.Error.Italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_22"
+            android:text="@string/admin_fragment_invalid_partner_id"
+            android:textSize="@dimen/sp_24"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/partner_id_value"
+            app:layout_constraintTop_toBottomOf="@id/partner_id_value" />
+
+        <ImageView
+            android:id="@+id/partner_id_edit"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginStart="@dimen/dp_20"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_edit"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/partner_id_value"
+            app:layout_constraintStart_toEndOf="@id/partner_id_value"
+            app:layout_constraintTop_toTopOf="@id/partner_id_value" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_4"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_286"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:background="@color/primary_light_gray"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/clinic_id_title"
+            style="@style/BodyBoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_34"
+            android:text="@string/admin_fragment_clinic_id_header"
+            app:layout_constraintStart_toStartOf="@id/partner_id_title"
+            app:layout_constraintTop_toBottomOf="@id/divider1" />
+
+        <TextView
+            android:id="@+id/clinic_id_desc"
+            style="@style/BodyRegBlack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_94"
+            android:layout_marginTop="@dimen/dp_6"
+            android:layout_marginEnd="@dimen/dp_63"
+            android:text="@string/admin_fragment_clinic_id_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clinic_id_title" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_enter_clinic_id"
+            style="@style/PrimaryPurpleButton"
+            android:layout_width="@dimen/dp_400"
+            android:layout_height="@dimen/dp_98"
+            android:layout_marginTop="@dimen/dp_32"
+            android:text="@string/admin_fragment_enter_clinic_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clinic_id_desc" />
+
+        <ProgressBar
+            android:id="@+id/clinic_id_progress_bar"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginTop="@dimen/dp_27"
+            android:indeterminateDrawable="@drawable/progress_circle_purple"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/clinic_id_desc"
+            app:layout_constraintTop_toBottomOf="@id/clinic_id_desc" />
+
+        <TextView
+            android:id="@+id/clinic_id_value"
+            style="@style/BodyRegBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/clinic_id_desc"
+            app:layout_constraintTop_toBottomOf="@id/clinic_id_desc"
+            tools:text="84573" />
+
+        <TextView
+            android:id="@+id/clinic_id_error_label"
+            style="@style/VaxCareText.Body.B3.SemiBold.Error.Italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_22"
+            android:text="@string/admin_fragment_invalid_clinic_id"
+            android:textSize="@dimen/sp_24"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/clinic_id_value"
+            app:layout_constraintTop_toBottomOf="@id/clinic_id_value" />
+
+        <ImageView
+            android:id="@+id/clinic_id_edit"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginStart="@dimen/dp_20"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_edit"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/clinic_id_value"
+            app:layout_constraintStart_toEndOf="@id/clinic_id_value"
+            app:layout_constraintTop_toTopOf="@id/clinic_id_value" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_4"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_286"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:background="@color/primary_light_gray"
+            app:layout_constraintTop_toTopOf="@id/divider1" />
+
+        <TextView
+            android:id="@+id/serial_number_title"
+            style="@style/BodyBoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_34"
+            android:text="@string/admin_fragment_serial_number_header"
+            app:layout_constraintStart_toStartOf="@id/partner_id_title"
+            app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+        <TextView
+            android:id="@+id/serial_number_desc"
+            style="@style/BodyRegBlack"
+            android:layout_width="@dimen/dp_480"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_6"
+            android:text="@string/admin_fragment_serial_number_text"
+            app:layout_constraintStart_toStartOf="@id/serial_number_title"
+            app:layout_constraintTop_toBottomOf="@id/serial_number_title" />
+
+        <TextView
+            android:id="@+id/serial_number_value"
+            style="@style/BodyRegBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_18"
+            app:layout_constraintStart_toStartOf="@id/serial_number_desc"
+            app:layout_constraintTop_toBottomOf="@id/serial_number_desc"
+            tools:text="HUB2836841" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

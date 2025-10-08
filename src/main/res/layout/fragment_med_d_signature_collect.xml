@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2021.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.vaxcare.vaxhub.core.view.VaxToolbar
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/med_d_signature_title" />
+
+    <com.vaxcare.vaxhub.core.view.SignatureCaptureView
+        android:id="@+id/med_d_signature_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp_40"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@id/med_d_signature_bottom_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar" />
+
+    <ImageView
+        android:id="@+id/med_d_clear_signature"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginEnd="@dimen/dp_50"
+        android:layout_marginBottom="@dimen/dp_80"
+        android:padding="@dimen/dp_10"
+        android:src="@drawable/ic_close"
+        app:layout_constraintBottom_toBottomOf="@id/med_d_signature_view"
+        app:layout_constraintEnd_toEndOf="@id/med_d_signature_view" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/med_d_signature_bottom_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_200"
+        android:layout_marginEnd="@dimen/dp_40"
+        android:background="@drawable/bg_rounded_corner_patient_consent"
+        android:paddingStart="@dimen/dp_49"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/med_d_signature_collect_patient_signature"
+            style="@style/NotesSpecsBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_22"
+            android:text="@string/med_d_signature_collect_patient_signature"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/NotesSpecsRegular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginEnd="@dimen/dp_220"
+            android:text="@string/med_d_signature_collect_patient_signature_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/med_d_signature_collect_patient_signature" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Space
+        android:id="@+id/anchor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_230"
+        android:layout_marginBottom="@dimen/dp_230"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/med_d_signature_submit"
+        android:layout_width="@dimen/dp_280"
+        android:layout_height="@dimen/dp_280"
+        android:background="@drawable/bg_circle_button_selector"
+        android:enabled="false"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_checkout"
+        app:layout_constraintStart_toEndOf="@id/anchor"
+        app:layout_constraintTop_toBottomOf="@id/anchor" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

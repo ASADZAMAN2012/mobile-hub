@@ -1,0 +1,18 @@
+<!--***********************************************************************************************
+  * Copyright VaxCare (c) 2021.                                                                   *
+  ***********************************************************************************************-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="60dp"
+    android:height="60dp"
+    android:viewportWidth="60"
+    android:viewportHeight="60">
+    <path
+        android:pathData="M30,30m-8,0a8,8 0,1 1,16 0a8,8 0,1 1,-16 0"
+        android:fillColor="#968C96"
+        android:fillType="evenOdd"/>
+    <path
+        android:pathData="M22.5,5l-4.575,5H10c-2.75,0 -5,2.25 -5,5v30c0,2.75 2.25,5 5,5h40c2.75,0 5,-2.25 5,-5V15c0,-2.75 -2.25,-5 -5,-5h-7.925L37.5,5h-15zM30,42.5c-6.9,0 -12.5,-5.6 -12.5,-12.5S23.1,17.5 30,17.5 42.5,23.1 42.5,30 36.9,42.5 30,42.5z"
+        android:fillColor="#968C96"
+        android:fillType="evenOdd"/>
+</vector>

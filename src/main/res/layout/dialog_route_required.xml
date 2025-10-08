@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2023.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/dp_42"
+    android:paddingVertical="@dimen/dp_60"
+    android:paddingHorizontal="@dimen/dp_30">
+
+    <TextView
+        android:id="@+id/textView_title"
+        style="@style/H6BoldBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_route_required_title"
+        android:textSize="@dimen/sp_35"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_subtitle"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_24"
+        android:text="@string/dialog_route_required_subtitle"
+        android:textSize="@dimen/sp_30"
+        app:layout_constraintTop_toBottomOf="@id/textView_title" />
+
+    <TextView
+        android:id="@+id/textView_vaccine"
+        style="@style/H6RegBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp_30"
+        app:layout_constraintTop_toBottomOf="@id/textView_subtitle"
+        tools:text="IPV (IPOL)" />
+
+    <Button
+        android:id="@+id/button_intramuscular"
+        style="@style/PrimaryPurpleButton"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_105"
+        android:layout_marginTop="@dimen/dp_32"
+        android:text="@string/intramuscular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_vaccine" />
+
+    <Button
+        android:id="@+id/button_subcutaneous"
+        style="@style/PrimaryPurpleButton"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_105"
+        android:text="@string/subcutaneous"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_intramuscular" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

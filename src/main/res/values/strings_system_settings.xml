@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<resources>
+    <string name="system_settings_wifi">WIFI</string>
+    <string name="system_settings_cellular">CELLULAR</string>
+    <string name="system_settings_system">SYSTEM</string>
+    <string name="system_settings_brightness">BRIGHTNESS</string>
+    <string name="system_settings_volume">VOLUME</string>
+    <string name="system_settings_power">POWER</string>
+    <string name="system_settings_admin_access">ADMIN ACCESS</string>
+    <string name="system_settings_plugged_in">Plugged In</string>
+    <string name="system_settings_connected">Connected</string>
+    <string name="system_settings_not_connected">Not Connected</string>
+    <string name="system_settings_wifi_not_connected">Wifi Not Connected</string>
+    <string name="system_settings_update">Update</string>
+    <string name="system_settings_login">Login</string>
+    <string name="system_settings_cellular_not_connected">No Signal</string>
+</resources>

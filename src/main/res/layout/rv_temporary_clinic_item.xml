@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_rounded_white_ripple_item"
+    android:paddingStart="@dimen/dp_86"
+    android:paddingTop="@dimen/dp_30"
+    android:paddingEnd="@dimen/dp_86"
+    android:paddingBottom="@dimen/dp_24">
+
+    <TextView
+        android:id="@+id/temporary_clinics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphik_semi_bold"
+        android:paddingTop="@dimen/dp_10"
+        android:text="@string/temporary_clinics"
+        android:textColor="@color/primary_black"
+        android:textSize="@dimen/sp_18"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/clinic_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/graphik_regular"
+        android:textColor="@color/primary_black"
+        android:textSize="@dimen/sp_32"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/temporary_clinics"
+        tools:text="Bristol" />
+
+    <TextView
+        android:id="@+id/clinic_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_3"
+        android:fontFamily="@font/graphik_regular"
+        android:textColor="@color/primary_black"
+        android:textSize="@dimen/sp_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clinic_name"
+        tools:text="December 17th, 2020" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

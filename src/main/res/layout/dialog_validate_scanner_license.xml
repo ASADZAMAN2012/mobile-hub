@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dp_42"
+    android:layout_marginEnd="@dimen/dp_42"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/H6BoldBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_36"
+        android:text="@string/validate_scanner_license"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/scanner_viewport"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/scan_view_height"
+        android:layout_marginTop="@dimen/dp_30"
+        android:background="@drawable/bg_rounded_corner_viewfinder"
+        android:alpha="0"
+        tools:alpha="1"
+        app:cardCornerRadius="@dimen/dp_14"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <FrameLayout
+            android:id="@+id/scanner_preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue_dark"
+            android:layout_gravity="center"></FrameLayout>
+
+        <com.vaxcare.vaxhub.core.ui.ViewfinderView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:inner_corner_color="@color/primary_purple"
+            app:inner_corner_length_horizontal="@dimen/dp_50"
+            app:inner_corner_length_vertical="@dimen/dp_36"
+            app:inner_width="@dimen/dp_500"
+            app:inner_height="@dimen/dp_312"
+            app:inner_stroke_width="@dimen/dp_6" />
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_ok"
+        style="@style/PrimaryPurpleButton"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_98"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_50"
+        android:layout_marginBottom="@dimen/dp_50"
+        android:text="@string/patient_add_payer_other_payer_ok"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scanner_viewport"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2019.                                                                   *
+  ***********************************************************************************************-->
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:height="8dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:centerX="50%"
+                android:startColor="#BB555555"
+                android:centerColor="#55BCBCBC"
+                android:endColor="#00bebebe"
+                android:angle="90"/>
+        </shape>
+    </item>
+    <item android:top="5dp">
+        <shape android:shape="rectangle">
+            <solid android:color="?bgWhite" />
+        </shape>
+    </item>
+</layer-list>

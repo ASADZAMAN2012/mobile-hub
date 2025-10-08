@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2021.                                                                   *
+  ***********************************************************************************************-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/bg_circle_button_primary_coral" android:state_enabled="true" />
+    <item android:drawable="@drawable/bg_circle_button_primary_light_coral" android:state_enabled="false" />
+</selector>

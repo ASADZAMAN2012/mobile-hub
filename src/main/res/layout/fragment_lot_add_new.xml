@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context="com.vaxcare.vaxhub.ui.checkout.AddNewLotFragment">
+
+    <com.vaxcare.vaxhub.core.view.VaxToolbar
+        android:id="@+id/lot_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/add_new_lot_sub_title" />
+
+    <TextView
+        android:id="@+id/add_lot_description"
+        style="@style/BodyItalicBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_85"
+        android:layout_marginTop="@dimen/dp_49"
+        android:gravity="center"
+        android:text="@string/add_vaccine_confirmation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lot_header"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/add_lot_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_11"
+        android:layout_marginTop="@dimen/dp_42"
+        android:background="@drawable/bg_rounded_corner_white"
+        android:paddingTop="@dimen/dp_40"
+        android:paddingBottom="@dimen/dp_46"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_lot_description">
+
+        <TextView
+            android:id="@+id/antigen_select_header"
+            style="@style/BodySmlBoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_74"
+            android:text="@string/select_antigen_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/select_antigen"
+            style="@style/VaxCareText.Regular.32.PrimaryBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:drawableEnd="@drawable/ic_edit"
+            android:drawablePadding="@dimen/dp_30"
+            android:text="@string/select_antigen_placeholder"
+            app:layout_constraintStart_toStartOf="@id/antigen_select_header"
+            app:layout_constraintTop_toBottomOf="@id/antigen_select_header" />
+
+        <TextView
+            android:id="@+id/product_select_header"
+            style="@style/BodySmlBoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_74"
+            android:layout_marginTop="@dimen/dp_38"
+            android:text="@string/select_product_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/select_antigen" />
+
+        <TextView
+            android:id="@+id/select_product"
+            style="@style/VaxCareText.Regular.32.PrimaryBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:drawableEnd="@drawable/ic_edit"
+            android:drawablePadding="@dimen/dp_30"
+            android:text="@string/select_product_placeholder"
+            app:layout_constraintStart_toStartOf="@id/product_select_header"
+            app:layout_constraintTop_toBottomOf="@id/product_select_header" />
+
+        <TextView
+            android:id="@+id/presentation_select_header"
+            style="@style/BodySmlBoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_74"
+            android:layout_marginTop="@dimen/dp_38"
+            android:text="@string/select_presentation_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/select_product" />
+
+        <TextView
+            android:id="@+id/select_presentation"
+            style="@style/VaxCareText.Regular.32.PrimaryBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:drawableEnd="@drawable/ic_edit"
+            android:drawablePadding="@dimen/dp_30"
+            android:text="@string/select_presentation_placeholder"
+            app:layout_constraintStart_toStartOf="@id/presentation_select_header"
+            app:layout_constraintTop_toBottomOf="@id/presentation_select_header" />
+
+        <ImageView
+            android:id="@+id/presentation_icon"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginEnd="@dimen/dp_22"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="@id/select_presentation"
+            app:layout_constraintEnd_toStartOf="@id/select_presentation"
+            app:layout_constraintTop_toTopOf="@id/select_presentation" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/add_expiration_description"
+        style="@style/BodySmlBoldBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_100"
+        android:layout_marginTop="@dimen/dp_38"
+        android:text="@string/add_expiration_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_lot_content" />
+
+    <TextView
+        android:id="@+id/expiration_month"
+        style="@style/VaxCareText.Regular.32.PrimaryBlack"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/bg_rounded_corner_left"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@id/expiration_day"
+        app:layout_constraintStart_toStartOf="@id/add_lot_description"
+        app:layout_constraintTop_toBottomOf="@id/add_expiration_description"
+        tools:text="4" />
+
+    <TextView
+        android:id="@+id/expiration_day"
+        style="@style/H6RegBlack"
+        android:layout_width="@dimen/dp_120"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginHorizontal="@dimen/dp_26"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/bg_rounded_corner_mid"
+        android:focusable="false"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@id/expiration_year"
+        app:layout_constraintStart_toEndOf="@id/expiration_month"
+        app:layout_constraintTop_toBottomOf="@id/add_expiration_description"
+        tools:text="25"/>
+
+    <TextView
+        android:id="@+id/expiration_year"
+        style="@style/VaxCareText.Regular.32.PrimaryBlack"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_80"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/bg_rounded_corner_right"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@id/add_lot_description"
+        app:layout_constraintStart_toEndOf="@id/expiration_day"
+        app:layout_constraintTop_toBottomOf="@id/add_expiration_description"
+        tools:text="2022" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_confirm"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_32"
+        android:layout_marginBottom="@dimen/dp_74"
+        android:enabled="false"
+        android:src="@drawable/ic_arrow_forward"
+        app:backgroundTint="@color/legacy_fab_bg"
+        app:elevation="@dimen/dp_2"
+        app:fabCustomSize="@dimen/dp_106"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="@dimen/dp_64"
+        app:rippleColor="@color/primary_white"
+        app:tint="@color/primary_white" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2021.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp_10"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="@dimen/dp_10"
+    app:cardElevation="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/view_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/med_d_summary_vaccine_issues"
+                style="@style/BodyItalicBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_74"
+                android:layout_marginTop="@dimen/dp_16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="RtlHardcoded"
+                tools:text="Out of Age Indication" />
+
+            <ImageView
+                android:id="@+id/med_d_summary_vaccine_icon"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
+                android:layout_marginStart="@dimen/dp_15"
+                android:layout_marginTop="@dimen/dp_4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/med_d_summary_vaccine_name"
+                tools:src="@drawable/ic_presentation_prefilled_syringe" />
+
+            <TextView
+                android:id="@+id/med_d_summary_vaccine_name"
+                style="@style/H6BoldBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_74"
+                android:layout_marginEnd="@dimen/dp_25"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/med_d_summary_vaccine_issues"
+                tools:text="Hep-B (Engerix-B)" />
+
+            <TextView
+                android:id="@+id/med_d_summary_vaccine_lot_number"
+                style="@style/BodyRegBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:textAllCaps="true"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@id/med_d_summary_vaccine_name"
+                app:layout_constraintTop_toBottomOf="@id/med_d_summary_vaccine_name"
+                tools:text="XYZ1232GGF" />
+
+            <TextView
+                android:id="@+id/med_d_checkout_vaccine_site"
+                style="@style/BodySmlBoldBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_2"
+                android:layout_marginEnd="@dimen/dp_74"
+                android:text="@string/patient_checkout_site"
+                android:textAllCaps="true"
+                tools:text="Ant Thigh-Rt"
+                android:visibility="gone"
+                tools:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/med_d_summary_vaccine_lot_number" />
+
+            <Space
+                android:id="@+id/med_d_summary_vaccine_bottom_space"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_15"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/med_d_summary_vaccine_lot_number" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/med_d_summary_vaccine_copay_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/dp_15"
+            android:background="@color/primary_light_cyan"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/view_content">
+
+            <TextView
+                android:id="@+id/med_d_summary_vaccine_copay_title"
+                style="@style/H7RegBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_74"
+                android:layout_marginTop="@dimen/dp_11"
+                android:gravity="center"
+                tools:text="@string/med_d_summary_copay"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/med_d_summary_vaccine_copay_value"
+                style="@style/H7BoldBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_30"
+                app:layout_constraintBottom_toBottomOf="@id/med_d_summary_vaccine_copay_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/med_d_summary_vaccine_copay_title"
+                tools:text="$60.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

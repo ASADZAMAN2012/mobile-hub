@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright VaxCare (c) 2020.                                                                   *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.vaxcare.vaxhub.core.view.VaxToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/admin_fragment_header_vaxcare_admin_login" />
+
+    <TextView
+        android:id="@+id/serial_and_version_info"
+        style="@style/BodyItalicBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_85"
+        android:layout_marginTop="@dimen/dp_154"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/serial_and_version_info" />
+
+    <TextView
+        android:id="@+id/validate_scanner_license"
+        style="@style/BodyRegBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_85"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="?android:attr/selectableItemBackground"
+        android:paddingVertical="@dimen/dp_20"
+        android:text="@string/validate_scanner_license"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/serial_and_version_info" />
+
+    <EditText
+        android:id="@+id/password_input"
+        style="@style/LockKeyPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_336"
+        android:cursorVisible="false"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:paddingTop="@dimen/dp_20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/enter_admin_password"
+        style="@style/BodyItalicBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/admin_fragment_enter_password"
+        app:layout_constraintBottom_toBottomOf="@id/password_input"
+        app:layout_constraintEnd_toEndOf="@id/password_input"
+        app:layout_constraintStart_toStartOf="@id/password_input"
+        app:layout_constraintTop_toTopOf="@id/password_input" />
+
+    <TextView
+        android:id="@+id/error_label"
+        style="@style/VaxCareText.Body.B3.SemiBold.Error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/dp_48"
+        android:text="@string/admin_fragment_invalid_credentials"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/btn_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_login"
+        style="@style/PrimaryPurpleButton"
+        android:layout_width="@dimen/dp_400"
+        android:layout_height="@dimen/dp_110"
+        android:layout_marginTop="@dimen/dp_695"
+        android:text="@string/admin_fragment_log_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

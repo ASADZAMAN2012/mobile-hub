@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "209780159922",
+    "firebase_url": "https://vaxhubs-stg.firebaseio.com",
+    "project_id": "vaxhubs-stg",
+    "storage_bucket": "vaxhubs-stg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:209780159922:android:eb63d31e0c9647e1",
+        "android_client_info": {
+          "package_name": "com.vaxcare.mobilehub.stg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "209780159922-k43h294ipj00tvjd6ne4pjc84c9tqf77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwbbB9p_kd2nAipl--Ck7wrPnnttdo4DY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "209780159922-k43h294ipj00tvjd6ne4pjc84c9tqf77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:209780159922:android:d9c97a11bc4088da",
+        "android_client_info": {
+          "package_name": "com.vaxhub.vaxhubpt.stg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "209780159922-qr9s9n8na8mnj0ofgjoqj31i3utarcdf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vaxhub.vaxhubpt.stg",
+            "certificate_hash": "5b50dd5a2b93adf221445d8905284f31b1e7aa03"
+          }
+        },
+        {
+          "client_id": "209780159922-k43h294ipj00tvjd6ne4pjc84c9tqf77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwbbB9p_kd2nAipl--Ck7wrPnnttdo4DY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "209780159922-k43h294ipj00tvjd6ne4pjc84c9tqf77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
