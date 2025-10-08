@@ -5,9 +5,9 @@
 package com.vaxcare.vaxhub.flow.checkout
 
 import androidx.hilt.work.HiltWorkerFactory
-import androidx.test.core.app.ActivityScenario
-import androidx.test.espresso.IdlingRegistry
-import androidx.test.espresso.IdlingResource
+// import androidx.test.core.app.ActivityScenario
+// import androidx.test.espresso.IdlingRegistry
+// import androidx.test.espresso.IdlingResource
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.vaxcare.vaxhub.BuildConfig
@@ -24,12 +24,12 @@ import com.vaxcare.vaxhub.model.PaymentInformationRequestBody
 import com.vaxcare.vaxhub.model.PaymentMode
 import com.vaxcare.vaxhub.model.appointment.PhoneContactConsentStatus
 import com.vaxcare.vaxhub.model.enums.RiskFactor
-import com.vaxcare.vaxhub.ui.PermissionsActivity
-import com.vaxcare.vaxhub.ui.idlingresource.HubIdlingResource
+// import com.vaxcare.vaxhub.ui.PermissionsActivity
+// import com.vaxcare.vaxhub.ui.idlingresource.HubIdlingResource
 import com.vaxcare.vaxhub.web.PatientsApi
-import dagger.hilt.EntryPoint
-import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
+// import dagger.hilt.EntryPoint
+// import dagger.hilt.InstallIn
+// import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.runBlocking
@@ -69,9 +69,9 @@ class CheckoutAPITests : TestsBase() {
     lateinit var patientsApi: PatientsApi
 
     private val testWorkManagerHelper = TestWorkManagerHelper()
-    private lateinit var scenario: ActivityScenario<PermissionsActivity>
+    // private lateinit var scenario: ActivityScenario<PermissionsActivity>
     private val patientUtil = PatientUtil()
-    private val idlingResource: IdlingResource? = HubIdlingResource.instance
+    // private val idlingResource: IdlingResource? = HubIdlingResource.instance
 
     // Test data
     private val testProductVaricella = TestProducts.Varicella
@@ -82,16 +82,18 @@ class CheckoutAPITests : TestsBase() {
     @Before
     fun setUp() {
         hiltRule.inject()
+        // Initialize WorkManager for API tests
         testWorkManagerHelper.initializeWorkManager(workerFactory)
-        scenario = ActivityScenario.launch(PermissionsActivity::class.java)
+        // For pure API tests, we don't need to launch the activity
+        // scenario = ActivityScenario.launch(PermissionsActivity::class.java)
         storageUtil.clearLocalStorageAndDatabase()
-        IdlingRegistry.getInstance().register(idlingResource)
+        // IdlingRegistry.getInstance().register(idlingResource)
     }
 
     @After
     fun tearDown() {
         storageUtil.clearLocalStorageAndDatabase()
-        IdlingRegistry.getInstance().unregister(idlingResource)
+        // IdlingRegistry.getInstance().unregister(idlingResource)
         if (BuildConfig.BUILD_TYPE == "local") {
             mockServer.shutdown()
         }
@@ -108,9 +110,18 @@ class CheckoutAPITests : TestsBase() {
      */
     @Test
     fun checkoutAppointment_Success_SingleVaccine() = runBlocking {
+        // Verify dependencies are initialized
+        Assert.assertNotNull("PatientsApi should not be null", patientsApi)
+        Assert.assertNotNull("StorageUtil should not be null", storageUtil)
+        Assert.assertNotNull("PatientUtil should not be null", patientUtil)
+        
         // Arrange
         val testPatient = TestPatients.RiskFreePatientForCheckout()
         val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(testPatient)
+        
+        // Verify appointment was created successfully
+        Assert.assertNotNull("Appointment ID should not be null", appointmentId)
+        Assert.assertTrue("Appointment ID should be numeric", appointmentId.matches(Regex("\\d+")))
         
         val administeredVaccines = listOf(
             CheckInVaccination(
@@ -417,7 +428,7 @@ class CheckoutAPITests : TestsBase() {
             creditCardInformation = null,
             activeFeatureFlags = emptyList(),
             attestHighRisk = false,
-            riskFactors = listOf(RiskFactor.Pregnancy)
+            riskFactors = listOf(RiskFactor.RSV_PREGNANT)
         )
         
         // Act
@@ -477,7 +488,7 @@ class CheckoutAPITests : TestsBase() {
             creditCardInformation = null,
             activeFeatureFlags = emptyList(),
             attestHighRisk = true,
-            riskFactors = listOf(RiskFactor.Immunocompromised, RiskFactor.ChronicCondition)
+            riskFactors = listOf(RiskFactor.COVID_UNDER_65, RiskFactor.RSV_PREGNANT)
         )
         
         // Act
@@ -801,7 +812,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         // Act
-        val response = patientUtil.entryPoint.patientsApi().checkoutAppointment(
+        val response = patientsApi.checkoutAppointment(
             appointmentId = invalidAppointmentId,
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
