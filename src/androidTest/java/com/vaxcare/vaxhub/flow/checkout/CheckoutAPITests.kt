@@ -26,6 +26,10 @@ import com.vaxcare.vaxhub.model.appointment.PhoneContactConsentStatus
 import com.vaxcare.vaxhub.model.enums.RiskFactor
 import com.vaxcare.vaxhub.ui.PermissionsActivity
 import com.vaxcare.vaxhub.ui.idlingresource.HubIdlingResource
+import com.vaxcare.vaxhub.web.PatientsApi
+import dagger.hilt.EntryPoint
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.runBlocking
@@ -60,6 +64,9 @@ class CheckoutAPITests : TestsBase() {
 
     @Inject
     lateinit var storageUtil: StorageUtil
+
+    @Inject
+    lateinit var patientsApi: PatientsApi
 
     private val testWorkManagerHelper = TestWorkManagerHelper()
     private lateinit var scenario: ActivityScenario<PermissionsActivity>
@@ -112,7 +119,7 @@ class CheckoutAPITests : TestsBase() {
                 ageIndicated = true,
                 lotNumber = testProductVaricella.lotNumber,
                 method = "Intramuscular",
-                site = testSite.siteName,
+                site = testSite.displayName,
                 doseSeries = 1,
                 paymentMode = PaymentMode.InsurancePay,
                 paymentModeReason = null
@@ -128,7 +135,7 @@ class CheckoutAPITests : TestsBase() {
             forcedRiskType = 0,
             postShotVisitPaymentModeDisplayed = PaymentMode.InsurancePay,
             phoneNumberFlowPresented = false,
-            phoneContactConsentStatus = PhoneContactConsentStatus.NotPresented,
+            phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
             phoneContactReasons = "",
             flags = emptyList(),
             pregnancyPrompt = false,
@@ -140,7 +147,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         // Act
-        val response = patientUtil.entryPoint.patientsApi().checkoutAppointment(
+        val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
@@ -176,7 +183,7 @@ class CheckoutAPITests : TestsBase() {
                 ageIndicated = true,
                 lotNumber = testProductVaricella.lotNumber,
                 method = "Intramuscular",
-                site = TestSites.RightArm.siteName,
+                site = TestSites.RightArm.displayName,
                 doseSeries = 1,
                 paymentMode = PaymentMode.InsurancePay,
                 paymentModeReason = null
@@ -187,7 +194,7 @@ class CheckoutAPITests : TestsBase() {
                 ageIndicated = true,
                 lotNumber = testProductAdacel.lotNumber,
                 method = "Intramuscular",
-                site = TestSites.LeftArm.siteName,
+                site = TestSites.LeftArm.displayName,
                 doseSeries = 1,
                 paymentMode = PaymentMode.InsurancePay,
                 paymentModeReason = null
@@ -198,7 +205,7 @@ class CheckoutAPITests : TestsBase() {
                 ageIndicated = true,
                 lotNumber = testProductPPSV23.lotNumber,
                 method = "Intramuscular",
-                site = TestSites.RightArm.siteName,
+                site = TestSites.RightArm.displayName,
                 doseSeries = 1,
                 paymentMode = PaymentMode.InsurancePay,
                 paymentModeReason = null
@@ -214,7 +221,7 @@ class CheckoutAPITests : TestsBase() {
             forcedRiskType = 0,
             postShotVisitPaymentModeDisplayed = PaymentMode.InsurancePay,
             phoneNumberFlowPresented = false,
-            phoneContactConsentStatus = PhoneContactConsentStatus.NotPresented,
+            phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
             phoneContactReasons = "",
             flags = emptyList(),
             pregnancyPrompt = false,
@@ -226,7 +233,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         // Act
-        val response = patientUtil.entryPoint.patientsApi().checkoutAppointment(
+        val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
@@ -258,7 +265,7 @@ class CheckoutAPITests : TestsBase() {
                 ageIndicated = true,
                 lotNumber = testProductVaricella.lotNumber,
                 method = "Intramuscular",
-                site = testSite.siteName,
+                site = testSite.displayName,
                 doseSeries = 1,
                 paymentMode = PaymentMode.SelfPay,
                 paymentModeReason = null
@@ -267,10 +274,10 @@ class CheckoutAPITests : TestsBase() {
         
         val creditCardInfo = PaymentInformationRequestBody(
             cardNumber = "4111111111111111",
-            expirationMonth = "12",
-            expirationYear = "2025",
-            cvv = "123",
-            zipCode = "12345"
+            expirationDate = "12/2025",
+            cardholderName = "John Doe",
+            email = "john.doe@example.com",
+            phoneNumber = "1234567890"
         )
         
         val checkoutRequest = AppointmentCheckout(
@@ -282,7 +289,7 @@ class CheckoutAPITests : TestsBase() {
             forcedRiskType = 0,
             postShotVisitPaymentModeDisplayed = PaymentMode.SelfPay,
             phoneNumberFlowPresented = false,
-            phoneContactConsentStatus = PhoneContactConsentStatus.NotPresented,
+            phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
             phoneContactReasons = "",
             flags = emptyList(),
             pregnancyPrompt = false,
@@ -294,7 +301,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         // Act
-        val response = patientUtil.entryPoint.patientsApi().checkoutAppointment(
+        val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
@@ -326,7 +333,7 @@ class CheckoutAPITests : TestsBase() {
                 ageIndicated = true,
                 lotNumber = testProductVaricella.lotNumber,
                 method = "Intramuscular",
-                site = testSite.siteName,
+                site = testSite.displayName,
                 doseSeries = 1,
                 paymentMode = PaymentMode.NoPay,
                 paymentModeReason = null
@@ -342,7 +349,7 @@ class CheckoutAPITests : TestsBase() {
             forcedRiskType = 0,
             postShotVisitPaymentModeDisplayed = PaymentMode.NoPay,
             phoneNumberFlowPresented = false,
-            phoneContactConsentStatus = PhoneContactConsentStatus.NotPresented,
+            phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
             phoneContactReasons = "",
             flags = emptyList(),
             pregnancyPrompt = false,
@@ -354,7 +361,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         // Act
-        val response = patientUtil.entryPoint.patientsApi().checkoutAppointment(
+        val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
@@ -386,7 +393,7 @@ class CheckoutAPITests : TestsBase() {
                 ageIndicated = true,
                 lotNumber = testProductVaricella.lotNumber,
                 method = "Intramuscular",
-                site = testSite.siteName,
+                site = testSite.displayName,
                 doseSeries = 1,
                 paymentMode = PaymentMode.InsurancePay,
                 paymentModeReason = null
@@ -402,7 +409,7 @@ class CheckoutAPITests : TestsBase() {
             forcedRiskType = 0,
             postShotVisitPaymentModeDisplayed = PaymentMode.InsurancePay,
             phoneNumberFlowPresented = false,
-            phoneContactConsentStatus = PhoneContactConsentStatus.NotPresented,
+            phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
             phoneContactReasons = "",
             flags = listOf("PREGNANCY"),
             pregnancyPrompt = true,
@@ -414,7 +421,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         // Act
-        val response = patientUtil.entryPoint.patientsApi().checkoutAppointment(
+        val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
@@ -446,7 +453,7 @@ class CheckoutAPITests : TestsBase() {
                 ageIndicated = true,
                 lotNumber = testProductVaricella.lotNumber,
                 method = "Intramuscular",
-                site = testSite.siteName,
+                site = testSite.displayName,
                 doseSeries = 1,
                 paymentMode = PaymentMode.InsurancePay,
                 paymentModeReason = null
@@ -462,7 +469,7 @@ class CheckoutAPITests : TestsBase() {
             forcedRiskType = 1,
             postShotVisitPaymentModeDisplayed = PaymentMode.InsurancePay,
             phoneNumberFlowPresented = false,
-            phoneContactConsentStatus = PhoneContactConsentStatus.NotPresented,
+            phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
             phoneContactReasons = "",
             flags = listOf("HIGH_RISK"),
             pregnancyPrompt = false,
@@ -474,7 +481,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         // Act
-        val response = patientUtil.entryPoint.patientsApi().checkoutAppointment(
+        val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
@@ -506,7 +513,7 @@ class CheckoutAPITests : TestsBase() {
                 ageIndicated = true,
                 lotNumber = testProductVaricella.lotNumber,
                 method = "Intramuscular",
-                site = testSite.siteName,
+                site = testSite.displayName,
                 doseSeries = 1,
                 paymentMode = PaymentMode.InsurancePay,
                 paymentModeReason = null
@@ -522,7 +529,7 @@ class CheckoutAPITests : TestsBase() {
             forcedRiskType = 0,
             postShotVisitPaymentModeDisplayed = PaymentMode.InsurancePay,
             phoneNumberFlowPresented = true,
-            phoneContactConsentStatus = PhoneContactConsentStatus.Consented,
+            phoneContactConsentStatus = PhoneContactConsentStatus.ACCEPTED,
             phoneContactReasons = "Follow-up care, Side effect monitoring",
             flags = emptyList(),
             pregnancyPrompt = false,
@@ -534,7 +541,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         // Act
-        val response = patientUtil.entryPoint.patientsApi().checkoutAppointment(
+        val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
@@ -566,7 +573,7 @@ class CheckoutAPITests : TestsBase() {
                 ageIndicated = true,
                 lotNumber = testProductVaricella.lotNumber,
                 method = "Intramuscular",
-                site = TestSites.RightArm.siteName,
+                site = TestSites.RightArm.displayName,
                 doseSeries = 1,
                 paymentMode = PaymentMode.InsurancePay,
                 paymentModeReason = null
@@ -577,7 +584,7 @@ class CheckoutAPITests : TestsBase() {
                 ageIndicated = true,
                 lotNumber = testProductAdacel.lotNumber,
                 method = "Subcutaneous",
-                site = TestSites.LeftArm.siteName,
+                site = TestSites.LeftArm.displayName,
                 doseSeries = 1,
                 paymentMode = PaymentMode.InsurancePay,
                 paymentModeReason = null
@@ -593,7 +600,7 @@ class CheckoutAPITests : TestsBase() {
             forcedRiskType = 0,
             postShotVisitPaymentModeDisplayed = PaymentMode.InsurancePay,
             phoneNumberFlowPresented = false,
-            phoneContactConsentStatus = PhoneContactConsentStatus.NotPresented,
+            phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
             phoneContactReasons = "",
             flags = emptyList(),
             pregnancyPrompt = false,
@@ -605,7 +612,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         // Act
-        val response = patientUtil.entryPoint.patientsApi().checkoutAppointment(
+        val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
@@ -637,7 +644,7 @@ class CheckoutAPITests : TestsBase() {
                 ageIndicated = true,
                 lotNumber = testProductVaricella.lotNumber,
                 method = "Intramuscular",
-                site = TestSites.RightArm.siteName,
+                site = TestSites.RightArm.displayName,
                 doseSeries = 1,
                 paymentMode = PaymentMode.InsurancePay,
                 paymentModeReason = null
@@ -648,7 +655,7 @@ class CheckoutAPITests : TestsBase() {
                 ageIndicated = true,
                 lotNumber = testProductVaricella.lotNumber,
                 method = "Intramuscular",
-                site = TestSites.LeftArm.siteName,
+                site = TestSites.LeftArm.displayName,
                 doseSeries = 2,
                 paymentMode = PaymentMode.InsurancePay,
                 paymentModeReason = null
@@ -664,7 +671,7 @@ class CheckoutAPITests : TestsBase() {
             forcedRiskType = 0,
             postShotVisitPaymentModeDisplayed = PaymentMode.InsurancePay,
             phoneNumberFlowPresented = false,
-            phoneContactConsentStatus = PhoneContactConsentStatus.NotPresented,
+            phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
             phoneContactReasons = "",
             flags = emptyList(),
             pregnancyPrompt = false,
@@ -676,7 +683,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         // Act
-        val response = patientUtil.entryPoint.patientsApi().checkoutAppointment(
+        val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
@@ -708,7 +715,7 @@ class CheckoutAPITests : TestsBase() {
                 ageIndicated = true,
                 lotNumber = testProductVaricella.lotNumber,
                 method = "Intramuscular",
-                site = testSite.siteName,
+                site = testSite.displayName,
                 doseSeries = 1,
                 paymentMode = PaymentMode.InsurancePay,
                 paymentModeReason = null
@@ -724,7 +731,7 @@ class CheckoutAPITests : TestsBase() {
             forcedRiskType = 0,
             postShotVisitPaymentModeDisplayed = PaymentMode.InsurancePay,
             phoneNumberFlowPresented = false,
-            phoneContactConsentStatus = PhoneContactConsentStatus.NotPresented,
+            phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
             phoneContactReasons = "",
             flags = listOf("FEATURE_FLAG_1", "FEATURE_FLAG_2"),
             pregnancyPrompt = false,
@@ -736,7 +743,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         // Act
-        val response = patientUtil.entryPoint.patientsApi().checkoutAppointment(
+        val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
@@ -766,7 +773,7 @@ class CheckoutAPITests : TestsBase() {
                 ageIndicated = true,
                 lotNumber = testProductVaricella.lotNumber,
                 method = "Intramuscular",
-                site = testSite.siteName,
+                site = testSite.displayName,
                 doseSeries = 1,
                 paymentMode = PaymentMode.InsurancePay,
                 paymentModeReason = null
@@ -782,7 +789,7 @@ class CheckoutAPITests : TestsBase() {
             forcedRiskType = 0,
             postShotVisitPaymentModeDisplayed = PaymentMode.InsurancePay,
             phoneNumberFlowPresented = false,
-            phoneContactConsentStatus = PhoneContactConsentStatus.NotPresented,
+            phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
             phoneContactReasons = "",
             flags = emptyList(),
             pregnancyPrompt = false,
@@ -828,7 +835,7 @@ class CheckoutAPITests : TestsBase() {
             forcedRiskType = 0,
             postShotVisitPaymentModeDisplayed = PaymentMode.InsurancePay,
             phoneNumberFlowPresented = false,
-            phoneContactConsentStatus = PhoneContactConsentStatus.NotPresented,
+            phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
             phoneContactReasons = "",
             flags = emptyList(),
             pregnancyPrompt = false,
@@ -840,7 +847,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         // Act
-        val response = patientUtil.entryPoint.patientsApi().checkoutAppointment(
+        val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
