@@ -90,6 +90,7 @@ class CheckoutAPITests : TestsBase() {
     companion object {
         private var globalScenario: ActivityScenario<PermissionsActivity>? = null
         private var isLoggedIn = false
+        private var isInitialized = false
         
         @JvmStatic
         @BeforeClass
@@ -97,12 +98,12 @@ class CheckoutAPITests : TestsBase() {
             // Launch activity once before all tests
             globalScenario = ActivityScenario.launch(PermissionsActivity::class.java)
             
-            // Login once before all tests
-            val homeScreenUtil = HomeScreenUtil()
-            val testPartner = TestPartners.RprdCovidPartner
-            homeScreenUtil.loginAsTestPartner(testPartner)
-            homeScreenUtil.tapHomeScreenAndPinIn(testPartner)
-            isLoggedIn = true
+            // Wait for activity to be ready
+            Thread.sleep(2000)
+            
+            // Login once before all tests (this will be done in first @Before)
+            isLoggedIn = false
+            isInitialized = true
         }
         
         @JvmStatic
@@ -127,7 +128,12 @@ class CheckoutAPITests : TestsBase() {
             registerMockServerDispatcher(CheckoutAPITestsDispatcher())
         }
 
-        // Login is already done in @BeforeClass, no need to repeat
+        // Login only once (first test)
+        if (!isLoggedIn) {
+            homeScreenUtil.loginAsTestPartner(testPartner)
+            homeScreenUtil.tapHomeScreenAndPinIn(testPartner)
+            isLoggedIn = true
+        }
     }
 
     @After
