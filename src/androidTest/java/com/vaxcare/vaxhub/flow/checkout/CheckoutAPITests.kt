@@ -155,7 +155,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         val checkoutRequest = AppointmentCheckout(
-            tabletId = "TEST_TABLET_001",
+            tabletId = "550e8400-e29b-41d4-a716-446655440001",
             administeredVaccines = administeredVaccines,
             administered = LocalDateTime.now(),
             administeredBy = 1,
@@ -241,7 +241,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         val checkoutRequest = AppointmentCheckout(
-            tabletId = "TEST_TABLET_002",
+            tabletId = "550e8400-e29b-41d4-a716-446655440002",
             administeredVaccines = administeredVaccines,
             administered = LocalDateTime.now(),
             administeredBy = 1,
@@ -309,7 +309,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         val checkoutRequest = AppointmentCheckout(
-            tabletId = "TEST_TABLET_003",
+            tabletId = "550e8400-e29b-41d4-a716-446655440003",
             administeredVaccines = administeredVaccines,
             administered = LocalDateTime.now(),
             administeredBy = 1,
@@ -369,7 +369,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         val checkoutRequest = AppointmentCheckout(
-            tabletId = "TEST_TABLET_004",
+            tabletId = "550e8400-e29b-41d4-a716-446655440004",
             administeredVaccines = administeredVaccines,
             administered = LocalDateTime.now(),
             administeredBy = 1,
@@ -429,7 +429,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         val checkoutRequest = AppointmentCheckout(
-            tabletId = "TEST_TABLET_005",
+            tabletId = "550e8400-e29b-41d4-a716-446655440005",
             administeredVaccines = administeredVaccines,
             administered = LocalDateTime.now(),
             administeredBy = 1,
@@ -489,7 +489,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         val checkoutRequest = AppointmentCheckout(
-            tabletId = "TEST_TABLET_006",
+            tabletId = "550e8400-e29b-41d4-a716-446655440006",
             administeredVaccines = administeredVaccines,
             administered = LocalDateTime.now(),
             administeredBy = 1,
@@ -499,7 +499,7 @@ class CheckoutAPITests : TestsBase() {
             phoneNumberFlowPresented = false,
             phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
             phoneContactReasons = "",
-            flags = listOf("HIGH_RISK"),
+            flags = listOf("PatientContactPhoneOptIn"),
             pregnancyPrompt = false,
             weeksPregnant = null,
             creditCardInformation = null,
@@ -549,7 +549,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         val checkoutRequest = AppointmentCheckout(
-            tabletId = "TEST_TABLET_007",
+            tabletId = "550e8400-e29b-41d4-a716-446655440007",
             administeredVaccines = administeredVaccines,
             administered = LocalDateTime.now(),
             administeredBy = 1,
@@ -620,7 +620,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         val checkoutRequest = AppointmentCheckout(
-            tabletId = "TEST_TABLET_008",
+            tabletId = "550e8400-e29b-41d4-a716-446655440008",
             administeredVaccines = administeredVaccines,
             administered = LocalDateTime.now(),
             administeredBy = 1,
@@ -691,7 +691,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         val checkoutRequest = AppointmentCheckout(
-            tabletId = "TEST_TABLET_009",
+            tabletId = "550e8400-e29b-41d4-a716-446655440009",
             administeredVaccines = administeredVaccines,
             administered = LocalDateTime.now(),
             administeredBy = 1,
@@ -751,7 +751,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         val checkoutRequest = AppointmentCheckout(
-            tabletId = "TEST_TABLET_010",
+            tabletId = "550e8400-e29b-41d4-a716-446655440010",
             administeredVaccines = administeredVaccines,
             administered = LocalDateTime.now(),
             administeredBy = 1,
@@ -809,7 +809,7 @@ class CheckoutAPITests : TestsBase() {
         )
         
         val checkoutRequest = AppointmentCheckout(
-            tabletId = "TEST_TABLET_011",
+            tabletId = "550e8400-e29b-41d4-a716-446655440011",
             administeredVaccines = administeredVaccines,
             administered = LocalDateTime.now(),
             administeredBy = 1,
@@ -855,7 +855,7 @@ class CheckoutAPITests : TestsBase() {
         val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(testPatient)
         
         val checkoutRequest = AppointmentCheckout(
-            tabletId = "TEST_TABLET_012",
+            tabletId = "550e8400-e29b-41d4-a716-446655440012",
             administeredVaccines = emptyList(),
             administered = LocalDateTime.now(),
             administeredBy = 1,
