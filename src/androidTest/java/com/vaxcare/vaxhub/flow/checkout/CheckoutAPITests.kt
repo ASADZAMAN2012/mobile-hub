@@ -128,10 +128,9 @@ class CheckoutAPITests : TestsBase() {
             registerMockServerDispatcher(CheckoutAPITestsDispatcher())
         }
 
-        // Login only once (first test)
+        // Login only once (first test) - bypass UI login
         if (!isLoggedIn) {
-            homeScreenUtil.loginAsTestPartner(testPartner)
-            homeScreenUtil.tapHomeScreenAndPinIn(testPartner)
+            setupUserSessionDirectly(testPartner)
             isLoggedIn = true
         }
     }
@@ -141,6 +140,32 @@ class CheckoutAPITests : TestsBase() {
         storageUtil.clearLocalStorageAndDatabase()
         if (BuildConfig.BUILD_TYPE == "local") {
             mockServer.shutdown()
+        }
+    }
+    
+    /**
+     * Setup user session directly without UI login
+     * This bypasses the UI login flow and directly sets up the authentication state
+     */
+    private fun setupUserSessionDirectly(testPartner: TestPartners) {
+        try {
+            // Create a new user session directly
+            storageUtil.entryPoint.localStorage().createNewUserSession()
+            
+            // Set partner and clinic information
+            storageUtil.entryPoint.localStorage().partnerId = testPartner.partnerID
+            storageUtil.entryPoint.localStorage().clinicId = testPartner.clinicID.toLong()
+            storageUtil.entryPoint.localStorage().userName = testPartner.partnerName
+            storageUtil.entryPoint.localStorage().clinicName = testPartner.clinicName
+            
+            // Verify session is created
+            val sessionId = storageUtil.entryPoint.localStorage().getCurrentUserSessionId()
+            Assert.assertNotNull("User session should be created", sessionId)
+            
+        } catch (e: Exception) {
+            // Fallback to UI login if direct setup fails
+            homeScreenUtil.loginAsTestPartner(testPartner)
+            homeScreenUtil.tapHomeScreenAndPinIn(testPartner)
         }
     }
 
