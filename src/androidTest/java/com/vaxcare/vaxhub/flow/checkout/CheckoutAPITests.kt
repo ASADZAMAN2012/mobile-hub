@@ -916,10 +916,136 @@ class CheckoutAPITests : TestsBase() {
             if (e is retrofit2.HttpException) {
                 println("HTTP Code: ${e.code()}")
                 println("HTTP Message: ${e.message()}")
-                println("Response Body: ${e.response()?.errorBody()?.string()}")
+                try {
+                    val errorBody = e.response()?.errorBody()?.string()
+                    println("Response Body: $errorBody")
+                    
+                    // Additional debugging for 500 errors
+                    if (e.code() == 500) {
+                        println("🔍 HTTP 500 Debug Info:")
+                        println("- Request URL: ${e.response()?.raw()?.request?.url}")
+                        println("- Request Method: ${e.response()?.raw()?.request?.method}")
+                        println("- Request Headers: ${e.response()?.raw()?.request?.headers}")
+                        println("- Response Headers: ${e.response()?.raw()?.headers}")
+                    }
+                } catch (bodyException: Exception) {
+                    println("Could not read error body: ${bodyException.message}")
+                }
             }
             throw e
         }
+    }
+
+    /**
+     * Test to debug HTTP 500 errors
+     * 
+     * This test helps identify what's causing the 500 error by testing
+     * each step of the process separately
+     */
+    @Test
+    fun testDebugHttp500Error() = runBlocking {
+        println("🔍 Starting HTTP 500 Debug Test...")
+        
+        // Step 1: Test session creation
+        try {
+            userSessionService.clearUserSessionId()
+            userSessionService.generateAndCacheNewUserSessionId()
+            val sessionId = userSessionService.getCurrentUserSessionId()
+            println("✅ Step 1 - Session created: $sessionId")
+        } catch (e: Exception) {
+            println("❌ Step 1 - Session creation failed: ${e.message}")
+            throw e
+        }
+        
+        // Step 2: Test appointment creation
+        try {
+            val testPatient = TestPatients.RiskFreePatientForCheckout()
+            val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(testPatient)
+            println("✅ Step 2 - Appointment created: $appointmentId")
+            
+            // Step 3: Test appointment retrieval
+            val appointment = patientUtil.getAppointmentById(appointmentId)
+            println("✅ Step 3 - Appointment retrieved: ${appointment?.id}")
+            
+        } catch (e: Exception) {
+            println("❌ Step 2/3 - Appointment creation/retrieval failed: ${e.message}")
+            if (e is retrofit2.HttpException) {
+                println("HTTP Code: ${e.code()}")
+                println("HTTP Message: ${e.message()}")
+                try {
+                    val errorBody = e.response()?.errorBody()?.string()
+                    println("Response Body: $errorBody")
+                    
+                    if (e.code() == 500) {
+                        println("🔍 HTTP 500 in Appointment Creation:")
+                        println("- Request URL: ${e.response()?.raw()?.request?.url}")
+                        println("- Request Method: ${e.response()?.raw()?.request?.method}")
+                        println("- Request Headers: ${e.response()?.raw()?.request?.headers}")
+                    }
+                } catch (bodyException: Exception) {
+                    println("Could not read error body: ${bodyException.message}")
+                }
+            }
+            throw e
+        }
+        
+        // Step 4: Test simple checkout (minimal data)
+        try {
+            val testPatient = TestPatients.RiskFreePatientForCheckout()
+            val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(testPatient)
+            
+            val minimalCheckoutRequest = AppointmentCheckout(
+                tabletId = "550e8400-e29b-41d4-a716-446655440014",
+                administeredVaccines = emptyList(), // Empty list to minimize complexity
+                administered = LocalDateTime.now(),
+                administeredBy = 1,
+                presentedRiskAssessmentId = null,
+                forcedRiskType = 0,
+                postShotVisitPaymentModeDisplayed = PaymentMode.InsurancePay,
+                phoneNumberFlowPresented = false,
+                phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
+                phoneContactReasons = "",
+                flags = emptyList(),
+                pregnancyPrompt = false,
+                weeksPregnant = null,
+                creditCardInformation = null,
+                activeFeatureFlags = emptyList(),
+                attestHighRisk = false,
+                riskFactors = emptyList()
+            )
+            
+            val response = patientsApi.checkoutAppointment(
+                appointmentId = appointmentId.toInt(),
+                appointmentCheckout = minimalCheckoutRequest,
+                ignoreOfflineStorage = true
+            )
+            
+            println("✅ Step 4 - Minimal checkout successful: ${response.code()}")
+            
+        } catch (e: Exception) {
+            println("❌ Step 4 - Minimal checkout failed: ${e.message}")
+            if (e is retrofit2.HttpException) {
+                println("HTTP Code: ${e.code()}")
+                println("HTTP Message: ${e.message()}")
+                try {
+                    val errorBody = e.response()?.errorBody()?.string()
+                    println("Response Body: $errorBody")
+                    
+                    if (e.code() == 500) {
+                        println("🔍 HTTP 500 in Checkout:")
+                        println("- Request URL: ${e.response()?.raw()?.request?.url}")
+                        println("- Request Method: ${e.response()?.raw()?.request?.method}")
+                        println("- Request Headers: ${e.response()?.raw()?.request?.headers}")
+                        println("- Request Body: ${e.response()?.raw()?.request?.body?.toString()}")
+                    }
+                } catch (bodyException: Exception) {
+                    println("Could not read error body: ${bodyException.message}")
+                }
+            }
+            throw e
+        }
+        
+        println("🎉 All steps completed successfully!")
     }
 
     /**
