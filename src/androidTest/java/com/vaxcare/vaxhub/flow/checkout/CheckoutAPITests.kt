@@ -1190,7 +1190,14 @@ class CheckoutAPITests : TestsBase() {
                 val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(patient)
                 Assert.assertNotNull("Appointment should be created", appointmentId)
                 
-                // Create checkout request
+                // Create checkout request with appropriate payment mode
+                val paymentMode = when (patient.paymentMode) {
+                    "2" -> PaymentMode.SelfPay
+                    "4" -> PaymentMode.NoPay
+                    "1" -> PaymentMode.InsurancePay
+                    else -> PaymentMode.InsurancePay // Default for RiskFree patients
+                }
+                
                 val checkoutRequest = AppointmentCheckout(
                     tabletId = "550e8400-e29b-41d4-a716-4466554400${16 + index}",
                     administeredVaccines = listOf(
@@ -1202,7 +1209,7 @@ class CheckoutAPITests : TestsBase() {
                             method = "Intramuscular",
                             site = testSite.displayName,
                             doseSeries = 1,
-                            paymentMode = patient.paymentMode,
+                            paymentMode = paymentMode,
                             paymentModeReason = null
                         )
                     ),
@@ -1210,7 +1217,7 @@ class CheckoutAPITests : TestsBase() {
                     administeredBy = 1,
                     presentedRiskAssessmentId = null,
                     forcedRiskType = 0,
-                    postShotVisitPaymentModeDisplayed = patient.paymentMode,
+                    postShotVisitPaymentModeDisplayed = paymentMode,
                     phoneNumberFlowPresented = false,
                     phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
                     phoneContactReasons = "",
