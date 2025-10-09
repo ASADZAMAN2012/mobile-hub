@@ -35,6 +35,7 @@ import com.vaxcare.vaxhub.web.PatientsApi
 import com.vaxcare.vaxhub.service.UserSessionService
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.RecordedRequest
+import retrofit2.HttpException
 // import dagger.hilt.EntryPoint
 // import dagger.hilt.InstallIn
 // import dagger.hilt.android.components.ActivityComponent
@@ -125,8 +126,7 @@ class CheckoutAPITests : TestsBase() {
         testWorkManagerHelper.initializeWorkManager(workerFactory)
         // Use global scenario (launched in @BeforeClass)
         scenario = globalScenario!!
-        storageUtil.clearLocalStorageAndDatabase()
-
+        
         // Setup mock server for local build type
         if (BuildConfig.BUILD_TYPE == "local") {
             registerMockServerDispatcher(CheckoutAPITestsDispatcher())
@@ -141,7 +141,6 @@ class CheckoutAPITests : TestsBase() {
 
     @After
     fun tearDown() {
-        storageUtil.clearLocalStorageAndDatabase()
         if (BuildConfig.BUILD_TYPE == "local") {
             mockServer.shutdown()
         }
@@ -165,6 +164,41 @@ class CheckoutAPITests : TestsBase() {
             homeScreenUtil.loginAsTestPartner(testPartner)
             homeScreenUtil.tapHomeScreenAndPinIn(testPartner)
         }
+    }
+
+    /**
+     * Test user session creation
+     * 
+     * This test verifies that user session creation works properly
+     * and that the session ID is available for API calls
+     */
+    @Test
+    fun testUserSessionCreation() {
+        // Act - Create user session
+        userSessionService.generateAndCacheNewUserSessionId()
+        
+        // Assert - Verify session was created
+        val sessionId = userSessionService.getCurrentUserSessionId()
+        Assert.assertNotNull("User session should be created", sessionId)
+        Assert.assertTrue("Session ID should not be empty", sessionId.toString().isNotEmpty())
+        
+        println("✅ User session created successfully: $sessionId")
+    }
+
+    /**
+     * Test that user session is properly maintained across test setup
+     * 
+     * This test verifies that the session created in setupUserSessionDirectly()
+     * is still available and valid
+     */
+    @Test
+    fun testUserSessionPersistence() {
+        // Assert - Verify session is still available from setup
+        val sessionId = userSessionService.getCurrentUserSessionId()
+        Assert.assertNotNull("User session should be available from setup", sessionId)
+        Assert.assertTrue("Session ID should not be empty", sessionId.toString().isNotEmpty())
+        
+        println("✅ User session persisted successfully: $sessionId")
     }
 
     /**
@@ -866,16 +900,27 @@ class CheckoutAPITests : TestsBase() {
         )
 
         // Act
-        val response = patientsApi.checkoutAppointment(
-            appointmentId = appointmentId.toInt(),
-            appointmentCheckout = checkoutRequest,
-            ignoreOfflineStorage = true
-        )
-
-        // Assert
-        // Note: This might be successful or fail depending on business rules
-        // The test verifies the system handles this scenario appropriately
-        Assert.assertNotNull("Response should not be null", response)
+        try {
+            val response = patientsApi.checkoutAppointment(
+                appointmentId = appointmentId.toInt(),
+                appointmentCheckout = checkoutRequest,
+                ignoreOfflineStorage = true
+            )
+            
+            // Assert
+            // Note: This might be successful or fail depending on business rules
+            // The test verifies the system handles this scenario appropriately
+            Assert.assertNotNull("Response should not be null", response)
+        } catch (e: Exception) {
+            println("HTTP Exception details: ${e.message}")
+            println("Exception type: ${e.javaClass.simpleName}")
+            if (e is retrofit2.HttpException) {
+                println("HTTP Code: ${e.code()}")
+                println("HTTP Message: ${e.message()}")
+                println("Response Body: ${e.response()?.errorBody()?.string()}")
+            }
+            throw e
+        }
     }
 
     /**
