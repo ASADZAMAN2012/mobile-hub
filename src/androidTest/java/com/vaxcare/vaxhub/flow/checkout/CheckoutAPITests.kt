@@ -10,8 +10,6 @@ import androidx.test.core.app.ActivityScenario
 // import androidx.test.espresso.IdlingResource
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
-import org.junit.BeforeClass
-import org.junit.AfterClass
 import com.vaxcare.vaxhub.BuildConfig
 import com.vaxcare.vaxhub.TestWorkManagerHelper
 import com.vaxcare.vaxhub.common.HomeScreenUtil
@@ -76,7 +74,7 @@ class CheckoutAPITests : TestsBase() {
     lateinit var patientsApi: PatientsApi
 
     private val testWorkManagerHelper = TestWorkManagerHelper()
-    private var scenario: ActivityScenario<PermissionsActivity>? = null
+    private lateinit var scenario: ActivityScenario<PermissionsActivity>
     private val patientUtil = PatientUtil()
     private val homeScreenUtil = HomeScreenUtil()
 
@@ -87,121 +85,31 @@ class CheckoutAPITests : TestsBase() {
     private val testProductPPSV23 = TestProducts.PPSV23
     private val testSite = TestSites.RightArm
 
-    companion object {
-        private var isLoggedIn = false
-        private var isActivityLaunched = false
-        private var globalScenario: ActivityScenario<PermissionsActivity>? = null
-        
-        @JvmStatic
-        @BeforeClass
-        fun setUpOnce() {
-            // Launch activity once before all tests
-            globalScenario = ActivityScenario.launch(PermissionsActivity::class.java)
-            isActivityLaunched = true
-        }
-        
-        @JvmStatic
-        @AfterClass
-        fun tearDownOnce() {
-            // This runs only once after all test scenarios
-            // Clean up any global state if needed
-            globalScenario?.close()
-        }
-    }
-
     @Before
     fun setUp() {
         hiltRule.inject()
-        
-        // Verify dependencies are injected
-        Assert.assertNotNull("StorageUtil should not be null", storageUtil)
-        Assert.assertNotNull("PatientsApi should not be null", patientsApi)
-        Assert.assertNotNull("WorkerFactory should not be null", workerFactory)
-        
         // Initialize WorkManager for API tests
         testWorkManagerHelper.initializeWorkManager(workerFactory)
-        
-        // Use global scenario (launched in @BeforeClass)
-        scenario = globalScenario
-        
-        // Wait for activity to be in RESUMED state for EntryPointHelper
-        scenario?.let { activityScenario ->
-            activityScenario.onActivity { activity ->
-                // Activity is now available for EntryPointHelper
-            }
-        }
-        
-        // Add a small delay to ensure activity is fully resumed
-        Thread.sleep(1000)
-        // Don't clear storage to maintain login state between tests
-        // storageUtil.clearLocalStorageAndDatabase()
+        // Launch minimal activity for EntryPoint access (required for PatientUtil)
+        scenario = ActivityScenario.launch(PermissionsActivity::class.java)
+        storageUtil.clearLocalStorageAndDatabase()
 
         // Setup mock server for local build type
         if (BuildConfig.BUILD_TYPE == "local") {
             registerMockServerDispatcher(CheckoutAPITestsDispatcher())
         }
 
-        // Login before making API calls (required for authentication) - only once
-        if (!isLoggedIn) {
-            homeScreenUtil.loginAsTestPartner(testPartner)
-            homeScreenUtil.tapHomeScreenAndPinIn(testPartner)
-            isLoggedIn = true
-        }
+        // Login before making API calls (required for authentication)
+        homeScreenUtil.loginAsTestPartner(testPartner)
+        homeScreenUtil.tapHomeScreenAndPinIn(testPartner)
     }
 
     @After
     fun tearDown() {
-        // Don't close the activity to maintain login state and UI
-        // The global scenario will be closed in @AfterClass
-        
-        // Don't clear storage to maintain login state between tests
-        // storageUtil.clearLocalStorageAndDatabase()
+        storageUtil.clearLocalStorageAndDatabase()
         if (BuildConfig.BUILD_TYPE == "local") {
             mockServer.shutdown()
         }
-    }
-    
-    /**
-     * Create appointment directly using API without PatientUtil
-     */
-    private suspend fun createAppointmentDirectly(testPatient: TestPatients): String {
-        val visitDate = LocalDateTime.now()
-        val patientPostBody = generatePatientPostBody(testPatient, visitDate)
-        return patientsApi.postAppointment(patientPostBody)
-    }
-    
-    /**
-     * Generate patient post body for API calls
-     */
-    private fun generatePatientPostBody(patient: TestPatients, visitDate: LocalDateTime): PatientPostBody {
-        return PatientPostBody(
-            newPatient = PatientPostBody.NewPatient(
-                firstName = patient.firstName,
-                lastName = patient.lastName,
-                dob = patient.dateOfBirth,
-                gender = patient.gender,
-                phoneNumber = "1234567890",
-                address1 = null,
-                address2 = null,
-                city = null,
-                state = "FL",
-                zip = null,
-                paymentInformation = PatientPostBody.PaymentInformation(
-                    primaryInsuranceId = patient.primaryInsuranceId,
-                    primaryMemberId = patient.primaryMemberId,
-                    primaryGroupId = patient.primaryGroupId,
-                    uninsured = false
-                ),
-                race = null,
-                ethnicity = null,
-                ssn = patient.ssn
-            ),
-            clinicId = storageUtil.currentClinicId,
-            date = visitDate,
-            providerId = 0,
-            initialPaymentMode = patient.paymentMode,
-            visitType = "Well"
-        )
     }
 
     /**
@@ -222,7 +130,7 @@ class CheckoutAPITests : TestsBase() {
 
         // Arrange
         val testPatient = TestPatients.RiskFreePatientForCheckout()
-        val appointmentId = createAppointmentDirectly(testPatient)
+        val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(testPatient)
 
         // Verify appointment was created successfully
         Assert.assertNotNull("Appointment ID should not be null", appointmentId)
@@ -750,6 +658,65 @@ class CheckoutAPITests : TestsBase() {
         Assert.assertEquals("Response code should be 200", 200, response.code())
     }
 
+    /**
+     * Test checkout with feature flags
+     *
+     * This test verifies:
+     * - Feature flags are properly handled
+     * - Active feature flags are recorded
+     * - Feature-specific behavior is supported
+     */
+    @Test
+    fun checkoutAppointment_Success_WithFeatureFlags() = runBlocking {
+        // Arrange
+        val testPatient = TestPatients.RiskFreePatientForCheckout()
+        val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(testPatient)
+
+        val administeredVaccines = listOf(
+            CheckInVaccination(
+                id = 1,
+                productId = testProductVaricella.id,
+                ageIndicated = true,
+                lotNumber = testProductVaricella.lotNumber,
+                method = "Intramuscular",
+                site = testSite.displayName,
+                doseSeries = 1,
+                paymentMode = PaymentMode.InsurancePay,
+                paymentModeReason = null
+            )
+        )
+
+        val checkoutRequest = AppointmentCheckout(
+            tabletId = "550e8400-e29b-41d4-a716-446655440010",
+            administeredVaccines = administeredVaccines,
+            administered = LocalDateTime.now(),
+            administeredBy = 1,
+            presentedRiskAssessmentId = null,
+            forcedRiskType = 0,
+            postShotVisitPaymentModeDisplayed = PaymentMode.InsurancePay,
+            phoneNumberFlowPresented = false,
+            phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
+            phoneContactReasons = "",
+            flags = listOf("FEATURE_FLAG_1", "FEATURE_FLAG_2"),
+            pregnancyPrompt = false,
+            weeksPregnant = null,
+            creditCardInformation = null,
+            activeFeatureFlags = listOf("ENHANCED_CHECKOUT", "RISK_ASSESSMENT"),
+            attestHighRisk = false,
+            riskFactors = emptyList()
+        )
+
+        // Act
+        val response = patientsApi.checkoutAppointment(
+            appointmentId = appointmentId.toInt(),
+            appointmentCheckout = checkoutRequest,
+            ignoreOfflineStorage = true
+        )
+
+        // Assert
+        Assert.assertTrue("Feature flags checkout should be successful", response.isSuccessful)
+        Assert.assertEquals("Response code should be 200", 200, response.code())
+    }
 
     /**
      * Test checkout with invalid appointment ID
