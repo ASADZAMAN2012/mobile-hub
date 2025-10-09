@@ -11,6 +11,7 @@ import androidx.test.core.app.ActivityScenario
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import org.junit.BeforeClass
+import org.junit.AfterClass
 import com.vaxcare.vaxhub.BuildConfig
 import com.vaxcare.vaxhub.TestWorkManagerHelper
 import com.vaxcare.vaxhub.common.HomeScreenUtil
@@ -88,6 +89,7 @@ class CheckoutAPITests : TestsBase() {
 
     companion object {
         private var isLoggedIn = false
+        private var isActivityLaunched = false
         
         @JvmStatic
         @BeforeClass
@@ -96,6 +98,13 @@ class CheckoutAPITests : TestsBase() {
             // Note: We can't access instance variables here, so we'll do minimal setup
             // The actual setup will be done in @Before for each test
         }
+        
+        @JvmStatic
+        @AfterClass
+        fun tearDownOnce() {
+            // This runs only once after all test scenarios
+            // Clean up any global state if needed
+        }
     }
 
     @Before
@@ -103,9 +112,13 @@ class CheckoutAPITests : TestsBase() {
         hiltRule.inject()
         // Initialize WorkManager for API tests
         testWorkManagerHelper.initializeWorkManager(workerFactory)
-        // Launch minimal activity for EntryPoint access (required for PatientUtil)
-        scenario = ActivityScenario.launch(PermissionsActivity::class.java)
-        storageUtil.clearLocalStorageAndDatabase()
+        // Launch minimal activity for EntryPoint access (required for PatientUtil) - only once
+        if (!isActivityLaunched) {
+            scenario = ActivityScenario.launch(PermissionsActivity::class.java)
+            isActivityLaunched = true
+        }
+        // Don't clear storage to maintain login state between tests
+        // storageUtil.clearLocalStorageAndDatabase()
 
         // Setup mock server for local build type
         if (BuildConfig.BUILD_TYPE == "local") {
@@ -122,7 +135,11 @@ class CheckoutAPITests : TestsBase() {
 
     @After
     fun tearDown() {
-        storageUtil.clearLocalStorageAndDatabase()
+        // Don't close the activity to maintain login state and UI
+        // scenario.close()
+        
+        // Don't clear storage to maintain login state between tests
+        // storageUtil.clearLocalStorageAndDatabase()
         if (BuildConfig.BUILD_TYPE == "local") {
             mockServer.shutdown()
         }
