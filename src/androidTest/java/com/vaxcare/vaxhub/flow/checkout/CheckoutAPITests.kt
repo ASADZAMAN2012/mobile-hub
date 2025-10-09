@@ -76,7 +76,7 @@ class CheckoutAPITests : TestsBase() {
     lateinit var patientsApi: PatientsApi
 
     private val testWorkManagerHelper = TestWorkManagerHelper()
-    private lateinit var scenario: ActivityScenario<PermissionsActivity>
+    private var scenario: ActivityScenario<PermissionsActivity>? = null
     private val patientUtil = PatientUtil()
     private val homeScreenUtil = HomeScreenUtil()
 
@@ -110,6 +110,12 @@ class CheckoutAPITests : TestsBase() {
     @Before
     fun setUp() {
         hiltRule.inject()
+        
+        // Verify dependencies are injected
+        Assert.assertNotNull("StorageUtil should not be null", storageUtil)
+        Assert.assertNotNull("PatientsApi should not be null", patientsApi)
+        Assert.assertNotNull("WorkerFactory should not be null", workerFactory)
+        
         // Initialize WorkManager for API tests
         testWorkManagerHelper.initializeWorkManager(workerFactory)
         // Launch minimal activity for EntryPoint access (required for PatientUtil) - only once
@@ -117,6 +123,21 @@ class CheckoutAPITests : TestsBase() {
             scenario = ActivityScenario.launch(PermissionsActivity::class.java)
             isActivityLaunched = true
         }
+        
+        // Ensure scenario is available for PatientUtil
+        if (scenario == null) {
+            scenario = ActivityScenario.launch(PermissionsActivity::class.java)
+        }
+        
+        // Wait for activity to be in RESUMED state for EntryPointHelper
+        scenario?.let { activityScenario ->
+            activityScenario.onActivity { activity ->
+                // Activity is now available for EntryPointHelper
+            }
+        }
+        
+        // Add a small delay to ensure activity is fully resumed
+        Thread.sleep(1000)
         // Don't clear storage to maintain login state between tests
         // storageUtil.clearLocalStorageAndDatabase()
 
