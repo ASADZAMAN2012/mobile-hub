@@ -149,8 +149,9 @@ class CheckoutAPITests : TestsBase() {
      */
     private fun setupUserSessionDirectly(testPartner: TestPartners) {
         try {
-            // Create a new user session directly
-            storageUtil.entryPoint.localStorage().createNewUserSession()
+            // Create a new user session directly using UserSessionService
+            val userSessionService = storageUtil.entryPoint.userSessionService()
+            userSessionService.generateAndCacheNewUserSessionId()
             
             // Set partner and clinic information
             storageUtil.entryPoint.localStorage().partnerId = testPartner.partnerID
@@ -159,7 +160,7 @@ class CheckoutAPITests : TestsBase() {
             storageUtil.entryPoint.localStorage().clinicName = testPartner.clinicName
             
             // Verify session is created
-            val sessionId = storageUtil.entryPoint.localStorage().getCurrentUserSessionId()
+            val sessionId = userSessionService.getCurrentUserSessionId()
             Assert.assertNotNull("User session should be created", sessionId)
             
         } catch (e: Exception) {
