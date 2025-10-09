@@ -23,6 +23,7 @@ import com.vaxcare.vaxhub.flow.TestsBase
 import com.vaxcare.vaxhub.mock.BaseMockDispatcher
 import com.vaxcare.vaxhub.model.AppointmentCheckout
 import com.vaxcare.vaxhub.model.CheckInVaccination
+import com.vaxcare.vaxhub.model.PatientPostBody
 import com.vaxcare.vaxhub.model.PaymentInformationRequestBody
 import com.vaxcare.vaxhub.model.PaymentMode
 import com.vaxcare.vaxhub.model.appointment.PhoneContactConsentStatus
@@ -1293,6 +1294,178 @@ class CheckoutAPITests : TestsBase() {
         }
         
         println("🎉 Multiple checkouts test completed successfully!")
+    }
+
+    /**
+     * Generate patient post body for API calls with comprehensive debugging
+     * 
+     * This method creates a PatientPostBody with detailed logging to help
+     * identify any issues with patient data or clinic information
+     */
+    private fun generatePatientPostBody(patient: TestPatients, visitDate: LocalDateTime): PatientPostBody {
+        println("🔍 Generating PatientPostBody for ${patient.firstName} ${patient.lastName}")
+        
+        try {
+            // Debug patient data
+            println("📋 Patient Data Debug:")
+            println("- First Name: ${patient.firstName}")
+            println("- Last Name: ${patient.lastName}")
+            println("- Date of Birth: ${patient.dateOfBirth}")
+            println("- Gender: ${patient.gender}")
+            println("- Primary Insurance ID: ${patient.primaryInsuranceId}")
+            println("- Primary Member ID: ${patient.primaryMemberId}")
+            println("- Primary Group ID: ${patient.primaryGroupId}")
+            println("- Payment Mode: ${patient.paymentMode}")
+            println("- SSN: ${patient.ssn}")
+            
+            // Debug clinic information
+            val clinicId = getCurrentClinicId()
+            println("🏥 Clinic Data Debug:")
+            println("- Clinic ID: $clinicId")
+            
+            // Debug visit date
+            println("📅 Visit Date Debug:")
+            println("- Visit Date: $visitDate")
+            
+            // Create payment information
+            val paymentInformation = PatientPostBody.PaymentInformation(
+                primaryInsuranceId = patient.primaryInsuranceId,
+                primaryMemberId = patient.primaryMemberId,
+                primaryGroupId = patient.primaryGroupId,
+                uninsured = false
+            )
+            println("💳 Payment Information Debug:")
+            println("- Primary Insurance ID: ${paymentInformation.primaryInsuranceId}")
+            println("- Primary Member ID: ${paymentInformation.primaryMemberId}")
+            println("- Primary Group ID: ${paymentInformation.primaryGroupId}")
+            println("- Uninsured: ${paymentInformation.uninsured}")
+            
+            // Create new patient
+            val newPatient = PatientPostBody.NewPatient(
+                firstName = patient.firstName,
+                lastName = patient.lastName,
+                dob = patient.dateOfBirth,
+                gender = patient.gender,
+                phoneNumber = "1234567890",
+                address1 = null,
+                address2 = null,
+                city = null,
+                state = "FL",
+                zip = null,
+                paymentInformation = paymentInformation,
+                race = null,
+                ethnicity = null,
+                ssn = patient.ssn
+            )
+            println("👤 New Patient Debug:")
+            println("- First Name: ${newPatient.firstName}")
+            println("- Last Name: ${newPatient.lastName}")
+            println("- DOB: ${newPatient.dob}")
+            println("- Gender: ${newPatient.gender}")
+            println("- Phone: ${newPatient.phoneNumber}")
+            println("- State: ${newPatient.state}")
+            println("- SSN: ${newPatient.ssn}")
+            
+            // Create patient post body
+            val patientPostBody = PatientPostBody(
+                newPatient = newPatient,
+                clinicId = clinicId,
+                date = visitDate,
+                providerId = 0,
+                initialPaymentMode = patient.paymentMode?.let { 
+                    when (it) {
+                        "2" -> PaymentMode.SelfPay
+                        "4" -> PaymentMode.NoPay
+                        "1" -> PaymentMode.InsurancePay
+                        else -> PaymentMode.InsurancePay
+                    }
+                } ?: PaymentMode.InsurancePay,
+                visitType = "Well"
+            )
+            
+            println("📦 PatientPostBody Debug:")
+            println("- Clinic ID: ${patientPostBody.clinicId}")
+            println("- Date: ${patientPostBody.date}")
+            println("- Provider ID: ${patientPostBody.providerId}")
+            println("- Initial Payment Mode: ${patientPostBody.initialPaymentMode}")
+            println("- Visit Type: ${patientPostBody.visitType}")
+            
+            println("✅ PatientPostBody generated successfully")
+            return patientPostBody
+            
+        } catch (e: Exception) {
+            println("❌ Error generating PatientPostBody: ${e.message}")
+            println("Exception type: ${e.javaClass.simpleName}")
+            println("Stack trace: ${e.stackTrace.joinToString("\n")}")
+            throw e
+        }
+    }
+
+    /**
+     * Get current clinic ID from storage with debugging
+     */
+    private fun getCurrentClinicId(): Long {
+        try {
+            println("🔍 Getting current clinic ID...")
+            val clinicId = storageUtil.entryPoint.localStorage().currentClinicId
+            println("✅ Current clinic ID: $clinicId")
+            return clinicId
+        } catch (e: Exception) {
+            println("❌ Error getting clinic ID: ${e.message}")
+            println("Exception type: ${e.javaClass.simpleName}")
+            println("Stack trace: ${e.stackTrace.joinToString("\n")}")
+            throw e
+        }
+    }
+
+    /**
+     * Test to debug PatientPostBody generation
+     * 
+     * This test specifically focuses on debugging the PatientPostBody creation
+     * to identify any issues with patient data or clinic information
+     */
+    @Test
+    fun testDebugPatientPostBodyGeneration() = runBlocking {
+        println("🔍 Starting PatientPostBody Generation Debug Test...")
+        
+        // Test with different patient types
+        val testPatients = listOf(
+            TestPatients.RiskFreePatientForCheckout(),
+            TestPatients.SelfPayPatient(),
+            TestPatients.VFCPatient()
+        )
+        
+        for ((index, patient) in testPatients.withIndex()) {
+            try {
+                println("\n🔄 Testing PatientPostBody generation ${index + 1}/3")
+                println("Patient: ${patient.firstName} ${patient.lastName}")
+                
+                val visitDate = LocalDateTime.now()
+                val patientPostBody = generatePatientPostBody(patient, visitDate)
+                
+                // Verify the generated body
+                Assert.assertNotNull("PatientPostBody should not be null", patientPostBody)
+                Assert.assertNotNull("NewPatient should not be null", patientPostBody.newPatient)
+                Assert.assertEquals("First name should match", patient.firstName, patientPostBody.newPatient.firstName)
+                Assert.assertEquals("Last name should match", patient.lastName, patientPostBody.newPatient.lastName)
+                Assert.assertEquals("DOB should match", patient.dateOfBirth, patientPostBody.newPatient.dob)
+                Assert.assertEquals("Gender should match", patient.gender, patientPostBody.newPatient.gender)
+                
+                println("✅ PatientPostBody ${index + 1} generated and validated successfully")
+                
+            } catch (e: Exception) {
+                println("❌ PatientPostBody generation failed for ${patient.firstName}: ${e.message}")
+                println("Exception type: ${e.javaClass.simpleName}")
+                if (e is NullPointerException) {
+                    println("🔍 NPE Debug Info for PatientPostBody:")
+                    println("- Patient: ${patient.firstName} ${patient.lastName}")
+                    println("- Patient properties: ${patient.javaClass.declaredFields.joinToString { "${it.name}=${it.get(patient)}" }}")
+                }
+                throw e
+            }
+        }
+        
+        println("🎉 PatientPostBody generation debug test completed successfully!")
     }
 
     /**
