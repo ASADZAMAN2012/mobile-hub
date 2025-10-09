@@ -90,6 +90,7 @@ class CheckoutAPITests : TestsBase() {
     companion object {
         private var isLoggedIn = false
         private var isActivityLaunched = false
+        private var globalScenario: ActivityScenario<PermissionsActivity>? = null
         
         @JvmStatic
         @BeforeClass
@@ -104,6 +105,7 @@ class CheckoutAPITests : TestsBase() {
         fun tearDownOnce() {
             // This runs only once after all test scenarios
             // Clean up any global state if needed
+            globalScenario?.close()
         }
     }
 
@@ -120,14 +122,12 @@ class CheckoutAPITests : TestsBase() {
         testWorkManagerHelper.initializeWorkManager(workerFactory)
         // Launch minimal activity for EntryPoint access (required for PatientUtil) - only once
         if (!isActivityLaunched) {
-            scenario = ActivityScenario.launch(PermissionsActivity::class.java)
+            globalScenario = ActivityScenario.launch(PermissionsActivity::class.java)
             isActivityLaunched = true
         }
         
-        // Ensure scenario is available for PatientUtil
-        if (scenario == null) {
-            scenario = ActivityScenario.launch(PermissionsActivity::class.java)
-        }
+        // Use global scenario
+        scenario = globalScenario
         
         // Wait for activity to be in RESUMED state for EntryPointHelper
         scenario?.let { activityScenario ->
@@ -157,7 +157,7 @@ class CheckoutAPITests : TestsBase() {
     @After
     fun tearDown() {
         // Don't close the activity to maintain login state and UI
-        // scenario.close()
+        // The global scenario will be closed in @AfterClass
         
         // Don't clear storage to maintain login state between tests
         // storageUtil.clearLocalStorageAndDatabase()
