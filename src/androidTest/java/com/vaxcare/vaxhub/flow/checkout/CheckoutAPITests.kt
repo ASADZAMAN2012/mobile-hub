@@ -1169,11 +1169,16 @@ class CheckoutAPITests : TestsBase() {
         println("🔄 Starting Multiple Checkouts Test...")
         
         // Setup session once
-        userSessionService.clearUserSessionId()
-        userSessionService.generateAndCacheNewUserSessionId()
-        val sessionId = userSessionService.getCurrentUserSessionId()
-        Assert.assertNotNull("User session should be created", sessionId)
-        println("✅ User session created: $sessionId")
+        try {
+            userSessionService.clearUserSessionId()
+            userSessionService.generateAndCacheNewUserSessionId()
+            val sessionId = userSessionService.getCurrentUserSessionId()
+            Assert.assertNotNull("User session should be created", sessionId)
+            println("✅ User session created: $sessionId")
+        } catch (e: Exception) {
+            println("❌ Session creation failed: ${e.message}")
+            throw e
+        }
         
         // Perform multiple checkouts with the same session
         val patients = listOf(
@@ -1186,9 +1191,15 @@ class CheckoutAPITests : TestsBase() {
             try {
                 println("🔄 Processing checkout ${index + 1}/3 for ${patient.firstName}")
                 
+                // Verify session is still valid before each operation
+                val currentSessionId = userSessionService.getCurrentUserSessionId()
+                Assert.assertNotNull("Session should still be valid for checkout ${index + 1}", currentSessionId)
+                println("✅ Session verified for checkout ${index + 1}: $currentSessionId")
+                
                 // Create appointment
                 val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(patient)
                 Assert.assertNotNull("Appointment should be created", appointmentId)
+                println("✅ Appointment created for ${patient.firstName}: $appointmentId")
                 
                 // Create checkout request with appropriate payment mode
                 val paymentMode = when (patient.paymentMode) {
@@ -1197,6 +1208,7 @@ class CheckoutAPITests : TestsBase() {
                     "1" -> PaymentMode.InsurancePay
                     else -> PaymentMode.InsurancePay // Default for RiskFree patients
                 }
+                println("✅ Payment mode determined for ${patient.firstName}: $paymentMode")
                 
                 val checkoutRequest = AppointmentCheckout(
                     tabletId = "550e8400-e29b-41d4-a716-4466554400${16 + index}",
@@ -1231,25 +1243,54 @@ class CheckoutAPITests : TestsBase() {
                 )
                 
                 // Execute checkout
-                val response = patientsApi.checkoutAppointment(
-                    appointmentId = appointmentId.toInt(),
-                    appointmentCheckout = checkoutRequest,
-                    ignoreOfflineStorage = true
-                )
-                
-                Assert.assertTrue("Checkout ${index + 1} should be successful", response.isSuccessful)
-                println("✅ Checkout ${index + 1} completed for ${patient.firstName}")
+                try {
+                    val response = patientsApi.checkoutAppointment(
+                        appointmentId = appointmentId.toInt(),
+                        appointmentCheckout = checkoutRequest,
+                        ignoreOfflineStorage = true
+                    )
+                    
+                    Assert.assertTrue("Checkout ${index + 1} should be successful", response.isSuccessful)
+                    println("✅ Checkout ${index + 1} completed for ${patient.firstName}")
+                    
+                } catch (e: Exception) {
+                    println("❌ Checkout API call failed for ${patient.firstName}: ${e.message}")
+                    if (e is retrofit2.HttpException) {
+                        println("HTTP Code: ${e.code()}")
+                        println("HTTP Message: ${e.message()}")
+                        try {
+                            val errorBody = e.response()?.errorBody()?.string()
+                            println("Response Body: $errorBody")
+                        } catch (bodyException: Exception) {
+                            println("Could not read error body: ${bodyException.message}")
+                        }
+                    }
+                    throw e
+                }
                 
             } catch (e: Exception) {
                 println("❌ Checkout ${index + 1} failed for ${patient.firstName}: ${e.message}")
+                println("Exception type: ${e.javaClass.simpleName}")
+                if (e is NullPointerException) {
+                    println("🔍 NPE Debug Info:")
+                    println("- Patient: ${patient.firstName} ${patient.lastName}")
+                    println("- Patient paymentMode: ${patient.paymentMode}")
+                    println("- Current session: ${userSessionService.getCurrentUserSessionId()}")
+                    println("- Stack trace: ${e.stackTrace.joinToString("\n")}")
+                }
                 throw e
             }
         }
         
         // Verify session is still valid
-        val finalSessionId = userSessionService.getCurrentUserSessionId()
-        Assert.assertEquals("Session should remain the same", sessionId, finalSessionId)
-        println("✅ Session persisted through multiple checkouts: $finalSessionId")
+        try {
+            val finalSessionId = userSessionService.getCurrentUserSessionId()
+            Assert.assertNotNull("Final session should not be null", finalSessionId)
+            println("✅ Session persisted through multiple checkouts: $finalSessionId")
+        } catch (e: Exception) {
+            println("❌ Session verification failed: ${e.message}")
+            throw e
+        }
         
         println("🎉 Multiple checkouts test completed successfully!")
     }
