@@ -1049,6 +1049,205 @@ class CheckoutAPITests : TestsBase() {
     }
 
     /**
+     * Test checkout using programmatic user session
+     * 
+     * This test demonstrates how to perform checkout using only the user session
+     * without any UI interaction, making it faster and more reliable
+     */
+    @Test
+    fun testCheckoutWithUserSession() = runBlocking {
+        println("🚀 Starting User Session Checkout Test...")
+        
+        // Step 1: Setup user session programmatically
+        userSessionService.clearUserSessionId()
+        userSessionService.generateAndCacheNewUserSessionId()
+        val sessionId = userSessionService.getCurrentUserSessionId()
+        Assert.assertNotNull("User session should be created", sessionId)
+        println("✅ User session created: $sessionId")
+        
+        // Step 2: Create appointment using the session
+        val testPatient = TestPatients.RiskFreePatientForCheckout()
+        val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(testPatient)
+        Assert.assertNotNull("Appointment should be created", appointmentId)
+        println("✅ Appointment created: $appointmentId")
+        
+        // Step 3: Verify appointment exists
+        val appointment = patientUtil.getAppointmentById(appointmentId)
+        Assert.assertNotNull("Appointment should be retrievable", appointment)
+        println("✅ Appointment verified: ${appointment?.id}")
+        
+        // Step 4: Perform checkout with comprehensive vaccine data
+        val administeredVaccines = listOf(
+            CheckInVaccination(
+                id = 1,
+                productId = testProductVaricella.id,
+                ageIndicated = true,
+                lotNumber = testProductVaricella.lotNumber,
+                method = "Intramuscular",
+                site = testSite.displayName,
+                doseSeries = 1,
+                paymentMode = PaymentMode.InsurancePay,
+                paymentModeReason = null
+            ),
+            CheckInVaccination(
+                id = 2,
+                productId = testProductAdacel.id,
+                ageIndicated = true,
+                lotNumber = testProductAdacel.lotNumber,
+                method = "Intramuscular",
+                site = TestSites.LeftArm.displayName,
+                doseSeries = 1,
+                paymentMode = PaymentMode.InsurancePay,
+                paymentModeReason = null
+            )
+        )
+
+        val checkoutRequest = AppointmentCheckout(
+            tabletId = "550e8400-e29b-41d4-a716-446655440015",
+            administeredVaccines = administeredVaccines,
+            administered = LocalDateTime.now(),
+            administeredBy = 1,
+            presentedRiskAssessmentId = null,
+            forcedRiskType = 0,
+            postShotVisitPaymentModeDisplayed = PaymentMode.InsurancePay,
+            phoneNumberFlowPresented = false,
+            phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
+            phoneContactReasons = "",
+            flags = listOf("PatientContactPhoneOptIn"),
+            pregnancyPrompt = false,
+            weeksPregnant = null,
+            creditCardInformation = null,
+            activeFeatureFlags = listOf("ENHANCED_CHECKOUT"),
+            attestHighRisk = false,
+            riskFactors = listOf(RiskFactor.COVID_UNDER_65)
+        )
+
+        // Step 5: Execute checkout
+        try {
+            val response = patientsApi.checkoutAppointment(
+                appointmentId = appointmentId.toInt(),
+                appointmentCheckout = checkoutRequest,
+                ignoreOfflineStorage = true
+            )
+
+            // Step 6: Verify checkout success
+            Assert.assertTrue("Checkout should be successful", response.isSuccessful)
+            Assert.assertEquals("Response code should be 200", 200, response.code())
+            println("✅ Checkout completed successfully with user session")
+            
+            // Step 7: Verify appointment state after checkout
+            val updatedAppointment = patientUtil.getAppointmentById(appointmentId)
+            Assert.assertNotNull("Appointment should still exist after checkout", updatedAppointment)
+            println("✅ Appointment state verified after checkout")
+            
+        } catch (e: Exception) {
+            println("❌ Checkout failed with user session: ${e.message}")
+            if (e is retrofit2.HttpException) {
+                println("HTTP Code: ${e.code()}")
+                println("HTTP Message: ${e.message()}")
+                try {
+                    val errorBody = e.response()?.errorBody()?.string()
+                    println("Response Body: $errorBody")
+                } catch (bodyException: Exception) {
+                    println("Could not read error body: ${bodyException.message}")
+                }
+            }
+            throw e
+        }
+        
+        println("🎉 User session checkout test completed successfully!")
+    }
+
+    /**
+     * Test multiple checkouts with the same user session
+     * 
+     * This test verifies that a single user session can handle multiple
+     * checkout operations, demonstrating session persistence
+     */
+    @Test
+    fun testMultipleCheckoutsWithSameSession() = runBlocking {
+        println("🔄 Starting Multiple Checkouts Test...")
+        
+        // Setup session once
+        userSessionService.clearUserSessionId()
+        userSessionService.generateAndCacheNewUserSessionId()
+        val sessionId = userSessionService.getCurrentUserSessionId()
+        Assert.assertNotNull("User session should be created", sessionId)
+        println("✅ User session created: $sessionId")
+        
+        // Perform multiple checkouts with the same session
+        val patients = listOf(
+            TestPatients.RiskFreePatientForCheckout(),
+            TestPatients.SelfPayPatient(),
+            TestPatients.VFCPatient()
+        )
+        
+        for ((index, patient) in patients.withIndex()) {
+            try {
+                println("🔄 Processing checkout ${index + 1}/3 for ${patient.firstName}")
+                
+                // Create appointment
+                val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(patient)
+                Assert.assertNotNull("Appointment should be created", appointmentId)
+                
+                // Create checkout request
+                val checkoutRequest = AppointmentCheckout(
+                    tabletId = "550e8400-e29b-41d4-a716-4466554400${16 + index}",
+                    administeredVaccines = listOf(
+                        CheckInVaccination(
+                            id = 1,
+                            productId = testProductVaricella.id,
+                            ageIndicated = true,
+                            lotNumber = testProductVaricella.lotNumber,
+                            method = "Intramuscular",
+                            site = testSite.displayName,
+                            doseSeries = 1,
+                            paymentMode = patient.paymentMode,
+                            paymentModeReason = null
+                        )
+                    ),
+                    administered = LocalDateTime.now(),
+                    administeredBy = 1,
+                    presentedRiskAssessmentId = null,
+                    forcedRiskType = 0,
+                    postShotVisitPaymentModeDisplayed = patient.paymentMode,
+                    phoneNumberFlowPresented = false,
+                    phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
+                    phoneContactReasons = "",
+                    flags = emptyList(),
+                    pregnancyPrompt = false,
+                    weeksPregnant = null,
+                    creditCardInformation = null,
+                    activeFeatureFlags = emptyList(),
+                    attestHighRisk = false,
+                    riskFactors = emptyList()
+                )
+                
+                // Execute checkout
+                val response = patientsApi.checkoutAppointment(
+                    appointmentId = appointmentId.toInt(),
+                    appointmentCheckout = checkoutRequest,
+                    ignoreOfflineStorage = true
+                )
+                
+                Assert.assertTrue("Checkout ${index + 1} should be successful", response.isSuccessful)
+                println("✅ Checkout ${index + 1} completed for ${patient.firstName}")
+                
+            } catch (e: Exception) {
+                println("❌ Checkout ${index + 1} failed for ${patient.firstName}: ${e.message}")
+                throw e
+            }
+        }
+        
+        // Verify session is still valid
+        val finalSessionId = userSessionService.getCurrentUserSessionId()
+        Assert.assertEquals("Session should remain the same", sessionId, finalSessionId)
+        println("✅ Session persisted through multiple checkouts: $finalSessionId")
+        
+        println("🎉 Multiple checkouts test completed successfully!")
+    }
+
+    /**
      * Mock dispatcher for CheckoutAPI tests
      * Provides mock responses for API calls during testing
      */
