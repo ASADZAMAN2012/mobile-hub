@@ -32,6 +32,7 @@ import com.vaxcare.vaxhub.model.enums.RiskFactor
 import com.vaxcare.vaxhub.ui.PermissionsActivity
 // import com.vaxcare.vaxhub.ui.idlingresource.HubIdlingResource
 import com.vaxcare.vaxhub.web.PatientsApi
+import com.vaxcare.vaxhub.service.UserSessionService
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.RecordedRequest
 // import dagger.hilt.EntryPoint
@@ -74,6 +75,9 @@ class CheckoutAPITests : TestsBase() {
 
     @Inject
     lateinit var patientsApi: PatientsApi
+    
+    @Inject
+    lateinit var userSessionService: UserSessionService
 
     private val testWorkManagerHelper = TestWorkManagerHelper()
     private lateinit var scenario: ActivityScenario<PermissionsActivity>
@@ -149,15 +153,14 @@ class CheckoutAPITests : TestsBase() {
      */
     private fun setupUserSessionDirectly(testPartner: TestPartners) {
         try {
-            // Create a new user session directly using UserSessionService
-            val userSessionService = storageUtil.entryPoint.userSessionService()
-            userSessionService.generateAndCacheNewUserSessionId()
-            
-            // Set partner and clinic information
+            // Set partner and clinic information first
             storageUtil.entryPoint.localStorage().partnerId = testPartner.partnerID
             storageUtil.entryPoint.localStorage().clinicId = testPartner.clinicID.toLong()
             storageUtil.entryPoint.localStorage().userName = testPartner.partnerName
             storageUtil.entryPoint.localStorage().clinicName = testPartner.clinicName
+            
+            // Create a new user session using injected UserSessionService
+            userSessionService.generateAndCacheNewUserSessionId()
             
             // Verify session is created
             val sessionId = userSessionService.getCurrentUserSessionId()
