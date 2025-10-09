@@ -10,8 +10,6 @@ import androidx.test.core.app.ActivityScenario
 // import androidx.test.espresso.IdlingResource
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
-import org.junit.BeforeClass
-import org.junit.AfterClass
 import com.vaxcare.vaxhub.BuildConfig
 import com.vaxcare.vaxhub.TestWorkManagerHelper
 import com.vaxcare.vaxhub.common.HomeScreenUtil
@@ -76,7 +74,7 @@ class CheckoutAPITests : TestsBase() {
 
     @Inject
     lateinit var patientsApi: PatientsApi
-    
+
     @Inject
     lateinit var userSessionService: UserSessionService
 
@@ -92,114 +90,34 @@ class CheckoutAPITests : TestsBase() {
     private val testProductPPSV23 = TestProducts.PPSV23
     private val testSite = TestSites.RightArm
 
-    companion object {
-        private var globalScenario: ActivityScenario<PermissionsActivity>? = null
-        private var isLoggedIn = false
-        private var isInitialized = false
-        
-        @JvmStatic
-        @BeforeClass
-        fun setUpOnce() {
-            // Launch activity once before all tests
-            globalScenario = ActivityScenario.launch(PermissionsActivity::class.java)
-            
-            // Wait for activity to be ready
-            Thread.sleep(2000)
-            
-            // Login once before all tests (this will be done in first @Before)
-            isLoggedIn = false
-            isInitialized = true
-        }
-        
-        @JvmStatic
-        @AfterClass
-        fun tearDownOnce() {
-            // Close activity after all tests
-            globalScenario?.close()
-        }
-    }
-
     @Before
     fun setUp() {
         hiltRule.inject()
         // Initialize WorkManager for API tests
         testWorkManagerHelper.initializeWorkManager(workerFactory)
-        // Use global scenario (launched in @BeforeClass)
-        scenario = globalScenario!!
-        
+        // Launch minimal activity for EntryPoint access (required for PatientUtil)
+        scenario = ActivityScenario.launch(PermissionsActivity::class.java)
+        storageUtil.clearLocalStorageAndDatabase()
+
         // Setup mock server for local build type
         if (BuildConfig.BUILD_TYPE == "local") {
             registerMockServerDispatcher(CheckoutAPITestsDispatcher())
         }
 
-        // Login only once (first test) - bypass UI login
-        if (!isLoggedIn) {
-            setupUserSessionDirectly(testPartner)
-            isLoggedIn = true
-        }
+        // Login before making API calls (required for authentication)
+        homeScreenUtil.loginAsTestPartner(testPartner)
+        homeScreenUtil.tapHomeScreenAndPinIn(testPartner)
     }
 
     @After
     fun tearDown() {
+        storageUtil.clearLocalStorageAndDatabase()
         if (BuildConfig.BUILD_TYPE == "local") {
             mockServer.shutdown()
         }
     }
-    
-    /**
-     * Setup user session directly without UI login
-     * This bypasses the UI login flow and directly sets up the authentication state
-     */
-    private fun setupUserSessionDirectly(testPartner: TestPartners) {
-        try {
-            // Create a new user session using injected UserSessionService
-            userSessionService.generateAndCacheNewUserSessionId()
-            
-            // Verify session is created
-            val sessionId = userSessionService.getCurrentUserSessionId()
-            Assert.assertNotNull("User session should be created", sessionId)
-            
-        } catch (e: Exception) {
-            // Fallback to UI login if direct setup fails
-            homeScreenUtil.loginAsTestPartner(testPartner)
-            homeScreenUtil.tapHomeScreenAndPinIn(testPartner)
-        }
-    }
 
-    /**
-     * Test user session creation
-     * 
-     * This test verifies that user session creation works properly
-     * and that the session ID is available for API calls
-     */
-    @Test
-    fun testUserSessionCreation() {
-        // Act - Create user session
-        userSessionService.generateAndCacheNewUserSessionId()
-        
-        // Assert - Verify session was created
-        val sessionId = userSessionService.getCurrentUserSessionId()
-        Assert.assertNotNull("User session should be created", sessionId)
-        Assert.assertTrue("Session ID should not be empty", sessionId.toString().isNotEmpty())
-        
-        println("✅ User session created successfully: $sessionId")
-    }
 
-    /**
-     * Test that user session is properly maintained across test setup
-     * 
-     * This test verifies that the session created in setupUserSessionDirectly()
-     * is still available and valid
-     */
-    @Test
-    fun testUserSessionPersistence() {
-        // Assert - Verify session is still available from setup
-        val sessionId = userSessionService.getCurrentUserSessionId()
-        Assert.assertNotNull("User session should be available from setup", sessionId)
-        Assert.assertTrue("Session ID should not be empty", sessionId.toString().isNotEmpty())
-        
-        println("✅ User session persisted successfully: $sessionId")
-    }
 
     /**
      * Test successful checkout with single vaccine
@@ -900,19 +818,100 @@ class CheckoutAPITests : TestsBase() {
         )
 
         // Act
+        val response = patientsApi.checkoutAppointment(
+            appointmentId = appointmentId.toInt(),
+            appointmentCheckout = checkoutRequest,
+            ignoreOfflineStorage = true
+        )
+
+        // Assert
+        // Note: This might be successful or fail depending on business rules
+        // The test verifies the system handles this scenario appropriately
+        Assert.assertNotNull("Response should not be null", response)
+    }
+
+    /**
+     * Test bypassing UI login completely
+     * 
+     * This test verifies that we can create appointments and perform checkout
+     * without any UI interaction by directly setting up the user session programmatically
+     */
+    @Test
+    fun testBypassUILogin() = runBlocking {
+        // Clear any existing session first
+        userSessionService.clearUserSessionId()
+        
+        // Act - Create session directly without UI
+        userSessionService.generateAndCacheNewUserSessionId()
+        
+        // Verify session was created
+        val sessionId = userSessionService.getCurrentUserSessionId()
+        Assert.assertNotNull("User session should be created without UI", sessionId)
+        Assert.assertTrue("Session ID should not be empty", sessionId.toString().isNotEmpty())
+        
+        println("✅ User session created without UI: $sessionId")
+        
+        // Test that we can create an appointment with this session
+        val testPatient = TestPatients.RiskFreePatientForCheckout()
+        val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(testPatient)
+        
+        // Verify appointment was created successfully
+        Assert.assertNotNull("Appointment ID should not be null", appointmentId)
+        Assert.assertTrue("Appointment ID should be numeric", appointmentId.matches(Regex("\\d+")))
+        
+        println("✅ Appointment created without UI login: $appointmentId")
+        
+        // Test checkout with the created appointment
+        val administeredVaccines = listOf(
+            CheckInVaccination(
+                id = 1,
+                productId = testProductVaricella.id,
+                ageIndicated = true,
+                lotNumber = testProductVaricella.lotNumber,
+                method = "Intramuscular",
+                site = testSite.displayName,
+                doseSeries = 1,
+                paymentMode = PaymentMode.InsurancePay,
+                paymentModeReason = null
+            )
+        )
+
+        val checkoutRequest = AppointmentCheckout(
+            tabletId = "550e8400-e29b-41d4-a716-446655440013",
+            administeredVaccines = administeredVaccines,
+            administered = LocalDateTime.now(),
+            administeredBy = 1,
+            presentedRiskAssessmentId = null,
+            forcedRiskType = 0,
+            postShotVisitPaymentModeDisplayed = PaymentMode.InsurancePay,
+            phoneNumberFlowPresented = false,
+            phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
+            phoneContactReasons = "",
+            flags = emptyList(),
+            pregnancyPrompt = false,
+            weeksPregnant = null,
+            creditCardInformation = null,
+            activeFeatureFlags = emptyList(),
+            attestHighRisk = false,
+            riskFactors = emptyList()
+        )
+
+        // Act - Perform checkout
         try {
             val response = patientsApi.checkoutAppointment(
                 appointmentId = appointmentId.toInt(),
                 appointmentCheckout = checkoutRequest,
                 ignoreOfflineStorage = true
             )
-            
+
             // Assert
-            // Note: This might be successful or fail depending on business rules
-            // The test verifies the system handles this scenario appropriately
-            Assert.assertNotNull("Response should not be null", response)
+            Assert.assertTrue("Checkout should be successful without UI login", response.isSuccessful)
+            Assert.assertEquals("Response code should be 200", 200, response.code())
+            
+            println("✅ Checkout completed successfully without UI login")
+            
         } catch (e: Exception) {
-            println("HTTP Exception details: ${e.message}")
+            println("❌ Checkout failed without UI login: ${e.message}")
             println("Exception type: ${e.javaClass.simpleName}")
             if (e is retrofit2.HttpException) {
                 println("HTTP Code: ${e.code()}")

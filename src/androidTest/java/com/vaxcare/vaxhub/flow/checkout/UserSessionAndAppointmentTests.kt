@@ -172,6 +172,53 @@ class UserSessionAndAppointmentTests : TestsBase() {
     }
 
     /**
+     * Test bypassing UI login completely
+     * 
+     * This test verifies that we can create appointments without any UI interaction
+     * by directly setting up the user session programmatically
+     */
+    @Test
+    fun testBypassUILogin() = runBlocking {
+        // Clear any existing session first
+        userSessionService.clearUserSessionId()
+        
+        // Act - Create session directly without UI
+        userSessionService.generateAndCacheNewUserSessionId()
+        
+        // Verify session was created
+        val sessionId = userSessionService.getCurrentUserSessionId()
+        Assert.assertNotNull("User session should be created without UI", sessionId)
+        Assert.assertTrue("Session ID should not be empty", sessionId.toString().isNotEmpty())
+        
+        println("✅ User session created without UI: $sessionId")
+        
+        // Test that we can create an appointment with this session
+        val testPatient = TestPatients.RiskFreePatientForCheckout()
+        val visitDate = LocalDateTime.now()
+        val patientPostBody = generatePatientPostBody(testPatient, visitDate)
+        
+        try {
+            val appointmentId = patientsApi.postAppointment(patientPostBody)
+            
+            // Assert
+            Assert.assertNotNull("Appointment should be created without UI login", appointmentId)
+            Assert.assertTrue("Appointment ID should not be empty", appointmentId.isNotEmpty())
+            
+            println("✅ Appointment created without UI login: $appointmentId")
+            
+        } catch (e: Exception) {
+            println("❌ Appointment creation failed without UI login: ${e.message}")
+            println("Exception type: ${e.javaClass.simpleName}")
+            if (e is retrofit2.HttpException) {
+                println("HTTP Code: ${e.code()}")
+                println("HTTP Message: ${e.message()}")
+                println("Response Body: ${e.response()?.errorBody()?.string()}")
+            }
+            throw e
+        }
+    }
+
+    /**
      * Test appointment creation via API
      * 
      * This test verifies that we can create an appointment using the API
