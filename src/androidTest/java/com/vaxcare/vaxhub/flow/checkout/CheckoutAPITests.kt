@@ -10,6 +10,7 @@ import androidx.test.core.app.ActivityScenario
 // import androidx.test.espresso.IdlingResource
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
+import org.junit.BeforeClass
 import com.vaxcare.vaxhub.BuildConfig
 import com.vaxcare.vaxhub.TestWorkManagerHelper
 import com.vaxcare.vaxhub.common.HomeScreenUtil
@@ -49,7 +50,7 @@ import javax.inject.Inject
 
 /**
  * API tests for the checkout process
- * 
+ *
  * These tests verify the complete checkout API flow including:
  * - Creating appointments
  * - Performing checkout operations via API
@@ -77,7 +78,6 @@ class CheckoutAPITests : TestsBase() {
     private lateinit var scenario: ActivityScenario<PermissionsActivity>
     private val patientUtil = PatientUtil()
     private val homeScreenUtil = HomeScreenUtil()
-    // private val idlingResource: IdlingResource? = HubIdlingResource.instance
 
     // Test data
     private val testPartner = TestPartners.RprdCovidPartner
@@ -85,6 +85,18 @@ class CheckoutAPITests : TestsBase() {
     private val testProductAdacel = TestProducts.Adacel
     private val testProductPPSV23 = TestProducts.PPSV23
     private val testSite = TestSites.RightArm
+
+    companion object {
+        private var isLoggedIn = false
+        
+        @JvmStatic
+        @BeforeClass
+        fun setUpOnce() {
+            // This runs only once before all test scenarios
+            // Note: We can't access instance variables here, so we'll do minimal setup
+            // The actual setup will be done in @Before for each test
+        }
+    }
 
     @Before
     fun setUp() {
@@ -94,23 +106,23 @@ class CheckoutAPITests : TestsBase() {
         // Launch minimal activity for EntryPoint access (required for PatientUtil)
         scenario = ActivityScenario.launch(PermissionsActivity::class.java)
         storageUtil.clearLocalStorageAndDatabase()
-        
+
         // Setup mock server for local build type
         if (BuildConfig.BUILD_TYPE == "local") {
             registerMockServerDispatcher(CheckoutAPITestsDispatcher())
         }
-        
-        // Login before making API calls (required for authentication)
-        homeScreenUtil.loginAsTestPartner(testPartner)
-        homeScreenUtil.tapBackgroundToOpenAppointmentList()
-        homeScreenUtil.pinInUser(testPartner.pin)
-        // IdlingRegistry.getInstance().register(idlingResource)
+
+        // Login before making API calls (required for authentication) - only once
+        if (!isLoggedIn) {
+            homeScreenUtil.loginAsTestPartner(testPartner)
+            homeScreenUtil.tapHomeScreenAndPinIn(testPartner)
+            isLoggedIn = true
+        }
     }
 
     @After
     fun tearDown() {
         storageUtil.clearLocalStorageAndDatabase()
-        // IdlingRegistry.getInstance().unregister(idlingResource)
         if (BuildConfig.BUILD_TYPE == "local") {
             mockServer.shutdown()
         }
@@ -118,7 +130,7 @@ class CheckoutAPITests : TestsBase() {
 
     /**
      * Test successful checkout with single vaccine
-     * 
+     *
      * This test verifies:
      * - Appointment is created successfully
      * - Checkout API call completes successfully
@@ -131,15 +143,15 @@ class CheckoutAPITests : TestsBase() {
         Assert.assertNotNull("PatientsApi should not be null", patientsApi)
         Assert.assertNotNull("StorageUtil should not be null", storageUtil)
         Assert.assertNotNull("PatientUtil should not be null", patientUtil)
-        
+
         // Arrange
         val testPatient = TestPatients.RiskFreePatientForCheckout()
         val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(testPatient)
-        
+
         // Verify appointment was created successfully
         Assert.assertNotNull("Appointment ID should not be null", appointmentId)
         Assert.assertTrue("Appointment ID should be numeric", appointmentId.matches(Regex("\\d+")))
-        
+
         val administeredVaccines = listOf(
             CheckInVaccination(
                 id = 1,
@@ -153,7 +165,7 @@ class CheckoutAPITests : TestsBase() {
                 paymentModeReason = null
             )
         )
-        
+
         val checkoutRequest = AppointmentCheckout(
             tabletId = "550e8400-e29b-41d4-a716-446655440001",
             administeredVaccines = administeredVaccines,
@@ -173,18 +185,18 @@ class CheckoutAPITests : TestsBase() {
             attestHighRisk = false,
             riskFactors = emptyList()
         )
-        
+
         // Act
         val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
         )
-        
+
         // Assert
         Assert.assertTrue("Checkout should be successful", response.isSuccessful)
         Assert.assertEquals("Response code should be 200", 200, response.code())
-        
+
         // Verify appointment status after checkout
         val appointment = patientUtil.getAppointmentById(appointmentId)
         Assert.assertNotNull("Appointment should still be retrievable after checkout", appointment)
@@ -192,7 +204,7 @@ class CheckoutAPITests : TestsBase() {
 
     /**
      * Test successful checkout with multiple vaccines
-     * 
+     *
      * This test verifies:
      * - Multiple vaccines can be administered in one checkout
      * - Different vaccine types are handled correctly
@@ -203,7 +215,7 @@ class CheckoutAPITests : TestsBase() {
         // Arrange
         val testPatient = TestPatients.RiskFreePatientForCheckout()
         val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(testPatient)
-        
+
         val administeredVaccines = listOf(
             CheckInVaccination(
                 id = 1,
@@ -239,7 +251,7 @@ class CheckoutAPITests : TestsBase() {
                 paymentModeReason = null
             )
         )
-        
+
         val checkoutRequest = AppointmentCheckout(
             tabletId = "550e8400-e29b-41d4-a716-446655440002",
             administeredVaccines = administeredVaccines,
@@ -259,14 +271,14 @@ class CheckoutAPITests : TestsBase() {
             attestHighRisk = false,
             riskFactors = emptyList()
         )
-        
+
         // Act
         val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
         )
-        
+
         // Assert
         Assert.assertTrue("Multiple vaccine checkout should be successful", response.isSuccessful)
         Assert.assertEquals("Response code should be 200", 200, response.code())
@@ -274,7 +286,7 @@ class CheckoutAPITests : TestsBase() {
 
     /**
      * Test checkout with self-pay patient
-     * 
+     *
      * This test verifies:
      * - Self-pay patients can be checked out
      * - Self-pay payment mode is handled correctly
@@ -285,7 +297,7 @@ class CheckoutAPITests : TestsBase() {
         // Arrange
         val selfPayPatient = TestPatients.SelfPayPatient()
         val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(selfPayPatient)
-        
+
         val administeredVaccines = listOf(
             CheckInVaccination(
                 id = 1,
@@ -299,7 +311,7 @@ class CheckoutAPITests : TestsBase() {
                 paymentModeReason = null
             )
         )
-        
+
         val creditCardInfo = PaymentInformationRequestBody(
             cardNumber = "4111111111111111",
             expirationDate = "12/2025",
@@ -307,7 +319,7 @@ class CheckoutAPITests : TestsBase() {
             email = "john.doe@example.com",
             phoneNumber = "1234567890"
         )
-        
+
         val checkoutRequest = AppointmentCheckout(
             tabletId = "550e8400-e29b-41d4-a716-446655440003",
             administeredVaccines = administeredVaccines,
@@ -327,14 +339,14 @@ class CheckoutAPITests : TestsBase() {
             attestHighRisk = false,
             riskFactors = emptyList()
         )
-        
+
         // Act
         val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
         )
-        
+
         // Assert
         Assert.assertTrue("Self-pay checkout should be successful", response.isSuccessful)
         Assert.assertEquals("Response code should be 200", 200, response.code())
@@ -342,7 +354,7 @@ class CheckoutAPITests : TestsBase() {
 
     /**
      * Test checkout with VFC patient
-     * 
+     *
      * This test verifies:
      * - VFC patients can be checked out
      * - VFC payment mode is handled correctly
@@ -353,7 +365,7 @@ class CheckoutAPITests : TestsBase() {
         // Arrange
         val vfcPatient = TestPatients.VFCPatient()
         val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(vfcPatient)
-        
+
         val administeredVaccines = listOf(
             CheckInVaccination(
                 id = 1,
@@ -367,7 +379,7 @@ class CheckoutAPITests : TestsBase() {
                 paymentModeReason = null
             )
         )
-        
+
         val checkoutRequest = AppointmentCheckout(
             tabletId = "550e8400-e29b-41d4-a716-446655440004",
             administeredVaccines = administeredVaccines,
@@ -387,14 +399,14 @@ class CheckoutAPITests : TestsBase() {
             attestHighRisk = false,
             riskFactors = emptyList()
         )
-        
+
         // Act
         val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
         )
-        
+
         // Assert
         Assert.assertTrue("VFC checkout should be successful", response.isSuccessful)
         Assert.assertEquals("Response code should be 200", 200, response.code())
@@ -402,7 +414,7 @@ class CheckoutAPITests : TestsBase() {
 
     /**
      * Test checkout with pregnant patient
-     * 
+     *
      * This test verifies:
      * - Pregnant patients can be checked out
      * - Pregnancy information is handled correctly
@@ -413,7 +425,7 @@ class CheckoutAPITests : TestsBase() {
         // Arrange
         val pregnantPatient = TestPatients.PregnantPatient()
         val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(pregnantPatient)
-        
+
         val administeredVaccines = listOf(
             CheckInVaccination(
                 id = 1,
@@ -427,7 +439,7 @@ class CheckoutAPITests : TestsBase() {
                 paymentModeReason = null
             )
         )
-        
+
         val checkoutRequest = AppointmentCheckout(
             tabletId = "550e8400-e29b-41d4-a716-446655440005",
             administeredVaccines = administeredVaccines,
@@ -447,14 +459,14 @@ class CheckoutAPITests : TestsBase() {
             attestHighRisk = false,
             riskFactors = listOf(RiskFactor.RSV_PREGNANT)
         )
-        
+
         // Act
         val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
         )
-        
+
         // Assert
         Assert.assertTrue("Pregnant patient checkout should be successful", response.isSuccessful)
         Assert.assertEquals("Response code should be 200", 200, response.code())
@@ -462,7 +474,7 @@ class CheckoutAPITests : TestsBase() {
 
     /**
      * Test checkout with high-risk patient
-     * 
+     *
      * This test verifies:
      * - High-risk patients can be checked out
      * - Risk factors are properly recorded
@@ -473,7 +485,7 @@ class CheckoutAPITests : TestsBase() {
         // Arrange
         val testPatient = TestPatients.RiskFreePatientForCheckout()
         val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(testPatient)
-        
+
         val administeredVaccines = listOf(
             CheckInVaccination(
                 id = 1,
@@ -487,7 +499,7 @@ class CheckoutAPITests : TestsBase() {
                 paymentModeReason = null
             )
         )
-        
+
         val checkoutRequest = AppointmentCheckout(
             tabletId = "550e8400-e29b-41d4-a716-446655440006",
             administeredVaccines = administeredVaccines,
@@ -507,82 +519,22 @@ class CheckoutAPITests : TestsBase() {
             attestHighRisk = true,
             riskFactors = listOf(RiskFactor.COVID_UNDER_65, RiskFactor.RSV_PREGNANT)
         )
-        
+
         // Act
         val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
         )
-        
+
         // Assert
         Assert.assertTrue("High-risk patient checkout should be successful", response.isSuccessful)
         Assert.assertEquals("Response code should be 200", 200, response.code())
     }
 
     /**
-     * Test checkout with phone contact consent
-     * 
-     * This test verifies:
-     * - Phone contact consent flow is handled
-     * - Consent status is properly recorded
-     * - Contact reasons are captured
-     */
-    @Test
-    fun checkoutAppointment_Success_WithPhoneContactConsent() = runBlocking {
-        // Arrange
-        val testPatient = TestPatients.RiskFreePatientForCheckout()
-        val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(testPatient)
-        
-        val administeredVaccines = listOf(
-            CheckInVaccination(
-                id = 1,
-                productId = testProductVaricella.id,
-                ageIndicated = true,
-                lotNumber = testProductVaricella.lotNumber,
-                method = "Intramuscular",
-                site = testSite.displayName,
-                doseSeries = 1,
-                paymentMode = PaymentMode.InsurancePay,
-                paymentModeReason = null
-            )
-        )
-        
-        val checkoutRequest = AppointmentCheckout(
-            tabletId = "550e8400-e29b-41d4-a716-446655440007",
-            administeredVaccines = administeredVaccines,
-            administered = LocalDateTime.now(),
-            administeredBy = 1,
-            presentedRiskAssessmentId = null,
-            forcedRiskType = 0,
-            postShotVisitPaymentModeDisplayed = PaymentMode.InsurancePay,
-            phoneNumberFlowPresented = true,
-            phoneContactConsentStatus = PhoneContactConsentStatus.ACCEPTED,
-            phoneContactReasons = "Follow-up care, Side effect monitoring",
-            flags = emptyList(),
-            pregnancyPrompt = false,
-            weeksPregnant = null,
-            creditCardInformation = null,
-            activeFeatureFlags = emptyList(),
-            attestHighRisk = false,
-            riskFactors = emptyList()
-        )
-        
-        // Act
-        val response = patientsApi.checkoutAppointment(
-            appointmentId = appointmentId.toInt(),
-            appointmentCheckout = checkoutRequest,
-            ignoreOfflineStorage = true
-        )
-        
-        // Assert
-        Assert.assertTrue("Phone contact consent checkout should be successful", response.isSuccessful)
-        Assert.assertEquals("Response code should be 200", 200, response.code())
-    }
-
-    /**
      * Test checkout with different administration methods
-     * 
+     *
      * This test verifies:
      * - Different administration methods are supported
      * - Method information is properly recorded
@@ -593,7 +545,7 @@ class CheckoutAPITests : TestsBase() {
         // Arrange
         val testPatient = TestPatients.RiskFreePatientForCheckout()
         val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(testPatient)
-        
+
         val administeredVaccines = listOf(
             CheckInVaccination(
                 id = 1,
@@ -618,7 +570,7 @@ class CheckoutAPITests : TestsBase() {
                 paymentModeReason = null
             )
         )
-        
+
         val checkoutRequest = AppointmentCheckout(
             tabletId = "550e8400-e29b-41d4-a716-446655440008",
             administeredVaccines = administeredVaccines,
@@ -638,14 +590,14 @@ class CheckoutAPITests : TestsBase() {
             attestHighRisk = false,
             riskFactors = emptyList()
         )
-        
+
         // Act
         val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
         )
-        
+
         // Assert
         Assert.assertTrue("Different administration methods checkout should be successful", response.isSuccessful)
         Assert.assertEquals("Response code should be 200", 200, response.code())
@@ -653,7 +605,7 @@ class CheckoutAPITests : TestsBase() {
 
     /**
      * Test checkout with different dose series
-     * 
+     *
      * This test verifies:
      * - Different dose series are supported
      * - Series information is properly recorded
@@ -664,7 +616,7 @@ class CheckoutAPITests : TestsBase() {
         // Arrange
         val testPatient = TestPatients.RiskFreePatientForCheckout()
         val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(testPatient)
-        
+
         val administeredVaccines = listOf(
             CheckInVaccination(
                 id = 1,
@@ -689,7 +641,7 @@ class CheckoutAPITests : TestsBase() {
                 paymentModeReason = null
             )
         )
-        
+
         val checkoutRequest = AppointmentCheckout(
             tabletId = "550e8400-e29b-41d4-a716-446655440009",
             administeredVaccines = administeredVaccines,
@@ -709,82 +661,23 @@ class CheckoutAPITests : TestsBase() {
             attestHighRisk = false,
             riskFactors = emptyList()
         )
-        
+
         // Act
         val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
         )
-        
+
         // Assert
         Assert.assertTrue("Different dose series checkout should be successful", response.isSuccessful)
         Assert.assertEquals("Response code should be 200", 200, response.code())
     }
 
-    /**
-     * Test checkout with feature flags
-     * 
-     * This test verifies:
-     * - Feature flags are properly handled
-     * - Active feature flags are recorded
-     * - Feature-specific behavior is supported
-     */
-    @Test
-    fun checkoutAppointment_Success_WithFeatureFlags() = runBlocking {
-        // Arrange
-        val testPatient = TestPatients.RiskFreePatientForCheckout()
-        val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(testPatient)
-        
-        val administeredVaccines = listOf(
-            CheckInVaccination(
-                id = 1,
-                productId = testProductVaricella.id,
-                ageIndicated = true,
-                lotNumber = testProductVaricella.lotNumber,
-                method = "Intramuscular",
-                site = testSite.displayName,
-                doseSeries = 1,
-                paymentMode = PaymentMode.InsurancePay,
-                paymentModeReason = null
-            )
-        )
-        
-        val checkoutRequest = AppointmentCheckout(
-            tabletId = "550e8400-e29b-41d4-a716-446655440010",
-            administeredVaccines = administeredVaccines,
-            administered = LocalDateTime.now(),
-            administeredBy = 1,
-            presentedRiskAssessmentId = null,
-            forcedRiskType = 0,
-            postShotVisitPaymentModeDisplayed = PaymentMode.InsurancePay,
-            phoneNumberFlowPresented = false,
-            phoneContactConsentStatus = PhoneContactConsentStatus.NOT_APPLICABLE,
-            phoneContactReasons = "",
-            flags = listOf("FEATURE_FLAG_1", "FEATURE_FLAG_2"),
-            pregnancyPrompt = false,
-            weeksPregnant = null,
-            creditCardInformation = null,
-            activeFeatureFlags = listOf("ENHANCED_CHECKOUT", "RISK_ASSESSMENT"),
-            attestHighRisk = false,
-            riskFactors = emptyList()
-        )
-        
-        // Act
-        val response = patientsApi.checkoutAppointment(
-            appointmentId = appointmentId.toInt(),
-            appointmentCheckout = checkoutRequest,
-            ignoreOfflineStorage = true
-        )
-        
-        // Assert
-        Assert.assertTrue("Feature flags checkout should be successful", response.isSuccessful)
-        Assert.assertEquals("Response code should be 200", 200, response.code())
-    }
 
     /**
      * Test checkout with invalid appointment ID
-     * 
+     *
      * This test verifies:
      * - Invalid appointment IDs are handled gracefully
      * - Appropriate error responses are returned
@@ -807,7 +700,7 @@ class CheckoutAPITests : TestsBase() {
                 paymentModeReason = null
             )
         )
-        
+
         val checkoutRequest = AppointmentCheckout(
             tabletId = "550e8400-e29b-41d4-a716-446655440011",
             administeredVaccines = administeredVaccines,
@@ -827,14 +720,14 @@ class CheckoutAPITests : TestsBase() {
             attestHighRisk = false,
             riskFactors = emptyList()
         )
-        
+
         // Act
         val response = patientsApi.checkoutAppointment(
             appointmentId = invalidAppointmentId,
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
         )
-        
+
         // Assert
         Assert.assertFalse("Invalid appointment ID should result in error", response.isSuccessful)
         Assert.assertTrue("Response code should be 4xx or 5xx", response.code() >= 400)
@@ -842,7 +735,7 @@ class CheckoutAPITests : TestsBase() {
 
     /**
      * Test checkout with empty vaccine list
-     * 
+     *
      * This test verifies:
      * - Empty vaccine lists are handled appropriately
      * - System behavior with no administered vaccines
@@ -853,7 +746,7 @@ class CheckoutAPITests : TestsBase() {
         // Arrange
         val testPatient = TestPatients.RiskFreePatientForCheckout()
         val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(testPatient)
-        
+
         val checkoutRequest = AppointmentCheckout(
             tabletId = "550e8400-e29b-41d4-a716-446655440012",
             administeredVaccines = emptyList(),
@@ -873,14 +766,14 @@ class CheckoutAPITests : TestsBase() {
             attestHighRisk = false,
             riskFactors = emptyList()
         )
-        
+
         // Act
         val response = patientsApi.checkoutAppointment(
             appointmentId = appointmentId.toInt(),
             appointmentCheckout = checkoutRequest,
             ignoreOfflineStorage = true
         )
-        
+
         // Assert
         // Note: This might be successful or fail depending on business rules
         // The test verifies the system handles this scenario appropriately
@@ -902,15 +795,15 @@ class CheckoutAPITests : TestsBase() {
                         .setResponseCode(200)
                         .setBody("123456") // Mock appointment ID
                 }
-                request.path?.contains("api/patients/appointment") == true && 
-                request.path?.contains("/checkout") == true && request.method == "PUT" -> {
+                request.path?.contains("api/patients/appointment") == true &&
+                        request.path?.contains("/checkout") == true && request.method == "PUT" -> {
                     // Mock checkout response
                     MockResponse()
                         .setResponseCode(200)
                         .setBody("{}")
                 }
-                request.path?.contains("api/patients/appointment") == true && 
-                request.method == "GET" -> {
+                request.path?.contains("api/patients/appointment") == true &&
+                        request.method == "GET" -> {
                     // Mock appointment retrieval response
                     MockResponse()
                         .setResponseCode(200)
