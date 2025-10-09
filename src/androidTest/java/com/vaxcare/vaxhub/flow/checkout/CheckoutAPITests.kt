@@ -95,9 +95,9 @@ class CheckoutAPITests : TestsBase() {
         @JvmStatic
         @BeforeClass
         fun setUpOnce() {
-            // This runs only once before all test scenarios
-            // Note: We can't access instance variables here, so we'll do minimal setup
-            // The actual setup will be done in @Before for each test
+            // Launch activity once before all tests
+            globalScenario = ActivityScenario.launch(PermissionsActivity::class.java)
+            isActivityLaunched = true
         }
         
         @JvmStatic
@@ -120,13 +120,8 @@ class CheckoutAPITests : TestsBase() {
         
         // Initialize WorkManager for API tests
         testWorkManagerHelper.initializeWorkManager(workerFactory)
-        // Launch minimal activity for EntryPoint access (required for PatientUtil) - only once
-        if (!isActivityLaunched) {
-            globalScenario = ActivityScenario.launch(PermissionsActivity::class.java)
-            isActivityLaunched = true
-        }
         
-        // Use global scenario
+        // Use global scenario (launched in @BeforeClass)
         scenario = globalScenario
         
         // Wait for activity to be in RESUMED state for EntryPointHelper
@@ -165,6 +160,49 @@ class CheckoutAPITests : TestsBase() {
             mockServer.shutdown()
         }
     }
+    
+    /**
+     * Create appointment directly using API without PatientUtil
+     */
+    private suspend fun createAppointmentDirectly(testPatient: TestPatients): String {
+        val visitDate = LocalDateTime.now()
+        val patientPostBody = generatePatientPostBody(testPatient, visitDate)
+        return patientsApi.postAppointment(patientPostBody)
+    }
+    
+    /**
+     * Generate patient post body for API calls
+     */
+    private fun generatePatientPostBody(patient: TestPatients, visitDate: LocalDateTime): PatientPostBody {
+        return PatientPostBody(
+            newPatient = PatientPostBody.NewPatient(
+                firstName = patient.firstName,
+                lastName = patient.lastName,
+                dob = patient.dateOfBirth,
+                gender = patient.gender,
+                phoneNumber = "1234567890",
+                address1 = null,
+                address2 = null,
+                city = null,
+                state = "FL",
+                zip = null,
+                paymentInformation = PatientPostBody.PaymentInformation(
+                    primaryInsuranceId = patient.primaryInsuranceId,
+                    primaryMemberId = patient.primaryMemberId,
+                    primaryGroupId = patient.primaryGroupId,
+                    uninsured = false
+                ),
+                race = null,
+                ethnicity = null,
+                ssn = patient.ssn
+            ),
+            clinicId = storageUtil.currentClinicId,
+            date = visitDate,
+            providerId = 0,
+            initialPaymentMode = patient.paymentMode,
+            visitType = "Well"
+        )
+    }
 
     /**
      * Test successful checkout with single vaccine
@@ -184,7 +222,7 @@ class CheckoutAPITests : TestsBase() {
 
         // Arrange
         val testPatient = TestPatients.RiskFreePatientForCheckout()
-        val appointmentId = patientUtil.getAppointmentIdByCreateTestPatient(testPatient)
+        val appointmentId = createAppointmentDirectly(testPatient)
 
         // Verify appointment was created successfully
         Assert.assertNotNull("Appointment ID should not be null", appointmentId)
