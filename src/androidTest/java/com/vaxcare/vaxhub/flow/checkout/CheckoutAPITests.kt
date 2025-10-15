@@ -136,11 +136,22 @@ class CheckoutAPITests : TestsBase() {
         }
         
         val sessionId = userSessionService.getCurrentUserSessionId()
+        val vaxHubIdentifier = localStorage.getHeaderIdentifier()
+        
         println("✅ Setup complete:")
         println("   - Partner ID: ${testPartner.partnerID}")
         println("   - Clinic ID: ${testPartner.clinicID}")
         println("   - Session ID: $sessionId")
-        println("   - X-VaxHub-Identifier: Auto-generated (never expires)")
+        println("   - X-VaxHub-Identifier: $vaxHubIdentifier")
+        println("   - X-VaxHub-Identifier (first 50 chars): ${vaxHubIdentifier.take(50)}...")
+        
+        // Optionally decode and log the contents
+        try {
+            val decoded = String(android.util.Base64.decode(vaxHubIdentifier, android.util.Base64.DEFAULT))
+            println("   - X-VaxHub-Identifier (decoded): $decoded")
+        } catch (e: Exception) {
+            println("   - Could not decode X-VaxHub-Identifier: ${e.message}")
+        }
     }
 
     @After
@@ -1451,14 +1462,7 @@ class CheckoutAPITests : TestsBase() {
                 clinicId = clinicId,
                 date = visitDate,
                 providerId = 0,
-                initialPaymentMode = patient.paymentMode?.let { 
-                    when (it) {
-                        "2" -> PaymentMode.SelfPay
-                        "4" -> PaymentMode.NoPay
-                        "1" -> PaymentMode.InsurancePay
-                        else -> PaymentMode.InsurancePay
-                    }
-                } ?: PaymentMode.InsurancePay,
+                initialPaymentMode = patient.paymentMode ?: "1", // Default to InsurancePay ("1")
                 visitType = "Well"
             )
             
@@ -1486,7 +1490,7 @@ class CheckoutAPITests : TestsBase() {
     private fun getCurrentClinicId(): Long {
         try {
             println("🔍 Getting current clinic ID...")
-            val clinicId = storageUtil.entryPoint.localStorage().currentClinicId
+            val clinicId = localStorage.currentClinicId
             println("✅ Current clinic ID: $clinicId")
             return clinicId
         } catch (e: Exception) {
@@ -1525,10 +1529,10 @@ class CheckoutAPITests : TestsBase() {
                 // Verify the generated body
                 Assert.assertNotNull("PatientPostBody should not be null", patientPostBody)
                 Assert.assertNotNull("NewPatient should not be null", patientPostBody.newPatient)
-                Assert.assertEquals("First name should match", patient.firstName, patientPostBody.newPatient.firstName)
-                Assert.assertEquals("Last name should match", patient.lastName, patientPostBody.newPatient.lastName)
-                Assert.assertEquals("DOB should match", patient.dateOfBirth, patientPostBody.newPatient.dob)
-                Assert.assertEquals("Gender should match", patient.gender, patientPostBody.newPatient.gender)
+                Assert.assertEquals("First name should match", patient.firstName, patientPostBody.newPatient?.firstName)
+                Assert.assertEquals("Last name should match", patient.lastName, patientPostBody.newPatient?.lastName)
+                Assert.assertEquals("DOB should match", patient.dateOfBirth, patientPostBody.newPatient?.dob)
+                Assert.assertEquals("Gender should match", patient.gender, patientPostBody.newPatient?.gender)
                 
                 println("✅ PatientPostBody ${index + 1} generated and validated successfully")
                 
